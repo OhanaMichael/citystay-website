@@ -28,6 +28,9 @@
   <link rel="preconnect" href="https://wubook.net">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"ContactPage","name":"צור קשר — סיטי סטיי טבריה","url":"https://www.citystay.co.il/contact/","description":"צרו קשר עם סיטי סטיי טבריה — טלפון, WhatsApp, מייל וטופס מקוון"}
+</script>
 </head>
 <body>
 <a href="#main" class="skip-link">דלג לתוכן הראשי</a>
@@ -83,10 +86,10 @@
           <div style="position:absolute;left:-9999px" aria-hidden="true"><input type="text" name="website" tabindex="-1" autocomplete="off"></div>
 
           <div class="form-row">
-            <div class="form-group"><label for="contact_name">שם מלא *</label><input type="text" id="contact_name" name="name" class="form-control light" placeholder="ישראל ישראלי" required autocomplete="name" aria-required="true"></div>
+            <div class="form-group"><label for="contact_name">שם מלא *</label><input type="text" id="contact_name" name="name" class="form-control light" placeholder="ישראל ישראלי" required autocomplete="name" aria-required="true" aria-required="true"></div>
             <div class="form-group"><label for="contact_phone">טלפון</label><input type="tel" id="contact_phone" name="phone" class="form-control light" placeholder="050-0000000" autocomplete="tel"></div>
           </div>
-          <div class="form-group"><label for="contact_email">אימייל *</label><input type="email" id="contact_email" name="email" class="form-control light" placeholder="name@example.com" required autocomplete="email" aria-required="true"></div>
+          <div class="form-group"><label for="contact_email">אימייל *</label><input type="email" id="contact_email" name="email" class="form-control light" placeholder="name@example.com" required autocomplete="email" aria-required="true" aria-required="true"></div>
           <div class="form-group">
             <label for="contact_subject">נושא הפנייה</label>
             <select id="contact_subject" name="subject" class="form-control light">
@@ -100,7 +103,7 @@
               <option value="אחר">אחר</option>
             </select>
           </div>
-          <div class="form-group"><label for="contact_message">הודעה *</label><textarea id="contact_message" name="message" class="form-control light" rows="5" placeholder="כתוב את הודעתך כאן..." required aria-required="true" style="resize:vertical"></textarea></div>
+          <div class="form-group"><label for="contact_message">הודעה *</label><textarea id="contact_message" name="message" class="form-control light" rows="5" placeholder="כתוב את הודעתך כאן..." required aria-required="true" style="resize:vertical" aria-required="true"></textarea></div>
           <button type="submit" class="btn btn-primary btn-lg" style="width:100%" data-cta="contact_send">שלח הודעה →</button>
           <div class="alert" id="contact-alert" role="alert" aria-live="polite"></div>
         </form>

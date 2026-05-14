@@ -1,193 +1,381 @@
 <!DOCTYPE html>
 <html lang="he" dir="rtl">
 <head>
-  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>הזמנה מקוונת | סיטי סטיי טבריה</title>
   <meta name="description" content="הזמן חדר בסיטי סטיי טבריה — הזמנה מקוונת מאובטחת. בדוק זמינות ומחירים, מחירים כוללים מע&quot;מ 18%.">
   <link rel="canonical" href="https://www.citystay.co.il/booking/">
-  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@300;400;500;700&family=Heebo:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/assets/css/style.css">
-  <style>
-    .booking-page{padding-top:var(--nav-height);min-height:100vh;background:var(--accent)}
-    .booking-header{background:var(--primary);color:var(--white);padding:2rem 0;text-align:center}
-    .booking-header h1{color:var(--white);font-size:1.8rem;margin-bottom:.3rem}
-    .booking-header p{color:rgba(255,255,255,.8);font-size:.9rem}
-    .booking-content{max-width:900px;margin:0 auto;padding:2.5rem 1.5rem}
-    .wubook-frame-wrap{background:var(--white);border-radius:var(--radius-lg);box-shadow:var(--shadow-lg);padding:2rem;min-height:500px}
-    .vat-notice{background:#e8f5ee;border:1px solid #b7dfc8;border-radius:var(--radius);padding:1rem 1.25rem;margin-bottom:1.5rem;font-size:.88rem;color:#1a6635;display:flex;align-items:center;gap:.75rem}
-    .trust-row{display:flex;justify-content:center;gap:2rem;flex-wrap:wrap;margin-top:2rem;padding:1.5rem;background:var(--white);border-radius:var(--radius-lg)}
-    .trust-item{display:flex;align-items:center;gap:.5rem;font-size:.82rem;color:var(--text-light)}
-    .trust-icon{font-size:1.1rem}
-    .contact-alt{background:var(--white);border-radius:var(--radius-lg);padding:1.5rem;margin-top:1.5rem;text-align:center;box-shadow:var(--shadow-sm)}
-    .contact-alt h3{font-size:1rem;margin-bottom:.5rem}
-    .contact-alt p{font-size:.85rem;color:var(--text-light);margin-bottom:1rem}
-  </style>
-  <!-- Favicons -->
-  <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon-32.png">
-  <link rel="icon" type="image/png" sizes="64x64" href="/assets/images/favicon-64.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/favicon-180.png">
-  <meta name="theme-color" content="#1B4D6E">
-  <script src="https://wubook.net/js/wblib.jgz"></script>
+  <meta property="og:title" content="הזמנה מקוונת | סיטי סטיי טבריה">
+  <meta property="og:description" content="הזמן חדר בסיטי סטיי טבריה — הזמנה מאובטחת, מחיר כולל מע״מ, ביטול חינם.">
+  <meta property="og:url" content="https://www.citystay.co.il/booking/">
   <link rel="preconnect" href="https://wubook.net">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ReservationPackage",
+    "name": "הזמנה מקוונת — סיטי סטיי טבריה",
+    "provider": {
+      "@type": "LodgingBusiness",
+      "name": "City Stay Tiberias",
+      "url": "https://www.citystay.co.il",
+      "telephone": "+972-4-6206464"
+    }
+  }
+  </script>
+
+  <style>
+    :root {
+      --dark: #0d1117;
+      --dark-2: #161b22;
+      --gold: #c9a84c;
+      --gold-light: #e8c97a;
+      --cream: #f5f0e8;
+      --text-light: #e8e4dc;
+      --text-muted: rgba(232,228,220,0.65);
+      --radius: 8px;
+      --radius-lg: 16px;
+      --font: 'Heebo', sans-serif;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+    }
+    body { font-family: var(--font); font-size: 16px; line-height: 1.7; color: var(--text-light); background: var(--dark); }
+
+    /* skip link */
+    .skip-link { position: absolute; top: -100%; right: 1rem; background: var(--gold); color: var(--dark); padding: .5rem 1rem; border-radius: 0 0 var(--radius) var(--radius); font-weight: 500; z-index: 9999; transition: top .2s; }
+    .skip-link:focus { top: 0; }
+
+    /* header */
+    header { position: fixed; top: 0; right: 0; left: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: .75rem 2rem; background: rgba(13,17,23,.95); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(201,168,76,.15); }
+    .logo img { height: 44px; width: auto; }
+    nav ul { list-style: none; display: flex; gap: 1.5rem; align-items: center; }
+    nav a { font-size: 14px; color: var(--text-muted); text-decoration: none; transition: color .2s; }
+    nav a:hover, nav a:focus-visible { color: var(--gold-light); outline: none; }
+    .nav-cta { background: var(--gold); color: var(--dark) !important; padding: .45rem 1.1rem; border-radius: var(--radius); font-weight: 500; }
+    .nav-cta:hover { background: var(--gold-light); }
+    .hamburger { display: none; background: none; border: none; cursor: pointer; flex-direction: column; gap: 5px; padding: 4px; }
+    .hamburger span { display: block; width: 24px; height: 2px; background: var(--text-light); border-radius: 2px; transition: transform .25s, opacity .25s; }
+    .hamburger[aria-expanded="true"] span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+    .hamburger[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    @media (max-width: 768px) {
+      header { padding: .75rem 1rem; }
+      .hamburger { display: flex; }
+      nav { display: none; position: absolute; top: 100%; right: 0; left: 0; background: var(--dark-2); border-bottom: 1px solid rgba(201,168,76,.15); padding: 1rem 0; }
+      nav.open { display: block; }
+      nav ul { flex-direction: column; gap: 0; }
+      nav a { display: block; padding: .75rem 1.5rem; font-size: 16px; }
+      .nav-cta { margin: .5rem 1.5rem; display: block; text-align: center; }
+    }
+
+    /* main */
+    main { padding-top: 80px; min-height: 100vh; }
+
+    /* hero strip */
+    .booking-hero {
+      background: var(--dark-2);
+      border-bottom: 1px solid rgba(201,168,76,.2);
+      padding: 2.5rem 2rem 2rem;
+      text-align: center;
+    }
+    .booking-hero h1 { font-size: clamp(1.6rem, 4vw, 2.4rem); font-weight: 700; margin-bottom: .5rem; }
+    .booking-hero p { font-size: 1rem; color: var(--text-muted); }
+
+    /* trust badges */
+    .trust-strip {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1rem 2rem;
+      padding: 1rem 2rem;
+      background: rgba(201,168,76,.07);
+      border-bottom: 1px solid rgba(201,168,76,.12);
+      font-size: 13px;
+    }
+    .trust-item { display: flex; align-items: center; gap: .4rem; color: var(--text-muted); }
+    .trust-item .icon { color: var(--gold); font-size: 15px; }
+
+    /* FALLBACK CTAs — shown above iframe */
+    .alt-cta {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      padding: 1.5rem 2rem;
+      background: var(--dark);
+      border-bottom: 1px solid rgba(255,255,255,.06);
+    }
+    .alt-cta p { width: 100%; text-align: center; color: var(--text-muted); font-size: 14px; margin-bottom: .25rem; }
+    .btn-alt {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      padding: .75rem 1.5rem;
+      border-radius: var(--radius);
+      font-size: 15px;
+      font-weight: 500;
+      text-decoration: none;
+      transition: transform .15s, opacity .2s;
+    }
+    .btn-alt:hover { transform: translateY(-2px); opacity: .9; }
+    .btn-phone { background: var(--gold); color: var(--dark); }
+    .btn-wa    { background: #25D366; color: #fff; }
+
+    /* IFRAME SECTION */
+    .booking-iframe-section {
+      padding: 2rem;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    .iframe-label {
+      text-align: center;
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-bottom: 1rem;
+    }
+    .iframe-wrapper {
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      border: 1px solid rgba(201,168,76,.2);
+      background: #fff;
+      min-height: 600px;
+    }
+    .iframe-wrapper iframe {
+      display: block;
+      width: 100%;
+      height: 750px;
+      border: none;
+    }
+    @media (max-width: 600px) {
+      .booking-iframe-section { padding: 1rem; }
+      .iframe-wrapper iframe { height: 900px; }
+    }
+
+    /* noscript fallback */
+    .noscript-fallback {
+      display: none;
+      text-align: center;
+      padding: 2rem;
+      color: var(--text-muted);
+      font-size: 15px;
+    }
+    .noscript-fallback a { color: var(--gold); }
+    noscript .noscript-fallback { display: block; }
+
+    /* info section */
+    .info-grid {
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 0 2rem 3rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1rem;
+    }
+    .info-card {
+      background: var(--dark-2);
+      border: 1px solid rgba(255,255,255,.07);
+      border-radius: var(--radius-lg);
+      padding: 1.25rem;
+    }
+    .info-card h3 { font-size: 14px; color: var(--gold); margin-bottom: .5rem; }
+    .info-card p { font-size: 13px; color: var(--text-muted); line-height: 1.6; }
+
+    /* footer */
+    footer { background: #08090d; color: var(--text-muted); padding: 2.5rem 2rem 1.5rem; font-size: 14px; border-top: 1px solid rgba(255,255,255,.05); }
+    .footer-inner { max-width: 1100px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 1.5rem; padding-bottom: 1.5rem; border-bottom: 1px solid rgba(255,255,255,.07); }
+    .footer-brand img { height: 38px; }
+    .footer-brand p { font-size: 13px; color: var(--text-muted); margin-top: .5rem; max-width: 280px; }
+    .footer-col h3 { font-size: 12px; font-weight: 600; color: var(--gold); margin-bottom: .6rem; letter-spacing: .05em; }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: .35rem; }
+    .footer-col a { color: var(--text-muted); text-decoration: none; font-size: 13px; transition: color .2s; }
+    .footer-col a:hover { color: var(--gold-light); }
+    .footer-bottom { max-width: 1100px; margin: 1.25rem auto 0; display: flex; justify-content: space-between; flex-wrap: wrap; gap: .5rem; font-size: 12px; }
+    .footer-links { display: flex; gap: 1rem; }
+    .footer-links a { color: var(--text-muted); text-decoration: none; }
+    .footer-links a:hover { color: var(--gold-light); }
+
+    /* whatsapp float */
+    .wa-float { position: fixed; bottom: 1.5rem; right: 1.5rem; z-index: 99; width: 52px; height: 52px; background: #25D366; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 16px rgba(37,211,102,.4); text-decoration: none; transition: transform .2s; }
+    .wa-float:hover { transform: scale(1.08); }
+    .wa-float:focus-visible { outline: 3px solid #25D366; outline-offset: 3px; }
+    .wa-float svg { width: 26px; height: 26px; fill: white; }
+  </style>
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon-32.png">
+  <link rel="apple-touch-icon" href="/assets/images/favicon-180.png">
 </head>
 <body>
-<a href="#main" class="skip-link">דלג לתוכן הראשי</a>
-<nav class="navbar transparent" id="navbar" id="navbar" aria-label="תפריט ראשי"><div class="nav-inner">
-  <a href="/" class="nav-logo" style="color:var(--dark)">City Stay<span style="color:var(--text-light)">טבריה · Tiberias</span></a>
-  <div class="nav-links"><a href="/" class="nav-link" style="color:var(--dark)">בית</a><a href="/rooms/" class="nav-link" style="color:var(--dark)">חדרים</a><a href="/packages/" class="nav-link" style="color:var(--dark)">חבילות</a><a href="/deals/" class="nav-link" style="color:var(--dark)">מבצעים</a><a href="/gallery/" class="nav-link" style="color:var(--dark)">גלריה</a><a href="/about/" class="nav-link" style="color:var(--dark)">אודות</a><a href="/contact/" class="nav-link" style="color:var(--dark)">צור קשר</a></div>
-  <div class="nav-actions"><div class="lang-switcher" style="background:var(--accent)"><button class="lang-btn active" data-lang="he" style="color:var(--text-light)">עב</button><button class="lang-btn" data-lang="en" style="color:var(--text-light)">EN</button></div><button class="hamburger" aria-label="פתח תפריט" aria-expanded="false" style="display:none"><span style="background:var(--dark)"></span><span style="background:var(--dark)"></span><span style="background:var(--dark)"></span></button></div>
-</div></nav>
-<div class="mobile-menu" id="mobile-menu"><button class="mobile-close btn btn-outline-white">✕ סגור</button><a href="/" class="nav-link">🏠 בית</a><a href="/rooms/" class="nav-link">🛏️ חדרים</a><a href="/packages/" class="nav-link">🎁 חבילות</a><a href="/deals/" class="nav-link">🔥 מבצעים</a><a href="/gallery/" class="nav-link">📸 גלריה</a><a href="/about/" class="nav-link">📍 אודות</a><a href="/contact/" class="nav-link">📞 צור קשר</a></div>
 
-<div class="booking-page">
-  <div class="booking-header">
-    <div class="container">
-      <h1>🗓️ הזמנה מקוונת מאובטחת</h1>
-      <p>בדוק זמינות, בחר חדר, ואשר הזמנה — הכל בדקות ספורות</p>
-    </div>
+<a href="#main" class="skip-link">דלג לתוכן הראשי</a>
+
+<header role="banner">
+  <a href="/" class="logo" aria-label="דף הבית — סיטי סטיי טבריה">
+    <img src="/assets/images/logo-full.png" alt="City Stay Tiberias" width="120" height="44">
+  </a>
+  <button class="hamburger" aria-expanded="false" aria-controls="main-nav" aria-label="פתח תפריט ניווט">
+    <span></span><span></span><span></span>
+  </button>
+  <nav id="main-nav" role="navigation" aria-label="ניווט ראשי">
+    <ul>
+      <li><a href="/">בית</a></li>
+      <li><a href="/rooms/">חדרים</a></li>
+      <li><a href="/packages/">חבילות</a></li>
+      <li><a href="/deals/">מבצעים</a></li>
+      <li><a href="/gallery/">גלריה</a></li>
+      <li><a href="/about/">אודות</a></li>
+      <li><a href="/contact/">צור קשר</a></li>
+      <li><a href="/booking/" class="nav-cta" aria-current="page">הזמן עכשיו</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main id="main">
+
+  <section class="booking-hero" aria-labelledby="booking-heading">
+    <h1 id="booking-heading">🗓️ הזמנה מקוונת מאובטחת</h1>
+    <p>בדוק זמינות, בחר חדר, ואשר הזמנה — הכל בדקות ספורות</p>
+  </section>
+
+  <div class="trust-strip" aria-label="יתרונות ההזמנה">
+    <div class="trust-item"><span class="icon">🔒</span> הצפנת SSL מאובטחת</div>
+    <div class="trust-item"><span class="icon">✅</span> מחיר כולל מע״מ תמיד</div>
+    <div class="trust-item"><span class="icon">❌</span> ביטול חינם עד 14 יום</div>
+    <div class="trust-item"><span class="icon">📧</span> אישור מיידי במייל</div>
+    <div class="trust-item"><span class="icon">💳</span> כרטיס אשראי מאובטח</div>
   </div>
 
-  <main id="main">
-    <div class="booking-content">
+  <!-- Fallback CTAs — תמיד גלויים כגיבוי -->
+  <div class="alt-cta" role="complementary" aria-label="ערוצי הזמנה חלופיים">
+    <p>מעדיף לדבר עם אדם? נשמח לעזור ישירות:</p>
+    <a href="tel:+97246206464" class="btn-alt btn-phone" aria-label="התקשר לסיטי סטיי טבריה">
+      📞 04-6206464
+    </a>
+    <a href="https://wa.me/97246206464?text=שלום,%20אני%20רוצה%20לבצע%20הזמנה" class="btn-alt btn-wa" target="_blank" rel="noopener" aria-label="שלח הודעת WhatsApp לסיטי סטיי — נפתח בחלון חדש">
+      💬 הזמן ב-WhatsApp
+    </a>
+  </div>
 
-      <!-- VAT Notice -->
-      <div class="vat-notice" role="note" aria-label="הודעה חשובה על מחירים">
-        <span style="font-size:1.3rem">✅</span>
-        <div>
-          <strong>המחירים המוצגים כוללים מע"מ 18%</strong> — אין הפתעות בקופה.
-          תיירי חוץ עם ויזת תייר פטורים ממע"מ; אנא צרו קשר ישירות לקבלת הנחת תייר.
+  <!-- ══ WUBOOK IFRAME — הפתרון המרכזי ══ -->
+  <section class="booking-iframe-section" aria-labelledby="engine-heading">
+    <p class="iframe-label" id="engine-heading">מנוע הזמנות מאובטח — מופעל על ידי WuBook</p>
+
+    <div class="iframe-wrapper">
+      <iframe
+        src="https://wubook.net/nneb/bk/?ep=52ae8af2&lang=he&c=ILS"
+        width="100%"
+        height="750"
+        title="מנוע הזמנות מאובטח — סיטי סטיי טבריה"
+        loading="lazy"
+        allowfullscreen
+        referrerpolicy="no-referrer-when-downgrade"
+        aria-label="מנוע הזמנות WuBook — בדוק זמינות ומחירים"
+      >
+        <!-- Fallback לדפדפנים שחוסמים iframes -->
+        <div class="noscript-fallback">
+          <p>מנוע ההזמנות אינו נתמך בדפדפן שלך.</p>
+          <p><a href="https://wubook.net/nneb/bk/?ep=52ae8af2&lang=he&c=ILS" target="_blank" rel="noopener">לחצו כאן לפתיחת מנוע ההזמנות בחלון חדש ←</a></p>
+          <p>או התקשרו: <a href="tel:+97246206464">04-6206464</a></p>
         </div>
-      </div>
-
-      <!-- WuBook Widget -->
-      <div class="wubook-frame-wrap">
-        <div id="_baror_">
-          <a href="https://wubook.net/" style="display:block;margin-top:5px;text-decoration:none;border:none;" target="_blank" rel="noopener">
-            <img src="https://wubook.net/imgs/default/booking_by_wu.gif" alt="WuBook" style="border:none;text-decoration:none;" />
-          </a>
-        </div>
-      </div>
-
-      <!-- Trust Signals -->
-      <div class="trust-row" role="list" aria-label="מה מובטח לך">
-        <div class="trust-item" role="listitem"><span class="trust-icon">🔒</span>הצפנת SSL מאובטחת</div>
-        <div class="trust-item" role="listitem"><span class="trust-icon">✅</span>כולל מע"מ תמיד</div>
-        <div class="trust-item" role="listitem"><span class="trust-icon">❌</span>ביטול חינם עד 14 יום לפני ההגעה</div>
-        <div class="trust-item" role="listitem"><span class="trust-icon">📧</span>אישור מיידי במייל</div>
-        <div class="trust-item" role="listitem"><span class="trust-icon">💳</span>כרטיס אשראי מאובטח</div>
-      </div>
-
-      <!-- Alternative contact -->
-      <div class="contact-alt">
-        <h3>מעדיף לדבר עם אדם?</h3>
-        <p>נשמח לעזור לך לבחור ולהזמין ישירות — בלי לחץ.</p>
-        <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap">
-          <a href="tel:+97246206464" class="btn btn-primary" data-cta="booking_call">📞 התקשר עכשיו</a>
-          <a href="https://wa.me/97246206464?text=שלום,%20אני%20רוצה%20לבצע%20הזמנה" class="btn btn-outline" target="_blank" rel="noopener" data-cta="booking_whatsapp">💬 WhatsApp</a>
-        </div>
-      </div>
-
+      </iframe>
     </div>
-  </main>
-</div>
+  </section>
 
-<footer class="footer" role="contentinfo">
-  <div class="container">
-    <div class="footer-grid">
-      <div class="footer-brand">
-        <picture>
-          <source srcset="/assets/images/logo-full.webp" type="image/webp">
-          <img src="/assets/images/logo-full.png" alt="City Stay Tiberias" width="140" height="91" loading="lazy" style="height:52px;width:auto;filter:brightness(0) invert(1);opacity:.75;margin-bottom:var(--s5)">
-        </picture>
-        <p>מתחם אירוח בוטיק במרכז טבריה — שלוש אפשרויות לינה, שירות חם ומחיר שקוף.</p>
-        <div class="footer-social">
-          <a href="https://www.facebook.com/City.Stay.Tiberias" class="social-link" aria-label="Facebook" target="_blank" rel="noopener">f</a>
-          <a href="https://www.instagram.com/city.stay.tiberias" class="social-link" aria-label="Instagram" target="_blank" rel="noopener">◈</a>
-          <a href="https://wa.me/97246206464" class="social-link" aria-label="WhatsApp — שלח הודעה" target="_blank" rel="noopener">💬</a>
-        </div>
-      </div>
-      <nav aria-label="לינה"><div class="footer-col">
-        <h5>לינה</h5>
+  <!-- Info cards -->
+  <div class="info-grid" role="region" aria-label="מידע שימושי להזמנה">
+    <article class="info-card">
+      <h3>⏰ שעות צ׳ק-אין/אאוט</h3>
+      <p>צ׳ק-אין: מ-15:00<br>צ׳ק-אאוט: עד 11:00<br>כניסה/יציאה גמישה בתיאום מראש</p>
+    </article>
+    <article class="info-card">
+      <h3>❌ מדיניות ביטול</h3>
+      <p>ביטול חינם עד 14 יום לפני ההגעה. לאחר מכן — חיוב 100% מסכום האירוח.</p>
+    </article>
+    <article class="info-card">
+      <h3>💰 מחירים ומע״מ</h3>
+      <p>כל המחירים כוללים מע״מ 18%. תיירי חוץ עם ויזת תייר פטורים — אנא צרו קשר.</p>
+    </article>
+    <article class="info-card">
+      <h3>🅿️ חניה ונוחות</h3>
+      <p>חניה פרטית חינם במתחם. WiFi מהיר. ניקיון יומי. כניסה פרטית לכל יחידה.</p>
+    </article>
+  </div>
+
+</main>
+
+<footer role="contentinfo">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <img src="/assets/images/logo-full.png" alt="City Stay Tiberias" width="96" height="38" loading="lazy">
+      <p>מתחם אירוח בוטיק במרכז טבריה — שלוש אפשרויות לינה, שירות חם ומחיר שקוף.</p>
+    </div>
+    <nav aria-label="קישורי לינה">
+      <div class="footer-col">
+        <h3>לינה</h3>
         <ul>
           <li><a href="/rooms/">כל החדרים</a></li>
           <li><a href="/rooms/comfort-room/">חדר קומפורט</a></li>
           <li><a href="/rooms/family-suite/">סוויטת משפחה</a></li>
           <li><a href="/rooms/complete/">סיטי סטיי קומפלט</a></li>
-          <li><a href="https://wubook.net/nneb/bk?ep=52ae8af2" target="_blank" rel="noopener">הזמנה מקוונת</a></li>
         </ul>
-      </div></nav>
-      <nav aria-label="מידע"><div class="footer-col">
-        <h5>מידע</h5>
+      </div>
+    </nav>
+    <nav aria-label="קישורי מידע">
+      <div class="footer-col">
+        <h3>מידע</h3>
         <ul>
           <li><a href="/packages/">חבילות</a></li>
           <li><a href="/deals/">מבצעים</a></li>
           <li><a href="/gallery/">גלריה</a></li>
-          <li><a href="/about/">אודות ומדיניות</a></li>
+          <li><a href="/about/">אודות</a></li>
           <li><a href="/contact/">צור קשר</a></li>
           <li><a href="/privacy/">פרטיות</a></li>
-          <li><a href="/en/" lang="en" lang="en">English</a></li>
+          <li><a href="/en/" lang="en">English</a></li>
         </ul>
-      </div></nav>
-      <div class="footer-col">
-        <h5>צור קשר</h5>
-        <div class="footer-contact-row"><span class="icon" aria-hidden="true">📍</span><span>רחוב הגליל 24, טבריה 1410101</span></div>
-        <div class="footer-contact-row"><span class="icon" aria-hidden="true">📞</span><a href="tel:+97246206464">04-6206464</a></div>
-        <div class="footer-contact-row"><span class="icon" aria-hidden="true">✉️</span><a href="mailto:citystaytiberias@gmail.com">citystaytiberias@gmail.com</a></div>
-        <div style="margin-top:var(--s5)">
-          <a href="https://wubook.net/nneb/bk?ep=52ae8af2" class="btn btn-gold" style="width:100%;justify-content:center;font-size:9px" target="_blank" rel="noopener" aria-label="הזמן חדר עכשיו — נפתח בחלון חדש">הזמן עכשיו</a>
-        </div>
       </div>
-    </div>
-    <div class="footer-bottom">
-      <span>© 2025 City Stay Tiberias — כל הזכויות שמורות</span>
-      <span>
-        <a href="/privacy/">פרטיות</a> ·
-        <a href="/about/">נגישות</a> ·
-        <a href="/en/" lang="en" lang="en">English</a>
-      </span>
+    </nav>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 City Stay Tiberias — כל הזכויות שמורות</span>
+    <div class="footer-links">
+      <a href="/privacy/">פרטיות</a>
+      <a href="/about/">נגישות</a>
+      <a href="/en/">English</a>
     </div>
   </div>
 </footer>
-<div class="whatsapp-float"><span class="whatsapp-tooltip">שלח הודעה ב-WhatsApp</span><a href="https://wa.me/97246206464" class="whatsapp-btn" aria-label="WhatsApp" target="_blank" rel="noopener">💬</a></div>
-<button class="back-to-top" aria-label="חזרה לראש הדף">↑</button>
 
-
-
-<script src="/assets/js/config.js"></script>
-<script src="/assets/js/main.js" defer></script>
-<script>
-  document.addEventListener('DOMContentLoaded', function() {
-    if (typeof _WuBook === 'undefined') return;
-    var WuBook = new _WuBook(1595772253);
-    var wbparams = {
-      bgcolor: '#ffffff',
-      textcolor: '#0C0C0E',
-      buttoncolor: '#C8A96E',
-      iconcolor: '#8A7148',
-      bordercolor: '#C8A96E',
-      lang: 'he',
-      failback_lang: 'en',
-      wbgoogle: 1,
-      dcode: 1,
-      leisure: 1,
-      default_nights: 1,
-      dcodeval: ''
-    };
-    WuBook.design_rwidget("_baror_", wbparams);
-  });
-</script>
-<a href="https://wa.me/97246206464?text=שלום,%20אני%20מעוניין%20לשאול%20על%20חדר"
-   class="wa-float"
-   aria-label="שלח הודעת WhatsApp לסיטי סטיי טבריה"
-   target="_blank"
-   rel="noopener">
-  <svg viewBox="0 0 24 24" width="28" height="28" aria-hidden="true" focusable="false" fill="white">
+<!-- WhatsApp float -->
+<a href="https://wa.me/97246206464" class="wa-float" aria-label="שלח הודעת WhatsApp" target="_blank" rel="noopener">
+  <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
     <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
     <path d="M12 0C5.373 0 0 5.373 0 12c0 2.113.554 4.094 1.524 5.815L.057 23.73a.75.75 0 0 0 .916.913l6.084-1.594A11.944 11.944 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75a9.714 9.714 0 0 1-5.002-1.38l-.358-.214-3.713.972.99-3.617-.235-.37A9.714 9.714 0 0 1 2.25 12C2.25 6.615 6.615 2.25 12 2.25S21.75 6.615 21.75 12 17.385 21.75 12 21.75z"/>
   </svg>
 </a>
+
+<script>
+  (function(){
+    var btn = document.querySelector('.hamburger');
+    var nav = document.getElementById('main-nav');
+    if(!btn||!nav) return;
+    btn.addEventListener('click', function(){
+      var open = nav.classList.toggle('open');
+      btn.setAttribute('aria-expanded', open);
+    });
+    nav.querySelectorAll('a').forEach(function(a){
+      a.addEventListener('click', function(){
+        nav.classList.remove('open');
+        btn.setAttribute('aria-expanded','false');
+      });
+    });
+  })();
+</script>
+
 </body>
 </html>
