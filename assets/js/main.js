@@ -74,23 +74,7 @@ document.querySelectorAll('.lang-btn').forEach(btn => {
   });
 });
 
-// === WuBook ZakNeb Loader ===
-function initWuBook(containerId) {
-  if (typeof ZakNebIframe === 'undefined') return;
-  const url = 'https://wubook.net/nneb/bk?f=today&n=1&ep=52ae8af2&o=1.0.0.0';
-  const Neb = new ZakNebIframe('#' + containerId, url);
-  Neb.render();
-}
-
-const wbEl = document.getElementById('_wbord_');
-if (wbEl) {
-  // Try immediately, then on load
-  if (typeof ZakNebIframe !== 'undefined') {
-    initWuBook('_wbord_');
-  } else {
-    window.addEventListener('load', () => initWuBook('_wbord_'));
-  }
-}
+// WuBook: embedded via bwidget_loader.jgz - no JS init needed
 
 // === GA4 Tracking ===
 function track(event, params = {}) {

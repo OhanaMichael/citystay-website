@@ -41,7 +41,7 @@
     <a href="/" class="nav-logo" aria-label="City Stay Tiberias — עמוד הבית">
       <picture>
         <source srcset="/assets/images/logo-full.webp" type="image/webp">
-        <img src="/assets/images/logo-full.png" alt="City Stay Tiberias" width="140" height="91" loading="eager">
+        <img src="/assets/images/logo-full.png" alt="City Stay Tiberias" style="height:64px;width:auto;object-fit:contain" loading="eager">
       </picture>
     </a>
 
@@ -180,8 +180,13 @@
         <p>הזמנה מאובטחת ישירות דרך המערכת שלנו. המחיר שרואים — המחיר שמשלמים, כולל מע"מ.</p>
         <p style="margin-top:var(--s4);font-size:.78rem;color:rgba(255,255,255,.25)">🔒 הזמנה מאובטחת · SSL · PCI Compliant</p>
       </div>
-      <div class="booking-widget-wrap" id="_wbord_">
-        <!-- WuBook loads here -->
+      <div class="booking-widget-wrap">
+        <div id="citystay-booking-widget">
+  <script src="https://wubook.net/js/nebk/bwidget_loader.jgz"></script>
+  <script>
+    load_neb_widget("5dd9a18e-9483-4da2-b5bc-ff0000c0e523", "#citystay-booking-widget");
+  </script>
+</div>
       </div>
     </div>
   </div>
@@ -698,7 +703,7 @@
 </div>
 
 <!-- WuBook -->
-<script src="https://wubook.net/js/nebi/iframe.jgz"></script>
+
 
 <!-- Main JS -->
 <script src="/assets/js/main.js" defer></script>

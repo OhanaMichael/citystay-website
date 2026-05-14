@@ -408,3 +408,100 @@ em{font-style:italic;color:var(--gold);font-family:var(--font-display)}
   *,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}
   html{scroll-behavior:auto}
 }
+
+
+/* ============================================================
+   CRITICAL FIXES v3
+   ============================================================ */
+
+/* 1. Logo — much bigger */
+.nav-logo img {
+  height: 64px !important;
+  width: auto;
+  filter: brightness(0) invert(1);
+  transition: filter var(--t-mid) var(--ease);
+}
+.navbar.scrolled .nav-logo img { filter: none !important; }
+.navbar.transparent .nav-logo img { filter: brightness(0) invert(1) !important; }
+
+/* 2. Navbar always readable */
+.navbar {
+  background: rgba(12,12,14,0.6) !important;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+.navbar.scrolled {
+  background: rgba(248,245,239,0.97) !important;
+}
+
+/* 3. Nav links always visible */
+.nav-link { color: rgba(255,255,255,0.85) !important; }
+.nav-link:hover { color: var(--white) !important; }
+.nav-link.active { color: var(--gold-light) !important; }
+.navbar.scrolled .nav-link { color: var(--mist) !important; }
+.navbar.scrolled .nav-link:hover { color: var(--ink) !important; background: var(--stone); }
+.navbar.scrolled .nav-link.active { color: var(--gold-dim) !important; }
+
+/* 4. Book button always gold */
+.btn-nav-book {
+  background: var(--gold) !important;
+  color: var(--ink) !important;
+}
+
+/* 5. ALL inner pages - push content below navbar */
+.page-hero-inner {
+  padding-top: calc(var(--nav-h) + 48px) !important;
+  padding-bottom: 56px !important;
+}
+
+/* 6. Section/booking page headers */
+.booking-page-header {
+  padding-top: calc(var(--nav-h) + 48px) !important;
+}
+
+/* 7. Hero content — full RTL alignment */
+.hero-content {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-end !important;
+  text-align: right !important;
+}
+
+/* 8. Hero h1, lead, badge — right aligned */
+.hero h1 { width: 100%; max-width: 760px; }
+.hero p.lead { width: 100%; max-width: 500px; }
+.hero-badge { align-self: flex-end; }
+.hero-cta-row { width: 100%; justify-content: flex-end; }
+.hero-stats { width: 100%; justify-content: flex-end; }
+
+/* 9. Lang switcher always visible */
+.lang-btn { color: rgba(255,255,255,0.7) !important; }
+.lang-btn.active { background: var(--white) !important; color: var(--ink) !important; }
+.navbar.scrolled .lang-btn { color: var(--mist) !important; }
+.navbar.scrolled .lang-btn.active { background: var(--ink) !important; color: var(--white) !important; }
+.lang-switcher {
+  background: rgba(255,255,255,0.12) !important;
+  border-color: rgba(255,255,255,0.2) !important;
+}
+.navbar.scrolled .lang-switcher {
+  background: var(--stone) !important;
+  border-color: var(--stone-mid) !important;
+}
+
+/* 10. Room detail & inner pages */
+.room-detail-grid {
+  padding-top: 0;
+}
+
+/* 11. Mobile hamburger — always visible */
+.hamburger span { background: var(--white) !important; }
+.navbar.scrolled .hamburger span { background: var(--ink) !important; }
+
+/* 12. Hero section min-height fix */
+.hero { min-height: 100svh; min-height: 100vh; }
+
+/* 13. Features bar no top gap */
+.features-bar { margin-top: 0; }
+
+/* 14. Booking section inside pages - no overlap */
+.booking-page-wrap { padding-top: 0; }
