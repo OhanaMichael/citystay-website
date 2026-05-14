@@ -18,11 +18,23 @@
     .nav-logo,.nav-link,.btn,.form-control{font-family:'Inter',sans-serif}
     .hero h1 em{font-style:italic}
   </style>
+  <!-- Favicons -->
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="64x64" href="/assets/images/favicon-64.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/favicon-180.png">
+  <meta name="theme-color" content="#1B4D6E">
 </head>
 <body class="lang-en">
 <a href="#main" class="skip-link">Skip to main content</a>
 <nav class="navbar transparent" aria-label="Main navigation"><div class="nav-inner">
-  <a href="/en/" class="nav-logo">City Stay<span>Tiberias, Israel</span></a>
+  <a href="/en/" class="nav-logo" aria-label="City Stay Tiberias - Home">
+      <picture>
+        <source srcset="/assets/images/logo-full.webp" type="image/webp">
+        <img src="/assets/images/logo-full.png" alt="City Stay Tiberias" 
+             width="140" height="91" loading="eager"
+             style="height:48px;width:auto;object-fit:contain;transition:opacity .3s">
+      </picture>
+    </a>
   <div class="nav-links">
     <a href="/en/" class="nav-link active">Home</a>
     <a href="/en/rooms/" class="nav-link">Rooms</a>
@@ -181,16 +193,8 @@
 </footer>
 <div class="whatsapp-float"><span class="whatsapp-tooltip">Chat on WhatsApp</span><a href="https://wa.me/97246206464?text=Hello,%20I%20am%20interested%20in%20a%20stay%20at%20City%20Stay%20Tiberias" class="whatsapp-btn" aria-label="WhatsApp" target="_blank" rel="noopener">💬</a></div>
 <button class="back-to-top" aria-label="Back to top">↑</button>
-<script src="https://wubook.net/js/wblib.jgz" defer></script>
+<script src="https://wubook.net/js/nebi/iframe.jgz"></script>
 <script src="/assets/js/main.js" defer></script>
-<script>
-window.addEventListener('load', function() {
-  if (typeof _WuBook !== 'undefined') {
-    var WuBook = new _WuBook(1595772253);
-    WuBook.design_rwidget('_wbord_', { lang: 'en', buttoncolor: '#1B4D6E', bgcolor: 'transparent', textcolor: '#1A1A2E', default_nights: 2, failback_lang: 'en' });
-  }
-});
-</script>
 <style>@media(max-width:768px){.container>div[style*="grid-template-columns:1fr 1fr"]{grid-template-columns:1fr!important}}</style>
 </body>
 </html>

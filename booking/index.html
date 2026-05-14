@@ -23,6 +23,11 @@
     .contact-alt h3{font-size:1rem;margin-bottom:.5rem}
     .contact-alt p{font-size:.85rem;color:var(--text-light);margin-bottom:1rem}
   </style>
+  <!-- Favicons -->
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="64x64" href="/assets/images/favicon-64.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/favicon-180.png">
+  <meta name="theme-color" content="#1B4D6E">
 </head>
 <body>
 <a href="#main" class="skip-link">דלג לתוכן הראשי</a>
@@ -95,16 +100,13 @@
 <div class="whatsapp-float"><span class="whatsapp-tooltip">שלח הודעה ב-WhatsApp</span><a href="https://wa.me/97246206464" class="whatsapp-btn" aria-label="WhatsApp" target="_blank" rel="noopener">💬</a></div>
 <button class="back-to-top" aria-label="חזרה לראש הדף">↑</button>
 
-<!-- WuBook iFrame embed -->
-<script src="https://wubook.net/js/wblib.jgz"></script>
+<!-- WuBook Online Reception - ZakNeb iFrame -->
+<script src="https://wubook.net/js/nebi/iframe.jgz"></script>
 <script>
-  window.addEventListener('load', function() {
-    if (typeof _WuBook !== 'undefined') {
-      var WuBook = new _WuBook(1595772253);
-      var params = { lang: 'he', mobile: 1, height: 'auto', width: '100%' };
-      WuBook.design_iframe('_ord_iframe_', params);
-    }
-  });
+  var url = 'https://wubook.net/nneb/bk?f=today&n=1&ep=52ae8af2&o=1.0.0.0';
+  var target = '#_ord_iframe_';
+  var Neb = new ZakNebIframe(target, url);
+  Neb.render();
 </script>
 <script src="/assets/js/config.js"></script>
 <script src="/assets/js/main.js" defer></script>

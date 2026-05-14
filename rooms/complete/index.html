@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>סיטי סטיי קומפלט — כל המתחם | סיטי סטיי טבריה</title>
+  <meta name="description" content="סיטי סטיי קומפלט — השכרת כל מתחם האירוח: 2 סוויטות משפחה + 2 חדרי קומפורט. עד 20 אורחים. מושלם לאירועים משפחתיים, קבוצות וחברות. טבריה, ליד הכינרת.">
+  <link rel="canonical" href="https://www.citystay.co.il/rooms/complete/">
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@300;400;500;700&family=Heebo:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "HotelRoom",
+    "name": "סיטי סטיי קומפלט — חוויית אירוח בלב העיר",
+    "description": "השכרת כל מתחם סיטי סטיי: 2 סוויטות משפחה + 2 חדרי קומפורט. עד 20 אורחים. מושלם לאירועים, משפחות גדולות וקבוצות.",
+    "occupancy": { "@type": "QuantitativeValue", "maxValue": 20 },
+    "containedInPlace": {
+      "@type": "LodgingBusiness",
+      "name": "City Stay Tiberias",
+      "url": "https://www.citystay.co.il"
+    },
+    "amenityFeature": [
+      {"@type":"LocationFeatureSpecification","name":"WiFi חינם","value":true},
+      {"@type":"LocationFeatureSpecification","name":"2 סוויטות משפחה","value":true},
+      {"@type":"LocationFeatureSpecification","name":"2 חדרי קומפורט","value":true},
+      {"@type":"LocationFeatureSpecification","name":"חניה חינם","value":true},
+      {"@type":"LocationFeatureSpecification","name":"מטבח מלא","value":true}
+    ]
+  }
+  </script>
+  <style>
+    .page-hero {
+      background: linear-gradient(135deg, #0a1f2e 0%, var(--primary-dark) 40%, var(--primary) 100%);
+      color: var(--white);
+      padding: calc(var(--nav-height) + 2.5rem) 0 2.5rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .page-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 70% 50%, rgba(196,147,42,0.15) 0%, transparent 60%);
+    }
+    .page-hero h1 { color: var(--white); margin-bottom: .5rem; position: relative; }
+    .page-hero p { color: rgba(255,255,255,.85); max-width: 580px; margin: 0 auto; position: relative; }
+    .complete-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      background: linear-gradient(135deg, var(--gold), #a87820);
+      color: var(--white);
+      padding: .5rem 1.25rem;
+      border-radius: 50px;
+      font-size: .85rem;
+      font-weight: 700;
+      letter-spacing: .05em;
+      margin-bottom: 1rem;
+    }
+    .complex-visual {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: auto auto;
+      gap: .75rem;
+      margin-bottom: 2.5rem;
+    }
+    .complex-visual .main-img {
+      grid-column: span 2;
+      min-height: 280px;
+      background: linear-gradient(135deg, #0a1f2e, #1B4D6E);
+      border-radius: var(--radius-lg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 5rem;
+      color: rgba(255,255,255,.2);
+      cursor: pointer;
+    }
+    .complex-visual .sub-img {
+      min-height: 160px;
+      border-radius: var(--radius);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.5rem;
+      cursor: pointer;
+    }
+    .complex-visual .sub-img:nth-child(2) { background: linear-gradient(135deg, #1B4D6E, #2a6d99); }
+    .complex-visual .sub-img:nth-child(3) { background: linear-gradient(135deg, #2c3e50, #4a6741); }
+
+    .unit-card {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      padding: 1.5rem;
+      border: 2px solid var(--border);
+      display: flex;
+      align-items: flex-start;
+      gap: 1.25rem;
+      transition: var(--transition);
+    }
+    .unit-card:hover { border-color: var(--primary); box-shadow: var(--shadow-md); }
+    .unit-icon {
+      width: 56px;
+      height: 56px;
+      border-radius: var(--radius);
+      background: var(--accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.75rem;
+      flex-shrink: 0;
+    }
+    .unit-card h4 { font-size: 1rem; margin-bottom: .25rem; color: var(--dark); }
+    .unit-card p { font-size: .85rem; color: var(--text-light); margin: 0; }
+    .unit-count {
+      margin-right: auto;
+      background: var(--primary);
+      color: var(--white);
+      font-size: .75rem;
+      font-weight: 700;
+      padding: .25rem .65rem;
+      border-radius: 20px;
+    }
+    .capacity-display {
+      background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+      color: var(--white);
+      border-radius: var(--radius-lg);
+      padding: 2rem;
+      text-align: center;
+      margin: 2rem 0;
+    }
+    .capacity-display .big-num {
+      font-size: 5rem;
+      font-weight: 700;
+      font-family: var(--font-display);
+      line-height: 1;
+      color: var(--gold-light);
+    }
+    .capacity-display p { color: rgba(255,255,255,.8); margin: .5rem 0 0; font-size: 1.1rem; }
+
+    .ideal-for {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: .75rem;
+      margin: 1.5rem 0;
+    }
+    .ideal-item {
+      display: flex;
+      align-items: center;
+      gap: .75rem;
+      padding: .85rem 1rem;
+      background: var(--accent);
+      border-radius: var(--radius);
+      font-size: .88rem;
+      font-weight: 500;
+    }
+    .ideal-item .icon { font-size: 1.3rem; flex-shrink: 0; }
+
+    .sticky-booking {
+      position: sticky;
+      top: calc(var(--nav-height) + 1rem);
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-lg);
+      padding: 2rem;
+      border: 2px solid var(--gold);
+    }
+    .sticky-booking h3 { font-size: 1.1rem; margin-bottom: 1.25rem; color: var(--primary); }
+    .price-display { text-align: center; padding: 1rem; background: var(--accent); border-radius: var(--radius); margin-bottom: 1.25rem; }
+    .price-display .label { font-size: .78rem; color: var(--text-light); margin-bottom: .25rem; }
+    .price-display .big { font-size: 1.4rem; font-weight: 700; color: var(--primary); font-family: var(--font-display); }
+    .price-display .note { font-size: .72rem; color: var(--success); background: #e8f5ee; padding: .2rem .5rem; border-radius: 4px; display: inline-block; margin-top: .3rem; }
+
+    .what-included {
+      background: linear-gradient(135deg, #fff8ed, #fff3d6);
+      border: 1px solid var(--gold);
+      border-radius: var(--radius-lg);
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+    .what-included h4 { font-size: .85rem; color: var(--gold); font-weight: 700; text-transform: uppercase; letter-spacing: .08em; margin-bottom: .75rem; }
+    .what-included li { display: flex; align-items: center; gap: .5rem; font-size: .875rem; padding: .3rem 0; }
+    .what-included li::before { content: '✓'; color: var(--success); font-weight: 700; flex-shrink: 0; }
+
+    @media (max-width: 900px) {
+      .container > div[style*="1fr 340px"] { grid-template-columns: 1fr !important; }
+      .ideal-for { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 600px) {
+      .complex-visual { grid-template-columns: 1fr; }
+      .complex-visual .main-img { grid-column: span 1; }
+    }
+  </style>
+  <!-- Favicons -->
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="64x64" href="/assets/images/favicon-64.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/favicon-180.png">
+  <meta name="theme-color" content="#1B4D6E">
+</head>
+<body>
+<a href="#main" class="skip-link">דלג לתוכן הראשי</a>
+<nav class="navbar transparent" aria-label="תפריט ראשי"><div class="nav-inner">
+  <a href="/" class="nav-logo" aria-label="City Stay Tiberias - עמוד הבית">
+      <picture>
+        <source srcset="/assets/images/logo-full.webp" type="image/webp">
+        <img src="/assets/images/logo-full.png" alt="City Stay Tiberias" 
+             width="140" height="91" loading="eager"
+             style="height:48px;width:auto;object-fit:contain;transition:opacity .3s">
+      </picture>
+    </a>
+  <div class="nav-links">
+    <a href="/" class="nav-link">בית</a>
+    <a href="/rooms/" class="nav-link active">חדרים</a>
+    <a href="/packages/" class="nav-link">חבילות</a>
+    <a href="/deals/" class="nav-link">מבצעים</a>
+    <a href="/gallery/" class="nav-link">גלריה</a>
+    <a href="/about/" class="nav-link">אודות</a>
+    <a href="/contact/" class="nav-link">צור קשר</a>
+  </div>
+  <div class="nav-actions">
+    <div class="lang-switcher"><button class="lang-btn active" data-lang="he">עב</button><button class="lang-btn" data-lang="en">EN</button></div>
+    <a href="/booking/" class="btn btn-gold" data-cta="nav_book">הזמן עכשיו</a>
+    <button class="hamburger" aria-label="פתח תפריט" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+</div></nav>
+<div class="mobile-menu" id="mobile-menu">
+  <button class="mobile-close btn btn-outline-white">✕ סגור</button>
+  <a href="/" class="nav-link">🏠 בית</a>
+  <a href="/rooms/" class="nav-link">🛏️ חדרים</a>
+  <a href="/packages/" class="nav-link">🎁 חבילות</a>
+  <a href="/deals/" class="nav-link">🔥 מבצעים</a>
+  <a href="/gallery/" class="nav-link">📸 גלריה</a>
+  <a href="/about/" class="nav-link">📍 אודות</a>
+  <a href="/contact/" class="nav-link">📞 צור קשר</a>
+  <a href="/booking/" class="btn btn-gold btn-lg" style="margin-top:1rem">הזמן עכשיו</a>
+</div>
+
+<main id="main">
+  <div class="page-hero">
+    <div class="container">
+      <nav aria-label="ניווט ארכיב" style="font-size:.82rem;color:rgba(255,255,255,.5);margin-bottom:.75rem;position:relative">
+        <a href="/" style="color:rgba(255,255,255,.5)">בית</a> › <a href="/rooms/" style="color:rgba(255,255,255,.5)">חדרים</a> › <span style="color:var(--gold-light)">סיטי סטיי קומפלט</span>
+      </nav>
+      <div class="complete-badge">⭐ חוויית אירוח בלב העיר</div>
+      <h1>🏙️ סיטי סטיי קומפלט</h1>
+      <p>כל המתחם שלך — 2 סוויטות משפחה + 2 חדרי קומפורט. עד 20 אורחים. פרטיות מלאה, נוחות מלאה.</p>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="container">
+      <div style="display:grid;grid-template-columns:1fr 340px;gap:3rem;align-items:start">
+
+        <!-- LEFT: Content -->
+        <div>
+
+          <!-- Gallery -->
+          <div class="complex-visual reveal" role="group" aria-label="גלריית המתחם השלם">
+            <div class="main-img" data-lightbox tabindex="0" role="button" aria-label="מתחם סיטי סטיי השלם">
+              <!-- <img src="/assets/images/rooms/complete-main.webp" alt="מתחם סיטי סטיי קומפלט — כל המתחם" loading="eager"> -->
+              🏙️
+            </div>
+            <div class="sub-img" data-lightbox tabindex="0" role="button" aria-label="2 סוויטות משפחה">
+              <!-- <img src="/assets/images/rooms/family-suite-main.webp" alt="סוויטת משפחה" loading="lazy"> -->
+              🏡
+            </div>
+            <div class="sub-img" data-lightbox tabindex="0" role="button" aria-label="2 חדרי קומפורט">
+              <!-- <img src="/assets/images/rooms/comfort-room-main.webp" alt="חדר קומפורט" loading="lazy"> -->
+              🛏️
+            </div>
+          </div>
+
+          <!-- Description -->
+          <div class="reveal">
+            <span class="eyebrow">על סיטי סטיי קומפלט</span>
+            <h2 style="font-size:1.6rem;margin-bottom:1rem">המתחם כולו — רק שלך</h2>
+            <p>סיטי סטיי קומפלט מאפשר לך להזמין את <strong>כל מתחם האירוח</strong> — גישה בלעדית לכל היחידות, כל המרחבים המשותפים, וחניה פרטית מלאה. אין שכנים. אין הפתעות. רק אתם.</p>
+            <p>מושלם לאירועים משפחתיים, חברות מסיבות, ועידות קטנות, שבת משפחתית, נסיגות קבוצתיות — או פשוט לכל מי שרוצה את כל הבית לעצמו.</p>
+          </div>
+
+          <!-- Capacity -->
+          <div class="capacity-display reveal" style="margin-top:2rem">
+            <div class="big-num" aria-label="עד 20 אורחים">20</div>
+            <p>אורחים — תפוסה מקסימלית של כל המתחם</p>
+          </div>
+
+          <!-- What's included - units -->
+          <div class="reveal" style="margin-top:2rem">
+            <h3 style="margin-bottom:1.25rem">מה כולל המתחם</h3>
+            <div style="display:flex;flex-direction:column;gap:.75rem;margin-bottom:2rem">
+
+              <div class="unit-card">
+                <div class="unit-icon">🏡</div>
+                <div style="flex:1">
+                  <h4>סוויטת משפחה</h4>
+                  <p>2 חדרי שינה · סלון · מטבח מלא · 2 שירותים · עד 8 אורחים</p>
+                </div>
+                <span class="unit-count">×2</span>
+              </div>
+
+              <div class="unit-card">
+                <div class="unit-icon">🛏️</div>
+                <div style="flex:1">
+                  <h4>חדר קומפורט</h4>
+                  <p>מיטה זוגית · מקלחת פרטית · מרפסת · עד 2 אורחים</p>
+                </div>
+                <span class="unit-count">×2</span>
+              </div>
+
+            </div>
+
+            <!-- Total amenities -->
+            <h3 style="margin-bottom:1.25rem">מה מקבלים בסך הכל</h3>
+            <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:.6rem;margin-bottom:2rem">
+              <div class="amenity-row" style="display:flex;align-items:center;gap:.5rem;padding:.6rem .75rem;background:var(--accent);border-radius:8px;font-size:.85rem">🛏️ 6 חדרי שינה</div>
+              <div class="amenity-row" style="display:flex;align-items:center;gap:.5rem;padding:.6rem .75rem;background:var(--accent);border-radius:8px;font-size:.85rem">🚿 6 שירותים</div>
+              <div class="amenity-row" style="display:flex;align-items:center;gap:.5rem;padding:.6rem .75rem;background:var(--accent);border-radius:8px;font-size:.85rem">🍳 2 מטבחים מלאים</div>
+              <div class="amenity-row" style="display:flex;align-items:center;gap:.5rem;padding:.6rem .75rem;background:var(--accent);border-radius:8px;font-size:.85rem">🛋️ 2 סלונות</div>
+              <div class="amenity-row" style="display:flex;align-items:center;gap:.5rem;padding:.6rem .75rem;background:var(--accent);border-radius:8px;font-size:.85rem">🧺 2 מכונות כביסה</div>
+              <div class="amenity-row" style="display:flex;align-items:center;gap:.5rem;padding:.6rem .75rem;background:var(--accent);border-radius:8px;font-size:.85rem">🪟 4 מרפסות</div>
+              <div class="amenity-row" style="display:flex;align-items:center;gap:.5rem;padding:.6rem .75rem;background:var(--accent);border-radius:8px;font-size:.85rem">☕ 4 מכונות קפה</div>
+              <div class="amenity-row" style="display:flex;align-items:center;gap:.5rem;padding:.6rem .75rem;background:var(--accent);border-radius:8px;font-size:.85rem">❄️ מיזוג בכל חדר</div>
+              <div class="amenity-row" style="display:flex;align-items:center;gap:.5rem;padding:.6rem .75rem;background:var(--accent);border-radius:8px;font-size:.85rem">🅿️ חניה פרטית מלאה</div>
+              <div class="amenity-row" style="display:flex;align-items:center;gap:.5rem;padding:.6rem .75rem;background:var(--accent);border-radius:8px;font-size:.85rem">📶 WiFi מהיר בכל המתחם</div>
+              <div class="amenity-row" style="display:flex;align-items:center;gap:.5rem;padding:.6rem .75rem;background:var(--accent);border-radius:8px;font-size:.85rem">📺 4 Smart TVs</div>
+              <div class="amenity-row" style="display:flex;align-items:center;gap:.5rem;padding:.6rem .75rem;background:var(--accent);border-radius:8px;font-size:.85rem">🔒 פרטיות בלעדית</div>
+            </div>
+          </div>
+
+          <!-- Ideal for -->
+          <div class="reveal">
+            <h3 style="margin-bottom:1rem">מתאים במיוחד ל...</h3>
+            <div class="ideal-for">
+              <div class="ideal-item"><span class="icon">👨‍👩‍👧‍👦</span>משפחות גדולות ואיחוד משפחות</div>
+              <div class="ideal-item"><span class="icon">🎉</span>חגיגות ימי הולדת ויובלות</div>
+              <div class="ideal-item"><span class="icon">💍</span>שבת חתן / כלה קטנה</div>
+              <div class="ideal-item"><span class="icon">👥</span>חברות חברים וטיולי קבוצה</div>
+              <div class="ideal-item"><span class="icon">🏢</span>פגישות עסקיות ו-Retreats</div>
+              <div class="ideal-item"><span class="icon">🕍</span>שבתות וחגים משפחתיים</div>
+            </div>
+          </div>
+
+          <!-- Policy -->
+          <div class="reveal" style="margin-top:2rem;background:var(--accent);border-radius:var(--radius-lg);padding:2rem">
+            <h3 style="margin-bottom:1.25rem;font-size:1.1rem">מדיניות המתחם</h3>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem">
+              <div><p style="font-weight:600;font-size:.88rem;color:var(--dark);margin-bottom:.25rem">⏰ צ׳ק-אין</p><p style="font-size:.85rem;color:var(--text-light);margin:0">מ-15:00. כניסה מוקדמת בתיאום.</p></div>
+              <div><p style="font-weight:600;font-size:.88rem;color:var(--dark);margin-bottom:.25rem">⏰ צ׳ק-אאוט</p><p style="font-size:.85rem;color:var(--text-light);margin:0">עד 11:00. יציאה מאוחרת בתיאום.</p></div>
+              <div><p style="font-weight:600;font-size:.88rem;color:var(--dark);margin-bottom:.25rem">❌ ביטול</p><p style="font-size:.85rem;color:var(--text-light);margin:0">חינם עד 14 יום לפני ההגעה. לאחר מכן — חיוב 100% מסכום האירוח.</p></div>
+              <div><p style="font-weight:600;font-size:.88rem;color:var(--dark);margin-bottom:.25rem">👥 תפוסה מקסימלית</p><p style="font-size:.85rem;color:var(--text-light);margin:0">עד 20 אורחים.</p></div>
+            </div>
+          </div>
+
+          <!-- Cross links -->
+          <div class="reveal" style="margin-top:2rem">
+            <h3 style="margin-bottom:1rem;font-size:1rem;color:var(--text-light)">רוצה רק חלק מהמתחם?</h3>
+            <div style="display:flex;gap:1rem;flex-wrap:wrap">
+              <a href="/rooms/family-suite/" class="btn btn-outline" data-cta="complete_to_suite">🏡 סוויטת משפחה בלבד</a>
+              <a href="/rooms/comfort-room/" class="btn btn-outline" data-cta="complete_to_comfort">🛏️ חדר קומפורט בלבד</a>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- RIGHT: Sticky booking -->
+        <div>
+          <div class="sticky-booking reveal">
+            <div style="text-align:center;margin-bottom:1.25rem">
+              <div class="complete-badge" style="font-size:.78rem">⭐ חוויית אירוח בלב העיר</div>
+            </div>
+            <h3 style="text-align:center">הזמן את כל המתחם</h3>
+
+            <div class="price-display">
+              <div class="label">עד 20 אורחים</div>
+              <div class="big">📞 לתמחור אישי</div>
+              <div class="note">✓ מחיר כולל מע"מ</div>
+            </div>
+
+            <div class="what-included">
+              <h4>כלול בהזמנה</h4>
+              <ul style="list-style:none;padding:0;margin:0">
+                <li>2 סוויטות משפחה (עד 8 כ"א)</li>
+                <li>2 חדרי קומפורט (עד 2 כ"א)</li>
+                <li>חניה פרטית מלאה למתחם</li>
+                <li>WiFi מהיר בכל יחידות</li>
+                <li>פרטיות בלעדית — כל המתחם שלך</li>
+                <li>ניקיון יומי לכל היחידות</li>
+              </ul>
+            </div>
+
+            <a href="https://wa.me/97246206464?text=שלום,%20אני%20מעוניין%20להזמין%20את%20סיטי%20סטיי%20קומפלט%20(כל%20המתחם)%20לעד%2020%20אורחים"
+               class="btn btn-gold btn-lg" style="width:100%;margin-bottom:.75rem"
+               target="_blank" rel="noopener" data-cta="complete_whatsapp">
+              💬 פנה אלינו ב-WhatsApp
+            </a>
+            <a href="/contact/?subject=סיטי-סטיי-קומפלט"
+               class="btn btn-primary" style="width:100%;margin-bottom:1rem"
+               data-cta="complete_contact">
+              📞 צור קשר לתמחור
+            </a>
+            <a href="/booking/" class="btn btn-outline" style="width:100%;margin-bottom:1rem"
+               data-cta="complete_booking">
+              🗓️ לדף ההזמנה
+            </a>
+
+            <ul style="font-size:.82rem;color:var(--text-light);display:flex;flex-direction:column;gap:.4rem;list-style:none;padding:0">
+              <li>✓ הזמנה מאובטחת</li>
+              <li>✓ ביטול חינם עד 14 יום מראש</li>
+              <li>✓ מחיר כולל מע"מ — ללא הפתעות</li>
+              <li>✓ תפוסה בלעדית — כל המתחם</li>
+            </ul>
+
+            <hr style="margin:1.25rem 0;border-color:var(--border)">
+            <p style="font-size:.82rem;text-align:center;color:var(--text-light)">
+              📞 <a href="tel:+97246206464" style="color:var(--primary);font-weight:600">04-6206464</a>
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer"><div class="container"><div class="footer-grid">
+  <div class="footer-brand"><h3>City Stay Tiberias</h3><p>מתחם אירוח בוטיק במרכז טבריה.</p>
+    <div class="footer-social">
+      <a href="https://www.facebook.com/City.Stay.Tiberias" class="social-btn" target="_blank" rel="noopener" aria-label="Facebook">f</a>
+      <a href="https://www.instagram.com/city.stay.tiberias" class="social-btn" target="_blank" rel="noopener" aria-label="Instagram">📷</a>
+      <a href="https://wa.me/97246206464" class="social-btn" target="_blank" rel="noopener" aria-label="WhatsApp">💬</a>
+    </div>
+  </div>
+  <nav aria-label="ניווט"><h4>חדרים</h4><ul>
+    <li><a href="/rooms/family-suite/">סוויטת משפחה</a></li>
+    <li><a href="/rooms/comfort-room/">חדר קומפורט</a></li>
+    <li><a href="/rooms/complete/">סיטי סטיי קומפלט</a></li>
+    <li><a href="/booking/">הזמנה מקוונת</a></li>
+  </ul></nav>
+  <nav aria-label="מידע"><h4>מידע</h4><ul>
+    <li><a href="/packages/">חבילות</a></li>
+    <li><a href="/deals/">מבצעים</a></li>
+    <li><a href="/about/">אודות</a></li>
+    <li><a href="/privacy/">פרטיות</a></li>
+  </ul></nav>
+  <div><h4>צור קשר</h4>
+    <div class="footer-contact-item"><span>📍</span><span>רחוב הגליל 24, טבריה</span></div>
+    <div class="footer-contact-item"><span>📞</span><a href="tel:+97246206464">04-6206464</a></div>
+    <div class="footer-contact-item"><span>✉️</span><a href="mailto:citystaytiberias@gmail.com">citystaytiberias@gmail.com</a></div>
+  </div>
+</div>
+<div class="footer-bottom"><span>© 2025 City Stay Tiberias</span><span><a href="/privacy/" style="color:inherit">פרטיות</a> · <a href="/accessibility/" style="color:inherit">נגישות</a></span></div>
+</div></footer>
+
+<div class="whatsapp-float">
+  <span class="whatsapp-tooltip">שלח הודעה ב-WhatsApp</span>
+  <a href="https://wa.me/97246206464?text=שלום,%20אני%20מעוניין%20בסיטי%20סטיי%20קומפלט"
+     class="whatsapp-btn" aria-label="WhatsApp" target="_blank" rel="noopener">💬</a>
+</div>
+<button class="back-to-top" aria-label="חזרה לראש הדף">↑</button>
+
+<div id="lightbox" role="dialog" aria-modal="true" aria-label="תצוגת תמונה"
+     style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.92);z-index:9999;align-items:center;justify-content:center">
+  <style>#lightbox.open{display:flex!important}</style>
+  <button class="lightbox-close" aria-label="סגור" style="position:absolute;top:1rem;left:1rem;background:none;border:none;color:#fff;font-size:2rem;cursor:pointer">✕</button>
+  <img src="" alt="" style="max-width:90vw;max-height:90vh;object-fit:contain;border-radius:8px">
+</div>
+
+<script src="https://wubook.net/js/nebi/iframe.jgz"></script>
+<script src="/assets/js/config.js"></script>
+<script src="/assets/js/main.js" defer></script>
+</body>
+</html>

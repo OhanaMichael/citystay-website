@@ -20,11 +20,23 @@
     .contact-method a{color:var(--primary);font-weight:600}
     .contact-form-wrap{background:var(--white);border-radius:var(--radius-lg);padding:2.5rem;box-shadow:var(--shadow-md)}
   </style>
+  <!-- Favicons -->
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="64x64" href="/assets/images/favicon-64.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/favicon-180.png">
+  <meta name="theme-color" content="#1B4D6E">
 </head>
 <body>
 <a href="#main" class="skip-link">דלג לתוכן הראשי</a>
 <nav class="navbar transparent" aria-label="תפריט ראשי"><div class="nav-inner">
-  <a href="/" class="nav-logo">City Stay<span>טבריה · Tiberias</span></a>
+  <a href="/" class="nav-logo" aria-label="City Stay Tiberias - עמוד הבית">
+      <picture>
+        <source srcset="/assets/images/logo-full.webp" type="image/webp">
+        <img src="/assets/images/logo-full.png" alt="City Stay Tiberias" 
+             width="140" height="91" loading="eager"
+             style="height:48px;width:auto;object-fit:contain;transition:opacity .3s">
+      </picture>
+    </a>
   <div class="nav-links"><a href="/" class="nav-link">בית</a><a href="/rooms/" class="nav-link">חדרים</a><a href="/packages/" class="nav-link">חבילות</a><a href="/deals/" class="nav-link">מבצעים</a><a href="/gallery/" class="nav-link">גלריה</a><a href="/about/" class="nav-link">אודות</a><a href="/contact/" class="nav-link active">צור קשר</a></div>
   <div class="nav-actions"><div class="lang-switcher"><button class="lang-btn active" data-lang="he">עב</button><button class="lang-btn" data-lang="en">EN</button></div><a href="/booking/" class="btn btn-gold" data-cta="nav_book">הזמן עכשיו</a><button class="hamburger" aria-label="פתח תפריט" aria-expanded="false"><span></span><span></span><span></span></button></div>
 </div></nav>

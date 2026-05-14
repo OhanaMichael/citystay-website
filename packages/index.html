@@ -282,6 +282,11 @@
       .attraction-grid { grid-template-columns: repeat(2, 1fr); }
     }
   </style>
+  <!-- Favicons -->
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="64x64" href="/assets/images/favicon-64.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/favicon-180.png">
+  <meta name="theme-color" content="#1B4D6E">
 </head>
 <body>
 
@@ -290,7 +295,14 @@
 <!-- NAVBAR (same structure) -->
 <nav class="navbar transparent" aria-label="תפריט ראשי">
   <div class="nav-inner">
-    <a href="/" class="nav-logo">City Stay<span>טבריה · Tiberias</span></a>
+    <a href="/" class="nav-logo" aria-label="City Stay Tiberias - עמוד הבית">
+      <picture>
+        <source srcset="/assets/images/logo-full.webp" type="image/webp">
+        <img src="/assets/images/logo-full.png" alt="City Stay Tiberias" 
+             width="140" height="91" loading="eager"
+             style="height:48px;width:auto;object-fit:contain;transition:opacity .3s">
+      </picture>
+    </a>
     <div class="nav-links">
       <a href="/" class="nav-link">בית</a>
       <a href="/rooms/" class="nav-link">חדרים</a>
@@ -688,7 +700,7 @@
 </div>
 <button class="back-to-top" aria-label="חזרה לראש הדף">↑</button>
 
-<script src="https://wubook.net/js/wblib.jgz" defer></script>
+<script src="https://wubook.net/js/nebi/iframe.jgz"></script>
 <script src="/assets/js/main.js" defer></script>
 <script>
 // Attraction selector

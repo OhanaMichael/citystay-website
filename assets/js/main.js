@@ -147,32 +147,21 @@ window.addEventListener('scroll', () => {
   });
 }, { passive: true });
 
-// === WuBook Widget Loader ===
-function initWuBook(propertyId, containerId, lang = 'he', extraParams = {}) {
-  if (typeof _WuBook === 'undefined') {
-    console.warn('WuBook library not loaded');
+// === WuBook ZakNeb Widget Loader ===
+function initWuBook(containerId) {
+  if (typeof ZakNebIframe === 'undefined') {
+    console.warn('WuBook ZakNeb library not loaded');
     return;
   }
-  const WuBook = new _WuBook(propertyId);
-  const params = {
-    lang,
-    buttoncolor: '#1B4D6E',
-    bgcolor: 'transparent',
-    textcolor: '#1A1A2E',
-    default_nights: 2,
-    wbgoogle: 1,
-    failback_lang: 'en',
-    ...extraParams
-  };
-  WuBook.design_rwidget(containerId, params);
+  const url = 'https://wubook.net/nneb/bk?f=today&n=1&ep=52ae8af2&o=1.0.0.0';
+  const Neb = new ZakNebIframe('#' + containerId, url);
+  Neb.render();
 }
 
-// Auto-init WuBook if container exists
+// Auto-init WuBook widget if container exists
 const wbContainer = document.getElementById('_wbord_');
 if (wbContainer) {
-  const PROPERTY_ID = '1595772253';
-  const lang = document.documentElement.lang === 'en' ? 'en' : 'he';
-  initWuBook(PROPERTY_ID, '_wbord_', lang);
+  initWuBook('_wbord_');
 }
 
 // === Newsletter / Club Form ===
