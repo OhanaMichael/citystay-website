@@ -798,3 +798,99 @@ section:not(.booking-section):not(.club-section):not(.rooms-section) .eyebrow {
 /* 10. Deal banner readable */
 .deal-content h3 { color: var(--white) !important; }
 .deal-content p { color: rgba(255,255,255,.45) !important; }
+
+/* ============================================================
+   UX AUDIT FIXES — v5
+   ============================================================ */
+
+/* Skip link — visible on focus */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  right: 1rem;
+  background: var(--gold);
+  color: var(--ink);
+  padding: .5rem 1rem;
+  border-radius: 0 0 var(--radius) var(--radius);
+  font-weight: 500;
+  z-index: 9999;
+  transition: top .2s;
+  text-decoration: none;
+}
+.skip-link:focus { top: 0; outline: 2px solid var(--ink); }
+
+/* CTA hierarchy — primary gold, secondary outline */
+.btn-primary-cta {
+  background: var(--gold) !important;
+  color: var(--ink) !important;
+  border: 2px solid var(--gold) !important;
+  font-weight: 600 !important;
+}
+.btn-secondary-cta {
+  background: transparent !important;
+  color: var(--white) !important;
+  border: 2px solid rgba(255,255,255,.5) !important;
+}
+.btn-secondary-cta:hover { border-color: var(--white) !important; background: rgba(255,255,255,.08) !important; }
+
+/* WhatsApp float — improved */
+.wa-float {
+  position: fixed;
+  bottom: var(--s6);
+  left: var(--s6);
+  z-index: 900;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: #25D366;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 24px rgba(37,211,102,.4);
+  transition: transform .2s, box-shadow .2s;
+}
+.wa-float:hover { transform: scale(1.08); box-shadow: 0 8px 32px rgba(37,211,102,.5); }
+
+/* Prefers reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    transition-duration: .01ms !important;
+  }
+  html { scroll-behavior: auto; }
+}
+
+/* Mobile hamburger — fix nav across screen */
+@media (max-width: 900px) {
+  .nav-links { display: none !important; }
+  .hamburger { display: flex !important; }
+  .mobile-menu.open { display: flex !important; }
+}
+
+/* Gallery images — prevent CLS */
+.g-item img, .room-card-v2-img img, .room-gallery img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Page headers — always dark, always readable */
+.page-hero, .page-hero-inner, .page-header {
+  background: var(--ink) !important;
+}
+.page-hero h1, .page-hero-inner h1, .page-header h1 {
+  color: var(--white) !important;
+}
+.page-hero p, .page-hero-inner p, .page-header p {
+  color: rgba(255,255,255,.55) !important;
+}
+
+/* Features bar — dark text on light bg */
+.feature-main { color: var(--ink) !important; }
+.feature-sub { color: var(--mist) !important; }
+.features-bar { background: var(--cream-warm) !important; }
+
+/* Booking CTA — gold bg dark text */
+.booking-cta-bar, .booking-cta-bar * { color: var(--ink) !important; }
+.booking-cta-bar { background: var(--gold) !important; }
