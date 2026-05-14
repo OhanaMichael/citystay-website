@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+  <!-- דף הבית -->
+  <url>
+    <loc>https://www.citystay.co.il/</loc>
+    <xhtml:link rel="alternate" hreflang="he" href="https://www.citystay.co.il/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.citystay.co.il/en/"/>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- חדרים -->
+  <url>
+    <loc>https://www.citystay.co.il/rooms/</loc>
+    <xhtml:link rel="alternate" hreflang="he" href="https://www.citystay.co.il/rooms/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.citystay.co.il/en/rooms/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://www.citystay.co.il/rooms/family-suite/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <url>
+    <loc>https://www.citystay.co.il/rooms/comfort-room/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <!-- חבילות -->
+  <url>
+    <loc>https://www.citystay.co.il/packages/</loc>
+    <xhtml:link rel="alternate" hreflang="he" href="https://www.citystay.co.il/packages/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.citystay.co.il/en/packages/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- מבצעים -->
+  <url>
+    <loc>https://www.citystay.co.il/deals/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- גלריה -->
+  <url>
+    <loc>https://www.citystay.co.il/gallery/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- אודות -->
+  <url>
+    <loc>https://www.citystay.co.il/about/</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <!-- צור קשר -->
+  <url>
+    <loc>https://www.citystay.co.il/contact/</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- הזמנה -->
+  <url>
+    <loc>https://www.citystay.co.il/booking/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+  </url>
+
+</urlset>

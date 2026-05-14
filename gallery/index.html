@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>גלריה | סיטי סטיי טבריה</title>
+  <meta name="description" content="גלריית תמונות של סיטי סטיי טבריה — חדרים, סוויטות, מתחם ונוף הכינרת.">
+  <link rel="canonical" href="https://www.citystay.co.il/gallery/">
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@300;400;500;700&family=Heebo:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <script src="/assets/js/config.js"></script>
+  <style>
+    .page-hero{background:linear-gradient(135deg,var(--primary-dark),var(--primary));color:var(--white);padding:calc(var(--nav-height)+2.5rem) 0 2.5rem;text-align:center}
+    .page-hero h1{color:var(--white);margin-bottom:.5rem}
+    .page-hero p{color:rgba(255,255,255,.8)}
+    .gallery-filter{display:flex;gap:.75rem;justify-content:center;flex-wrap:wrap;margin-bottom:2rem}
+    .filter-btn{padding:.5rem 1.25rem;border-radius:50px;border:2px solid var(--border);background:var(--white);color:var(--text);font-size:.85rem;font-weight:500;cursor:pointer;transition:var(--transition)}
+    .filter-btn.active,.filter-btn:hover{background:var(--primary);color:var(--white);border-color:var(--primary)}
+    .masonry{columns:3;column-gap:.75rem}
+    .masonry-item{break-inside:avoid;margin-bottom:.75rem;border-radius:var(--radius);overflow:hidden;cursor:pointer;position:relative;background:var(--accent)}
+    .masonry-item img{width:100%;display:block;transition:transform .4s ease}
+    .masonry-item:hover img{transform:scale(1.04)}
+    .masonry-item .overlay{position:absolute;inset:0;background:rgba(27,77,110,0);transition:var(--transition);display:flex;align-items:center;justify-content:center}
+    .masonry-item:hover .overlay{background:rgba(27,77,110,.3)}
+    .masonry-item .zoom-icon{color:var(--white);font-size:2rem;opacity:0;transition:var(--transition)}
+    .masonry-item:hover .zoom-icon{opacity:1}
+    /* Placeholder items */
+    .ph{display:flex;align-items:center;justify-content:center;font-size:3rem;min-height:180px}
+    @media(max-width:768px){.masonry{columns:2}}
+    @media(max-width:480px){.masonry{columns:1}}
+    /* Supabase gallery items */
+    .gallery-item[style*="display:none"]{display:none!important}
+  </style>
+</head>
+<body>
+<a href="#main" class="skip-link">דלג לתוכן הראשי</a>
+<nav class="navbar transparent" aria-label="תפריט ראשי"><div class="nav-inner">
+  <a href="/" class="nav-logo">City Stay<span>טבריה · Tiberias</span></a>
+  <div class="nav-links"><a href="/" class="nav-link">בית</a><a href="/rooms/" class="nav-link">חדרים</a><a href="/packages/" class="nav-link">חבילות</a><a href="/deals/" class="nav-link">מבצעים</a><a href="/gallery/" class="nav-link active">גלריה</a><a href="/about/" class="nav-link">אודות</a><a href="/contact/" class="nav-link">צור קשר</a></div>
+  <div class="nav-actions"><div class="lang-switcher"><button class="lang-btn active" data-lang="he">עב</button><button class="lang-btn" data-lang="en">EN</button></div><a href="/booking/" class="btn btn-gold" data-cta="nav_book">הזמן עכשיו</a><button class="hamburger" aria-label="פתח תפריט" aria-expanded="false"><span></span><span></span><span></span></button></div>
+</div></nav>
+<div class="mobile-menu" id="mobile-menu"><button class="mobile-close btn btn-outline-white">✕ סגור</button><a href="/" class="nav-link">🏠 בית</a><a href="/rooms/" class="nav-link">🛏️ חדרים</a><a href="/packages/" class="nav-link">🎁 חבילות</a><a href="/deals/" class="nav-link">🔥 מבצעים</a><a href="/gallery/" class="nav-link">📸 גלריה</a><a href="/about/" class="nav-link">📍 אודות</a><a href="/contact/" class="nav-link">📞 צור קשר</a><a href="/booking/" class="btn btn-gold btn-lg" style="margin-top:1rem">הזמן עכשיו</a></div>
+
+<main id="main">
+  <div class="page-hero"><div class="container"><span class="eyebrow" style="color:var(--gold-light);display:block;margin-bottom:.5rem">גלריה</span><h1>📸 ראה לפני שמגיע</h1><p>תמונות אמיתיות של החדרים, המתחם, והסביבה הקסומה.</p></div></div>
+
+  <section class="section"><div class="container">
+
+    <!-- Filter buttons -->
+    <div class="gallery-filter reveal" role="group" aria-label="סינון גלריה">
+      <button class="filter-btn active" data-filter="all">הכל</button>
+      <button class="filter-btn" data-filter="suite">סוויטת משפחה</button>
+      <button class="filter-btn" data-filter="comfort">חדר קומפורט</button>
+      <button class="filter-btn" data-filter="area">מתחם</button>
+      <button class="filter-btn" data-filter="view">נוף ואזור</button>
+    </div>
+
+    <!-- Masonry Gallery -->
+    <!-- כשתעלה תמונות ל-Supabase Storage, החלף את ה-placeholders הבאים -->
+    <div class="masonry reveal" id="gallery-grid" role="list" aria-label="גלריית תמונות">
+
+      <!-- סוויטת משפחה -->
+      <div class="masonry-item gallery-item" data-category="suite" role="listitem" tabindex="0" data-lightbox aria-label="סוויטת משפחה — נוף כללי">
+        <div class="ph" style="background:linear-gradient(135deg,#1B4D6E,#2a6d99);color:rgba(255,255,255,.4)">🏡</div>
+        <!-- <img src="/assets/images/gallery/suite-1.webp" alt="סוויטת משפחה — מבט כללי" loading="lazy"> -->
+        <div class="overlay"><span class="zoom-icon" aria-hidden="true">🔍</span></div>
+      </div>
+      <div class="masonry-item gallery-item" data-category="suite" role="listitem" tabindex="0" data-lightbox aria-label="חדר שינה ראשי — סוויטה">
+        <div class="ph" style="background:linear-gradient(135deg,#2a5f80,#3a8ab0);min-height:140px;color:rgba(255,255,255,.4)">🛏️</div>
+        <!-- <img src="/assets/images/gallery/suite-bedroom.webp" alt="חדר שינה ראשי עם מיטה זוגית" loading="lazy"> -->
+        <div class="overlay"><span class="zoom-icon" aria-hidden="true">🔍</span></div>
+      </div>
+      <div class="masonry-item gallery-item" data-category="suite" role="listitem" tabindex="0" data-lightbox aria-label="מטבח מאובזר — סוויטה">
+        <div class="ph" style="background:linear-gradient(135deg,#f8f4e8,#ecdbb8);min-height:220px">🍳</div>
+        <!-- <img src="/assets/images/gallery/suite-kitchen.webp" alt="מטבח מאובזר עם מכונת אספרסו" loading="lazy"> -->
+        <div class="overlay"><span class="zoom-icon" aria-hidden="true">🔍</span></div>
+      </div>
+      <div class="masonry-item gallery-item" data-category="suite" role="listitem" tabindex="0" data-lightbox aria-label="סלון — סוויטה">
+        <div class="ph" style="background:linear-gradient(135deg,#e8f0f8,#b8ceec)">🛋️</div>
+        <!-- <img src="/assets/images/gallery/suite-living.webp" alt="סלון עם ספה וטלוויזיה חכמה" loading="lazy"> -->
+        <div class="overlay"><span class="zoom-icon" aria-hidden="true">🔍</span></div>
+      </div>
+      <div class="masonry-item gallery-item" data-category="suite" role="listitem" tabindex="0" data-lightbox aria-label="חדר ילדים — קומות">
+        <div class="ph" style="background:linear-gradient(135deg,#e8f8f0,#b8ecd4);min-height:160px">🪜</div>
+        <!-- <img src="/assets/images/gallery/suite-kids.webp" alt="חדר ילדים עם מיטות קומות" loading="lazy"> -->
+        <div class="overlay"><span class="zoom-icon" aria-hidden="true">🔍</span></div>
+      </div>
+
+      <!-- חדר קומפורט -->
+      <div class="masonry-item gallery-item" data-category="comfort" role="listitem" tabindex="0" data-lightbox aria-label="חדר קומפורט — מבט כללי">
+        <div class="ph" style="background:linear-gradient(135deg,#1a3a52,#2a5f80);color:rgba(255,255,255,.4);min-height:200px">🛏️</div>
+        <!-- <img src="/assets/images/gallery/comfort-1.webp" alt="חדר קומפורט זוגי" loading="lazy"> -->
+        <div class="overlay"><span class="zoom-icon" aria-hidden="true">🔍</span></div>
+      </div>
+      <div class="masonry-item gallery-item" data-category="comfort" role="listitem" tabindex="0" data-lightbox aria-label="מקלחת פרטית — קומפורט">
+        <div class="ph" style="background:linear-gradient(135deg,#f0f8ff,#c8e8f8);min-height:150px">🚿</div>
+        <!-- <img src="/assets/images/gallery/comfort-bathroom.webp" alt="מקלחת פרטית" loading="lazy"> -->
+        <div class="overlay"><span class="zoom-icon" aria-hidden="true">🔍</span></div>
+      </div>
+      <div class="masonry-item gallery-item" data-category="comfort" role="listitem" tabindex="0" data-lightbox aria-label="מרפסת — קומפורט">
+        <div class="ph" style="background:linear-gradient(135deg,#e8f8f4,#b8ecdb)">🪟</div>
+        <!-- <img src="/assets/images/gallery/comfort-balcony.webp" alt="מרפסת עם נוף" loading="lazy"> -->
+        <div class="overlay"><span class="zoom-icon" aria-hidden="true">🔍</span></div>
+      </div>
+
+      <!-- מתחם -->
+      <div class="masonry-item gallery-item" data-category="area" role="listitem" tabindex="0" data-lightbox aria-label="כניסה למתחם">
+        <div class="ph" style="background:linear-gradient(135deg,#2c3e50,#4a6741);color:rgba(255,255,255,.4);min-height:180px">🏘️</div>
+        <!-- <img src="/assets/images/gallery/exterior-1.webp" alt="כניסה למתחם סיטי סטיי" loading="lazy"> -->
+        <div class="overlay"><span class="zoom-icon" aria-hidden="true">🔍</span></div>
+      </div>
+      <div class="masonry-item gallery-item" data-category="area" role="listitem" tabindex="0" data-lightbox aria-label="חניון פרטי">
+        <div class="ph" style="background:linear-gradient(135deg,#4a4a4a,#6a6a6a);color:rgba(255,255,255,.3)">🅿️</div>
+        <!-- <img src="/assets/images/gallery/parking.webp" alt="חניון פרטי" loading="lazy"> -->
+        <div class="overlay"><span class="zoom-icon" aria-hidden="true">🔍</span></div>
+      </div>
+
+      <!-- נוף ואזור -->
+      <div class="masonry-item gallery-item" data-category="view" role="listitem" tabindex="0" data-lightbox aria-label="נוף הכינרת">
+        <div class="ph" style="background:linear-gradient(135deg,#1B4D6E,#6ab4d8);color:rgba(255,255,255,.5);min-height:240px">🌊</div>
+        <!-- <img src="/assets/images/gallery/kinneret.webp" alt="נוף הכינרת מטבריה" loading="lazy"> -->
+        <div class="overlay"><span class="zoom-icon" aria-hidden="true">🔍</span></div>
+      </div>
+      <div class="masonry-item gallery-item" data-category="view" role="listitem" tabindex="0" data-lightbox aria-label="טיילת טבריה">
+        <div class="ph" style="background:linear-gradient(135deg,#2980b9,#5dade2)">⛵</div>
+        <!-- <img src="/assets/images/gallery/promenade.webp" alt="טיילת טבריה" loading="lazy"> -->
+        <div class="overlay"><span class="zoom-icon" aria-hidden="true">🔍</span></div>
+      </div>
+      <div class="masonry-item gallery-item" data-category="view" role="listitem" tabindex="0" data-lightbox aria-label="שקיעה בטבריה">
+        <div class="ph" style="background:linear-gradient(135deg,#e67e22,#d35400);color:rgba(255,255,255,.5)">🌅</div>
+        <!-- <img src="/assets/images/gallery/sunset.webp" alt="שקיעה יפה מטבריה" loading="lazy"> -->
+        <div class="overlay"><span class="zoom-icon" aria-hidden="true">🔍</span></div>
+      </div>
+
+    </div>
+
+    <div style="text-align:center;margin-top:2rem" class="reveal">
+      <a href="/booking/" class="btn btn-primary btn-lg" data-cta="gallery_book">🗓️ אהבת? הזמן עכשיו</a>
+    </div>
+  </div></section>
+</main>
+
+<footer class="footer"><div class="container"><div class="footer-grid"><div class="footer-brand"><h3>City Stay Tiberias</h3><p>מתחם אירוח בוטיק במרכז טבריה.</p><div class="footer-social"><a href="https://www.facebook.com/City.Stay.Tiberias" class="social-btn" target="_blank" rel="noopener" aria-label="Facebook">f</a><a href="https://www.instagram.com/city.stay.tiberias" class="social-btn" target="_blank" rel="noopener" aria-label="Instagram">📷</a><a href="https://wa.me/97246206464" class="social-btn" target="_blank" rel="noopener" aria-label="WhatsApp">💬</a></div></div><nav aria-label="ניווט"><h4>ניווט מהיר</h4><ul><li><a href="/rooms/">חדרים</a></li><li><a href="/packages/">חבילות</a></li><li><a href="/booking/">הזמנה</a></li></ul></nav><nav aria-label="מידע"><h4>מידע</h4><ul><li><a href="/about/">אודות</a></li><li><a href="/privacy/">פרטיות</a></li><li><a href="/en/">English</a></li></ul></nav><div><h4>צור קשר</h4><div class="footer-contact-item"><span>📍</span><span>רחוב הגליל 24, טבריה</span></div><div class="footer-contact-item"><span>📞</span><a href="tel:+97246206464">04-6206464</a></div><div class="footer-contact-item"><span>✉️</span><a href="mailto:citystaytiberias@gmail.com">citystaytiberias@gmail.com</a></div></div></div><div class="footer-bottom"><span>© 2025 City Stay Tiberias</span><span><a href="/privacy/" style="color:inherit">פרטיות</a></span></div></div></footer>
+<div class="whatsapp-float"><span class="whatsapp-tooltip">שלח הודעה ב-WhatsApp</span><a href="https://wa.me/97246206464" class="whatsapp-btn" aria-label="WhatsApp" target="_blank" rel="noopener">💬</a></div>
+<button class="back-to-top" aria-label="חזרה לראש הדף">↑</button>
+<div id="lightbox" role="dialog" aria-modal="true" aria-label="תצוגת תמונה" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.92);z-index:9999;align-items:center;justify-content:center"><style>#lightbox.open{display:flex!important}</style><button class="lightbox-close" aria-label="סגור" style="position:absolute;top:1rem;left:1rem;background:none;border:none;color:#fff;font-size:2rem;cursor:pointer">✕</button><img src="" alt="" style="max-width:90vw;max-height:90vh;object-fit:contain;border-radius:8px"></div>
+<script src="/assets/js/main.js" defer></script>
+<script>
+// Filter
+document.querySelectorAll('.filter-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.filter-btn').forEach(b => { b.classList.remove('active'); b.setAttribute('aria-pressed','false'); });
+    btn.classList.add('active'); btn.setAttribute('aria-pressed','true');
+    const filter = btn.dataset.filter;
+    document.querySelectorAll('.gallery-item').forEach(item => {
+      item.style.display = (filter === 'all' || item.dataset.category === filter) ? '' : 'none';
+    });
+  });
+});
+// Keyboard lightbox trigger
+document.querySelectorAll('.masonry-item[data-lightbox]').forEach(item => {
+  item.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); item.click(); } });
+});
+</script>
+</body>
+</html>

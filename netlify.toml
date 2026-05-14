@@ -1,0 +1,52 @@
+# ================================================
+# CITY STAY TIBERIAS — Netlify Configuration
+# ================================================
+
+[build]
+  publish = "."
+  command = ""   # Static site — no build step needed
+
+# ════════════════════════════════
+# Redirects
+# ════════════════════════════════
+
+# HTTP → HTTPS
+[[redirects]]
+  from   = "http://citystay.co.il/*"
+  to     = "https://www.citystay.co.il/:splat"
+  status = 301
+  force  = true
+
+# non-www → www
+[[redirects]]
+  from   = "https://citystay.co.il/*"
+  to     = "https://www.citystay.co.il/:splat"
+  status = 301
+  force  = true
+
+# Old WuBook minisite pages → new site
+[[redirects]]
+  from   = "/en/accomodations"
+  to     = "/en/rooms/"
+  status = 301
+
+[[redirects]]
+  from   = "/en/info"
+  to     = "/en/about/"
+  status = 301
+
+[[redirects]]
+  from   = "/en/feedbacks"
+  to     = "/en/about/#reviews"
+  status = 301
+
+[[redirects]]
+  from   = "/en/contacts"
+  to     = "/en/contact/"
+  status = 301
+
+# 404 fallback
+[[redirects]]
+  from   = "/*"
+  to     = "/404.html"
+  status = 404
