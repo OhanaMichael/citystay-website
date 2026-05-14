@@ -15,7 +15,7 @@
   </script>
   <script src="/assets/js/config.js"></script>
   <style>
-    .page-hero{background:linear-gradient(135deg,#0f2d42,var(--primary));color:var(--white);padding:calc(var(--nav-height) + 2.5rem) 0 2.5rem;text-align:center}
+    .page-hero{background:linear-gradient(135deg,#0f2d42,var(--primary));color:var(--white);padding:calc(var(--nav-h) + 56px) 0 var(--s7);text-align:center}
     .page-hero h1{color:var(--white);margin-bottom:.5rem}
     .page-hero p{color:rgba(255,255,255,.8);max-width:520px;margin:0 auto}
     .room-gallery{display:grid;grid-template-columns:2fr 1fr;grid-template-rows:auto auto;gap:.75rem;margin-bottom:3rem}
@@ -82,7 +82,14 @@
       <div style="display:grid;grid-template-columns:1fr 340px;gap:3rem;align-items:start">
         <div>
           <div class="room-gallery reveal" role="group" aria-label="גלריית החדר">
-            <div class="main-img" data-lightbox tabindex="0" role="button" aria-label="תמונה ראשית — חדר קומפורט">🛏️</div>
+            <div class="main-img" data-lightbox tabindex="0" role="button" aria-label="תמונה ראשית — חדר קומפורט">
+              <picture><source srcset="/assets/images/rooms/comfort/comfort-hero.webp" type="image/webp"><img src="/assets/images/rooms/comfort/comfort-hero.jpg" alt="חדר קומפורט — מיטה זוגית" loading="eager" width="1200" height="900" style="width:100%;height:100%;object-fit:cover"></picture>
+            </div>
+            <div class="thumb-img" data-lightbox tabindex="0" role="button" aria-label="חדר קומפורט מלא" style="overflow:hidden;border-radius:var(--radius);cursor:pointer;background:var(--ink-mid)">
+              <picture><source srcset="/assets/images/rooms/comfort/comfort-room.webp" type="image/webp"><img src="/assets/images/rooms/comfort/comfort-room.jpg" alt="חדר קומפורט" loading="lazy" width="1400" height="1050" style="width:100%;height:100%;object-fit:cover"></picture>
+            </div>
+            <div class="thumb-img" data-lightbox tabindex="0" role="button" aria-label="שירותים ומקלחת" style="overflow:hidden;border-radius:var(--radius);cursor:pointer;background:var(--ink-mid)">
+              <picture><source srcset="/assets/images/rooms/comfort/comfort-bathroom.webp" type="image/webp"><img src="/assets/images/rooms/comfort/comfort-bathroom.jpg" alt="שירותים ומקלחת" loading="lazy" width="1200" height="900" style="width:100%;height:100%;object-fit:cover"></picture>
             <div class="thumb" data-lightbox tabindex="0" role="button" aria-label="מקלחת פרטית">🚿</div>
             <div class="thumb" data-lightbox tabindex="0" role="button" aria-label="מרפסת עם נוף">🪟</div>
           </div>
@@ -140,7 +147,7 @@
         <div>
           <div class="sticky-booking reveal">
             <h3>הזמן את החדר</h3>
-            <div class="price-display">
+            <div class="price-display"><p style="font-size:.8rem;color:var(--mist);margin-bottom:var(--s2)">לזוג · החל מ-</p>
               <div class="big"><span data-base-price="500">590</span>₪</div>
               <div class="sub">לילה</div>
               <div class="vat">✓ כולל מע"מ 18%</div>

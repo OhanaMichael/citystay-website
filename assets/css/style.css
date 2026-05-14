@@ -719,3 +719,82 @@ em { font-style:italic; color:var(--gold); font-family:var(--font-display) }
   *,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}
   html{scroll-behavior:auto}
 }
+
+
+/* ============================================================
+   CRITICAL FIXES v4 — Text contrast + Headers + Pricing
+   ============================================================ */
+
+/* 1. Page headers — dark background always, never beige */
+.page-hero,
+.page-hero-inner,
+.page-header {
+  background: var(--ink) !important;
+  color: var(--white) !important;
+  padding-top: calc(var(--nav-h) + 56px) !important;
+  padding-bottom: var(--s7) !important;
+}
+.page-hero h1,
+.page-hero-inner h1,
+.page-header h1 {
+  color: var(--white) !important;
+  font-size: clamp(2rem,4vw,3.2rem) !important;
+  text-shadow: none !important;
+}
+.page-hero p,
+.page-hero-inner p,
+.page-header p {
+  color: rgba(255,255,255,.55) !important;
+}
+.page-hero .eyebrow,
+.page-hero-inner .eyebrow,
+.page-header .eyebrow {
+  color: var(--gold) !important;
+}
+
+/* 2. Features bar — fix any white text on cream */
+.features-bar { background: var(--cream-warm) !important; }
+.feature-main { color: var(--ink) !important; }
+.feature-sub { color: var(--mist) !important; }
+
+/* 3. Rooms section — white bg, dark text */
+.rooms-section { background: var(--white) !important; }
+.section-header h2 { color: var(--ink) !important; }
+.section-header p { color: var(--mist) !important; }
+
+/* 4. Room card text — always readable */
+.room-card-v2-body h3 { color: var(--ink) !important; }
+.room-card-v2-body p { color: var(--mist) !important; }
+.room-card-v2-capacity { color: var(--gold-dim) !important; }
+
+/* 5. Booking CTA bar — gold bg, dark text */
+.booking-cta-bar { background: var(--gold) !important; }
+.booking-cta-bar a,
+.booking-cta-bar a * { color: var(--ink) !important; }
+
+/* 6. Inner page gallery thumbs */
+.thumb-img {
+  overflow: hidden;
+  border-radius: var(--radius);
+  cursor: pointer;
+  background: var(--ink-mid);
+  aspect-ratio: 4/3;
+}
+
+/* 7. Price display on room detail pages */
+.price-display { background: var(--cream-warm) !important; border: 1px solid var(--stone) !important; }
+.price-display .big { color: var(--ink) !important; }
+.price-display .label { color: var(--mist) !important; }
+
+/* 8. Navbar — always readable regardless of page */
+.navbar { background: rgba(12,12,14,0.8) !important; backdrop-filter: blur(16px) !important; }
+.navbar.scrolled { background: rgba(248,245,239,0.97) !important; }
+
+/* 9. Fix any section with cream bg + wrong text color */
+section:not(.booking-section):not(.club-section):not(.rooms-section) .eyebrow {
+  color: var(--gold) !important;
+}
+
+/* 10. Deal banner readable */
+.deal-content h3 { color: var(--white) !important; }
+.deal-content p { color: rgba(255,255,255,.45) !important; }
