@@ -378,13 +378,34 @@ em { font-style:italic; color:var(--gold); font-family:var(--font-display) }
 .feature-sub { font-size:.72rem; color:var(--mist); display:block; margin-top:2px }
 
 /* ============================================================ BOOKING SECTION */
-.booking-section { background:var(--ink-soft); padding:var(--s8) 0 }
+.booking-section { background:var(--ink-soft); padding:var(--s7) 0 }
 .booking-section-inner { display:flex; align-items:flex-start; gap:var(--s8); flex-wrap:wrap }
 .booking-label { flex-shrink:0; max-width:260px }
 .booking-label .eyebrow { color:var(--gold) }
 .booking-label h3 { color:var(--white); font-size:1.5rem; font-weight:300; margin-bottom:var(--s4) }
 .booking-label p { color:rgba(255,255,255,.35); font-size:.85rem }
-.booking-widget-wrap { flex:1; min-width:280px; background:var(--cream); border-radius:var(--radius-lg); overflow:hidden; min-height:120px }
+.booking-widget-wrap { 
+  flex:1; min-width:280px; 
+  background:transparent; 
+  border-radius:var(--radius-lg); 
+  overflow:visible; 
+  min-height:80px;
+}
+/* WuBook widget overrides */
+#_baror_ { width:100% !important }
+#_baror_ form, #_baror_ table { width:100% !important; direction:ltr }
+#_baror_ input[type=text], #_baror_ input[type=date] { 
+  font-family:var(--font-body) !important;
+  font-size:.875rem !important;
+}
+#_baror_ input[type=submit], #_baror_ button[type=submit] {
+  background:var(--gold) !important;
+  color:var(--ink) !important;
+  font-family:var(--font-caps) !important;
+  letter-spacing:.12em !important;
+  border:none !important;
+  cursor:pointer !important;
+}
 
 /* ============================================================ ROOM CARDS */
 .rooms-grid {

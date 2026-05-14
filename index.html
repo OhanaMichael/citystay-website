@@ -174,16 +174,21 @@
 <!-- ═══════════════════════════ BOOKING ═══════════════════════════ -->
 <section class="booking-section" aria-labelledby="booking-heading">
   <div class="container">
-    <div class="booking-section-inner">
-      <div class="booking-section-label">
-        <span class="t-eyebrow">הזמנה מקוונת</span>
-        <h3 id="booking-heading">בדוק זמינות ומחירים</h3>
-        <p>הזמנה מאובטחת ישירות דרך המערכת שלנו. המחיר שרואים — המחיר שמשלמים, כולל מע"מ.</p>
-        <p style="margin-top:var(--s4);font-size:.78rem;color:rgba(255,255,255,.25)">🔒 הזמנה מאובטחת · SSL · PCI Compliant</p>
+    <div style="text-align:center;margin-bottom:var(--s5)">
+      <span class="eyebrow" id="booking-heading">הזמנה מקוונת</span>
+      <h3 style="color:var(--white);font-size:1.4rem;font-weight:300">בדוק זמינות ומחירים</h3>
+    </div>
+    <div class="booking-widget-wrap">
+      <div id="_baror_">
+        <a href="https://wubook.net/" style="display:block;margin-top:5px;text-decoration:none;border:none;" target="_blank" rel="noopener">
+          <img src="https://wubook.net/imgs/default/booking_by_wu.gif" alt="WuBook" title="Hotel and tourism solutions" style="border:none;text-decoration:none;" />
+        </a>
       </div>
-      <div class="booking-widget-wrap">
-          <div id="_baror_"><a href="https://wubook.net/" style="display:block;margin-top:5px" target="_blank" rel="noopener"><img src="https://wubook.net/imgs/default/booking_by_wu.gif" alt="WuBook" style="border:none" /></a></div>
-        </div>
+    </div>
+    <div style="display:flex;gap:var(--s6);justify-content:center;flex-wrap:wrap;margin-top:var(--s5)">
+      <span style="font-family:var(--font-caps);font-size:8.5px;letter-spacing:.15em;color:rgba(255,255,255,.3);text-transform:uppercase;display:flex;align-items:center;gap:var(--s2)"><span style="color:var(--gold)">✓</span> הזמנה מאובטחת</span>
+      <span style="font-family:var(--font-caps);font-size:8.5px;letter-spacing:.15em;color:rgba(255,255,255,.3);text-transform:uppercase;display:flex;align-items:center;gap:var(--s2)"><span style="color:var(--gold)">✓</span> מחיר כולל מע"מ</span>
+      <span style="font-family:var(--font-caps);font-size:8.5px;letter-spacing:.15em;color:rgba(255,255,255,.3);text-transform:uppercase;display:flex;align-items:center;gap:var(--s2)"><span style="color:var(--gold)">✓</span> ביטול גמיש 14 יום</span>
     </div>
   </div>
 </section>
@@ -712,6 +717,7 @@
 </style>
 
 
+
 <script>
   document.addEventListener('DOMContentLoaded', function() {
     if (typeof _WuBook === 'undefined') return;
@@ -725,7 +731,7 @@
       lang: 'he',
       failback_lang: 'en',
       wbgoogle: 1,
-      dcode: 0,
+      dcode: 1,
       leisure: 1,
       default_nights: 1,
       dcodeval: ''

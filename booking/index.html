@@ -28,6 +28,7 @@
   <link rel="icon" type="image/png" sizes="64x64" href="/assets/images/favicon-64.png">
   <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/favicon-180.png">
   <meta name="theme-color" content="#1B4D6E">
+  <script src="https://wubook.net/js/wblib.jgz"></script>
 </head>
 <body>
 <a href="#main" class="skip-link">דלג לתוכן הראשי</a>
@@ -60,9 +61,10 @@
 
       <!-- WuBook Widget -->
       <div class="wubook-frame-wrap">
-        
-            <p style="font-size:.9rem">טוען מנוע הזמנות מאובטח...</p>
-          </div>
+        <div id="_baror_">
+          <a href="https://wubook.net/" style="display:block;margin-top:5px;text-decoration:none;border:none;" target="_blank" rel="noopener">
+            <img src="https://wubook.net/imgs/default/booking_by_wu.gif" alt="WuBook" style="border:none;text-decoration:none;" />
+          </a>
         </div>
       </div>
 
@@ -97,5 +99,26 @@
 
 <script src="/assets/js/config.js"></script>
 <script src="/assets/js/main.js" defer></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    if (typeof _WuBook === 'undefined') return;
+    var WuBook = new _WuBook(1595772253);
+    var wbparams = {
+      bgcolor: '#ffffff',
+      textcolor: '#0C0C0E',
+      buttoncolor: '#C8A96E',
+      iconcolor: '#8A7148',
+      bordercolor: '#C8A96E',
+      lang: 'he',
+      failback_lang: 'en',
+      wbgoogle: 1,
+      dcode: 1,
+      leisure: 1,
+      default_nights: 1,
+      dcodeval: ''
+    };
+    WuBook.design_rwidget("_baror_", wbparams);
+  });
+</script>
 </body>
 </html>
