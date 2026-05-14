@@ -30,6 +30,8 @@
   </script>
 
   <script src="/assets/js/config.js"></script>
+  
+  <script src="https://wubook.net/js/nebk/bwidget_loader.jgz"></script>
 </head>
 <body>
 
@@ -181,12 +183,7 @@
         <p style="margin-top:var(--s4);font-size:.78rem;color:rgba(255,255,255,.25)">🔒 הזמנה מאובטחת · SSL · PCI Compliant</p>
       </div>
       <div class="booking-widget-wrap">
-        <div id="citystay-booking-widget">
-  <script src="https://wubook.net/js/nebk/bwidget_loader.jgz"></script>
-  <script>
-    load_neb_widget("5dd9a18e-9483-4da2-b5bc-ff0000c0e523", "#citystay-booking-widget");
-  </script>
-</div>
+        <div id="citystay-booking-widget" style="min-height:120px"></div>
       </div>
     </div>
   </div>
@@ -715,5 +712,19 @@
 }
 </style>
 
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    if (typeof load_neb_widget === 'function') {
+      load_neb_widget("5dd9a18e-9483-4da2-b5bc-ff0000c0e523", "#citystay-booking-widget");
+    } else {
+      // Retry after scripts load
+      window.addEventListener('load', function() {
+        if (typeof load_neb_widget === 'function') {
+          load_neb_widget("5dd9a18e-9483-4da2-b5bc-ff0000c0e523", "#citystay-booking-widget");
+        }
+      });
+    }
+  });
+</script>
 </body>
 </html>
