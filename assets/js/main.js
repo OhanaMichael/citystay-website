@@ -13,7 +13,10 @@ if (navbar) {
     navbar.classList.toggle('transparent', !scrolled);
   };
   window.addEventListener('scroll', onScroll, { passive: true });
+  // Run immediately — critical for correct initial state
   onScroll();
+  // Also run after fonts/images load in case of reflow
+  window.addEventListener('load', onScroll);
 }
 
 // === Mobile Menu ===
