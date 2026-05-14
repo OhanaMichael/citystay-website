@@ -30,20 +30,19 @@
   </script>
 
   <script src="/assets/js/config.js"></script>
-  
-  <script src="https://wubook.net/js/nebk/bwidget_loader.jgz"></script>
+  <script src="https://wubook.net/js/wblib.jgz"></script>
 </head>
 <body>
 
 <a href="#main" class="skip-link">דלג לתוכן הראשי</a>
 
 <!-- ═══════════════════════════ NAVBAR ═══════════════════════════ -->
-<nav class="navbar transparent" aria-label="תפריט ראשי" id="navbar">
+<nav class="navbar transparent" id="navbar" aria-label="תפריט ראשי" id="navbar">
   <div class="nav-inner">
     <a href="/" class="nav-logo" aria-label="City Stay Tiberias — עמוד הבית">
       <picture>
         <source srcset="/assets/images/logo-full.webp" type="image/webp">
-        <img src="/assets/images/logo-full.png" alt="City Stay Tiberias" style="height:64px;width:auto;object-fit:contain" loading="eager">
+        <img src="/assets/images/logo-full.png" alt="City Stay Tiberias" style="height:64px;width:auto;object-fit:contain" style="height:60px;width:auto;object-fit:contain" loading="eager">
       </picture>
     </a>
 
@@ -183,8 +182,8 @@
         <p style="margin-top:var(--s4);font-size:.78rem;color:rgba(255,255,255,.25)">🔒 הזמנה מאובטחת · SSL · PCI Compliant</p>
       </div>
       <div class="booking-widget-wrap">
-        <div id="citystay-booking-widget" style="min-height:120px"></div>
-      </div>
+          <div id="_baror_"><a href="https://wubook.net/" style="display:block;margin-top:5px" target="_blank" rel="noopener"><img src="https://wubook.net/imgs/default/booking_by_wu.gif" alt="WuBook" style="border:none" /></a></div>
+        </div>
     </div>
   </div>
 </section>
@@ -616,7 +615,7 @@
       <div class="footer-brand">
         <picture>
           <source srcset="/assets/images/logo-full.webp" type="image/webp">
-          <img src="/assets/images/logo-full.png" alt="City Stay Tiberias" width="140" height="91" loading="lazy">
+          <img src="/assets/images/logo-full.png" alt="City Stay Tiberias" width="140" height="91" style="height:60px;width:auto;object-fit:contain" loading="lazy">
         </picture>
         <p>מתחם אירוח בוטיק במרכז טבריה — שלוש אפשרויות לינה, שירות חם ומחיר שקוף. זה סיטי סטיי.</p>
         <div class="footer-social" aria-label="רשתות חברתיות">
@@ -712,18 +711,26 @@
 }
 </style>
 
+
 <script>
   document.addEventListener('DOMContentLoaded', function() {
-    if (typeof load_neb_widget === 'function') {
-      load_neb_widget("5dd9a18e-9483-4da2-b5bc-ff0000c0e523", "#citystay-booking-widget");
-    } else {
-      // Retry after scripts load
-      window.addEventListener('load', function() {
-        if (typeof load_neb_widget === 'function') {
-          load_neb_widget("5dd9a18e-9483-4da2-b5bc-ff0000c0e523", "#citystay-booking-widget");
-        }
-      });
-    }
+    if (typeof _WuBook === 'undefined') return;
+    var WuBook = new _WuBook(1595772253);
+    var wbparams = {
+      bgcolor: '#F8F5EF',
+      textcolor: '#0C0C0E',
+      buttoncolor: '#C8A96E',
+      iconcolor: '#8A7148',
+      bordercolor: '#C8A96E',
+      lang: 'he',
+      failback_lang: 'en',
+      wbgoogle: 1,
+      dcode: 0,
+      leisure: 1,
+      default_nights: 1,
+      dcodeval: ''
+    };
+    WuBook.design_rwidget("_baror_", wbparams);
   });
 </script>
 </body>
