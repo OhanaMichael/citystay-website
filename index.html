@@ -91,7 +91,7 @@
   <div class="hero-bg" aria-hidden="true"></div>
   <!-- Hero image: replace when ready -->
   <div class="hero-placeholder" role="img" aria-label="נוף הכינרת"></div>
-  <!-- <img class="hero-img" src="/assets/images/hero/hero-main.webp" alt="נוף הכינרת מסיטי סטיי טבריה" loading="eager" fetchpriority="high"> -->
+  <picture><source srcset="/assets/images/entrance/entrance-main.webp" type="image/webp"><img class="hero-img" src="/assets/images/entrance/entrance-main.jpg" alt="כניסה למתחם סיטי סטיי טבריה" loading="eager" fetchpriority="high" width="1600" height="1200"></picture>
   <div class="hero-overlay" aria-hidden="true"></div>
 
   <div class="hero-content">
@@ -206,7 +206,7 @@
     <div class="rooms-grid" role="list">
       <!-- Comfort Room -->
       <article class="room-card reveal delay-1" role="listitem" aria-label="חדר קומפורט">
-        <div class="room-card-image ph" data-label="🛏️" role="img" aria-label="חדר קומפורט">
+        <div class="room-card-image" role="img" aria-label="חדר קומפורט"><picture><source srcset="/assets/images/rooms/comfort/comfort-hero.webp" type="image/webp"><img src="/assets/images/rooms/comfort/comfort-hero.jpg" alt="חדר קומפורט סיטי סטיי" loading="lazy" width="1200" height="900"></picture>
           <!-- <img src="/assets/images/rooms/comfort-main.webp" alt="חדר קומפורט" loading="lazy"> -->
           <span class="room-card-tag">זוגי</span>
         </div>
@@ -234,7 +234,7 @@
 
       <!-- Family Suite -->
       <article class="room-card reveal delay-2" role="listitem" aria-label="סוויטת משפחה">
-        <div class="room-card-image ph" data-label="🏡" role="img" aria-label="סוויטת משפחה">
+        <div class="room-card-image" role="img" aria-label="סוויטת משפחה"><picture><source srcset="/assets/images/rooms/suite/suite-hero.webp" type="image/webp"><img src="/assets/images/rooms/suite/suite-hero.jpg" alt="סוויטת משפחה סיטי סטיי" loading="lazy" width="1400" height="1050"></picture>
           <!-- <img src="/assets/images/rooms/suite-main.webp" alt="סוויטת משפחה" loading="lazy"> -->
           <span class="room-card-tag">פופולרי</span>
         </div>
@@ -262,7 +262,7 @@
 
       <!-- Placeholder 3rd card for grid balance — Complete moved to full-width below -->
       <article class="room-card reveal delay-3" role="listitem" aria-label="חבילות ארוחת בוקר">
-        <div class="room-card-image ph" data-label="🍳" role="img" aria-label="ארוחת בוקר">
+        <div class="room-card-image" role="img" aria-label="לינה וארוחת בוקר"><picture><source srcset="/assets/images/rooms/comfort/comfort-coffee.webp" type="image/webp"><img src="/assets/images/rooms/comfort/comfort-coffee.jpg" alt="פינת קפה ותה" loading="lazy" width="1000" height="1333"></picture>
           <span class="room-card-tag">חבילה</span>
         </div>
         <div class="room-card-body">
@@ -288,7 +288,7 @@
 
       <!-- Complete — Full width dark -->
       <article class="room-card room-card-complete reveal" role="listitem" aria-label="סיטי סטיי קומפלט">
-        <div class="room-card-image ph" data-label="🏙️" role="img" aria-label="כל המתחם">
+        <div class="room-card-image" role="img" aria-label="סיטי סטיי קומפלט"><picture><source srcset="/assets/images/rooms/suite/suite-salon.webp" type="image/webp"><img src="/assets/images/rooms/suite/suite-salon.jpg" alt="סיטי סטיי קומפלט" loading="lazy" width="1400" height="1050"></picture>
           <!-- <img src="/assets/images/rooms/complete-main.webp" alt="סיטי סטיי קומפלט" loading="lazy"> -->
           <span class="room-card-tag">בלעדי</span>
         </div>
@@ -439,11 +439,21 @@
     </div>
 
     <div class="gallery-editorial reveal" role="list" aria-label="גלריית תמונות המתחם">
-      <div class="g-item ph" role="listitem" data-lightbox tabindex="0" aria-label="המתחם">🏙️</div>
-      <div class="g-item ph" role="listitem" data-lightbox tabindex="0" aria-label="חדר שינה">🛏️</div>
-      <div class="g-item ph" role="listitem" data-lightbox tabindex="0" aria-label="מטבח">🍳</div>
-      <div class="g-item ph" role="listitem" data-lightbox tabindex="0" aria-label="נוף הכינרת">🌊</div>
-      <div class="g-item ph" role="listitem" data-lightbox tabindex="0" aria-label="סלון">🛋️</div>
+      <div class="g-item" role="listitem" data-lightbox tabindex="0" aria-label="כניסה למתחם">
+        <picture><source srcset="/assets/images/entrance/entrance-main.webp" type="image/webp"><img src="/assets/images/entrance/entrance-main.jpg" alt="כניסה למתחם" loading="lazy" width="1600" height="1200"></picture>
+      </div>
+      <div class="g-item" role="listitem" data-lightbox tabindex="0" aria-label="חדר קומפורט">
+        <picture><source srcset="/assets/images/rooms/comfort/comfort-hero.webp" type="image/webp"><img src="/assets/images/rooms/comfort/comfort-hero.jpg" alt="חדר קומפורט" loading="lazy" width="1200" height="900"></picture>
+      </div>
+      <div class="g-item" role="listitem" data-lightbox tabindex="0" aria-label="מטבח הסוויטה">
+        <picture><source srcset="/assets/images/rooms/suite/suite-kitchen.webp" type="image/webp"><img src="/assets/images/rooms/suite/suite-kitchen.jpg" alt="מטבח הסוויטה" loading="lazy" width="1200" height="1600"></picture>
+      </div>
+      <div class="g-item" role="listitem" data-lightbox tabindex="0" aria-label="סלון הסוויטה">
+        <picture><source srcset="/assets/images/rooms/suite/suite-living.webp" type="image/webp"><img src="/assets/images/rooms/suite/suite-living.jpg" alt="סלון הסוויטה" loading="lazy" width="1400" height="1050"></picture>
+      </div>
+      <div class="g-item" role="listitem" data-lightbox tabindex="0" aria-label="מרפסת משותפת">
+        <picture><source srcset="/assets/images/common/terrace-main.webp" type="image/webp"><img src="/assets/images/common/terrace-main.jpg" alt="מרפסת משותפת" loading="lazy" width="1400" height="1050"></picture>
+      </div>
     </div>
 
     <div style="margin-top:var(--s6);text-align:center" class="reveal">
