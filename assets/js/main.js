@@ -1,298 +1,258 @@
-/* ================================================
-   CITY STAY TIBERIAS — Main JavaScript
-   ================================================ */
-
 'use strict';
 
-// === Navbar scroll behavior ===
-const navbar = document.querySelector('.navbar');
+/* ============================================================
+   CITY STAY TIBERIAS — Main JS v2
+   ============================================================ */
+
+// === Navbar ===
+const navbar = document.getElementById('navbar') || document.querySelector('.navbar');
 if (navbar) {
-  const handleScroll = () => {
-    if (window.scrollY > 60) {
-      navbar.classList.add('scrolled');
-      navbar.classList.remove('transparent');
-    } else {
-      navbar.classList.remove('scrolled');
-      navbar.classList.add('transparent');
-    }
+  const onScroll = () => {
+    const scrolled = window.scrollY > 80;
+    navbar.classList.toggle('scrolled', scrolled);
+    navbar.classList.toggle('transparent', !scrolled);
   };
-  window.addEventListener('scroll', handleScroll, { passive: true });
-  handleScroll();
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
 }
 
-// === Mobile menu ===
+// === Mobile Menu ===
 const hamburger = document.querySelector('.hamburger');
-const mobileMenu = document.querySelector('.mobile-menu');
+const mobileMenu = document.getElementById('mobile-menu');
 const mobileClose = document.querySelector('.mobile-close');
 
-if (hamburger && mobileMenu) {
-  hamburger.addEventListener('click', () => {
-    mobileMenu.classList.add('open');
-    hamburger.setAttribute('aria-expanded', 'true');
-    document.body.style.overflow = 'hidden';
-  });
-
-  const closeMenu = () => {
-    mobileMenu.classList.remove('open');
-    hamburger.setAttribute('aria-expanded', 'false');
-    document.body.style.overflow = '';
-  };
-
-  if (mobileClose) mobileClose.addEventListener('click', closeMenu);
-
-  mobileMenu.querySelectorAll('.nav-link').forEach(link => {
-    link.addEventListener('click', closeMenu);
-  });
-
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && mobileMenu.classList.contains('open')) closeMenu();
-  });
+function openMenu() {
+  mobileMenu?.classList.add('open');
+  hamburger?.setAttribute('aria-expanded', 'true');
+  document.body.style.overflow = 'hidden';
+}
+function closeMenu() {
+  mobileMenu?.classList.remove('open');
+  hamburger?.setAttribute('aria-expanded', 'false');
+  document.body.style.overflow = '';
 }
 
-// === Back to top ===
-const backToTop = document.querySelector('.back-to-top');
-if (backToTop) {
+hamburger?.addEventListener('click', openMenu);
+mobileClose?.addEventListener('click', closeMenu);
+mobileMenu?.querySelectorAll('.nav-link').forEach(l => l.addEventListener('click', closeMenu));
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeMenu(); });
+
+// === Back to Top ===
+const backTop = document.getElementById('back-top') || document.querySelector('.back-top');
+if (backTop) {
   window.addEventListener('scroll', () => {
-    backToTop.classList.toggle('visible', window.scrollY > 400);
+    backTop.classList.toggle('show', window.scrollY > 400);
   }, { passive: true });
-
-  backToTop.addEventListener('click', () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  });
+  backTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 }
 
-// === Scroll reveal ===
-const revealObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('visible');
-      revealObserver.unobserve(entry.target);
+// === Scroll Reveal ===
+const revealObs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('visible');
+      revealObs.unobserve(e.target);
     }
   });
-}, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
 
-document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
 
-// === Language switcher ===
+// === Language Switch ===
 document.querySelectorAll('.lang-btn').forEach(btn => {
   btn.addEventListener('click', () => {
     const lang = btn.dataset.lang;
-    if (lang === 'en') {
-      // Navigate to EN version
-      const currentPath = window.location.pathname;
-      if (!currentPath.startsWith('/en')) {
-        window.location.href = '/en' + (currentPath === '/' ? '/' : currentPath);
-      }
-    } else {
-      // Navigate to HE version
-      const currentPath = window.location.pathname;
-      window.location.href = currentPath.replace(/^\/en/, '') || '/';
+    const path = window.location.pathname;
+    if (lang === 'en' && !path.startsWith('/en')) {
+      window.location.href = '/en' + (path === '/' ? '/' : path);
+    } else if (lang === 'he' && path.startsWith('/en')) {
+      window.location.href = path.replace(/^\/en/, '') || '/';
     }
   });
 });
 
-// === VAT Calculator (18%) ===
-const VAT_RATE = 1.18;
-
-function priceWithVAT(base) {
-  return Math.ceil(base * VAT_RATE);
-}
-
-// Update all price displays with VAT
-document.querySelectorAll('[data-base-price]').forEach(el => {
-  const base = parseFloat(el.dataset.basePrice);
-  if (!isNaN(base)) {
-    el.textContent = priceWithVAT(base).toLocaleString('he-IL');
-  }
-});
-
-// === CTA tracking (GA4) ===
-function trackEvent(eventName, params = {}) {
-  if (typeof gtag !== 'undefined') {
-    gtag('event', eventName, params);
-  }
-}
-
-document.querySelectorAll('[data-cta]').forEach(btn => {
-  btn.addEventListener('click', () => {
-    trackEvent('cta_click', {
-      cta_label: btn.dataset.cta,
-      page: window.location.pathname
-    });
-  });
-});
-
-document.querySelectorAll('a[href^="tel:"]').forEach(link => {
-  link.addEventListener('click', () => {
-    trackEvent('phone_call', { phone: link.href.replace('tel:', '') });
-  });
-});
-
-document.querySelectorAll('a[href*="wa.me"]').forEach(link => {
-  link.addEventListener('click', () => {
-    trackEvent('whatsapp_click', { source: 'floating_button' });
-  });
-});
-
-// === Scroll depth tracking ===
-const scrollMilestones = [25, 50, 75, 100];
-const reachedMilestones = new Set();
-window.addEventListener('scroll', () => {
-  const pct = (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100;
-  scrollMilestones.forEach(m => {
-    if (pct >= m && !reachedMilestones.has(m)) {
-      reachedMilestones.add(m);
-      trackEvent('scroll_depth', { depth: m });
-    }
-  });
-}, { passive: true });
-
-// === WuBook ZakNeb Widget Loader ===
+// === WuBook ZakNeb Loader ===
 function initWuBook(containerId) {
-  if (typeof ZakNebIframe === 'undefined') {
-    console.warn('WuBook ZakNeb library not loaded');
-    return;
-  }
+  if (typeof ZakNebIframe === 'undefined') return;
   const url = 'https://wubook.net/nneb/bk?f=today&n=1&ep=52ae8af2&o=1.0.0.0';
   const Neb = new ZakNebIframe('#' + containerId, url);
   Neb.render();
 }
 
-// Auto-init WuBook widget if container exists
-const wbContainer = document.getElementById('_wbord_');
-if (wbContainer) {
-  initWuBook('_wbord_');
+const wbEl = document.getElementById('_wbord_');
+if (wbEl) {
+  // Try immediately, then on load
+  if (typeof ZakNebIframe !== 'undefined') {
+    initWuBook('_wbord_');
+  } else {
+    window.addEventListener('load', () => initWuBook('_wbord_'));
+  }
 }
 
-// === Newsletter / Club Form ===
-const clubForm = document.getElementById('club-form');
-if (clubForm) {
-  // Honeypot
-  const honeypot = clubForm.querySelector('[name="website"]');
+// === GA4 Tracking ===
+function track(event, params = {}) {
+  if (typeof gtag !== 'undefined') gtag('event', event, params);
+}
 
-  // Rate limiting
-  let lastSubmit = 0;
+document.querySelectorAll('[data-cta]').forEach(el => {
+  el.addEventListener('click', () => track('cta_click', { label: el.dataset.cta, page: location.pathname }));
+});
 
-  clubForm.addEventListener('submit', async (e) => {
-    e.preventDefault();
+document.querySelectorAll('a[href^="tel:"]').forEach(el => {
+  el.addEventListener('click', () => track('phone_call', { phone: el.href.replace('tel:', '') }));
+});
 
-    // Honeypot check
-    if (honeypot && honeypot.value !== '') return;
+document.querySelectorAll('a[href*="wa.me"]').forEach(el => {
+  el.addEventListener('click', () => track('whatsapp_click', { source: el.dataset.cta || 'unknown' }));
+});
 
-    // Rate limit
-    if (Date.now() - lastSubmit < 10000) {
-      showFormMessage(clubForm, 'error', 'אנא המתן לפני שליחה נוספת');
-      return;
-    }
-
-    const btn = clubForm.querySelector('[type="submit"]');
-    btn.disabled = true;
-    btn.textContent = 'שולח...';
-
-    const data = new FormData(clubForm);
-    const payload = Object.fromEntries(data.entries());
-    delete payload.website; // remove honeypot
-
-    try {
-      // Submit to Supabase
-      const res = await submitToSupabase(payload);
-      if (res.ok) {
-        lastSubmit = Date.now();
-        showFormMessage(clubForm, 'success', '🎉 נרשמת בהצלחה למועדון! נשלח לך מבצעים ראשוניים בקרוב.');
-        clubForm.reset();
-        trackEvent('club_signup', { source: 'newsletter_form' });
-      } else {
-        throw new Error('Server error');
-      }
-    } catch (err) {
-      showFormMessage(clubForm, 'error', 'אירעה שגיאה. אנא נסה שוב או צור קשר בטלפון.');
-    } finally {
-      btn.disabled = false;
-      btn.textContent = btn.dataset.defaultText || 'הצטרף למועדון';
-    }
+// Scroll depth
+const milestones = [25, 50, 75, 100];
+const reached = new Set();
+window.addEventListener('scroll', () => {
+  const pct = (window.scrollY / Math.max(document.body.scrollHeight - window.innerHeight, 1)) * 100;
+  milestones.forEach(m => {
+    if (pct >= m && !reached.has(m)) { reached.add(m); track('scroll_depth', { depth: m }); }
   });
-}
+}, { passive: true });
 
-// Supabase submit function
-async function submitToSupabase(payload) {
-  const SUPABASE_URL = window.CITYSTAY_CONFIG?.supabaseUrl || '';
-  const SUPABASE_ANON_KEY = window.CITYSTAY_CONFIG?.supabaseAnonKey || '';
+// === Lightbox ===
+const lb = document.getElementById('lightbox');
+if (lb) {
+  const lbImg = lb.querySelector('img');
+  const lbClose = lb.querySelector('.lb-close');
 
-  if (!SUPABASE_URL) {
-    console.warn('Supabase not configured');
-    return { ok: false };
-  }
-
-  return fetch(`${SUPABASE_URL}/rest/v1/club_members`, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      'apikey': SUPABASE_ANON_KEY,
-      'Authorization': `Bearer ${SUPABASE_ANON_KEY}`,
-      'Prefer': 'return=minimal'
-    },
-    body: JSON.stringify({
-      full_name:      payload.full_name,
-      phone:          payload.phone,
-      email:          payload.email,
-      birthday:       payload.birthday || null,
-      anniversary:    payload.anniversary || null,
-      city:           payload.city || null,
-      notes:          payload.notes || null,
-      source:         'website_form',
-      created_at:     new Date().toISOString()
-    })
-  });
-}
-
-// Form message helper
-function showFormMessage(form, type, message) {
-  let alert = form.querySelector('.alert');
-  if (!alert) {
-    alert = document.createElement('div');
-    alert.className = 'alert';
-    form.appendChild(alert);
-  }
-  alert.className = `alert alert-${type} show`;
-  alert.textContent = message;
-  alert.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-
-  if (type === 'success') {
-    setTimeout(() => alert.classList.remove('show'), 6000);
-  }
-}
-
-// === Lightbox for gallery ===
-function openLightbox(src, alt) {
-  const lb = document.getElementById('lightbox');
-  if (lb) {
-    lb.querySelector('img').src = src;
-    lb.querySelector('img').alt = alt || '';
+  function openLightbox(src, alt) {
+    lbImg.src = src; lbImg.alt = alt || '';
     lb.classList.add('open');
     document.body.style.overflow = 'hidden';
   }
+  function closeLightbox() {
+    lb.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  lbClose?.addEventListener('click', closeLightbox);
+  lb.addEventListener('click', e => { if (e.target === lb) closeLightbox(); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape' && lb.classList.contains('open')) closeLightbox(); });
+
+  document.querySelectorAll('[data-lightbox]').forEach(item => {
+    item.addEventListener('click', () => {
+      const img = item.querySelector('img');
+      if (img) openLightbox(img.src, img.alt);
+    });
+    item.addEventListener('keydown', e => {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); item.click(); }
+    });
+  });
 }
 
-const lightboxEl = document.getElementById('lightbox');
-if (lightboxEl) {
-  lightboxEl.addEventListener('click', (e) => {
-    if (e.target === lightboxEl || e.target.classList.contains('lightbox-close')) {
-      lightboxEl.classList.remove('open');
-      document.body.style.overflow = '';
-    }
-  });
-
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && lightboxEl.classList.contains('open')) {
-      lightboxEl.classList.remove('open');
-      document.body.style.overflow = '';
-    }
-  });
-}
-
-document.querySelectorAll('[data-lightbox]').forEach(item => {
-  item.addEventListener('click', () => {
-    const img = item.querySelector('img');
-    if (img) openLightbox(img.src, img.alt);
-  });
+// === VAT Display ===
+const VAT = 1.18;
+document.querySelectorAll('[data-base-price]').forEach(el => {
+  const base = parseFloat(el.dataset.basePrice);
+  if (!isNaN(base)) el.textContent = Math.ceil(base * VAT).toLocaleString('he-IL');
 });
+
+// === Club Form ===
+const clubForm = document.getElementById('club-form');
+if (clubForm) {
+  let lastSubmit = 0;
+  clubForm.addEventListener('submit', async e => {
+    e.preventDefault();
+    if (clubForm.querySelector('[name="website"]')?.value) return;
+    if (Date.now() - lastSubmit < 10000) return showAlert('error', 'אנא המתן לפני שליחה חוזרת');
+
+    const btn = clubForm.querySelector('[type="submit"]');
+    const orig = btn.textContent;
+    btn.disabled = true; btn.textContent = 'שולח...';
+
+    const data = Object.fromEntries(new FormData(clubForm).entries());
+    delete data.website;
+
+    try {
+      const cfg = window.CITYSTAY_CONFIG || {};
+      if (!cfg.supabaseUrl || cfg.supabaseUrl.includes('YOUR_PROJECT')) throw new Error('not configured');
+
+      const res = await fetch(`${cfg.supabaseUrl}/rest/v1/club_members`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'apikey': cfg.supabaseAnonKey,
+          'Authorization': `Bearer ${cfg.supabaseAnonKey}`,
+          'Prefer': 'return=minimal'
+        },
+        body: JSON.stringify({
+          full_name: data.full_name, phone: data.phone, email: data.email,
+          birthday: data.birthday || null, anniversary: data.anniversary || null,
+          city: data.city || null, source: 'website_form',
+          created_at: new Date().toISOString()
+        })
+      });
+
+      if (res.ok || res.status === 201) {
+        lastSubmit = Date.now();
+        showAlert('success', '🎉 נרשמת בהצלחה למועדון! נשלח אליך מבצעים בקרוב.');
+        clubForm.reset();
+        track('club_signup');
+      } else throw new Error(res.status);
+    } catch (err) {
+      showAlert('error', 'אירעה שגיאה. נסה שנית או צור קשר: 04-6206464');
+    }
+
+    btn.disabled = false; btn.textContent = btn.dataset.defaultText || orig;
+  });
+
+  function showAlert(type, msg) {
+    let el = clubForm.querySelector('.alert');
+    if (!el) { el = document.createElement('div'); el.className = 'alert'; clubForm.appendChild(el); }
+    el.className = `alert alert-${type} show`;
+    el.textContent = msg;
+    el.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    if (type === 'success') setTimeout(() => el.classList.remove('show'), 7000);
+  }
+}
+
+// === Contact Form ===
+const contactForm = document.getElementById('contact-form');
+if (contactForm) {
+  let lastSubmit = 0;
+  contactForm.addEventListener('submit', async e => {
+    e.preventDefault();
+    if (contactForm.querySelector('[name="website"]')?.value) return;
+    if (Date.now() - lastSubmit < 8000) return;
+
+    const btn = contactForm.querySelector('[type="submit"]');
+    const orig = btn.textContent;
+    btn.disabled = true; btn.textContent = 'שולח...';
+
+    const data = Object.fromEntries(new FormData(contactForm).entries());
+
+    try {
+      const res = await fetch('https://formspree.io/f/mrejvvaw', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(data)
+      });
+      const alertEl = contactForm.querySelector('.alert') || document.getElementById('contact-alert');
+      if (res.ok) {
+        lastSubmit = Date.now();
+        if (alertEl) { alertEl.className = 'alert alert-success show'; alertEl.textContent = '✅ הודעתך נשלחה! נחזור אליך בהקדם.'; }
+        contactForm.reset();
+        track('contact_form_submit', { subject: data.subject });
+      } else throw new Error();
+    } catch {
+      const alertEl = contactForm.querySelector('.alert') || document.getElementById('contact-alert');
+      if (alertEl) { alertEl.className = 'alert alert-error show'; alertEl.textContent = 'שגיאה בשליחה. אנא נסה שנית או התקשר: 04-6206464'; }
+    }
+
+    btn.disabled = false; btn.textContent = orig;
+  });
+}
+
+// === Pre-fill contact subject from URL ===
+const urlSubject = new URLSearchParams(location.search).get('subject');
+if (urlSubject) {
+  const sel = document.getElementById('contact_subject');
+  if (sel) { for (const o of sel.options) { if (o.value === urlSubject) { o.selected = true; break; } } }
+}
