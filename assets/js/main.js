@@ -170,7 +170,7 @@ function initWuBook(propertyId, containerId, lang = 'he', extraParams = {}) {
 // Auto-init WuBook if container exists
 const wbContainer = document.getElementById('_wbord_');
 if (wbContainer) {
-  const PROPERTY_ID = 'wb_7159b6d6-cf4b-11ea-97ba-001a4a5c09cf';
+  const PROPERTY_ID = '52ae8af2';
   const lang = document.documentElement.lang === 'en' ? 'en' : 'he';
   initWuBook(PROPERTY_ID, '_wbord_', lang);
 }
