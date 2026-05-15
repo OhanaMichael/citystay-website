@@ -1,166 +1,299 @@
 <!DOCTYPE html>
 <html lang="he" dir="rtl">
 <head>
-  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>גלריה | סיטי סטיי טבריה</title>
-  <meta name="description" content="גלריית תמונות של סיטי סטיי טבריה — חדרים, סוויטות, מתחם ונוף הכינרת.">
+  <meta name="description" content="תמונות אמיתיות של חדרי הקומפורט, סוויטת המשפחה, מרפסת המתחם וכניסת הבוטיק — סיטי סטיי טבריה.">
   <link rel="canonical" href="https://www.citystay.co.il/gallery/">
-  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@300;400;500;700&family=Heebo:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/assets/css/style.css">
-  <script>window.CITYSTAY_CONFIG={supabaseUrl:'https://YOUR_PROJECT.supabase.co',supabaseAnonKey:'YOUR_ANON_KEY'};</script>
+  <meta property="og:title" content="גלריה | סיטי סטיי טבריה">
+  <meta property="og:url" content="https://www.citystay.co.il/gallery/">
+  <link rel="preconnect" href="https://wubook.net">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon-32.png">
+  <link rel="apple-touch-icon" href="/assets/images/favicon-180.png">
+
   <style>
-    .page-hero{background:linear-gradient(135deg,var(--primary-dark),var(--primary));color:var(--white);padding:calc(var(--nav-height)+2.5rem) 0 2.5rem;text-align:center}
-    .page-hero h1{color:var(--white);margin-bottom:.5rem}
-    .page-hero p{color:rgba(255,255,255,.8)}
-    .gallery-filter{display:flex;gap:.75rem;justify-content:center;flex-wrap:wrap;margin-bottom:2rem}
-    .filter-btn{padding:.5rem 1.25rem;border-radius:50px;border:2px solid var(--border);background:var(--white);color:var(--text);font-size:.85rem;font-weight:500;cursor:pointer;transition:var(--transition)}
-    .filter-btn.active,.filter-btn:hover{background:var(--primary);color:var(--white);border-color:var(--primary)}
-    .masonry{columns:3;column-gap:.75rem}
-    .masonry-item{break-inside:avoid;margin-bottom:.75rem;border-radius:var(--radius);overflow:hidden;cursor:pointer;position:relative;background:var(--accent)}
-    .masonry-item img{width:100%;display:block;transition:transform .4s ease}
-    .masonry-item:hover img{transform:scale(1.04)}
-    .masonry-item .overlay{position:absolute;inset:0;background:rgba(27,77,110,0);transition:var(--transition);display:flex;align-items:center;justify-content:center}
-    .masonry-item:hover .overlay{background:rgba(27,77,110,.3)}
-    .masonry-item .zoom-icon{color:var(--white);font-size:2rem;opacity:0;transition:var(--transition)}
-    .masonry-item:hover .zoom-icon{opacity:1}
-    /* Placeholder items */
-    .ph{display:flex;align-items:center;justify-content:center;font-size:3rem;min-height:180px}
-    @media(max-width:768px){.masonry{columns:2}}
-    @media(max-width:480px){.masonry{columns:1}}
-    /* Supabase gallery items */
-    .gallery-item[style*="display:none"]{display:none!important}
+    :root{--dark:#0d1117;--dark-2:#161b22;--gold:#c9a84c;--gold-light:#e8c97a;--cream:#f5f0e8;--text-light:#e8e4dc;--text-muted:rgba(232,228,220,0.65);--radius:8px;--radius-lg:16px;--font:'Heebo',sans-serif}
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+    body{font-family:var(--font);font-size:16px;line-height:1.7;color:var(--text-light);background:var(--dark);overflow-x:hidden}
+    .skip-link{position:absolute;top:-100%;right:1rem;background:var(--gold);color:var(--dark);padding:.5rem 1rem;border-radius:0 0 var(--radius) var(--radius);font-weight:500;z-index:9999;transition:top .2s;text-decoration:none}
+    .skip-link:focus{top:0}
+    header{position:fixed;top:0;right:0;left:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:.75rem 2rem;background:rgba(13,17,23,.92);backdrop-filter:blur(10px);border-bottom:1px solid rgba(201,168,76,.15)}
+    .logo img{height:48px;width:auto}
+    nav ul{list-style:none;display:flex;gap:1.5rem;align-items:center}
+    nav a{font-size:14px;color:var(--text-muted);text-decoration:none;transition:color .2s}
+    nav a:hover,nav a:focus-visible{color:var(--gold-light);outline:none}
+    nav a[aria-current="page"]{color:var(--gold)}
+    .nav-cta{background:var(--gold);color:var(--dark)!important;padding:.5rem 1.25rem;border-radius:var(--radius);font-weight:500;transition:background .2s,transform .1s}
+    .nav-cta:hover{background:var(--gold-light);transform:translateY(-1px)}
+    .hamburger{display:none;background:none;border:none;cursor:pointer;flex-direction:column;gap:5px;padding:4px}
+    .hamburger span{display:block;width:24px;height:2px;background:var(--text-light);border-radius:2px;transition:transform .25s,opacity .25s}
+    .hamburger[aria-expanded="true"] span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+    .hamburger[aria-expanded="true"] span:nth-child(2){opacity:0}
+    .hamburger[aria-expanded="true"] span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+    @media(max-width:768px){header{padding:.75rem 1rem}.hamburger{display:flex}nav{display:none;position:absolute;top:100%;right:0;left:0;background:var(--dark-2);border-bottom:1px solid rgba(201,168,76,.15);padding:1rem 0}nav.open{display:block}nav ul{flex-direction:column;gap:0}nav a{display:block;padding:.75rem 1.5rem;font-size:16px}.nav-cta{margin:.5rem 1.5rem;display:block;text-align:center}}
+    main{padding-top:74px;min-height:100vh}
+    .page-hero{background:var(--dark-2);border-bottom:1px solid rgba(201,168,76,.15);padding:2.5rem 2rem 2rem;text-align:center}
+    .breadcrumb{display:flex;align-items:center;gap:.4rem;justify-content:center;font-size:12px;color:var(--text-muted);margin-bottom:.75rem}
+    .breadcrumb a{color:var(--text-muted);text-decoration:none}
+    .breadcrumb a:hover{color:var(--gold)}
+    .kicker{font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:.4rem}
+    .page-hero h1{font-size:clamp(1.8rem,4vw,2.8rem);font-weight:700;margin-bottom:.5rem}
+    .page-hero p{color:var(--text-muted);max-width:520px;margin:0 auto}
+    .section-inner{max-width:1100px;margin:0 auto;padding:3rem 2rem}
+    @media(max-width:768px){.section-inner{padding:2rem 1rem}}
+    .section-title{font-size:clamp(1.4rem,3vw,1.9rem);font-weight:700;margin-bottom:.5rem}
+    .section-sub{color:var(--text-muted);font-size:14px;margin-bottom:2rem}
+    .btn{display:inline-flex;align-items:center;gap:.5rem;padding:.75rem 1.75rem;border-radius:var(--radius);font-size:15px;font-weight:500;text-decoration:none;transition:transform .15s,opacity .2s;border:none;cursor:pointer}
+    .btn:hover{transform:translateY(-2px);opacity:.92}
+    .btn-gold{background:var(--gold);color:var(--dark)}
+    .btn-gold:hover{background:var(--gold-light)}
+    .btn-dark{background:var(--dark);color:#fff;border:1px solid rgba(255,255,255,.15)}
+    .btn-outline{background:transparent;color:var(--text-light);border:1px solid rgba(255,255,255,.25)}
+    .btn-outline:hover{border-color:var(--gold);color:var(--gold)}
+    .cta-band{background:var(--dark-2);border-top:1px solid rgba(201,168,76,.15);padding:2.5rem 2rem;text-align:center}
+    .cta-band h2{font-size:1.5rem;font-weight:700;margin-bottom:.5rem}
+    .cta-band p{color:var(--text-muted);margin-bottom:1.5rem;font-size:14px}
+    .cta-buttons{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+    footer{background:var(--dark-2);border-top:1px solid rgba(201,168,76,.12);padding:3rem 2rem 0}
+    .footer-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr;gap:3rem;padding-bottom:2rem}
+    @media(max-width:768px){.footer-inner{grid-template-columns:1fr;gap:2rem}}
+    .footer-brand img{height:38px;filter:brightness(0) invert(1);opacity:.7}
+    .footer-brand p{font-size:13px;color:var(--text-muted);margin-top:.5rem;max-width:280px}
+    .footer-social{display:flex;gap:.75rem;margin-top:1rem}
+    .footer-social a{width:32px;height:32px;border:1px solid rgba(255,255,255,.12);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--text-muted);text-decoration:none;font-size:13px;transition:border-color .2s,color .2s}
+    .footer-social a:hover{border-color:var(--gold);color:var(--gold)}
+    .footer-contact{margin-top:1rem;display:flex;flex-direction:column;gap:.35rem}
+    .contact-row{display:flex;gap:.5rem;font-size:13px;color:var(--text-muted);align-items:flex-start}
+    .contact-row a{color:var(--text-muted);text-decoration:none}
+    .contact-row a:hover{color:var(--gold)}
+    .footer-col h3{font-size:12px;font-weight:600;color:var(--gold);margin-bottom:.6rem;letter-spacing:.05em}
+    .footer-col ul{list-style:none;display:flex;flex-direction:column;gap:.35rem}
+    .footer-col a{color:var(--text-muted);text-decoration:none;font-size:13px;transition:color .2s}
+    .footer-col a:hover{color:var(--gold-light)}
+    .footer-bottom{max-width:1100px;margin:0 auto;padding:1.25rem 0;border-top:1px solid rgba(255,255,255,.06);display:flex;justify-content:space-between;flex-wrap:wrap;gap:.5rem;font-size:12px;color:var(--text-muted)}
+    .footer-links{display:flex;gap:1rem}
+    .footer-links a{color:var(--text-muted);text-decoration:none}
+    .footer-links a:hover{color:var(--gold-light)}
+    .wa-float{position:fixed;bottom:1.5rem;right:1.5rem;z-index:99;width:52px;height:52px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(37,211,102,.4);text-decoration:none;transition:transform .2s}
+    .wa-float:hover{transform:scale(1.08)}
   </style>
 </head>
 <body>
 <a href="#main" class="skip-link">דלג לתוכן הראשי</a>
-<nav class="navbar transparent" aria-label="תפריט ראשי"><div class="nav-inner">
-  <a href="/" class="nav-logo">City Stay<span>טבריה · Tiberias</span></a>
-  <div class="nav-links"><a href="/" class="nav-link">בית</a><a href="/rooms/" class="nav-link">חדרים</a><a href="/packages/" class="nav-link">חבילות</a><a href="/deals/" class="nav-link">מבצעים</a><a href="/gallery/" class="nav-link active">גלריה</a><a href="/about/" class="nav-link">אודות</a><a href="/contact/" class="nav-link">צור קשר</a></div>
-  <div class="nav-actions"><div class="lang-switcher"><button class="lang-btn active" data-lang="he">עב</button><button class="lang-btn" data-lang="en">EN</button></div><a href="/booking/" class="btn btn-gold" data-cta="nav_book">הזמן עכשיו</a><button class="hamburger" aria-label="פתח תפריט" aria-expanded="false"><span></span><span></span><span></span></button></div>
-</div></nav>
-<div class="mobile-menu" id="mobile-menu"><button class="mobile-close btn btn-outline-white">✕ סגור</button><a href="/" class="nav-link">🏠 בית</a><a href="/rooms/" class="nav-link">🛏️ חדרים</a><a href="/packages/" class="nav-link">🎁 חבילות</a><a href="/deals/" class="nav-link">🔥 מבצעים</a><a href="/gallery/" class="nav-link">📸 גלריה</a><a href="/about/" class="nav-link">📍 אודות</a><a href="/contact/" class="nav-link">📞 צור קשר</a><a href="/booking/" class="btn btn-gold btn-lg" style="margin-top:1rem">הזמן עכשיו</a></div>
-
+<header role="banner">
+  <a href="/" class="logo" aria-label="דף הבית — סיטי סטיי טבריה">
+    <img src="/assets/images/logo-full.png" alt="City Stay Tiberias" width="120" height="48" loading="eager">
+  </a>
+  <button class="hamburger" aria-expanded="false" aria-controls="main-nav" aria-label="פתח תפריט ניווט">
+    <span></span><span></span><span></span>
+  </button>
+  <nav id="main-nav" role="navigation" aria-label="ניווט ראשי">
+    <ul>
+      <li><a href="/">בית</a></li>
+      <li><a href="/rooms/">חדרים</a></li>
+      <li><a href="/packages/">חבילות</a></li>
+      <li><a href="/deals/">מבצעים</a></li>
+      <li><a href="/gallery/" aria-current="page">גלריה</a></li>
+      <li><a href="/about/">אודות</a></li>
+      <li><a href="/contact/">צור קשר</a></li>
+      <li><a href="/booking/" class="nav-cta">הזמן עכשיו</a></li>
+    </ul>
+  </nav>
+</header>
 <main id="main">
-  <div class="page-hero"><div class="container"><span class="eyebrow" style="color:var(--gold-light);display:block;margin-bottom:.5rem">גלריה</span><h1>📸 ראה לפני שמגיע</h1><p>תמונות אמיתיות של החדרים, המתחם, והסביבה הקסומה.</p></div></div>
 
-  <section class="section"><div class="container">
+  <div class="page-hero">
+    <nav class="breadcrumb" aria-label="ניווט ארכיב"><a href="/">בית</a><span>›</span><span>גלריה</span></nav>
+    <span class="kicker">תמונות אמיתיות</span>
+    <h1>ראה לפני שמגיע</h1>
+    <p>תמונות של החדרים, הסוויטות, המרפסת והמתחם</p>
+  </div>
 
-    <!-- Filter buttons -->
-    <div class="gallery-filter reveal" role="group" aria-label="סינון גלריה">
-      <button class="filter-btn active" data-filter="all">הכל</button>
-      <button class="filter-btn" data-filter="suite">סוויטת משפחה</button>
-      <button class="filter-btn" data-filter="comfort">חדר קומפורט</button>
-      <button class="filter-btn" data-filter="area">מתחם</button>
-      <button class="filter-btn" data-filter="view">נוף ואזור</button>
+  <style>
+    .gallery-filter{display:flex;gap:.5rem;justify-content:center;flex-wrap:wrap;margin-bottom:2rem}
+    .filter-btn{background:transparent;border:1px solid rgba(255,255,255,.2);color:var(--text-muted);padding:.45rem 1rem;border-radius:40px;font-size:13px;cursor:pointer;transition:all .2s;font-family:inherit}
+    .filter-btn:hover,.filter-btn.active{background:var(--gold);border-color:var(--gold);color:var(--dark)}
+    .gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+    @media(max-width:768px){.gallery-grid{grid-template-columns:1fr 1fr}}
+    @media(max-width:480px){.gallery-grid{grid-template-columns:1fr}}
+    .g-item{border-radius:var(--radius);overflow:hidden;cursor:pointer;position:relative;aspect-ratio:4/3;background:var(--dark-2)}
+    .g-item img{width:100%;height:100%;object-fit:cover;transition:transform .35s ease;display:block}
+    .g-item:hover img{transform:scale(1.05)}
+    .g-label{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,rgba(0,0,0,.7));padding:.75rem .75rem .5rem;font-size:12px;color:#fff;opacity:0;transition:opacity .2s}
+    .g-item:hover .g-label{opacity:1}
+    #lightbox{display:none;position:fixed;inset:0;background:rgba(0,0,0,.94);z-index:9999;align-items:center;justify-content:center;backdrop-filter:blur(8px)}
+    #lightbox.open{display:flex}
+    #lightbox img{max-width:90vw;max-height:88vh;object-fit:contain;border-radius:8px}
+    .lb-close{position:absolute;top:1rem;left:1rem;color:rgba(255,255,255,.6);font-size:1.8rem;cursor:pointer;background:none;border:none;transition:color .2s;line-height:1}
+    .lb-close:hover{color:#fff}
+  </style>
+
+  <section>
+    <div class="section-inner">
+      <div class="gallery-filter" role="group" aria-label="סינון גלריה">
+        <button class="filter-btn active" onclick="filterGallery('all',this)">הכל</button>
+        <button class="filter-btn" onclick="filterGallery('comfort',this)">חדר קומפורט</button>
+        <button class="filter-btn" onclick="filterGallery('suite',this)">סוויטת משפחה</button>
+        <button class="filter-btn" onclick="filterGallery('common',this)">מתחם ומרפסת</button>
+      </div>
+
+      <div class="gallery-grid" role="list" aria-label="גלריית תמונות">
+        <div class="g-item" data-cat="common" role="listitem" tabindex="0" aria-label="כניסה למתחם">
+          <picture><source srcset="/assets/images/entrance/entrance-main.webp" type="image/webp"><img src="/assets/images/entrance/entrance-main.jpg" alt="כניסה למתחם סיטי סטיי טבריה" loading="lazy" width="800" height="600"></picture>
+          <div class="g-label">כניסה למתחם</div>
+        </div>
+        <div class="g-item" data-cat="comfort" role="listitem" tabindex="0" aria-label="חדר קומפורט — מיטה זוגית">
+          <picture><source srcset="/assets/images/rooms/comfort/comfort-hero.webp" type="image/webp"><img src="/assets/images/rooms/comfort/comfort-hero.jpg" alt="חדר קומפורט — מיטה זוגית עם מצעים לבנים" loading="lazy" width="800" height="600"></picture>
+          <div class="g-label">חדר קומפורט</div>
+        </div>
+        <div class="g-item" data-cat="suite" role="listitem" tabindex="0" aria-label="סוויטת משפחה — חדר שינה">
+          <picture><source srcset="/assets/images/rooms/suite/suite-hero.webp" type="image/webp"><img src="/assets/images/rooms/suite/suite-hero.jpg" alt="סוויטת משפחה — חדר שינה זוגי עם עיצוב מודרני" loading="lazy" width="800" height="600"></picture>
+          <div class="g-label">סוויטת משפחה — חדר שינה</div>
+        </div>
+        <div class="g-item" data-cat="comfort" role="listitem" tabindex="0" aria-label="חדר קומפורט — נוף כולל">
+          <picture><source srcset="/assets/images/rooms/comfort/comfort-room.webp" type="image/webp"><img src="/assets/images/rooms/comfort/comfort-room.jpg" alt="חדר קומפורט — נוף כולל עם TV" loading="lazy" width="800" height="600"></picture>
+          <div class="g-label">חדר קומפורט</div>
+        </div>
+        <div class="g-item" data-cat="suite" role="listitem" tabindex="0" aria-label="סוויטה — סלון עם קיר אבן">
+          <picture><source srcset="/assets/images/rooms/suite/suite-living.webp" type="image/webp"><img src="/assets/images/rooms/suite/suite-living.jpg" alt="סוויטת משפחה — סלון עם קיר האבן ההיסטורי" loading="lazy" width="800" height="600"></picture>
+          <div class="g-label">סוויטה — סלון</div>
+        </div>
+        <div class="g-item" data-cat="common" role="listitem" tabindex="0" aria-label="מרפסת משותפת">
+          <picture><source srcset="/assets/images/common/terrace-main.webp" type="image/webp"><img src="/assets/images/common/terrace-main.jpg" alt="מרפסת משותפת עם ישיבה נוחה" loading="lazy" width="800" height="600"></picture>
+          <div class="g-label">מרפסת משותפת</div>
+        </div>
+        <div class="g-item" data-cat="suite" role="listitem" tabindex="0" aria-label="מטבח הסוויטה">
+          <picture><source srcset="/assets/images/rooms/suite/suite-kitchen.webp" type="image/webp"><img src="/assets/images/rooms/suite/suite-kitchen.jpg" alt="מטבח הסוויטה המשפחתית" loading="lazy" width="800" height="600"></picture>
+          <div class="g-label">מטבח הסוויטה</div>
+        </div>
+        <div class="g-item" data-cat="comfort" role="listitem" tabindex="0" aria-label="שירותים ומקלחת">
+          <picture><source srcset="/assets/images/rooms/comfort/comfort-bathroom.webp" type="image/webp"><img src="/assets/images/rooms/comfort/comfort-bathroom.jpg" alt="שירותים ומקלחת פרטית — אריחים מעוצבים" loading="lazy" width="800" height="600"></picture>
+          <div class="g-label">שירותים ומקלחת</div>
+        </div>
+        <div class="g-item" data-cat="suite" role="listitem" tabindex="0" aria-label="חדר ילדים — מיטות קומות">
+          <picture><source srcset="/assets/images/rooms/suite/suite-bunks.webp" type="image/webp"><img src="/assets/images/rooms/suite/suite-bunks.jpg" alt="חדר ילדים בסוויטה — מיטות קומות" loading="lazy" width="800" height="600"></picture>
+          <div class="g-label">חדר ילדים</div>
+        </div>
+        <div class="g-item" data-cat="suite" role="listitem" tabindex="0" aria-label="מעבר קיר אבן">
+          <picture><source srcset="/assets/images/rooms/suite/suite-hall.webp" type="image/webp"><img src="/assets/images/rooms/suite/suite-hall.jpg" alt="מעבר עם קיר האבן ההיסטורי בסוויטה" loading="lazy" width="800" height="600"></picture>
+          <div class="g-label">קיר האבן ההיסטורי</div>
+        </div>
+        <div class="g-item" data-cat="comfort" role="listitem" tabindex="0" aria-label="פינת קפה ותה">
+          <picture><source srcset="/assets/images/rooms/comfort/comfort-coffee.webp" type="image/webp"><img src="/assets/images/rooms/comfort/comfort-coffee.jpg" alt="פינת קפה ותה בחדר" loading="lazy" width="800" height="600"></picture>
+          <div class="g-label">פינת קפה ותה</div>
+        </div>
+        <div class="g-item" data-cat="common" role="listitem" tabindex="0" aria-label="כניסה ומרפסת">
+          <picture><source srcset="/assets/images/common/terrace-entrance.webp" type="image/webp"><img src="/assets/images/common/terrace-entrance.jpg" alt="כניסה למתחם עם ישיבה חיצונית" loading="lazy" width="800" height="600"></picture>
+          <div class="g-label">כניסה ומרפסת</div>
+        </div>
+      </div>
     </div>
+  </section>
 
-    <!-- Masonry Gallery -->
-    <!-- כשתעלה תמונות ל-Supabase Storage, החלף את ה-placeholders הבאים -->
-    <div class="masonry reveal" id="gallery-grid" role="list" aria-label="גלריית תמונות">
+  <!-- Lightbox -->
+  <div id="lightbox" role="dialog" aria-modal="true" aria-label="תצוגת תמונה">
+    <button class="lb-close" aria-label="סגור">✕</button>
+    <img src="" alt="">
+  </div>
 
-      <!-- סוויטת משפחה -->
-      <div class="masonry-item gallery-item" data-category="suite" role="listitem" tabindex="0" data-lightbox aria-label="סוויטת משפחה — נוף כללי">
-        <div class="ph" style="background:linear-gradient(135deg,#1B4D6E,#2a6d99);color:rgba(255,255,255,.4)">🏡</div>
-        <!-- <img src="/assets/images/gallery/suite-1.webp" alt="סוויטת משפחה — מבט כללי" loading="lazy"> -->
-        <div class="overlay"><span class="zoom-icon" aria-hidden="true">🔍</span></div>
-      </div>
-      <div class="masonry-item gallery-item" data-category="suite" role="listitem" tabindex="0" data-lightbox aria-label="חדר שינה ראשי — סוויטה">
-        <div class="ph" style="background:linear-gradient(135deg,#2a5f80,#3a8ab0);min-height:140px;color:rgba(255,255,255,.4)">🛏️</div>
-        <!-- <img src="/assets/images/gallery/suite-bedroom.webp" alt="חדר שינה ראשי עם מיטה זוגית" loading="lazy"> -->
-        <div class="overlay"><span class="zoom-icon" aria-hidden="true">🔍</span></div>
-      </div>
-      <div class="masonry-item gallery-item" data-category="suite" role="listitem" tabindex="0" data-lightbox aria-label="מטבח מאובזר — סוויטה">
-        <div class="ph" style="background:linear-gradient(135deg,#f8f4e8,#ecdbb8);min-height:220px">🍳</div>
-        <!-- <img src="/assets/images/gallery/suite-kitchen.webp" alt="מטבח מאובזר עם מכונת אספרסו" loading="lazy"> -->
-        <div class="overlay"><span class="zoom-icon" aria-hidden="true">🔍</span></div>
-      </div>
-      <div class="masonry-item gallery-item" data-category="suite" role="listitem" tabindex="0" data-lightbox aria-label="סלון — סוויטה">
-        <div class="ph" style="background:linear-gradient(135deg,#e8f0f8,#b8ceec)">🛋️</div>
-        <!-- <img src="/assets/images/gallery/suite-living.webp" alt="סלון עם ספה וטלוויזיה חכמה" loading="lazy"> -->
-        <div class="overlay"><span class="zoom-icon" aria-hidden="true">🔍</span></div>
-      </div>
-      <div class="masonry-item gallery-item" data-category="suite" role="listitem" tabindex="0" data-lightbox aria-label="חדר ילדים — קומות">
-        <div class="ph" style="background:linear-gradient(135deg,#e8f8f0,#b8ecd4);min-height:160px">🪜</div>
-        <!-- <img src="/assets/images/gallery/suite-kids.webp" alt="חדר ילדים עם מיטות קומות" loading="lazy"> -->
-        <div class="overlay"><span class="zoom-icon" aria-hidden="true">🔍</span></div>
-      </div>
-
-      <!-- חדר קומפורט -->
-      <div class="masonry-item gallery-item" data-category="comfort" role="listitem" tabindex="0" data-lightbox aria-label="חדר קומפורט — מבט כללי">
-        <div class="ph" style="background:linear-gradient(135deg,#1a3a52,#2a5f80);color:rgba(255,255,255,.4);min-height:200px">🛏️</div>
-        <!-- <img src="/assets/images/gallery/comfort-1.webp" alt="חדר קומפורט זוגי" loading="lazy"> -->
-        <div class="overlay"><span class="zoom-icon" aria-hidden="true">🔍</span></div>
-      </div>
-      <div class="masonry-item gallery-item" data-category="comfort" role="listitem" tabindex="0" data-lightbox aria-label="מקלחת פרטית — קומפורט">
-        <div class="ph" style="background:linear-gradient(135deg,#f0f8ff,#c8e8f8);min-height:150px">🚿</div>
-        <!-- <img src="/assets/images/gallery/comfort-bathroom.webp" alt="מקלחת פרטית" loading="lazy"> -->
-        <div class="overlay"><span class="zoom-icon" aria-hidden="true">🔍</span></div>
-      </div>
-      <div class="masonry-item gallery-item" data-category="comfort" role="listitem" tabindex="0" data-lightbox aria-label="מרפסת — קומפורט">
-        <div class="ph" style="background:linear-gradient(135deg,#e8f8f4,#b8ecdb)">🪟</div>
-        <!-- <img src="/assets/images/gallery/comfort-balcony.webp" alt="מרפסת עם נוף" loading="lazy"> -->
-        <div class="overlay"><span class="zoom-icon" aria-hidden="true">🔍</span></div>
-      </div>
-
-      <!-- מתחם -->
-      <div class="masonry-item gallery-item" data-category="area" role="listitem" tabindex="0" data-lightbox aria-label="כניסה למתחם">
-        <div class="ph" style="background:linear-gradient(135deg,#2c3e50,#4a6741);color:rgba(255,255,255,.4);min-height:180px">🏘️</div>
-        <!-- <img src="/assets/images/gallery/exterior-1.webp" alt="כניסה למתחם סיטי סטיי" loading="lazy"> -->
-        <div class="overlay"><span class="zoom-icon" aria-hidden="true">🔍</span></div>
-      </div>
-      <div class="masonry-item gallery-item" data-category="area" role="listitem" tabindex="0" data-lightbox aria-label="חניון פרטי">
-        <div class="ph" style="background:linear-gradient(135deg,#4a4a4a,#6a6a6a);color:rgba(255,255,255,.3)">🅿️</div>
-        <!-- <img src="/assets/images/gallery/parking.webp" alt="חניון פרטי" loading="lazy"> -->
-        <div class="overlay"><span class="zoom-icon" aria-hidden="true">🔍</span></div>
-      </div>
-
-      <!-- נוף ואזור -->
-      <div class="masonry-item gallery-item" data-category="view" role="listitem" tabindex="0" data-lightbox aria-label="נוף הכינרת">
-        <div class="ph" style="background:linear-gradient(135deg,#1B4D6E,#6ab4d8);color:rgba(255,255,255,.5);min-height:240px">🌊</div>
-        <!-- <img src="/assets/images/gallery/kinneret.webp" alt="נוף הכינרת מטבריה" loading="lazy"> -->
-        <div class="overlay"><span class="zoom-icon" aria-hidden="true">🔍</span></div>
-      </div>
-      <div class="masonry-item gallery-item" data-category="view" role="listitem" tabindex="0" data-lightbox aria-label="טיילת טבריה">
-        <div class="ph" style="background:linear-gradient(135deg,#2980b9,#5dade2)">⛵</div>
-        <!-- <img src="/assets/images/gallery/promenade.webp" alt="טיילת טבריה" loading="lazy"> -->
-        <div class="overlay"><span class="zoom-icon" aria-hidden="true">🔍</span></div>
-      </div>
-      <div class="masonry-item gallery-item" data-category="view" role="listitem" tabindex="0" data-lightbox aria-label="שקיעה בטבריה">
-        <div class="ph" style="background:linear-gradient(135deg,#e67e22,#d35400);color:rgba(255,255,255,.5)">🌅</div>
-        <!-- <img src="/assets/images/gallery/sunset.webp" alt="שקיעה יפה מטבריה" loading="lazy"> -->
-        <div class="overlay"><span class="zoom-icon" aria-hidden="true">🔍</span></div>
-      </div>
-
+  <div class="cta-band">
+    <h2>אהבת מה שראית?</h2>
+    <p>הזמן עכשיו ובחר את החדר שרצית.</p>
+    <div class="cta-buttons">
+      <a href="/booking/" class="btn btn-gold">🗓️ הזמן עכשיו</a>
+      <a href="/rooms/" class="btn btn-dark">🛏️ בחר חדר</a>
     </div>
+  </div>
 
-    <div style="text-align:center;margin-top:2rem" class="reveal">
-      <a href="/booking/" class="btn btn-primary btn-lg" data-cta="gallery_book">🗓️ אהבת? הזמן עכשיו</a>
-    </div>
-  </div></section>
-</main>
-
-<footer class="footer"><div class="container"><div class="footer-grid"><div class="footer-brand"><h3>City Stay Tiberias</h3><p>מתחם אירוח בוטיק במרכז טבריה.</p><div class="footer-social"><a href="https://www.facebook.com/City.Stay.Tiberias" class="social-btn" target="_blank" rel="noopener" aria-label="Facebook">f</a><a href="https://www.instagram.com/city.stay.tiberias" class="social-btn" target="_blank" rel="noopener" aria-label="Instagram">📷</a><a href="https://wa.me/97246206464" class="social-btn" target="_blank" rel="noopener" aria-label="WhatsApp">💬</a></div></div><nav aria-label="ניווט"><h4>ניווט מהיר</h4><ul><li><a href="/rooms/">חדרים</a></li><li><a href="/packages/">חבילות</a></li><li><a href="/booking/">הזמנה</a></li></ul></nav><nav aria-label="מידע"><h4>מידע</h4><ul><li><a href="/about/">אודות</a></li><li><a href="/privacy/">פרטיות</a></li><li><a href="/en/">English</a></li></ul></nav><div><h4>צור קשר</h4><div class="footer-contact-item"><span>📍</span><span>רחוב הגליל 24, טבריה</span></div><div class="footer-contact-item"><span>📞</span><a href="tel:+97246206464">04-6206464</a></div><div class="footer-contact-item"><span>✉️</span><a href="mailto:citystaytiberias@gmail.com">citystaytiberias@gmail.com</a></div></div></div><div class="footer-bottom"><span>© 2025 City Stay Tiberias</span><span><a href="/privacy/" style="color:inherit">פרטיות</a></span></div></div></footer>
-<div class="whatsapp-float"><span class="whatsapp-tooltip">שלח הודעה ב-WhatsApp</span><a href="https://wa.me/97246206464" class="whatsapp-btn" aria-label="WhatsApp" target="_blank" rel="noopener">💬</a></div>
-<button class="back-to-top" aria-label="חזרה לראש הדף">↑</button>
-<div id="lightbox" role="dialog" aria-modal="true" aria-label="תצוגת תמונה" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.92);z-index:9999;align-items:center;justify-content:center"><style>#lightbox.open{display:flex!important}</style><button class="lightbox-close" aria-label="סגור" style="position:absolute;top:1rem;left:1rem;background:none;border:none;color:#fff;font-size:2rem;cursor:pointer">✕</button><img src="" alt="" style="max-width:90vw;max-height:90vh;object-fit:contain;border-radius:8px"></div>
-<script src="/assets/js/main.js" defer></script>
-<script>
-// Filter
-document.querySelectorAll('.filter-btn').forEach(btn => {
-  btn.addEventListener('click', () => {
-    document.querySelectorAll('.filter-btn').forEach(b => { b.classList.remove('active'); b.setAttribute('aria-pressed','false'); });
-    btn.classList.add('active'); btn.setAttribute('aria-pressed','true');
-    const filter = btn.dataset.filter;
-    document.querySelectorAll('.gallery-item').forEach(item => {
-      item.style.display = (filter === 'all' || item.dataset.category === filter) ? '' : 'none';
+  <script>
+  // Gallery filter
+  function filterGallery(cat, btn) {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    document.querySelectorAll('.g-item').forEach(function(item) {
+      item.style.display = (cat === 'all' || item.dataset.cat === cat) ? '' : 'none';
     });
+  }
+  // Lightbox
+  var lb = document.getElementById('lightbox');
+  var lbImg = lb.querySelector('img');
+  document.querySelectorAll('.g-item').forEach(function(item) {
+    function open() {
+      var img = item.querySelector('img');
+      if (!img) return;
+      lbImg.src = img.src.replace('.jpg', '.jpg');
+      lbImg.alt = img.alt;
+      lb.classList.add('open');
+      document.body.style.overflow = 'hidden';
+      lb.querySelector('.lb-close').focus();
+    }
+    item.addEventListener('click', open);
+    item.addEventListener('keydown', function(e) { if (e.key === 'Enter' || e.key === ' ') open(); });
   });
-});
-// Keyboard lightbox trigger
-document.querySelectorAll('.masonry-item[data-lightbox]').forEach(item => {
-  item.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); item.click(); } });
-});
+  lb.querySelector('.lb-close').addEventListener('click', function() {
+    lb.classList.remove('open');
+    document.body.style.overflow = '';
+  });
+  lb.addEventListener('click', function(e) {
+    if (e.target === lb) { lb.classList.remove('open'); document.body.style.overflow = ''; }
+  });
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') { lb.classList.remove('open'); document.body.style.overflow = ''; }
+  });
+  </script>
+
+</main>
+<footer role="contentinfo">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <img src="/assets/images/logo-full.png" alt="City Stay Tiberias" width="100" height="40" loading="lazy">
+      <p>מתחם אירוח בוטיק במרכז טבריה — שלוש אפשרויות לינה, שירות חם ומחיר שקוף.</p>
+      <div class="footer-social">
+        <a href="https://www.facebook.com/City.Stay.Tiberias" aria-label="Facebook" target="_blank" rel="noopener">f</a>
+        <a href="https://www.instagram.com/city.stay.tiberias" aria-label="Instagram" target="_blank" rel="noopener">◈</a>
+        <a href="https://wa.me/97246206464" aria-label="WhatsApp" target="_blank" rel="noopener">💬</a>
+      </div>
+      <div class="footer-contact">
+        <div class="contact-row"><span aria-hidden="true">📍</span><span>רחוב הגליל 24, טבריה 1410101</span></div>
+        <div class="contact-row"><span aria-hidden="true">📞</span><a href="tel:+97246206464">04-6206464</a></div>
+        <div class="contact-row"><span aria-hidden="true">✉️</span><a href="mailto:citystaytiberias@gmail.com">citystaytiberias@gmail.com</a></div>
+      </div>
+    </div>
+    <nav aria-label="קישורי לינה"><div class="footer-col"><h3>לינה</h3><ul>
+      <li><a href="/rooms/">כל החדרים</a></li>
+      <li><a href="/rooms/comfort-room/">חדר קומפורט</a></li>
+      <li><a href="/rooms/family-suite/">סוויטת משפחה</a></li>
+      <li><a href="/rooms/complete/">סיטי סטיי קומפלט</a></li>
+      <li><a href="https://wubook.net/nneb/bk?ep=52ae8af2" target="_blank" rel="noopener">הזמנה מקוונת</a></li>
+    </ul></div></nav>
+    <nav aria-label="קישורי מידע"><div class="footer-col"><h3>מידע</h3><ul>
+      <li><a href="/packages/">חבילות</a></li>
+      <li><a href="/deals/">מבצעים</a></li>
+      <li><a href="/gallery/">גלריה</a></li>
+      <li><a href="/about/">אודות ומדיניות</a></li>
+      <li><a href="/contact/">צור קשר</a></li>
+      <li><a href="/privacy/">פרטיות</a></li>
+      <li><a href="/en/" lang="en">English</a></li>
+    </ul></div></nav>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 City Stay Tiberias — כל הזכויות שמורות</span>
+    <div class="footer-links"><a href="/privacy/">פרטיות</a><a href="/about/">נגישות</a><a href="/en/" lang="en">English</a></div>
+  </div>
+</footer>
+
+<a href="https://wa.me/97246206464?text=שלום,%20אני%20מעוניין%20לשאול%20על%20חדר" class="wa-float" aria-label="שלח הודעת WhatsApp לסיטי סטיי טבריה" target="_blank" rel="noopener">
+  <svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true" focusable="false" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.113.554 4.094 1.524 5.815L.057 23.73a.75.75 0 0 0 .916.913l6.084-1.594A11.944 11.944 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75a9.714 9.714 0 0 1-5.002-1.38l-.358-.214-3.713.972.99-3.617-.235-.37A9.714 9.714 0 0 1 2.25 12C2.25 6.615 6.615 2.25 12 2.25S21.75 6.615 21.75 12 17.385 21.75 12 21.75z"/></svg>
+</a>
+
+<script>
+(function(){var btn=document.querySelector('.hamburger');var nav=document.getElementById('main-nav');if(!btn||!nav)return;btn.addEventListener('click',function(){var open=nav.classList.toggle('open');btn.setAttribute('aria-expanded',open);});nav.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){nav.classList.remove('open');btn.setAttribute('aria-expanded','false');});});})();
 </script>
 </body>
 </html>
