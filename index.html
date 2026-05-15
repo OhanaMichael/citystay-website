@@ -741,19 +741,36 @@
     </section>
 
     <!-- Booking -->
-    <section class="booking-section" aria-labelledby="booking-heading">
-      <div class="section-inner">
-        <p class="section-kicker">הזמנה מקוונת</p>
-        <h2 id="booking-heading">בדוק זמינות ומחירים</h2>
-        <p class="section-sub">הזמן ישירות — ללא עמלות, מחיר שקוף, ביטול חינם עד 14 יום מראש.</p>
+    <section class="booking-section" aria-labelledby="booking-heading" style="background:var(--dark-2);border-top:1px solid rgba(201,168,76,.15);border-bottom:1px solid rgba(201,168,76,.15);padding:3rem 2rem;text-align:center">
+      <div style="max-width:800px;margin:0 auto">
+        <p style="font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-bottom:.5rem">הזמנה מקוונת</p>
+        <h2 id="booking-heading" style="font-size:clamp(1.5rem,3vw,2rem);font-weight:700;margin-bottom:.5rem">בדוק זמינות ומחירים</h2>
+        <p style="color:var(--text-muted);font-size:14px;margin-bottom:2rem">הזמן ישירות — ללא עמלות, מחיר שקוף, ביטול חינם עד 14 יום מראש.</p>
 
-        <div class="booking-box">
-          <!-- WuBook widget — paste your embed code here -->
-          <div class="wubook-placeholder" aria-label="מנוע הזמנות WuBook">
-            <noscript>להזמנה, אנא <a href="https://wubook.net/nneb/bk/?ep=52ae8af2&lang=he&c=ILS" style="color:var(--gold)">לחצו כאן</a>.</noscript>
-            <div id="wubook-embed"></div>
-          </div>
-          <script defer src="https://wubook.net/nneb/bk/?ep=52ae8af2&lang=he&c=ILS&embed=1"></script>
+        <!-- Fallback CTAs — always visible -->
+        <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-bottom:2rem">
+          <a href="/booking/"
+             style="display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 2rem;background:var(--gold);color:var(--dark);border-radius:var(--radius);font-size:15px;font-weight:600;text-decoration:none;transition:background .2s"
+             aria-label="הזמן חדר עכשיו">
+            🗓️ הזמן עכשיו
+          </a>
+          <a href="https://wa.me/97246206464?text=שלום,%20אני%20מעוניין%20לשאול%20על%20חדר"
+             style="display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 2rem;background:#25D366;color:#fff;border-radius:var(--radius);font-size:15px;font-weight:600;text-decoration:none"
+             target="_blank" rel="noopener" aria-label="הזמן ב-WhatsApp">
+            💬 הזמן ב-WhatsApp
+          </a>
+          <a href="tel:+97246206464"
+             style="display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 2rem;background:var(--dark);color:var(--text-light);border:1px solid rgba(255,255,255,.2);border-radius:var(--radius);font-size:15px;font-weight:500;text-decoration:none">
+            📞 04-6206464
+          </a>
+        </div>
+
+        <!-- Trust badges -->
+        <div style="display:flex;gap:1.5rem;justify-content:center;flex-wrap:wrap;font-size:12px;color:var(--text-muted)">
+          <span>🔒 הזמנה מאובטחת SSL</span>
+          <span>✅ מחיר כולל מע״מ</span>
+          <span>❌ ביטול חינם 14 יום</span>
+          <span>📧 אישור מיידי</span>
         </div>
       </div>
     </section>
