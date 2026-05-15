@@ -76,10 +76,4 @@
     <priority>0.95</priority>
   </url>
 
-  <url>
-    <loc>https://www.citystay.co.il/rooms/complete/</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.85</priority>
-  </url>
-
 </urlset>
