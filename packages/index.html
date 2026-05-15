@@ -3,671 +3,208 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>חבילות נופש | סיטי סטיי טבריה</title>
-  <meta name="description" content="חבילות נופש בטבריה — לינה בלבד, לינה וארוחת בוקר, וחבילות הכוללות אטרקציות כמו ספא, שייט ויקבים. מחירים כוללים מע&quot;מ.">
+  <title>חבילות | סיטי סטיי טבריה</title>
+  <meta name="description" content="חבילות לינה בטבריה — לינה בלבד, לינה וארוחת בוקר, ולינה עם אטרקציות. מחירים כוללים מע״מ 18%. ביטול חינם עד 14 יום.">
   <link rel="canonical" href="https://www.citystay.co.il/packages/">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@300;400;500;700&family=Heebo:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/assets/css/style.css">
-
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "ItemList",
-    "name": "חבילות אירוח — City Stay Tiberias",
-    "url": "https://www.citystay.co.il/packages/",
-    "itemListElement": [
-      {
-        "@type": "ListItem", "position": 1,
-        "name": "חבילת לינה בלבד",
-        "url": "https://www.citystay.co.il/packages/#room-only"
-      },
-      {
-        "@type": "ListItem", "position": 2,
-        "name": "חבילת לינה וארוחת בוקר",
-        "url": "https://www.citystay.co.il/packages/#bed-breakfast"
-      },
-      {
-        "@type": "ListItem", "position": 3,
-        "name": "חבילת לינה ואטרקציות",
-        "url": "https://www.citystay.co.il/packages/#attractions"
-      }
-    ]
-  }
-  </script>
-
-  <script src="/assets/js/config.js"></script>
-
-  <style>
-    /* ── Page Hero ── */
-    .page-hero {
-      background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 60%, var(--primary-light) 100%);
-      color: var(--white);
-      padding: calc(var(--nav-height) + 3rem) 0 3rem;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-    }
-    .page-hero::before {
-      content: '';
-      position: absolute; inset: 0;
-      background: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M0 0h40v40H0V0zm40 40h40v40H40V40zm0-40h2l-2 2V0zm0 4l4-4h2l-6 6V4zm0 4l8-8h2L40 10V8zm0 4L52 0h2L40 14v-2zm0 4L56 0h2L40 18v-2zm0 4L60 0h2L40 22v-2zm0 4L64 0h2L40 26v-2zm0 4L68 0h2L40 30v-2zm0 4L72 0h2L40 34v-2zm0 4L76 0h2L40 38v-2zm0 4L80 0v2L42 40h-2zm4 0L80 4v2L46 40h-2zm4 0L80 8v2L50 40h-2zm4 0l28-28v2L54 40h-2zm4 0l24-24v2L58 40h-2zm4 0l20-20v2L62 40h-2zm4 0l16-16v2L66 40h-2zm4 0l12-12v2L70 40h-2zm4 0l8-8v2l-6 6h-2zm4 0l4-4v2l-2 2h-2z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-    }
-    .page-hero h1 { color: var(--white); margin-bottom: 0.75rem; }
-    .page-hero p { color: rgba(255,255,255,0.8); max-width: 540px; margin: 0 auto; }
-
-    /* ── Package Anchor ── */
-    .package-anchor {
-      scroll-margin-top: calc(var(--nav-height) + 1rem);
-    }
-
-    /* ── Package Full Card ── */
-    .package-full {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 0;
-      background: var(--white);
-      border-radius: var(--radius-lg);
-      overflow: hidden;
-      box-shadow: var(--shadow-md);
-      margin-bottom: 3rem;
-    }
-    .package-full.reverse { direction: ltr; }
-    .package-full.reverse .package-full-body { direction: rtl; }
-
-    .package-full-image {
-      min-height: 380px;
-      background: linear-gradient(135deg, var(--accent), #b8d9ec);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 6rem;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .package-full-image img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      position: absolute;
-      inset: 0;
-    }
-
-    .package-full-body {
-      padding: 3rem;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-
-    .package-full-body .eyebrow {
-      display: inline-block;
-      font-size: 0.78rem;
-      font-weight: 600;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 0.5rem;
-    }
-
-    .package-full-body h2 {
-      font-size: 1.75rem;
-      margin-bottom: 0.5rem;
-    }
-
-    .package-full-body > p {
-      color: var(--text-light);
-      margin-bottom: 2rem;
-    }
-
-    .includes-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 0.5rem;
-      margin-bottom: 2rem;
-    }
-
-    .include-item {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      font-size: 0.875rem;
-      color: var(--text);
-    }
-
-    .include-item::before {
-      content: '✓';
-      color: var(--success);
-      font-weight: 700;
-      flex-shrink: 0;
-    }
-
-    .package-full-footer {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding-top: 1.5rem;
-      border-top: 1px solid var(--border);
-      flex-wrap: wrap;
-      gap: 1rem;
-    }
-
-    .package-full-price .from {
-      font-size: 0.8rem;
-      color: var(--text-light);
-      display: block;
-    }
-
-    .package-full-price .amount {
-      font-size: 2.2rem;
-      font-weight: 700;
-      color: var(--primary);
-      font-family: var(--font-display);
-      line-height: 1;
-    }
-
-    .package-full-price .per {
-      font-size: 0.82rem;
-      color: var(--text-light);
-    }
-
-    .package-full-price .vat {
-      font-size: 0.75rem;
-      background: #e8f5ee;
-      color: var(--success);
-      padding: 0.2rem 0.5rem;
-      border-radius: 4px;
-      font-weight: 600;
-      display: inline-block;
-      margin-top: 0.25rem;
-    }
-
-    /* ── Attraction Cards ── */
-    .attraction-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1.25rem;
-      margin: 2rem 0;
-    }
-
-    .attraction-card {
-      border: 2px solid var(--border);
-      border-radius: var(--radius);
-      padding: 1.25rem;
-      text-align: center;
-      cursor: pointer;
-      transition: var(--transition);
-      background: var(--white);
-    }
-
-    .attraction-card:hover,
-    .attraction-card.selected {
-      border-color: var(--primary);
-      background: var(--accent);
-    }
-
-    .attraction-card.selected {
-      box-shadow: 0 0 0 3px rgba(27,77,110,0.15);
-    }
-
-    .attraction-icon { font-size: 2rem; margin-bottom: 0.5rem; display: block; }
-    .attraction-name { font-size: 0.9rem; font-weight: 600; color: var(--dark); }
-    .attraction-desc { font-size: 0.78rem; color: var(--text-light); margin-top: 0.2rem; }
-
-    /* ── FAQ ── */
-    .faq-item {
-      border-bottom: 1px solid var(--border);
-    }
-
-    .faq-question {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1.25rem 0;
-      cursor: pointer;
-      font-weight: 600;
-      font-size: 0.95rem;
-      gap: 1rem;
-      background: none;
-      border: none;
-      width: 100%;
-      text-align: right;
-      color: var(--dark);
-    }
-
-    .faq-question:focus-visible {
-      outline: 3px solid var(--primary);
-      outline-offset: 2px;
-      border-radius: 4px;
-    }
-
-    .faq-icon {
-      flex-shrink: 0;
-      width: 24px;
-      height: 24px;
-      border-radius: 50%;
-      background: var(--accent);
-      color: var(--primary);
-      font-size: 1rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: transform var(--transition);
-    }
-
-    .faq-item.open .faq-icon { transform: rotate(45deg); }
-
-    .faq-answer {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.35s ease, padding 0.35s ease;
-      font-size: 0.9rem;
-      color: var(--text-light);
-      line-height: 1.7;
-    }
-
-    .faq-item.open .faq-answer {
-      max-height: 400px;
-      padding-bottom: 1.25rem;
-    }
-
-    @media (max-width: 768px) {
-      .package-full { grid-template-columns: 1fr; }
-      .package-full.reverse { direction: rtl; }
-      .package-full-image { min-height: 220px; }
-      .package-full-body { padding: 2rem 1.5rem; }
-      .includes-grid { grid-template-columns: 1fr; }
-      .attraction-grid { grid-template-columns: repeat(2, 1fr); }
-    }
-  </style>
-  <!-- Favicons -->
-  <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon-32.png">
-  <link rel="icon" type="image/png" sizes="64x64" href="/assets/images/favicon-64.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/favicon-180.png">
-  <meta name="theme-color" content="#1B4D6E">
+  <meta property="og:title" content="חבילות | סיטי סטיי טבריה">
+  <meta property="og:url" content="https://www.citystay.co.il/packages/">
   <link rel="preconnect" href="https://wubook.net">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<script type="application/ld+json">
-{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
-  {"@type":"Question","name":"האם המחירים כוללים מע״מ?","acceptedAnswer":{"@type":"Answer","text":"כן — כל המחירים באתר כוללים מע״מ 18%. אין הפתעות בקופה."}},
-  {"@type":"Question","name":"האם ניתן לבטל חבילה?","acceptedAnswer":{"@type":"Answer","text":"ביטול חינם עד 14 יום לפני ההגעה. לאחר מכן חיוב 100%."}},
-  {"@type":"Question","name":"מה כולל חבילת ארוחת בוקר?","acceptedAnswer":{"@type":"Answer","text":"ארוחת בוקר ישראלית מלאה במסעדה סמוכה, כלולה במחיר הלינה."}}
-]}
-</script>
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon-32.png">
+  <link rel="apple-touch-icon" href="/assets/images/favicon-180.png">
+
+  <style>
+    :root{--dark:#0d1117;--dark-2:#161b22;--gold:#c9a84c;--gold-light:#e8c97a;--cream:#f5f0e8;--text-light:#e8e4dc;--text-muted:rgba(232,228,220,0.65);--radius:8px;--radius-lg:16px;--font:'Heebo',sans-serif}
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+    body{font-family:var(--font);font-size:16px;line-height:1.7;color:var(--text-light);background:var(--dark);overflow-x:hidden}
+    .skip-link{position:absolute;top:-100%;right:1rem;background:var(--gold);color:var(--dark);padding:.5rem 1rem;border-radius:0 0 var(--radius) var(--radius);font-weight:500;z-index:9999;transition:top .2s;text-decoration:none}
+    .skip-link:focus{top:0}
+    header{position:fixed;top:0;right:0;left:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:.75rem 2rem;background:rgba(13,17,23,.92);backdrop-filter:blur(10px);border-bottom:1px solid rgba(201,168,76,.15)}
+    .logo img{height:48px;width:auto}
+    nav ul{list-style:none;display:flex;gap:1.5rem;align-items:center}
+    nav a{font-size:14px;color:var(--text-muted);text-decoration:none;transition:color .2s}
+    nav a:hover,nav a:focus-visible{color:var(--gold-light);outline:none}
+    nav a[aria-current="page"]{color:var(--gold)}
+    .nav-cta{background:var(--gold);color:var(--dark)!important;padding:.5rem 1.25rem;border-radius:var(--radius);font-weight:500;transition:background .2s,transform .1s}
+    .nav-cta:hover{background:var(--gold-light);transform:translateY(-1px)}
+    .hamburger{display:none;background:none;border:none;cursor:pointer;flex-direction:column;gap:5px;padding:4px}
+    .hamburger span{display:block;width:24px;height:2px;background:var(--text-light);border-radius:2px;transition:transform .25s,opacity .25s}
+    .hamburger[aria-expanded="true"] span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+    .hamburger[aria-expanded="true"] span:nth-child(2){opacity:0}
+    .hamburger[aria-expanded="true"] span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+    @media(max-width:768px){header{padding:.75rem 1rem}.hamburger{display:flex}nav{display:none;position:absolute;top:100%;right:0;left:0;background:var(--dark-2);border-bottom:1px solid rgba(201,168,76,.15);padding:1rem 0}nav.open{display:block}nav ul{flex-direction:column;gap:0}nav a{display:block;padding:.75rem 1.5rem;font-size:16px}.nav-cta{margin:.5rem 1.5rem;display:block;text-align:center}}
+    main{padding-top:74px;min-height:100vh}
+    .page-hero{background:var(--dark-2);border-bottom:1px solid rgba(201,168,76,.15);padding:2.5rem 2rem 2rem;text-align:center}
+    .breadcrumb{display:flex;align-items:center;gap:.4rem;justify-content:center;font-size:12px;color:var(--text-muted);margin-bottom:.75rem}
+    .breadcrumb a{color:var(--text-muted);text-decoration:none}
+    .breadcrumb a:hover{color:var(--gold)}
+    .kicker{font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:.4rem}
+    .page-hero h1{font-size:clamp(1.8rem,4vw,2.8rem);font-weight:700;margin-bottom:.5rem}
+    .page-hero p{color:var(--text-muted);max-width:520px;margin:0 auto}
+    .section-inner{max-width:1100px;margin:0 auto;padding:3rem 2rem}
+    @media(max-width:768px){.section-inner{padding:2rem 1rem}}
+    .section-title{font-size:clamp(1.4rem,3vw,1.9rem);font-weight:700;margin-bottom:.5rem}
+    .section-sub{color:var(--text-muted);font-size:14px;margin-bottom:2rem}
+    .btn{display:inline-flex;align-items:center;gap:.5rem;padding:.75rem 1.75rem;border-radius:var(--radius);font-size:15px;font-weight:500;text-decoration:none;transition:transform .15s,opacity .2s;border:none;cursor:pointer}
+    .btn:hover{transform:translateY(-2px);opacity:.92}
+    .btn-gold{background:var(--gold);color:var(--dark)}
+    .btn-gold:hover{background:var(--gold-light)}
+    .btn-dark{background:var(--dark);color:#fff;border:1px solid rgba(255,255,255,.15)}
+    .btn-outline{background:transparent;color:var(--text-light);border:1px solid rgba(255,255,255,.25)}
+    .btn-outline:hover{border-color:var(--gold);color:var(--gold)}
+    .cta-band{background:var(--dark-2);border-top:1px solid rgba(201,168,76,.15);padding:2.5rem 2rem;text-align:center}
+    .cta-band h2{font-size:1.5rem;font-weight:700;margin-bottom:.5rem}
+    .cta-band p{color:var(--text-muted);margin-bottom:1.5rem;font-size:14px}
+    .cta-buttons{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+    footer{background:var(--dark-2);border-top:1px solid rgba(201,168,76,.12);padding:3rem 2rem 0}
+    .footer-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr;gap:3rem;padding-bottom:2rem}
+    @media(max-width:768px){.footer-inner{grid-template-columns:1fr;gap:2rem}}
+    .footer-brand img{height:38px;filter:brightness(0) invert(1);opacity:.7}
+    .footer-brand p{font-size:13px;color:var(--text-muted);margin-top:.5rem;max-width:280px}
+    .footer-social{display:flex;gap:.75rem;margin-top:1rem}
+    .footer-social a{width:32px;height:32px;border:1px solid rgba(255,255,255,.12);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--text-muted);text-decoration:none;font-size:13px;transition:border-color .2s,color .2s}
+    .footer-social a:hover{border-color:var(--gold);color:var(--gold)}
+    .footer-contact{margin-top:1rem;display:flex;flex-direction:column;gap:.35rem}
+    .contact-row{display:flex;gap:.5rem;font-size:13px;color:var(--text-muted);align-items:flex-start}
+    .contact-row a{color:var(--text-muted);text-decoration:none}
+    .contact-row a:hover{color:var(--gold)}
+    .footer-col h3{font-size:12px;font-weight:600;color:var(--gold);margin-bottom:.6rem;letter-spacing:.05em}
+    .footer-col ul{list-style:none;display:flex;flex-direction:column;gap:.35rem}
+    .footer-col a{color:var(--text-muted);text-decoration:none;font-size:13px;transition:color .2s}
+    .footer-col a:hover{color:var(--gold-light)}
+    .footer-bottom{max-width:1100px;margin:0 auto;padding:1.25rem 0;border-top:1px solid rgba(255,255,255,.06);display:flex;justify-content:space-between;flex-wrap:wrap;gap:.5rem;font-size:12px;color:var(--text-muted)}
+    .footer-links{display:flex;gap:1rem}
+    .footer-links a{color:var(--text-muted);text-decoration:none}
+    .footer-links a:hover{color:var(--gold-light)}
+    .wa-float{position:fixed;bottom:1.5rem;right:1.5rem;z-index:99;width:52px;height:52px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(37,211,102,.4);text-decoration:none;transition:transform .2s}
+    .wa-float:hover{transform:scale(1.08)}
+  </style>
 </head>
 <body>
-
 <a href="#main" class="skip-link">דלג לתוכן הראשי</a>
-
-<!-- NAVBAR (same structure) -->
-<nav class="navbar transparent" id="navbar" id="navbar" aria-label="תפריט ראשי">
-  <div class="nav-inner">
-    <a href="/" class="nav-logo" aria-label="City Stay Tiberias - עמוד הבית">
-      <picture>
-        <source srcset="/assets/images/logo-full.webp" type="image/webp">
-        <img src="/assets/images/logo-full.png" alt="City Stay Tiberias" 
-             width="140" height="91" style="height:60px;width:auto;object-fit:contain" loading="eager"
-             style="height:64px;width:auto;object-fit:contain">
-      </picture>
-    </a>
-    <div class="nav-links">
-      <a href="/" class="nav-link">בית</a>
-      <a href="/rooms/" class="nav-link">חדרים</a>
-      <a href="/packages/" class="nav-link active">חבילות</a>
-      <a href="/deals/" class="nav-link">מבצעים</a>
-      <a href="/gallery/" class="nav-link">גלריה</a>
-      <a href="/about/" class="nav-link">אודות</a>
-      <a href="/contact/" class="nav-link">צור קשר</a>
-    </div>
-    <div class="nav-actions">
-      <div class="lang-switcher">
-        <button class="lang-btn active" data-lang="he">עב</button>
-        <button class="lang-btn" data-lang="en">EN</button>
-      </div>
-      <a href="/booking/" class="btn btn-gold" data-cta="nav_book_now">הזמן עכשיו</a>
-      <button class="hamburger" aria-label="פתח תפריט" aria-expanded="false"><span></span><span></span><span></span></button>
-    </div>
-  </div>
-</nav>
-
-<div class="mobile-menu" id="mobile-menu">
-  <button class="mobile-close btn btn-outline-white">✕ סגור</button>
-  <a href="/" class="nav-link">🏠 בית</a>
-  <a href="/rooms/" class="nav-link">🛏️ חדרים</a>
-  <a href="/packages/" class="nav-link active">🎁 חבילות</a>
-  <a href="/deals/" class="nav-link">🔥 מבצעים</a>
-  <a href="/gallery/" class="nav-link">📸 גלריה</a>
-  <a href="/about/" class="nav-link">📍 אודות</a>
-  <a href="/contact/" class="nav-link">📞 צור קשר</a>
-  <a href="/booking/" class="btn btn-gold btn-lg" style="margin-top:1rem">הזמן עכשיו</a>
-</div>
-
+<header role="banner">
+  <a href="/" class="logo" aria-label="דף הבית — סיטי סטיי טבריה">
+    <img src="/assets/images/logo-full.png" alt="City Stay Tiberias" width="120" height="48" loading="eager">
+  </a>
+  <button class="hamburger" aria-expanded="false" aria-controls="main-nav" aria-label="פתח תפריט ניווט">
+    <span></span><span></span><span></span>
+  </button>
+  <nav id="main-nav" role="navigation" aria-label="ניווט ראשי">
+    <ul>
+      <li><a href="/">בית</a></li>
+      <li><a href="/rooms/">חדרים</a></li>
+      <li><a href="/packages/" aria-current="page">חבילות</a></li>
+      <li><a href="/deals/">מבצעים</a></li>
+      <li><a href="/gallery/">גלריה</a></li>
+      <li><a href="/about/">אודות</a></li>
+      <li><a href="/contact/">צור קשר</a></li>
+      <li><a href="/booking/" class="nav-cta">הזמן עכשיו</a></li>
+    </ul>
+  </nav>
+</header>
 <main id="main">
 
-  <!-- Page Hero -->
   <div class="page-hero">
-    <div class="container">
-      <span class="eyebrow" style="color:var(--gold-light);display:block;margin-bottom:0.5rem">חבילות מיוחדות</span>
-      <h1>מעבר ללינה — חוויה שלמה</h1>
-      <p>בחר את החבילה שמתאימה לך. כל המחירים שקופים וכוללים מע"מ 18%.</p>
-    </div>
+    <nav class="breadcrumb" aria-label="ניווט ארכיב"><a href="/">בית</a><span>›</span><span>חבילות</span></nav>
+    <span class="kicker">מבצעים והטבות</span>
+    <h1>חבילות לינה מיוחדות</h1>
+    <p>בחר את החבילה שמתאימה לך — מחירים כוללים מע״מ, ביטול חינם עד 14 יום</p>
   </div>
 
-  <!-- Quick Nav -->
-  <section style="background:var(--accent); padding:1rem 0; position:sticky; top:var(--nav-height); z-index:100; border-bottom:1px solid var(--border);">
-    <div class="container" style="display:flex; gap:1rem; flex-wrap:wrap; justify-content:center;">
-      <a href="#room-only" class="btn btn-outline" style="padding:0.5rem 1.25rem; font-size:0.85rem;">🛏️ לינה בלבד</a>
-      <a href="#bed-breakfast" class="btn btn-outline" style="padding:0.5rem 1.25rem; font-size:0.85rem;">🍳 לינה + בוקר</a>
-      <a href="#attractions" class="btn btn-outline" style="padding:0.5rem 1.25rem; font-size:0.85rem;">🌊 לינה + אטרקציות</a>
+  <section style="background:var(--cream);color:var(--dark)">
+    <div class="section-inner">
+      <div style="margin-bottom:2rem">
+        <h2 class="section-title" style="color:var(--dark)">החבילות שלנו</h2>
+        <p class="section-sub">כל החבילות כוללות: WiFi חינם, חניה, מיזוג, מצעים ומגבות</p>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.5rem">
+
+        <article style="background:#fff;border-radius:var(--radius-lg);overflow:hidden;box-shadow:0 2px 16px rgba(0,0,0,.08)">
+          <div style="background:linear-gradient(135deg,#1a1a2e,#16213e);height:160px;display:flex;align-items:center;justify-content:center;font-size:3.5rem">🛏️</div>
+          <div style="padding:1.5rem">
+            <p style="font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:#888;margin-bottom:.25rem">חבילה 01</p>
+            <h3 style="font-size:1.2rem;font-weight:700;color:var(--dark);margin-bottom:.5rem">לינה בלבד</h3>
+            <p style="font-size:13px;color:#555;margin-bottom:1rem;line-height:1.6">הבסיס המושלם — חדר נוח, מחיר שקוף, ללא תוספות מיותרות. מתאים למי שמתכנן את הבוקר שלו בעצמו.</p>
+            <ul style="font-size:13px;color:#444;margin-bottom:1.25rem;padding-right:1rem">
+              <li style="margin-bottom:.3rem">✓ לינה בחדר לבחירה</li>
+              <li style="margin-bottom:.3rem">✓ WiFi מהיר</li>
+              <li style="margin-bottom:.3rem">✓ חניה חינם</li>
+              <li style="margin-bottom:.3rem">✓ צ׳ק-אין נפרד</li>
+            </ul>
+            <div style="border-top:1px solid #eee;padding-top:1rem;display:flex;align-items:center;justify-content:space-between">
+              <div><span style="font-size:11px;color:#888;display:block">החל מ-</span><strong style="font-size:1.3rem;color:var(--dark)">590₪</strong><span style="font-size:12px;color:#888"> / לילה</span></div>
+              <a href="/booking/" style="background:var(--dark);color:#fff;padding:.6rem 1.25rem;border-radius:var(--radius);font-size:13px;font-weight:500;text-decoration:none">הזמן החבילה</a>
+            </div>
+          </div>
+        </article>
+
+        <article style="background:#fff;border-radius:var(--radius-lg);overflow:hidden;box-shadow:0 2px 16px rgba(0,0,0,.08);border:2px solid var(--gold);position:relative">
+          <div style="position:absolute;top:0;right:50%;transform:translateX(50%);background:var(--gold);color:var(--dark);font-size:11px;font-weight:600;padding:3px 14px;border-radius:0 0 6px 6px">הכי פופולרי</div>
+          <div style="background:linear-gradient(135deg,#2d1b69,#11998e);height:160px;display:flex;align-items:center;justify-content:center;font-size:3.5rem">☕</div>
+          <div style="padding:1.5rem">
+            <p style="font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:#888;margin-bottom:.25rem">חבילה 02</p>
+            <h3 style="font-size:1.2rem;font-weight:700;color:var(--dark);margin-bottom:.5rem">לינה + ארוחת בוקר</h3>
+            <p style="font-size:13px;color:#555;margin-bottom:1rem;line-height:1.6">התחל את הבוקר בצורה הטובה ביותר — ארוחת בוקר ישראלית עשירה במסעדה שכנה, כלולה במחיר.</p>
+            <ul style="font-size:13px;color:#444;margin-bottom:1.25rem;padding-right:1rem">
+              <li style="margin-bottom:.3rem">✓ הכל מחבילה 01</li>
+              <li style="margin-bottom:.3rem">✓ ארוחת בוקר ישראלית מלאה</li>
+              <li style="margin-bottom:.3rem">✓ קפה/תה כלול</li>
+              <li style="margin-bottom:.3rem">✓ במסעדה סמוכה</li>
+            </ul>
+            <div style="border-top:1px solid #eee;padding-top:1rem;display:flex;align-items:center;justify-content:space-between">
+              <div><span style="font-size:11px;color:#888;display:block">לפי בקשה —</span><a href="/contact/" style="color:var(--gold);font-size:13px;text-decoration:none;font-weight:500">צרו קשר לתמחור ←</a></div>
+              <a href="/contact/" style="background:var(--gold);color:var(--dark);padding:.6rem 1.25rem;border-radius:var(--radius);font-size:13px;font-weight:500;text-decoration:none">פרטים</a>
+            </div>
+          </div>
+        </article>
+
+        <article style="background:#fff;border-radius:var(--radius-lg);overflow:hidden;box-shadow:0 2px 16px rgba(0,0,0,.08)">
+          <div style="background:linear-gradient(135deg,#0f3443,#34e89e);height:160px;display:flex;align-items:center;justify-content:center;font-size:3.5rem">🌊</div>
+          <div style="padding:1.5rem">
+            <p style="font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:#888;margin-bottom:.25rem">חבילה 03</p>
+            <h3 style="font-size:1.2rem;font-weight:700;color:var(--dark);margin-bottom:.5rem">לינה + אטרקציות</h3>
+            <p style="font-size:13px;color:#555;margin-bottom:1rem;line-height:1.6">שלב לינה נוחה עם חוויות בלתי נשכחות בטבריה והכינרת — שייט, חמי טבריה ועוד.</p>
+            <ul style="font-size:13px;color:#444;margin-bottom:1.25rem;padding-right:1rem">
+              <li style="margin-bottom:.3rem">✓ הכל מחבילה 01</li>
+              <li style="margin-bottom:.3rem">✓ שייט על הכינרת</li>
+              <li style="margin-bottom:.3rem">✓ חמי טבריה</li>
+              <li style="margin-bottom:.3rem">✓ אטרקציות לפי בחירה</li>
+            </ul>
+            <div style="border-top:1px solid #eee;padding-top:1rem;display:flex;align-items:center;justify-content:space-between">
+              <div><span style="font-size:11px;color:#888;display:block">לפי בקשה —</span><a href="/contact/" style="color:var(--gold);font-size:13px;text-decoration:none;font-weight:500">צרו קשר לתמחור ←</a></div>
+              <a href="/contact/" style="background:var(--dark);color:#fff;padding:.6rem 1.25rem;border-radius:var(--radius);font-size:13px;font-weight:500;text-decoration:none">פרטים</a>
+            </div>
+          </div>
+        </article>
+
+      </div>
+
+      <!-- FAQ -->
+      <div style="margin-top:3rem;padding:2rem;background:rgba(201,168,76,.06);border-radius:var(--radius-lg);border:1px solid rgba(201,168,76,.2)">
+        <h2 style="font-size:1.2rem;font-weight:700;margin-bottom:1.5rem;color:var(--dark)">שאלות נפוצות</h2>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1rem">
+          <div><strong style="font-size:13px;color:var(--dark);display:block;margin-bottom:.3rem">האם המחירים כוללים מע״מ?</strong><p style="font-size:13px;color:#555">כן — כל המחירים כוללים מע״מ 18%. אין הפתעות.</p></div>
+          <div><strong style="font-size:13px;color:var(--dark);display:block;margin-bottom:.3rem">האם ניתן לשלב חבילה עם הנחה מוקדמת?</strong><p style="font-size:13px;color:#555">כן! הזמינו עם קוד EARLY10 ותקבלו 10% נוסף.</p></div>
+          <div><strong style="font-size:13px;color:var(--dark);display:block;margin-bottom:.3rem">האם ניתן לבטל?</strong><p style="font-size:13px;color:#555">ביטול חינם עד 14 יום לפני ההגעה. לאחר מכן חיוב 100%.</p></div>
+        </div>
+      </div>
     </div>
   </section>
 
-  <div class="section">
-    <div class="container">
-
-      <!-- ══════════════════════════════════════
-           PACKAGE 1 — ROOM ONLY
-      ══════════════════════════════════════ -->
-      <article class="package-full reveal" id="room-only" aria-labelledby="pkg1-title">
-        <div class="package-full-image" role="img" aria-label="תמונת חבילת לינה בלבד">
-          <!-- Replace with: <img src="/assets/images/packages/room-only.webp" alt="חדר נקי ומוכן לאירוח" loading="lazy"> -->
-          🛏️
-        </div>
-        <div class="package-full-body">
-          <div>
-            <span class="eyebrow">חבילה 01</span>
-            <h2 id="pkg1-title">לינה בלבד</h2>
-            <p>הבסיס המושלם — חדר נוח, מחיר שקוף, ללא תוספות מיותרות. מתאים למי שמתכנן את הבוקר שלו לבד.</p>
-
-            <div class="includes-grid">
-              <div class="include-item">לינה בחדר לבחירה</div>
-              <div class="include-item">חניה חינם במתחם</div>
-              <div class="include-item">WiFi מהיר</div>
-              <div class="include-item">מגבות ומצעים</div>
-              <div class="include-item">צ'ק-אין גמיש</div>
-              <div class="include-item">ניקיון יומי</div>
-              <!-- הוסף פרטים נוספים כאן -->
-            </div>
-
-            <!-- ROOM CHOICE -->
-            <div style="background:var(--accent); border-radius:var(--radius); padding:1rem; margin-bottom:1.5rem;">
-              <p style="font-size:0.82rem; font-weight:600; color:var(--primary); margin-bottom:0.5rem;">בחר סוג חדר:</p>
-              <div style="display:flex; gap:0.75rem; flex-wrap:wrap;">
-                <label style="display:flex;align-items:center;gap:0.4rem;font-size:0.88rem;cursor:pointer;">
-                  <input type="radio" name="room-only-type" value="comfort" checked> חדר קומפורט (זוגי)
-                </label>
-                <label style="display:flex;align-items:center;gap:0.4rem;font-size:0.88rem;cursor:pointer;">
-                  <input type="radio" name="room-only-type" value="suite"> סוויטת משפחה
-                </label>
-              </div>
-            </div>
-          </div>
-
-          <div class="package-full-footer">
-            <div class="package-full-price">
-              <span class="from">החל מ-</span>
-              <span class="amount" data-base-price="500">590</span>
-              <span class="per"> ₪ / לילה</span>
-              <span class="vat">✓ כולל מע"מ</span>
-            </div>
-            <a href="/booking/" class="btn btn-primary btn-lg" data-cta="pkg1_book">
-              🗓️ הזמן חבילה זו
-            </a>
-          </div>
-        </div>
-      </article>
-
-      <!-- ══════════════════════════════════════
-           PACKAGE 2 — BED & BREAKFAST
-      ══════════════════════════════════════ -->
-      <article class="package-full reverse reveal" id="bed-breakfast" aria-labelledby="pkg2-title">
-        <div class="package-full-body">
-          <div>
-            <span class="eyebrow">חבילה 02 · הכי פופולרית ⭐</span>
-            <h2 id="pkg2-title">לינה + ארוחת בוקר</h2>
-            <p>התעוררו לריח הקפה — ובוקר ישראלי עשיר שמחכה לכם. הדרך הנכונה להתחיל יום של טיול בצפון.</p>
-
-            <div class="includes-grid">
-              <div class="include-item">לינה בחדר לבחירה</div>
-              <div class="include-item">ארוחת בוקר ישראלית עשירה</div>
-              <div class="include-item">קפה / תה ללא הגבלה</div>
-              <div class="include-item">חניה חינם</div>
-              <div class="include-item">WiFi מהיר</div>
-              <div class="include-item">מגבות ומצעים</div>
-              <div class="include-item">ניקיון יומי</div>
-              <!-- הוסף פרטים נוספים כאן -->
-            </div>
-
-            <!-- BREAKFAST DETAILS -->
-            <div style="background:#fff8ed; border:1px solid #f5dba0; border-radius:var(--radius); padding:1rem; margin-bottom:1.5rem;">
-              <p style="font-size:0.82rem; font-weight:600; color:var(--gold); margin-bottom:0.4rem;">🍳 מה כולל הבוקר?</p>
-              <p style="font-size:0.82rem; color:var(--text-light); margin:0;">
-                <!-- ניתן לערוך תוכן זה לאחר קביעת תפריט הבוקר -->
-                ביצים בהכנה לבחירה · גבינות ירושלמיות · ירקות טריים · לחמים ממאפייה · ריבות תוצרת בית · מיץ טרי
-              </p>
-            </div>
-          </div>
-
-          <div class="package-full-footer">
-            <div class="package-full-price">
-              <span class="from">החל מ-</span>
-              <span class="amount">—</span>
-              <span class="per"> ₪ / לילה</span>
-              <span class="vat">✓ כולל מע"מ</span>
-              <span style="display:block;font-size:0.75rem;color:var(--text-light);margin-top:0.25rem">המחיר <a href="/contact/" style="color:var(--gold)">לפי בקשה — צרו קשר לתמחור</a></span>
-            </div>
-            <a href="/contact/?subject=חבילת-בוקר" class="btn btn-gold btn-lg" data-cta="pkg2_inquire">
-              📞 צור קשר לתמחור
-            </a>
-          </div>
-        </div>
-        <div class="package-full-image" role="img" aria-label="תמונת ארוחת בוקר">
-          <!-- Replace with: <img src="/assets/images/packages/breakfast.webp" alt="ארוחת בוקר ישראלית עשירה" loading="lazy"> -->
-          🍳
-        </div>
-      </article>
-
-      <!-- ══════════════════════════════════════
-           PACKAGE 3 — ATTRACTIONS
-      ══════════════════════════════════════ -->
-      <article class="package-full reveal" id="attractions" aria-labelledby="pkg3-title">
-        <div class="package-full-image" role="img" aria-label="תמונת חבילת אטרקציות">
-          <!-- Replace with: <img src="/assets/images/packages/attractions.webp" alt="שייט בכינרת" loading="lazy"> -->
-          🌊
-        </div>
-        <div class="package-full-body">
-          <div>
-            <span class="eyebrow">חבילה 03</span>
-            <h2 id="pkg3-title">לינה + אטרקציות</h2>
-            <p>טבריה היא הרבה יותר מחדר. בחר אטרקציה, ואנחנו נארגן הכל — ספא, שייט, יקבים ועוד.</p>
-
-            <!-- Attraction Selector -->
-            <div style="margin-bottom:1.5rem;">
-              <p style="font-size:0.88rem; font-weight:600; color:var(--dark); margin-bottom:0.75rem;">בחר את האטרקציה שלך:</p>
-              <div class="attraction-grid" role="group" aria-label="בחירת אטרקציה">
-
-                <!-- TEMPLATE: שכפל את attraction-card לכל אטרקציה חדשה -->
-                <div class="attraction-card" role="radio" aria-checked="false" tabindex="0"
-                     data-attraction="spa" onclick="selectAttraction(this)">
-                  <span class="attraction-icon" aria-hidden="true">🌡️</span>
-                  <div class="attraction-name">ספא וחמי טבריה</div>
-                  <div class="attraction-desc">טיפולים, ג'קוזי ומעיינות חמים</div>
-                </div>
-
-                <div class="attraction-card" role="radio" aria-checked="false" tabindex="0"
-                     data-attraction="boat" onclick="selectAttraction(this)">
-                  <span class="attraction-icon" aria-hidden="true">⛵</span>
-                  <div class="attraction-name">שייט בכינרת</div>
-                  <div class="attraction-desc">שייט פרטי / טיול בסירה</div>
-                </div>
-
-                <div class="attraction-card" role="radio" aria-checked="false" tabindex="0"
-                     data-attraction="winery" onclick="selectAttraction(this)">
-                  <span class="attraction-icon" aria-hidden="true">🍷</span>
-                  <div class="attraction-name">סיור ביקבים</div>
-                  <div class="attraction-desc">יקבי גליל עליון וגולן</div>
-                </div>
-
-                <!-- הוסף אטרקציות כאן — TEMPLATE:
-                <div class="attraction-card" role="radio" aria-checked="false" tabindex="0"
-                     data-attraction="SLUG" onclick="selectAttraction(this)">
-                  <span class="attraction-icon" aria-hidden="true">EMOJI</span>
-                  <div class="attraction-name">שם האטרקציה</div>
-                  <div class="attraction-desc">תיאור קצר</div>
-                </div>
-                -->
-
-              </div>
-            </div>
-
-            <div class="includes-grid">
-              <div class="include-item">לינה בחדר לבחירה</div>
-              <div class="include-item">אטרקציה לבחירה</div>
-              <div class="include-item">ארוחת בוקר</div>
-              <div class="include-item">חניה חינם</div>
-              <div class="include-item">ליווי ותיאום מלא</div>
-              <div class="include-item">המלצות מקומיות</div>
-            </div>
-          </div>
-
-          <div class="package-full-footer">
-            <div class="package-full-price">
-              <span class="from">החל מ-</span>
-              <span class="amount">—</span>
-              <span class="per"> ₪ / חבילה</span>
-              <span class="vat">✓ כולל מע"מ</span>
-              <span style="display:block;font-size:0.75rem;color:var(--text-light);margin-top:0.25rem">מחיר לפי אטרקציה ומועד</span>
-            </div>
-            <a href="/contact/?subject=חבילת-אטרקציות" class="btn btn-primary btn-lg" data-cta="pkg3_inquire">
-              📞 יצירת קשר לתיאום
-            </a>
-          </div>
-        </div>
-      </article>
-
-      <!-- ══════════════════════════════════════
-           ADD NEW PACKAGE TEMPLATE (hidden)
-           Copy and uncomment to add a package
-      ══════════════════════════════════════
-      <article class="package-full reveal" id="NEW_PACKAGE_ID" aria-labelledby="pkgX-title">
-        <div class="package-full-image" role="img" aria-label="תמונת החבילה">
-          EMOJI / <img>
-        </div>
-        <div class="package-full-body">
-          <div>
-            <span class="eyebrow">חבילה 0X</span>
-            <h2 id="pkgX-title">שם החבילה</h2>
-            <p>תיאור החבילה...</p>
-            <div class="includes-grid">
-              <div class="include-item">פרט כלול 1</div>
-              <div class="include-item">פרט כלול 2</div>
-            </div>
-          </div>
-          <div class="package-full-footer">
-            <div class="package-full-price">
-              <span class="from">החל מ-</span>
-              <span class="amount" data-base-price="BASE_PRICE">—</span>
-              <span class="per"> ₪ / לילה</span>
-              <span class="vat">✓ כולל מע"מ</span>
-            </div>
-            <a href="/booking/" class="btn btn-primary btn-lg">הזמן חבילה זו</a>
-          </div>
-        </div>
-      </article>
-      -->
-
+  <div class="cta-band">
+    <h2>מוכן להזמין חבילה?</h2>
+    <p>הזמן ישירות — ללא עמלות, מחיר שקוף.</p>
+    <div class="cta-buttons">
+      <a href="/booking/" class="btn btn-gold">🗓️ הזמן עכשיו</a>
+      <a href="/contact/" class="btn btn-dark">✉️ שאל על חבילה</a>
     </div>
   </div>
-
-  <!-- FAQ -->
-  <section class="section" style="background:var(--accent)" aria-labelledby="faq-heading">
-    <div class="container" style="max-width:760px;">
-      <div class="section-header reveal">
-        <span class="eyebrow">שאלות נפוצות</span>
-        <h2 id="faq-heading">יש לך שאלה? יש לנו תשובה.</h2>
-      </div>
-
-      <div class="reveal">
-        <div class="faq-item">
-          <button class="faq-question" aria-expanded="false">
-            האם המחירים כוללים מע"מ?
-            <span class="faq-icon" aria-hidden="true">+</span>
-          </button>
-          <div class="faq-answer">
-            כן — כל המחירים באתר כוללים מע"מ 18%. אין עמלות נסתרות ואין הפתעות בקופה.
-            תיירי חוץ עם ויזת תייר פטורים ממע"מ — אנא צרו קשר לפרטים.
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <button class="faq-question" aria-expanded="false">
-            מה מדיניות הביטול?
-            <span class="faq-icon" aria-hidden="true">+</span>
-          </button>
-          <div class="faq-answer">
-            ביטול חינם עד 14 יום לפני ההגעה. ביטול לאחר 14 יום — חיוב 100% מסכום האירוח.
-            בחבילות מיוחדות ייתכנו תנאים שונים — ראה פרטים בעמוד ההזמנה.
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <button class="faq-question" aria-expanded="false">
-            מה שעות הצ'ק-אין והצ'ק-אאוט?
-            <span class="faq-icon" aria-hidden="true">+</span>
-          </button>
-          <div class="faq-answer">
-            צ'ק-אין: 15:00 ואילך. צ'ק-אאוט: עד 11:00. כניסה מוקדמת ויציאה מאוחרת בתיאום מראש, בכפוף לזמינות.
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <button class="faq-question" aria-expanded="false">
-            כיצד מזמינים חבילת לינה + אטרקציות?
-            <span class="faq-icon" aria-hidden="true">+</span>
-          </button>
-          <div class="faq-answer">
-            צרו קשר עמנו בטלפון, WhatsApp, או דרך טופס הפנייה — נתאים לכם את האטרקציה לתאריך שבחרתם.
-            ניתן לשלם מראש את הלינה דרך מנוע ההזמנות, ואת תוספת האטרקציה בנפרד.
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <button class="faq-question" aria-expanded="false">
-            האם ניתן להוסיף ארוחת בוקר לאחר ההזמנה?
-            <span class="faq-icon" aria-hidden="true">+</span>
-          </button>
-          <div class="faq-answer">
-            בהחלט! ניתן להוסיף ארוחת בוקר גם לאחר ביצוע ההזמנה — פשוט צרו קשר עד יום לפני ההגעה.
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Booking CTA -->
-  <section class="section-sm">
-    <div class="container" style="text-align:center;">
-      <div class="reveal">
-        <h2 style="margin-bottom:0.75rem;">מוכן להזמין?</h2>
-        <p style="color:var(--text-light); margin-bottom:1.75rem;">בדוק זמינות ומחירים עכשיו — הזמנה מאובטחת, מחיר כולל מע"מ.</p>
-        <div style="display:flex; gap:1rem; justify-content:center; flex-wrap:wrap;">
-          <a href="/booking/" class="btn btn-primary btn-lg" data-cta="packages_book">
-            🗓️ הזמן עכשיו
-          </a>
-          <a href="/contact/" class="btn btn-outline btn-lg" data-cta="packages_contact">
-            💬 יש לי שאלה
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
 
 </main>
-
-<!-- FOOTER (same as homepage) -->
 <footer role="contentinfo">
   <div class="footer-inner">
     <div class="footer-brand">
@@ -684,120 +221,35 @@
         <div class="contact-row"><span aria-hidden="true">✉️</span><a href="mailto:citystaytiberias@gmail.com">citystaytiberias@gmail.com</a></div>
       </div>
     </div>
-    <nav aria-label="קישורי לינה">
-      <div class="footer-col">
-        <h3>לינה</h3>
-        <ul>
-          <li><a href="/rooms/">כל החדרים</a></li>
-          <li><a href="/rooms/comfort-room/">חדר קומפורט</a></li>
-          <li><a href="/rooms/family-suite/">סוויטת משפחה</a></li>
-          <li><a href="/rooms/complete/">סיטי סטיי קומפלט</a></li>
-          <li><a href="https://wubook.net/nneb/bk?ep=52ae8af2" target="_blank" rel="noopener">הזמנה מקוונת</a></li>
-        </ul>
-      </div>
-    </nav>
-    <nav aria-label="קישורי מידע">
-      <div class="footer-col">
-        <h3>מידע</h3>
-        <ul>
-          <li><a href="/packages/">חבילות</a></li>
-          <li><a href="/deals/">מבצעים</a></li>
-          <li><a href="/gallery/">גלריה</a></li>
-          <li><a href="/about/">אודות ומדיניות</a></li>
-          <li><a href="/contact/">צור קשר</a></li>
-          <li><a href="/privacy/">פרטיות</a></li>
-          <li><a href="/en/" lang="en">English</a></li>
-        </ul>
-      </div>
-    </nav>
+    <nav aria-label="קישורי לינה"><div class="footer-col"><h3>לינה</h3><ul>
+      <li><a href="/rooms/">כל החדרים</a></li>
+      <li><a href="/rooms/comfort-room/">חדר קומפורט</a></li>
+      <li><a href="/rooms/family-suite/">סוויטת משפחה</a></li>
+      <li><a href="/rooms/complete/">סיטי סטיי קומפלט</a></li>
+      <li><a href="https://wubook.net/nneb/bk?ep=52ae8af2" target="_blank" rel="noopener">הזמנה מקוונת</a></li>
+    </ul></div></nav>
+    <nav aria-label="קישורי מידע"><div class="footer-col"><h3>מידע</h3><ul>
+      <li><a href="/packages/">חבילות</a></li>
+      <li><a href="/deals/">מבצעים</a></li>
+      <li><a href="/gallery/">גלריה</a></li>
+      <li><a href="/about/">אודות ומדיניות</a></li>
+      <li><a href="/contact/">צור קשר</a></li>
+      <li><a href="/privacy/">פרטיות</a></li>
+      <li><a href="/en/" lang="en">English</a></li>
+    </ul></div></nav>
   </div>
   <div class="footer-bottom">
     <span>© 2025 City Stay Tiberias — כל הזכויות שמורות</span>
-    <div class="footer-links">
-      <a href="/privacy/">פרטיות</a>
-      <a href="/about/">נגישות</a>
-      <a href="/en/" lang="en">English</a>
-    </div>
+    <div class="footer-links"><a href="/privacy/">פרטיות</a><a href="/about/">נגישות</a><a href="/en/" lang="en">English</a></div>
   </div>
 </footer>
 
-<a href="https://wa.me/97246206464?text=שלום,%20אני%20מעוניין%20לשאול%20על%20חדר"
-   class="wa-float" aria-label="שלח הודעת WhatsApp לסיטי סטיי טבריה" target="_blank" rel="noopener">
-  <svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true" focusable="false" fill="white">
-    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
-    <path d="M12 0C5.373 0 0 5.373 0 12c0 2.113.554 4.094 1.524 5.815L.057 23.73a.75.75 0 0 0 .916.913l6.084-1.594A11.944 11.944 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75a9.714 9.714 0 0 1-5.002-1.38l-.358-.214-3.713.972.99-3.617-.235-.37A9.714 9.714 0 0 1 2.25 12C2.25 6.615 6.615 2.25 12 2.25S21.75 6.615 21.75 12 17.385 21.75 12 21.75z"/>
-  </svg>
+<a href="https://wa.me/97246206464?text=שלום,%20אני%20מעוניין%20לשאול%20על%20חדר" class="wa-float" aria-label="שלח הודעת WhatsApp לסיטי סטיי טבריה" target="_blank" rel="noopener">
+  <svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true" focusable="false" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.113.554 4.094 1.524 5.815L.057 23.73a.75.75 0 0 0 .916.913l6.084-1.594A11.944 11.944 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75a9.714 9.714 0 0 1-5.002-1.38l-.358-.214-3.713.972.99-3.617-.235-.37A9.714 9.714 0 0 1 2.25 12C2.25 6.615 6.615 2.25 12 2.25S21.75 6.615 21.75 12 17.385 21.75 12 21.75z"/></svg>
 </a>
 
 <script>
-(function(){
-  var btn=document.querySelector('.hamburger');
-  var nav=document.getElementById('main-nav');
-  if(!btn||!nav)return;
-  btn.addEventListener('click',function(){
-    var open=nav.classList.toggle('open');
-    btn.setAttribute('aria-expanded',open);
-  });
-  nav.querySelectorAll('a').forEach(function(a){
-    a.addEventListener('click',function(){
-      nav.classList.remove('open');
-      btn.setAttribute('aria-expanded','false');
-    });
-  });
-})();
+(function(){var btn=document.querySelector('.hamburger');var nav=document.getElementById('main-nav');if(!btn||!nav)return;btn.addEventListener('click',function(){var open=nav.classList.toggle('open');btn.setAttribute('aria-expanded',open);});nav.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){nav.classList.remove('open');btn.setAttribute('aria-expanded','false');});});})();
 </script>
-
-<div class="whatsapp-float">
-  <span class="whatsapp-tooltip">שלח הודעה ב-WhatsApp</span>
-  <a href="https://wa.me/97246206464?text=שלום,%20אני%20מעוניין%20בחבילת%20אירוח" class="whatsapp-btn" aria-label="WhatsApp" target="_blank" rel="noopener">💬</a>
-</div>
-<button class="back-to-top" aria-label="חזרה לראש הדף">↑</button>
-
-
-<script src="/assets/js/main.js" defer></script>
-<script>
-// Attraction selector
-function selectAttraction(el) {
-  el.closest('.attraction-grid').querySelectorAll('.attraction-card').forEach(c => {
-    c.classList.remove('selected');
-    c.setAttribute('aria-checked', 'false');
-  });
-  el.classList.add('selected');
-  el.setAttribute('aria-checked', 'true');
-}
-
-// Keyboard support for attraction cards
-document.querySelectorAll('.attraction-card').forEach(card => {
-  card.addEventListener('keydown', e => {
-    if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); selectAttraction(card); }
-  });
-});
-
-// FAQ accordion
-document.querySelectorAll('.faq-question').forEach(btn => {
-  btn.addEventListener('click', () => {
-    const item = btn.closest('.faq-item');
-    const isOpen = item.classList.contains('open');
-    document.querySelectorAll('.faq-item').forEach(i => {
-      i.classList.remove('open');
-      i.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
-    });
-    if (!isOpen) {
-      item.classList.add('open');
-      btn.setAttribute('aria-expanded', 'true');
-    }
-  });
-});
-</script>
-<a href="https://wa.me/97246206464?text=שלום,%20אני%20מעוניין%20לשאול%20על%20חדר"
-   class="wa-float"
-   aria-label="שלח הודעת WhatsApp לסיטי סטיי טבריה"
-   target="_blank"
-   rel="noopener">
-  <svg viewBox="0 0 24 24" width="28" height="28" aria-hidden="true" focusable="false" fill="white">
-    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
-    <path d="M12 0C5.373 0 0 5.373 0 12c0 2.113.554 4.094 1.524 5.815L.057 23.73a.75.75 0 0 0 .916.913l6.084-1.594A11.944 11.944 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75a9.714 9.714 0 0 1-5.002-1.38l-.358-.214-3.713.972.99-3.617-.235-.37A9.714 9.714 0 0 1 2.25 12C2.25 6.615 6.615 2.25 12 2.25S21.75 6.615 21.75 12 17.385 21.75 12 21.75z"/>
-  </svg>
-</a>
 </body>
 </html>
