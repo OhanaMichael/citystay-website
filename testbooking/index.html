@@ -386,6 +386,22 @@
               <option value="2" selected>2 מבוגרים</option>
               <option value="3">3 מבוגרים</option>
               <option value="4">4 מבוגרים</option>
+              <option value="5">5 מבוגרים</option>
+              <option value="6">6 מבוגרים</option>
+              <option value="7">7 מבוגרים</option>
+              <option value="8">8 מבוגרים</option>
+              <option value="9">9 מבוגרים</option>
+              <option value="10">10 מבוגרים</option>
+              <option value="11">11 מבוגרים</option>
+              <option value="12">12 מבוגרים</option>
+              <option value="13">13 מבוגרים</option>
+              <option value="14">14 מבוגרים</option>
+              <option value="15">15 מבוגרים</option>
+              <option value="16">16 מבוגרים</option>
+              <option value="17">17 מבוגרים</option>
+              <option value="18">18 מבוגרים</option>
+              <option value="19">19 מבוגרים</option>
+              <option value="20">20 מבוגרים</option>
             </select>
           </div>
         </div>
@@ -398,6 +414,22 @@
               <option value="1">ילד 1</option>
               <option value="2">2 ילדים</option>
               <option value="3">3 ילדים</option>
+              <option value="4">4 ילדים</option>
+              <option value="5">5 ילדים</option>
+              <option value="6">6 ילדים</option>
+              <option value="7">7 ילדים</option>
+              <option value="8">8 ילדים</option>
+              <option value="9">9 ילדים</option>
+              <option value="10">10 ילדים</option>
+              <option value="11">11 ילדים</option>
+              <option value="12">12 ילדים</option>
+              <option value="13">13 ילדים</option>
+              <option value="14">14 ילדים</option>
+              <option value="15">15 ילדים</option>
+              <option value="16">16 ילדים</option>
+              <option value="17">17 ילדים</option>
+              <option value="18">18 ילדים</option>
+              <option value="19">19 ילדים</option>
             </select>
           </div>
         </div>
@@ -439,7 +471,22 @@
       <span id="panelLabel">תוצאות חיפוש</span>
       <button class="close-btn" onclick="closePanel()">✕ סגור</button>
     </div>
-    <iframe id="wubookFrame" src="" title="מנוע הזמנות WuBook — סיטי סטיי טבריה" allowfullscreen></iframe>
+    <div style="background:#0d1117; padding:12px 18px; border-bottom:1px solid rgba(201,168,76,0.2);">
+      <p style="font-size:11px; color:#8b949e; margin-bottom:4px;">🔗 URL שנשלח ל-WuBook:</p>
+      <code id="debugUrl" style="font-size:11px; color:#c9a84c; word-break:break-all; line-height:1.6;"></code>
+    </div>
+    <div style="padding:24px; text-align:center; display:flex; flex-direction:column; gap:16px; align-items:center;">
+      <p style="color:#e6edf3; font-size:15px;" id="panelSummary"></p>
+      <a id="wubookLink" href="#" target="_blank" rel="noopener"
+        style="display:inline-flex;align-items:center;gap:8px;background:#c9a84c;color:#0d1117;
+               padding:13px 28px;border-radius:10px;font-size:16px;font-weight:600;
+               text-decoration:none;transition:background 0.2s;">
+        פתח את WuBook לחיפוש ←
+      </a>
+      <p style="font-size:12px; color:#8b949e;">יפתח בטאב חדש · המשך ההזמנה ב-WuBook</p>
+    </div>
+    <iframe id="wubookFrame" src="" title="מנוע הזמנות WuBook — סיטי סטיי טבריה" allowfullscreen
+      style="width:100%;height:540px;border:none;border-top:1px solid rgba(201,168,76,0.2);"></iframe>
   </div>
 
   <div class="placeholder" id="placeholder">
@@ -496,24 +543,39 @@
     const checkin  = document.getElementById('checkin').value;
     const checkout = document.getElementById('checkout').value;
     const adults   = document.getElementById('adults').value;
+    const children = document.getElementById('children').value;
     const promo    = document.getElementById('promo').value.trim();
 
     if (!checkin || !checkout) { showError('נא לבחור תאריכי הגעה ועזיבה'); return; }
     if (new Date(checkout) <= new Date(checkin)) { showError('תאריך העזיבה חייב להיות אחרי ההגעה'); return; }
 
+    const ciWu = toWuDate(checkin);
+    const coWu = toWuDate(checkout);
+
     let url = `https://wubook.net/nneb/bk/?ep=${EP}&lang=he&c=ILS`;
-    url += `&dfrom=${toWuDate(checkin)}`;
-    url += `&dto=${toWuDate(checkout)}`;
-    url += `&nrooms=1&adults=${adults}`;
+    url += `&dfrom=${encodeURIComponent(ciWu)}`;
+    url += `&dto=${encodeURIComponent(coWu)}`;
+    url += `&nrooms=1`;
+    url += `&adults=${adults}`;
+    if (parseInt(children) > 0) url += `&children=${children}`;
     if (promo) url += `&promo=${encodeURIComponent(promo)}`;
 
-    // label
-    const nights = Math.round((new Date(checkout) - new Date(checkin)) / 86400000);
-    document.getElementById('panelLabel').textContent =
-      `תוצאות: ${toWuDate(checkin)} — ${toWuDate(checkout)} · ${nights} לילות · ${adults} מבוגרים`;
+    // Debug URL
+    document.getElementById('debugUrl').textContent = url;
 
-    // show iframe
+    // Labels
+    const nights = Math.round((new Date(checkout) - new Date(checkin)) / 86400000);
+    const childrenTxt = parseInt(children) > 0 ? ` · ${children} ילדים` : '';
+    const label = `${ciWu} — ${coWu} · ${nights} לילות · ${adults} מבוגרים${childrenTxt}`;
+    document.getElementById('panelLabel').textContent = label;
+    document.getElementById('panelSummary').textContent = label;
+
+    // כפתור פתיחה בטאב חדש
+    document.getElementById('wubookLink').href = url;
+
+    // ניסיון iframe
     document.getElementById('wubookFrame').src = url;
+
     document.getElementById('placeholder').style.display = 'none';
     document.getElementById('resultPanel').classList.add('visible');
     document.getElementById('resultPanel').scrollIntoView({ behavior: 'smooth', block: 'start' });
