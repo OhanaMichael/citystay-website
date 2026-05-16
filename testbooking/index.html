@@ -573,8 +573,8 @@
     // כפתור פתיחה בטאב חדש
     document.getElementById('wubookLink').href = url;
 
-    // ניסיון iframe
-    document.getElementById('wubookFrame').src = url;
+    // פתח בטאב חדש — WuBook מקבל פרמטרים רק כך
+    window.open(url, '_blank', 'noopener');
 
     document.getElementById('placeholder').style.display = 'none';
     document.getElementById('resultPanel').classList.add('visible');
