@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<!-- rooms v3 -->
 <html lang="he" dir="rtl">
 <head>
   <meta charset="UTF-8">
@@ -18,12 +17,18 @@
   <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700&display=swap" rel="stylesheet">
   <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon-32.png">
   <link rel="apple-touch-icon" href="/assets/images/favicon-180.png">
+  <link rel="alternate" hreflang="he" href="https://www.citystay.co.il/rooms/">
+  <link rel="alternate" hreflang="en" href="https://www.citystay.co.il/en/rooms/">
+  <link rel="alternate" hreflang="x-default" href="https://www.citystay.co.il/rooms/">
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-Z6HD9WVF0K"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-Z6HD9WVF0K');</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"בית","item":"https://www.citystay.co.il/"},{"@type":"ListItem","position":2,"name":"חדרים","item":"https://www.citystay.co.il/rooms/"}]}</script>
   <style>
     :root{--dark:#0d1117;--dark-2:#161b22;--gold:#c9a84c;--gold-light:#e8c97a;--cream:#f5f0e8;--text-light:#e8e4dc;--text-muted:rgba(232,228,220,0.65);--radius:8px;--radius-lg:16px;--font:'Heebo',sans-serif}
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
     html{scroll-behavior:smooth}
-    @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}html{scroll-behavior:auto}}
+    @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
     body{font-family:var(--font);font-size:16px;line-height:1.7;color:var(--text-light);background:var(--dark);overflow-x:hidden}
     .skip-link{position:absolute;top:-100%;right:1rem;background:var(--gold);color:var(--dark);padding:.5rem 1rem;border-radius:0 0 var(--radius) var(--radius);font-weight:500;z-index:9999;transition:top .2s;text-decoration:none}
     .skip-link:focus{top:0}
@@ -46,20 +51,20 @@
     .breadcrumb{display:flex;align-items:center;gap:.4rem;justify-content:center;font-size:12px;color:var(--text-muted);margin-bottom:.75rem}
     .breadcrumb a{color:var(--text-muted);text-decoration:none}
     .breadcrumb a:hover{color:var(--gold)}
-    .section-kicker{font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-bottom:.5rem}
+    .kicker{font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:.4rem}
     .page-hero h1{font-size:clamp(1.8rem,4vw,2.8rem);font-weight:700;margin-bottom:.5rem}
     .page-hero p{color:var(--text-muted);max-width:520px;margin:0 auto}
-    .features-strip{background:var(--dark-2);border-top:1px solid rgba(255,255,255,.05);border-bottom:1px solid rgba(255,255,255,.05);padding:1.5rem 2rem}
+    .features-strip{background:var(--dark-2);border-top:1px solid rgba(255,255,255,.05);border-bottom:1px solid rgba(255,255,255,.05);padding:1.25rem 2rem}
     .features-inner{max-width:1100px;margin:0 auto;display:flex;justify-content:center;gap:2.5rem;flex-wrap:wrap}
     .feature-item{display:flex;align-items:center;gap:.5rem;font-size:13px;color:var(--text-muted)}
-    .feature-item .icon{color:var(--gold);font-size:15px}
     .rooms-section{background:var(--cream);color:var(--dark)}
     .section-inner{max-width:1100px;margin:0 auto;padding:3rem 2rem}
+    @media(max-width:768px){.section-inner{padding:2rem 1rem}}
     .rooms-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
     @media(max-width:900px){.rooms-grid{grid-template-columns:1fr}}
     .room-card{background:#fff;border-radius:var(--radius-lg);overflow:hidden;box-shadow:0 2px 16px rgba(0,0,0,.08);transition:transform .2s,box-shadow .2s;text-decoration:none;color:inherit;display:flex;flex-direction:column}
     .room-card:hover{transform:translateY(-4px);box-shadow:0 8px 32px rgba(0,0,0,.14)}
-    .room-card-img{overflow:hidden;height:220px;background:var(--dark-2)}
+    .room-card-img{overflow:hidden;height:220px;background:#e0ddd5}
     .room-card img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .3s ease}
     .room-card:hover img{transform:scale(1.03)}
     .room-body{padding:1.25rem;flex:1;display:flex;flex-direction:column}
@@ -68,7 +73,7 @@
     .room-cap{font-size:13px;color:#555;margin-bottom:.75rem;flex:1}
     .room-price{font-size:13px;color:#555;margin-bottom:1rem}
     .room-price strong{font-size:1.05rem;color:var(--dark)}
-    .room-link{display:block;background:var(--dark);color:#fff;padding:.65rem 1.25rem;border-radius:var(--radius);font-size:14px;font-weight:500;text-align:center;transition:background .2s}
+    .room-link{display:block;background:var(--dark);color:#fff;padding:.65rem 1.25rem;border-radius:var(--radius);font-size:14px;font-weight:500;text-align:center;transition:background .2s;text-decoration:none}
     .room-link:hover{background:#222}
     .room-link.gold{background:var(--gold);color:var(--dark)}
     .room-link.gold:hover{background:var(--gold-light)}
@@ -77,11 +82,11 @@
     .cta-band h2{font-size:1.5rem;font-weight:700;margin-bottom:.5rem}
     .cta-band p{color:var(--text-muted);margin-bottom:1.5rem;font-size:14px}
     .cta-buttons{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
-    .btn{display:inline-flex;align-items:center;gap:.5rem;padding:.75rem 1.75rem;border-radius:var(--radius);font-size:15px;font-weight:500;text-decoration:none;transition:transform .15s,opacity .2s}
-    .btn:hover{transform:translateY(-2px);opacity:.92}
-    .btn-dark{background:var(--dark);color:#fff;border:1px solid rgba(255,255,255,.15)}
+    .btn{display:inline-flex;align-items:center;gap:.5rem;padding:.75rem 1.75rem;border-radius:var(--radius);font-size:15px;font-weight:500;text-decoration:none;transition:transform .15s}
+    .btn:hover{transform:translateY(-2px)}
     .btn-gold{background:var(--gold);color:var(--dark)}
     .btn-gold:hover{background:var(--gold-light)}
+    .btn-dark{background:var(--dark);color:#fff;border:1px solid rgba(255,255,255,.15)}
     footer{background:var(--dark-2);border-top:1px solid rgba(201,168,76,.12);padding:3rem 2rem 0}
     .footer-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr;gap:3rem;padding-bottom:2rem}
     @media(max-width:768px){.footer-inner{grid-template-columns:1fr;gap:2rem}}
@@ -105,12 +110,6 @@
     .wa-float{position:fixed;bottom:1.5rem;right:1.5rem;z-index:99;width:52px;height:52px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(37,211,102,.4);text-decoration:none;transition:transform .2s}
     .wa-float:hover{transform:scale(1.08)}
   </style>
-  <!-- Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-Z6HD9WVF0K"></script>
-  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-Z6HD9WVF0K');</script>
-  <link rel="alternate" hreflang="he" href="https://www.citystay.co.il/rooms/">
-  <link rel="alternate" hreflang="en" href="https://www.citystay.co.il/en/rooms/">
-  <link rel="alternate" hreflang="x-default" href="https://www.citystay.co.il/rooms/">
 </head>
 <body>
 
@@ -132,7 +131,7 @@
       <li><a href="/gallery/">גלריה</a></li>
       <li><a href="/about/">אודות</a></li>
       <li><a href="/contact/">צור קשר</a></li>
-      <li><a href="/booking/" class="nav-cta">הזמן עכשיו</a></li>
+      <li><a href="https://wubook.net/nneb/bk?ep=52ae8af2" class="nav-cta" target="_blank" rel="noopener">הזמן עכשיו</a></li>
     </ul>
   </nav>
 </header>
@@ -143,19 +142,19 @@
     <nav class="breadcrumb" aria-label="ניווט ארכיב">
       <a href="/">בית</a><span aria-hidden="true">›</span><span>חדרים</span>
     </nav>
-    <p class="section-kicker">לינה</p>
-    <h1>בחר את חווייית הלינה שלך</h1>
+    <span class="kicker">לינה</span>
+    <h1>בחר את חוויית הלינה שלך</h1>
     <p>שלוש אפשרויות לינה — מחדר זוגי אינטימי ועד להשכרת כל המתחם</p>
   </div>
 
   <div class="features-strip" aria-label="יתרונות המתחם">
     <div class="features-inner">
-      <div class="feature-item"><span class="icon">🅿️</span> חניה חינם</div>
-      <div class="feature-item"><span class="icon">📶</span> WiFi מהיר</div>
-      <div class="feature-item"><span class="icon">🌊</span> 5 דק׳ לכינרת</div>
-      <div class="feature-item"><span class="icon">✅</span> מחיר כולל מע״מ</div>
-      <div class="feature-item"><span class="icon">❌</span> ביטול חינם 14 יום</div>
-      <div class="feature-item"><span class="icon">🔒</span> הזמנה מאובטחת</div>
+      <div class="feature-item"><span aria-hidden="true">🅿️</span> חניה חינם</div>
+      <div class="feature-item"><span aria-hidden="true">📶</span> WiFi מהיר</div>
+      <div class="feature-item"><span aria-hidden="true">🌊</span> 5 דק׳ לכינרת</div>
+      <div class="feature-item"><span aria-hidden="true">✅</span> מחיר כולל מע״מ</div>
+      <div class="feature-item"><span aria-hidden="true">❌</span> ביטול חינם 14 יום</div>
+      <div class="feature-item"><span aria-hidden="true">🔒</span> הזמנה מאובטחת</div>
     </div>
   </div>
 
@@ -179,9 +178,9 @@
           </div>
           <div class="room-body">
             <p class="room-type">זוגי · 2 יחידות</p>
-            <h3 class="room-name">חדר קומפורט</h3>
-            <p class="room-cap">עד 2 אורחים · חדר שינה · מקלחת · שירותים</p>
-            <div class="room-price">החל מ- <strong>590₪</strong> / לילה · כולל מע״מ</div>
+            <h3 class="room-name">חדר זוגי קומפורט</h3>
+            <p class="room-cap">עד 2 אורחים · חדר שינה · מקלחת · מרפסת משותפת</p>
+            
             <span class="room-link">פרטים והזמנה</span>
           </div>
         </a>
@@ -197,9 +196,9 @@
           </div>
           <div class="room-body">
             <p class="room-type">פופולרי · 2 יחידות</p>
-            <h3 class="room-name">סוויטת משפחה</h3>
-            <p class="room-cap">2 חדרי שינה · סלון · מטבח מלא · 2 שירותים</p>
-            <div class="room-price">החל מ- <strong>944₪</strong> / לילה · לזוג · לפי מספר אורחים</div>
+            <h3 class="room-name">סוויטה משפחתית עם 2 חדרי שינה</h3>
+            <p class="room-cap">2 חדרי שינה · סלון · מטבח מלא · מרפסת משותפת</p>
+            
             <span class="room-link">פרטים והזמנה</span>
           </div>
         </a>
@@ -216,32 +215,10 @@
           <div class="room-body">
             <p class="room-type">בלעדי · עד 20 אורחים</p>
             <h3 class="room-name">סיטי סטיי קומפלט</h3>
-            <p class="room-cap">2 סוויטות + 2 חדרים · 6 ח״ש · 2 מטבחים · פרטיות בלעדית</p>
-            <div class="room-price" style="color:#888">תמחור אישי — <a href="/contact/" style="color:#c9a84c;text-decoration:none">צרו קשר</a></div>
-            <span class="room-link gold">תמחור אישי</span>
+            <p class="room-cap">2 סוויטות + 2 חדרים · 6 ח״ש · 2 מטבחים · מרפסת פרטית</p>
+            <span class="room-link">פרטים והזמנה</span>
           </div>
         </a>
-
-      </div>
-
-      <div class="policy-bar">
-        <span>✓ ביטול חינם עד 14 יום לפני ההגעה</span>
-        <span>✓ מחיר שקוף — כולל מע״מ</span>
-        <span>✓ ביטול לאחר מכן — חיוב מלא</span>
-        <span>✓ צ׳ק-אין 15:00 | צ׳ק-אאוט 11:00</span>
-      </div>
-    </div>
-  </section>
-
-  <div class="cta-band" role="region" aria-labelledby="cta-rooms-heading">
-    <h2 id="cta-rooms-heading">מוכן להזמין?</h2>
-    <p>הזמן ישירות — ללא עמלות, מחיר שקוף, ביטול חינם עד 14 יום מראש.</p>
-    <div class="cta-buttons">
-      <a href="/booking/" class="btn btn-gold">🗓️ הזמן עכשיו</a>
-      <a href="https://wa.me/97246206464?text=שלום,%20אני%20מעוניין%20לשאול%20על%20חדר"
-         class="btn btn-dark" target="_blank" rel="noopener" aria-label="שלח הודעת WhatsApp">💬 שאלות? WhatsApp</a>
-    </div>
-  </div>
 
 </main>
 
