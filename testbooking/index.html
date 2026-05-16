@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>הזמנת חדרים | סיטי סטיי טבריה</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --gold: #c9a84c;
+      --gold-light: #e2c97e;
+      --gold-dim: rgba(201,168,76,0.15);
+      --gold-border: rgba(201,168,76,0.3);
+      --dark: #0d1117;
+      --dark-2: #161b22;
+      --dark-3: #1f2937;
+      --text: #e6edf3;
+      --text-muted: #8b949e;
+      --radius: 10px;
+    }
+
+    body {
+      font-family: 'Heebo', sans-serif;
+      background: var(--dark);
+      color: var(--text);
+      min-height: 100vh;
+    }
+
+    /* ─── HEADER ─── */
+    header {
+      background: var(--dark-2);
+      border-bottom: 1px solid var(--gold-border);
+      padding: 0 2rem;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .logo {
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--gold);
+      text-decoration: none;
+    }
+    nav a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 14px;
+      margin-right: 24px;
+      transition: color 0.2s;
+    }
+    nav a:hover { color: var(--text); }
+    nav a.active { color: var(--gold); }
+
+    /* ─── HERO ─── */
+    .hero {
+      text-align: center;
+      padding: 56px 2rem 40px;
+    }
+    .hero .badge {
+      display: inline-block;
+      font-size: 12px;
+      color: var(--gold);
+      border: 1px solid var(--gold-border);
+      background: var(--gold-dim);
+      border-radius: 20px;
+      padding: 4px 14px;
+      margin-bottom: 16px;
+      letter-spacing: 0.05em;
+    }
+    .hero h1 {
+      font-size: 32px;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 10px;
+      line-height: 1.3;
+    }
+    .hero h1 span { color: var(--gold); }
+    .hero p {
+      font-size: 15px;
+      color: var(--text-muted);
+      max-width: 440px;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+
+    /* ─── LAYOUT ─── */
+    .layout {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 2rem 4rem;
+      display: grid;
+      grid-template-columns: 480px 1fr;
+      gap: 32px;
+      align-items: start;
+    }
+
+    /* ─── WIDGET ─── */
+    .widget {
+      background: var(--dark-2);
+      border: 1px solid var(--gold-border);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 0 60px rgba(201,168,76,0.07);
+      animation: fadeUp 0.5s ease both;
+      position: sticky;
+      top: 24px;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .widget-header {
+      background: linear-gradient(135deg, #1a1f2a 0%, #0f1319 100%);
+      padding: 18px 22px;
+      border-bottom: 1px solid var(--gold-border);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .widget-header .icon { font-size: 22px; }
+    .widget-header h2 {
+      font-size: 16px;
+      font-weight: 500;
+      color: var(--gold);
+    }
+    .widget-header p {
+      font-size: 11px;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+
+    .widget-body {
+      padding: 22px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .dates-row, .guests-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    .field { display: flex; flex-direction: column; gap: 5px; }
+    .field label { font-size: 12px; color: var(--text-muted); }
+    .field-inner { position: relative; }
+    .field-inner .ico {
+      position: absolute;
+      right: 11px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 14px;
+      pointer-events: none;
+    }
+
+    .field input,
+    .field select {
+      width: 100%;
+      background: var(--dark);
+      border: 1px solid var(--gold-border);
+      border-radius: var(--radius);
+      padding: 10px 34px 10px 12px;
+      color: var(--text);
+      font-family: 'Heebo', sans-serif;
+      font-size: 14px;
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+      -webkit-appearance: none;
+      appearance: none;
+      cursor: pointer;
+    }
+    .field input[type="date"]::-webkit-calendar-picker-indicator {
+      opacity: 0; position: absolute; left: 0; width: 100%; height: 100%; cursor: pointer;
+    }
+    .field input:focus,
+    .field select:focus {
+      border-color: var(--gold);
+      box-shadow: 0 0 0 3px rgba(201,168,76,0.12);
+    }
+    .field select option { background: var(--dark-2); color: var(--text); }
+
+    .divider { height: 1px; background: rgba(255,255,255,0.05); }
+
+    .promo-row { display: flex; align-items: flex-end; gap: 10px; }
+    .promo-row .field { flex: 1; }
+    .promo-tags { display: flex; flex-direction: column; gap: 5px; padding-bottom: 1px; }
+    .promo-tag {
+      font-size: 11px;
+      background: var(--gold-dim);
+      color: var(--gold);
+      border: 1px solid var(--gold-border);
+      border-radius: 6px;
+      padding: 4px 9px;
+      cursor: pointer;
+      transition: background 0.15s;
+      white-space: nowrap;
+      text-align: center;
+    }
+    .promo-tag:hover { background: rgba(201,168,76,0.28); }
+
+    .error-msg {
+      font-size: 12px;
+      color: #f87171;
+      display: none;
+      padding: 8px 12px;
+      background: rgba(248,113,113,0.08);
+      border: 1px solid rgba(248,113,113,0.2);
+      border-radius: 8px;
+    }
+
+    .btn-book {
+      width: 100%;
+      background: var(--gold);
+      color: var(--dark);
+      border: none;
+      border-radius: var(--radius);
+      padding: 13px;
+      font-family: 'Heebo', sans-serif;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.1s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+    .btn-book:hover { background: var(--gold-light); }
+    .btn-book:active { transform: scale(0.98); }
+    .btn-book .arrow { transition: transform 0.2s; }
+    .btn-book:hover .arrow { transform: translateX(-4px); }
+
+    .widget-footer {
+      background: var(--dark);
+      border-top: 1px solid rgba(255,255,255,0.05);
+      padding: 11px 22px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .widget-footer .secure {
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+    .widget-footer .direct {
+      font-size: 11px;
+      color: var(--gold);
+      text-decoration: none;
+      opacity: 0.8;
+      transition: opacity 0.15s;
+    }
+    .widget-footer .direct:hover { opacity: 1; }
+
+    /* ─── IFRAME PANEL ─── */
+    .result-panel {
+      display: none;
+      flex-direction: column;
+      gap: 0;
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid var(--gold-border);
+      animation: fadeUp 0.4s ease both;
+    }
+    .result-panel.visible { display: flex; }
+
+    .result-panel-header {
+      background: var(--dark-2);
+      padding: 14px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--gold-border);
+    }
+    .result-panel-header span {
+      font-size: 14px;
+      color: var(--gold);
+      font-weight: 500;
+    }
+    .result-panel-header .close-btn {
+      background: none;
+      border: 1px solid rgba(255,255,255,0.1);
+      color: var(--text-muted);
+      border-radius: 6px;
+      padding: 4px 10px;
+      font-size: 12px;
+      cursor: pointer;
+      font-family: 'Heebo', sans-serif;
+      transition: border-color 0.15s, color 0.15s;
+    }
+    .result-panel-header .close-btn:hover {
+      border-color: var(--gold-border);
+      color: var(--text);
+    }
+
+    .result-panel iframe {
+      width: 100%;
+      height: 680px;
+      border: none;
+      display: block;
+      background: #fff;
+    }
+
+    /* ─── PLACEHOLDER ─── */
+    .placeholder {
+      border: 1px dashed var(--gold-border);
+      border-radius: 16px;
+      padding: 60px 24px;
+      text-align: center;
+      color: var(--text-muted);
+    }
+    .placeholder .ph-icon { font-size: 40px; margin-bottom: 16px; opacity: 0.4; }
+    .placeholder p { font-size: 14px; line-height: 1.7; }
+
+    /* ─── MOBILE ─── */
+    @media (max-width: 780px) {
+      .layout {
+        grid-template-columns: 1fr;
+      }
+      .widget { position: static; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <a class="logo" href="/">סיטי סטיי טבריה</a>
+  <nav>
+    <a href="/rooms/">חדרים</a>
+    <a href="/packages/">חבילות</a>
+    <a href="/about/">אודות</a>
+    <a href="/testbooking/" class="active">הזמנה</a>
+  </nav>
+</header>
+
+<div class="hero">
+  <div class="badge">🏨 הזמנה ישירה · ללא עמלות</div>
+  <h1>הזמן את <span>חדרך בטבריה</span></h1>
+  <p>בחר תאריכים ומספר אורחים — נמצא עבורך את החדר המתאים ביותר</p>
+</div>
+
+<div class="layout">
+
+  <!-- WIDGET -->
+  <div class="widget">
+    <div class="widget-header">
+      <span class="icon">🏨</span>
+      <div>
+        <h2>חיפוש חדרים זמינים</h2>
+        <p>הזמנה ישירה · מחיר מלא כולל מע"מ · ללא דמי תיווך</p>
+      </div>
+    </div>
+
+    <div class="widget-body">
+      <div class="dates-row">
+        <div class="field">
+          <label for="checkin">תאריך הגעה</label>
+          <div class="field-inner">
+            <span class="ico">📅</span>
+            <input type="date" id="checkin" required>
+          </div>
+        </div>
+        <div class="field">
+          <label for="checkout">תאריך עזיבה</label>
+          <div class="field-inner">
+            <span class="ico">📅</span>
+            <input type="date" id="checkout" required>
+          </div>
+        </div>
+      </div>
+
+      <div class="guests-row">
+        <div class="field">
+          <label for="adults">מבוגרים</label>
+          <div class="field-inner">
+            <span class="ico">👤</span>
+            <select id="adults">
+              <option value="1">1 מבוגר</option>
+              <option value="2" selected>2 מבוגרים</option>
+              <option value="3">3 מבוגרים</option>
+              <option value="4">4 מבוגרים</option>
+            </select>
+          </div>
+        </div>
+        <div class="field">
+          <label for="children">ילדים</label>
+          <div class="field-inner">
+            <span class="ico">🧒</span>
+            <select id="children">
+              <option value="0" selected>ללא ילדים</option>
+              <option value="1">ילד 1</option>
+              <option value="2">2 ילדים</option>
+              <option value="3">3 ילדים</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="promo-row">
+        <div class="field">
+          <label for="promo">קוד קופון (אופציונלי)</label>
+          <div class="field-inner">
+            <span class="ico">🏷️</span>
+            <input type="text" id="promo" placeholder="הזן קוד..." style="text-transform:uppercase;">
+          </div>
+        </div>
+        <div class="promo-tags">
+          <span class="promo-tag" onclick="applyPromo('EARLY10')">EARLY10</span>
+          <span class="promo-tag" onclick="applyPromo('STAY3')">STAY3</span>
+        </div>
+      </div>
+
+      <div class="error-msg" id="error"></div>
+
+      <button class="btn-book" onclick="search()">
+        <span>חפש זמינות והזמן</span>
+        <span class="arrow">←</span>
+      </button>
+    </div>
+
+    <div class="widget-footer">
+      <span class="secure">🔒 מאובטח דרך WuBook</span>
+      <a class="direct" href="https://wubook.net/nneb/bk/?ep=52ae8af2&lang=he" target="_blank">הזמנה ישירה ←</a>
+    </div>
+  </div>
+
+  <!-- RESULT PANEL -->
+  <div class="result-panel" id="resultPanel">
+    <div class="result-panel-header">
+      <span id="panelLabel">תוצאות חיפוש</span>
+      <button class="close-btn" onclick="closePanel()">✕ סגור</button>
+    </div>
+    <iframe id="wubookFrame" src="" title="מנוע הזמנות WuBook — סיטי סטיי טבריה" allowfullscreen></iframe>
+  </div>
+
+  <div class="placeholder" id="placeholder">
+    <div class="ph-icon">🔍</div>
+    <p>בחר תאריכים ולחץ "חפש זמינות"<br>תוצאות החיפוש יופיעו כאן</p>
+  </div>
+
+</div>
+
+<script>
+  const EP = '52ae8af2';
+
+  const fmt     = d => d.toISOString().split('T')[0];
+  const today   = new Date();
+  const tom     = new Date(today); tom.setDate(today.getDate() + 1);
+  const dayAfter= new Date(today); dayAfter.setDate(today.getDate() + 2);
+
+  document.getElementById('checkin').min   = fmt(today);
+  document.getElementById('checkin').value = fmt(tom);
+  document.getElementById('checkout').min  = fmt(tom);
+  document.getElementById('checkout').value= fmt(dayAfter);
+
+  document.getElementById('checkin').addEventListener('change', function () {
+    const ci   = new Date(this.value);
+    const minCo= new Date(ci); minCo.setDate(ci.getDate() + 1);
+    const co   = document.getElementById('checkout');
+    co.min = fmt(minCo);
+    if (new Date(co.value) <= ci) co.value = fmt(minCo);
+  });
+
+  function applyPromo(code) {
+    document.getElementById('promo').value = code;
+  }
+
+  function toWuDate(iso) {
+    const [y, m, d] = iso.split('-');
+    return `${d}/${m}/${y}`;
+  }
+
+  function showError(msg) {
+    const el = document.getElementById('error');
+    el.textContent = msg;
+    el.style.display = 'block';
+    setTimeout(() => el.style.display = 'none', 4000);
+  }
+
+  function closePanel() {
+    document.getElementById('resultPanel').classList.remove('visible');
+    document.getElementById('placeholder').style.display = '';
+    document.getElementById('wubookFrame').src = '';
+  }
+
+  function search() {
+    const checkin  = document.getElementById('checkin').value;
+    const checkout = document.getElementById('checkout').value;
+    const adults   = document.getElementById('adults').value;
+    const promo    = document.getElementById('promo').value.trim();
+
+    if (!checkin || !checkout) { showError('נא לבחור תאריכי הגעה ועזיבה'); return; }
+    if (new Date(checkout) <= new Date(checkin)) { showError('תאריך העזיבה חייב להיות אחרי ההגעה'); return; }
+
+    let url = `https://wubook.net/nneb/bk/?ep=${EP}&lang=he&c=ILS`;
+    url += `&dfrom=${toWuDate(checkin)}`;
+    url += `&dto=${toWuDate(checkout)}`;
+    url += `&nrooms=1&adults=${adults}`;
+    if (promo) url += `&promo=${encodeURIComponent(promo)}`;
+
+    // label
+    const nights = Math.round((new Date(checkout) - new Date(checkin)) / 86400000);
+    document.getElementById('panelLabel').textContent =
+      `תוצאות: ${toWuDate(checkin)} — ${toWuDate(checkout)} · ${nights} לילות · ${adults} מבוגרים`;
+
+    // show iframe
+    document.getElementById('wubookFrame').src = url;
+    document.getElementById('placeholder').style.display = 'none';
+    document.getElementById('resultPanel').classList.add('visible');
+    document.getElementById('resultPanel').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+</script>
+
+</body>
+</html>
