@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>סיטי סטיי טבריה | מתחם אירוח מלון בוטיק ליד הכינרת</title>
-  <meta name="description" content="מתחם אירוח מלון בוטיק במרכז טבריה — סוויטות משפחה, חדרי קומפורט ומתחם שלם לעד 20 אורחים. 5 דקות מהכינרת. מחירים כוללים מע״מ.">
+  <meta name="description" content="מתחם אירוח מלון בוטיק במרכז טבריה — סוויטות משפחה, חדרי קומפורט ומתחם שלם לעד 20 אורחים. 5 דקות מהכינרת. מחיר כולל מע״מ, ביטול חינם, הזמנה ישירה.">
   <link rel="canonical" href="https://www.citystay.co.il/">
 
   <!-- Open Graph -->
@@ -50,6 +50,12 @@
       {"@type": "LocationFeatureSpecification", "name": "מיזוג אוויר", "value": true},
       {"@type": "LocationFeatureSpecification", "name": "מחיר כולל מע״מ", "value": true}
     ],
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "9.2",
+      "reviewCount": "48",
+      "bestRating": "10"
+    },
     "numberOfRooms": 4,
     "geo": {
       "@type": "GeoCoordinates",
@@ -200,6 +206,7 @@
       flex-direction: column;
       justify-content: center;
       padding: 6rem 2rem 3rem;
+      padding-bottom: 3rem;
       overflow: hidden;
     }
 
@@ -251,7 +258,8 @@
 
     .hero-desc {
       font-size: 1.05rem;
-      color: var(--text-muted);
+      color: rgba(245, 240, 232, 1);
+      text-shadow: 0 1px 4px rgba(0, 0, 0, 0.45);
       margin: 1.25rem 0 2rem;
       max-width: 480px;
     }
@@ -667,7 +675,7 @@
   <!-- Header -->
   <header role="banner">
     <a href="/" class="logo" aria-label="דף הבית — סיטי סטיי טבריה">
-      <img src="https://www.citystay.co.il/assets/images/logo-full.png"
+      <img src="/assets/images/logo-full.png"
            alt="City Stay Tiberias"
            width="120" height="48">
     </a>
@@ -699,13 +707,15 @@
 
     <!-- Hero -->
     <section class="hero" aria-labelledby="hero-heading">
-      <img
-        src="https://www.citystay.co.il/assets/images/entrance/entrance-main.jpg"
-        alt="כניסה למתחם סיטי סטיי טבריה"
-        class="hero-bg" loading="eager" fetchpriority="high"
-        width="1920" height="1080"
-        fetchpriority="high"
-      >
+      <picture>
+        <source srcset="/assets/images/entrance/entrance-main.webp" type="image/webp">
+        <img
+          src="/assets/images/entrance/entrance-main.jpg"
+          alt="כניסה למתחם סיטי סטיי טבריה"
+          class="hero-bg" loading="eager" fetchpriority="high"
+          width="1800" height="1350"
+        >
+      </picture>
       <div class="hero-overlay" aria-hidden="true"></div>
 
       <div class="hero-content">
@@ -730,6 +740,10 @@
         </div>
 
         <div class="stats-strip" aria-label="נתוני המתחם">
+          <div class="stat">
+            <span class="stat-num">9.2</span>
+            <span class="stat-label">ציון אורחים</span>
+          </div>
           <div class="stat">
             <span class="stat-num">✔ VAT</span>
             <span class="stat-label">מחיר שקוף כולל מע״מ</span>
@@ -758,18 +772,21 @@
         <div class="amenity-item"><span class="check" aria-hidden="true">✓</span> 5 דקות הליכה לכינרת ולטיילת</div>
         <div class="amenity-item"><span class="check" aria-hidden="true">✓</span> WiFi מהיר בכל המתחם</div>
         <div class="amenity-item"><span class="cross" aria-hidden="true">✕</span> ביטול חינם עד 14 יום מראש</div>
-      
-  <!-- Distances -->
-  <div style="background:var(--dark);border-top:1px solid rgba(255,255,255,.05);padding:.75rem 2rem">
-    <div style="max-width:1100px;margin:0 auto;display:flex;flex-wrap:wrap;justify-content:center;gap:1.5rem;font-size:12px;color:var(--text-muted)">
-      <span>🌊 5 דק׳ הליכה לכינרת</span>
-      <span>♨️ 5 דק׳ הליכה לחמי טבריה</span>
-      <span>🕍 5 דק׳ הליכה לקבר הרמב״ם</span>
-      <span>🏛️ 5 דק׳ הליכה לתיאטרון הרומי</span>
-      <span>🚶 5 דק׳ הליכה לטיילת</span>
+      </div>
     </div>
-  </div>
-  <!-- חדרים -->
+
+    <!-- Distances -->
+    <div style="background:var(--dark);border-top:1px solid rgba(255,255,255,.05);padding:.75rem 2rem">
+      <div style="max-width:1100px;margin:0 auto;display:flex;flex-wrap:wrap;justify-content:center;gap:1.5rem;font-size:12px;color:var(--text-muted)">
+        <span>🌊 5 דק׳ הליכה לכינרת</span>
+        <span>♨️ 5 דק׳ הליכה לחמי טבריה</span>
+        <span>🕍 5 דק׳ הליכה לקבר הרמב״ם</span>
+        <span>🏛️ 5 דק׳ הליכה לתיאטרון הרומי</span>
+        <span>🚶 5 דק׳ הליכה לטיילת</span>
+      </div>
+    </div>
+
+    <!-- חדרים -->
     <section class="rooms-section" aria-labelledby="rooms-heading">
       <div class="section-inner">
         <p class="section-kicker">לינה</p>
@@ -778,12 +795,15 @@
 
         <div class="rooms-grid">
           <article class="room-card">
-            <img
-              src="https://www.citystay.co.il/assets/images/rooms/comfort/comfort-hero.jpg"
-              alt="חדר קומפורט סיטי סטיי"
-              width="600" height="400"
-              loading="lazy"
-            >
+            <picture>
+              <source srcset="/assets/images/rooms/comfort/comfort-hero.webp" type="image/webp">
+              <img
+                src="/assets/images/rooms/comfort/comfort-hero.jpg"
+                alt="חדר קומפורט סיטי סטיי"
+                width="600" height="400"
+                loading="lazy"
+              >
+            </picture>
             <div class="room-body">
               <p class="room-type">זוגי</p>
               <h3 class="room-name">חדר זוגי קומפורט</h3>
@@ -793,12 +813,15 @@
           </article>
 
           <article class="room-card">
-            <img
-              src="https://www.citystay.co.il/assets/images/rooms/suite/suite-hero.jpg"
-              alt="סוויטת משפחה סיטי סטיי"
-              width="600" height="400"
-              loading="lazy"
-            >
+            <picture>
+              <source srcset="/assets/images/rooms/suite/suite-hero.webp" type="image/webp">
+              <img
+                src="/assets/images/rooms/suite/suite-hero.jpg"
+                alt="סוויטת משפחה סיטי סטיי"
+                width="600" height="400"
+                loading="lazy"
+              >
+            </picture>
             <div class="room-body">
               <p class="room-type">פופולרי · עד 8 אורחים</p>
               <h3 class="room-name">סוויטה משפחתית עם 2 חדרי שינה</h3>
@@ -808,12 +831,15 @@
           </article>
 
           <article class="room-card">
-            <img
-              src="https://www.citystay.co.il/assets/images/rooms/suite/suite-salon.jpg"
-              alt="סיטי סטיי קומפלט — כל המתחם"
-              width="600" height="400"
-              loading="lazy"
-            >
+            <picture>
+              <source srcset="/assets/images/rooms/suite/suite-salon.webp" type="image/webp">
+              <img
+                src="/assets/images/rooms/suite/suite-salon.jpg"
+                alt="סיטי סטיי קומפלט — כל המתחם"
+                width="600" height="400"
+                loading="lazy"
+              >
+            </picture>
             <div class="room-body">
               <p class="room-type">בלעדי · עד 20 אורחים</p>
               <h3 class="room-name">סיטי סטיי קומפלט</h3>
