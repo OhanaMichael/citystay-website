@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!-- rooms v3 -->
 <html lang="he" dir="rtl">
 <head>
   <meta charset="UTF-8">
@@ -58,7 +59,7 @@
     @media(max-width:900px){.rooms-grid{grid-template-columns:1fr}}
     .room-card{background:#fff;border-radius:var(--radius-lg);overflow:hidden;box-shadow:0 2px 16px rgba(0,0,0,.08);transition:transform .2s,box-shadow .2s;text-decoration:none;color:inherit;display:flex;flex-direction:column}
     .room-card:hover{transform:translateY(-4px);box-shadow:0 8px 32px rgba(0,0,0,.14)}
-    .room-card-img{overflow:hidden;height:220px}
+    .room-card-img{overflow:hidden;height:220px;background:var(--dark-2)}
     .room-card img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .3s ease}
     .room-card:hover img{transform:scale(1.03)}
     .room-body{padding:1.25rem;flex:1;display:flex;flex-direction:column}
@@ -104,6 +105,12 @@
     .wa-float{position:fixed;bottom:1.5rem;right:1.5rem;z-index:99;width:52px;height:52px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(37,211,102,.4);text-decoration:none;transition:transform .2s}
     .wa-float:hover{transform:scale(1.08)}
   </style>
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-Z6HD9WVF0K"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-Z6HD9WVF0K');</script>
+  <link rel="alternate" hreflang="he" href="https://www.citystay.co.il/rooms/">
+  <link rel="alternate" hreflang="en" href="https://www.citystay.co.il/en/rooms/">
+  <link rel="alternate" hreflang="x-default" href="https://www.citystay.co.il/rooms/">
 </head>
 <body>
 
@@ -200,9 +207,9 @@
         <a href="/rooms/complete/" class="room-card" role="listitem" aria-label="עמוד סיטי סטיי קומפלט">
           <div class="room-card-img">
             <picture>
-              <source srcset="/assets/images/rooms/suite/suite-salon.webp" type="image/webp">
-              <img src="/assets/images/rooms/suite/suite-salon.jpg"
-                   alt="סיטי סטיי קומפלט — כל המתחם בלעדית שלך"
+              <source srcset="/assets/images/rooms/suite/suite-kitchen.webp" type="image/webp">
+              <img src="/assets/images/rooms/suite/suite-kitchen.jpg"
+                   alt="סיטי סטיי קומפלט — מטבח מאובזר"
                    width="600" height="400" loading="lazy">
             </picture>
           </div>
