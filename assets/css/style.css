@@ -3,7 +3,7 @@
    Clean, professional, luxury boutique hotel
    ============================================================ */
 
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Heebo:wght@300;400;500;600&family=Cinzel:wght@400;500&display=swap');
+/* Fonts loaded via <link> in <head> — @import removed to eliminate render blocking */
 
 /* ============================================================ TOKENS */
 :root {
