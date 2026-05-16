@@ -20,8 +20,10 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-  <!-- Preload hero image for faster LCP -->
-  <link rel="preload" as="image" href="/assets/images/entrance/entrance-main.webp" type="image/webp">
+  <!-- Preload hero image — mobile gets small version, desktop gets full -->
+  <link rel="preload" as="image" href="/assets/images/entrance/entrance-main-mobile.webp"
+        imagesrcset="/assets/images/entrance/entrance-main-mobile.webp 800w, /assets/images/entrance/entrance-main.webp 1800w"
+        imagesizes="100vw" type="image/webp">
 
   <!-- Fonts — all loaded async, non-blocking -->
   <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
@@ -718,7 +720,10 @@
     <!-- Hero -->
     <section class="hero" aria-labelledby="hero-heading">
       <picture>
-        <source srcset="/assets/images/entrance/entrance-main.webp" type="image/webp">
+        <source
+          srcset="/assets/images/entrance/entrance-main-mobile.webp 800w, /assets/images/entrance/entrance-main.webp 1800w"
+          sizes="100vw"
+          type="image/webp">
         <img
           src="/assets/images/entrance/entrance-main.jpg"
           alt="כניסה למתחם סיטי סטיי טבריה"
