@@ -5,45 +5,65 @@
   <!-- דף הבית -->
   <url>
     <loc>https://www.citystay.co.il/</loc>
-    <xhtml:link rel="alternate" hreflang="he" href="https://www.citystay.co.il/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.citystay.co.il/en/"/>
+    <lastmod>2026-05-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="he" href="https://www.citystay.co.il/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.citystay.co.il/en/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.citystay.co.il/"/>
+  </url>
+
+  <!-- גרסה אנגלית -->
+  <url>
+    <loc>https://www.citystay.co.il/en/</loc>
+    <lastmod>2026-05-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="he" href="https://www.citystay.co.il/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.citystay.co.il/en/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.citystay.co.il/"/>
   </url>
 
   <!-- חדרים -->
   <url>
     <loc>https://www.citystay.co.il/rooms/</loc>
-    <xhtml:link rel="alternate" hreflang="he" href="https://www.citystay.co.il/rooms/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.citystay.co.il/en/rooms/"/>
-    <changefreq>monthly</changefreq>
+    <lastmod>2026-05-17</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.9</priority>
-  </url>
-
-  <url>
-    <loc>https://www.citystay.co.il/rooms/family-suite/</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.85</priority>
   </url>
 
   <url>
     <loc>https://www.citystay.co.il/rooms/comfort-room/</loc>
+    <lastmod>2026-05-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
 
-  <!-- חבילות -->
   <url>
-    <loc>https://www.citystay.co.il/packages/</loc>
-    <xhtml:link rel="alternate" hreflang="he" href="https://www.citystay.co.il/packages/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.citystay.co.il/en/packages/"/>
+    <loc>https://www.citystay.co.il/rooms/family-suite/</loc>
+    <lastmod>2026-05-17</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.85</priority>
   </url>
 
-  <!-- מבצעים -->
+  <url>
+    <loc>https://www.citystay.co.il/rooms/complete/</loc>
+    <lastmod>2026-05-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <!-- חבילות ומבצעים -->
+  <url>
+    <loc>https://www.citystay.co.il/packages/</loc>
+    <lastmod>2026-05-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
   <url>
     <loc>https://www.citystay.co.il/deals/</loc>
+    <lastmod>2026-05-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -51,35 +71,33 @@
   <!-- גלריה -->
   <url>
     <loc>https://www.citystay.co.il/gallery/</loc>
+    <lastmod>2026-05-17</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.75</priority>
   </url>
 
   <!-- אודות -->
   <url>
     <loc>https://www.citystay.co.il/about/</loc>
-    <changefreq>yearly</changefreq>
-    <priority>0.6</priority>
+    <lastmod>2026-05-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
 
   <!-- צור קשר -->
   <url>
     <loc>https://www.citystay.co.il/contact/</loc>
-    <changefreq>yearly</changefreq>
+    <lastmod>2026-05-17</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
-  <!-- הזמנה -->
+  <!-- פרטיות -->
   <url>
-    <loc>https://www.citystay.co.il/booking/</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.95</priority>
-  </url>
-
-  <url>
-    <loc>https://www.citystay.co.il/rooms/complete/</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.85</priority>
+    <loc>https://www.citystay.co.il/privacy/</loc>
+    <lastmod>2026-05-17</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
   </url>
 
 </urlset>
