@@ -28,58 +28,13 @@
 <!-- Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-Z6HD9WVF0K"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-Z6HD9WVF0K');</script>
-<!-- Schema: BreadcrumbList + ItemList -->
 <script type="application/ld+json">
 {
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "BreadcrumbList",
-      "itemListElement": [
-        {"@type":"ListItem","position":1,"name":"בית","item":"https://www.citystay.co.il/"},
-        {"@type":"ListItem","position":2,"name":"חדרים","item":"https://www.citystay.co.il/rooms/"}
-      ]
-    },
-    {
-      "@type": "ItemList",
-      "name": "חדרי לינה — סיטי סטיי טבריה",
-      "itemListElement": [
-        {
-          "@type": "ListItem",
-          "position": 1,
-          "item": {
-            "@type": "HotelRoom",
-            "name": "חדר זוגי קומפורט",
-            "url": "https://www.citystay.co.il/rooms/comfort-room/",
-            "image": "https://www.citystay.co.il/assets/images/rooms/comfort/comfort-hero.jpg",
-            "occupancy": {"@type":"QuantitativeValue","maxValue":2}
-          }
-        },
-        {
-          "@type": "ListItem",
-          "position": 2,
-          "item": {
-            "@type": "HotelRoom",
-            "name": "סוויטה משפחתית עם 2 חדרי שינה",
-            "url": "https://www.citystay.co.il/rooms/family-suite/",
-            "image": "https://www.citystay.co.il/assets/images/rooms/suite/suite-hero.jpg",
-            "occupancy": {"@type":"QuantitativeValue","maxValue":8}
-          }
-        },
-        {
-          "@type": "ListItem",
-          "position": 3,
-          "item": {
-            "@type": "HotelRoom",
-            "name": "סיטי סטיי קומפלט",
-            "url": "https://www.citystay.co.il/rooms/complete/",
-            "image": "https://www.citystay.co.il/assets/images/rooms/suite/suite-kitchen.jpg",
-            "occupancy": {"@type":"QuantitativeValue","maxValue":20}
-          }
-        }
-      ]
-    }
-  ]
+"@context": "https://schema.org",
+"@graph": [
+{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"בית","item":"https://www.citystay.co.il/"},{"@type":"ListItem","position":2,"name":"חדרים","item":"https://www.citystay.co.il/rooms/"}]},
+{"@type":"ItemList","name":"חדרי לינה — סיטי סטיי טבריה","itemListElement":[{"@type":"ListItem","position":1,"item":{"@type":"HotelRoom","name":"חדר זוגי קומפורט","url":"https://www.citystay.co.il/rooms/comfort-room/","image":"https://www.citystay.co.il/assets/images/rooms/comfort/comfort-hero.jpg","occupancy":{"@type":"QuantitativeValue","maxValue":2}}},{"@type":"ListItem","position":2,"item":{"@type":"HotelRoom","name":"סוויטה משפחתית עם 2 חדרי שינה","url":"https://www.citystay.co.il/rooms/family-suite/","image":"https://www.citystay.co.il/assets/images/rooms/suite/suite-hero.jpg","occupancy":{"@type":"QuantitativeValue","maxValue":8}}},{"@type":"ListItem","position":3,"item":{"@type":"HotelRoom","name":"סיטי סטיי קומפלט","url":"https://www.citystay.co.il/rooms/complete/","image":"https://www.citystay.co.il/assets/images/rooms/suite/suite-kitchen.jpg","occupancy":{"@type":"QuantitativeValue","maxValue":20}}}]}
+]
 }
 </script>
 <style>
@@ -105,8 +60,8 @@ nav a[aria-current="page"]{color:var(--gold)}
 .hamburger[aria-expanded="true"] span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
 @media(max-width:768px){header{padding:.75rem 1rem}.hamburger{display:flex}nav{display:none;position:absolute;top:100%;right:0;left:0;background:var(--dark-2);border-bottom:1px solid rgba(201,168,76,.15);padding:1rem 0}nav.open{display:block}nav ul{flex-direction:column;gap:0}nav a{display:block;padding:.75rem 1.5rem;font-size:16px}.nav-cta{margin:.5rem 1.5rem;display:block;text-align:center}}
 main{padding-top:74px}
-.page-hero{background:var(--dark-2);border-bottom:1px solid rgba(201,168,76,.15);padding:2.5rem 2rem 2rem;text-align:center}
-.breadcrumb{display:flex;align-items:center;gap:.4rem;justify-content:center;font-size:12px;color:var(--text-muted);margin-bottom:.75rem}
+.page-hero{background:var(--dark-2);border-bottom:1px solid rgba(201,168,76,.15);padding:2.5rem 2rem 2rem;text-align:center;position:relative}
+.breadcrumb{display:flex;align-items:center;gap:.4rem;justify-content:center;font-size:12px;color:var(--text-muted);margin-bottom:.75rem;position:relative!important;top:auto!important;left:auto!important;right:auto!important}
 .breadcrumb a{color:var(--text-muted);text-decoration:none}
 .breadcrumb a:hover{color:var(--gold)}
 .kicker{font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:.4rem}
@@ -222,9 +177,7 @@ footer{background:var(--dark-2);border-top:1px solid rgba(201,168,76,.12);paddin
 <div class="room-card-img">
 <picture>
 <source srcset="/assets/images/rooms/comfort/comfort-hero.webp" type="image/webp">
-<img src="/assets/images/rooms/comfort/comfort-hero.jpg"
-alt="חדר קומפורט — מיטה זוגית עם מצעים לבנים ומגבות מקופלות"
-width="600" height="400" loading="eager" fetchpriority="high">
+<img src="/assets/images/rooms/comfort/comfort-hero.jpg" alt="חדר קומפורט — מיטה זוגית עם מצעים לבנים ומגבות מקופלות" width="600" height="400" loading="eager" fetchpriority="high">
 </picture>
 </div>
 <div class="room-body">
@@ -239,9 +192,7 @@ width="600" height="400" loading="eager" fetchpriority="high">
 <div class="room-card-img">
 <picture>
 <source srcset="/assets/images/rooms/suite/suite-hero.webp" type="image/webp">
-<img src="/assets/images/rooms/suite/suite-hero.jpg"
-alt="סוויטת משפחה — חדר שינה זוגי עם מיטה כפולה ועיצוב מודרני"
-width="600" height="400" loading="lazy">
+<img src="/assets/images/rooms/suite/suite-hero.jpg" alt="סוויטת משפחה — חדר שינה זוגי עם מיטה כפולה ועיצוב מודרני" width="600" height="400" loading="lazy">
 </picture>
 </div>
 <div class="room-body">
@@ -256,9 +207,7 @@ width="600" height="400" loading="lazy">
 <div class="room-card-img">
 <picture>
 <source srcset="/assets/images/rooms/suite/suite-kitchen.webp" type="image/webp">
-<img src="/assets/images/rooms/suite/suite-kitchen.jpg"
-alt="סיטי סטיי קומפלט — מטבח מאובזר"
-width="600" height="400" loading="lazy">
+<img src="/assets/images/rooms/suite/suite-kitchen.jpg" alt="סיטי סטיי קומפלט — מטבח מאובזר" width="600" height="400" loading="lazy">
 </picture>
 </div>
 <div class="room-body">
