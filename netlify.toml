@@ -4,7 +4,7 @@
 
 [build]
   publish = "."
-  command = ""   # Static site — no build step needed
+  command = "" # Static site — no build step needed
 
 # ════════════════════════════════
 # Redirects
@@ -50,3 +50,27 @@
   from   = "/*"
   to     = "/404.html"
   status = 404
+
+# ════════════════════════════════
+# HTTP Headers — Cache & Security
+# ════════════════════════════════
+
+# Assets: immutable cache (images, WebP, JS, CSS, fonts)
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# HTML pages: revalidate on each visit
+[[headers]]
+  for = "/*.html"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+
+# Security headers for all paths
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    X-Frame-Options = "SAMEORIGIN"
+    Referrer-Policy = "strict-origin-when-cross-origin"
