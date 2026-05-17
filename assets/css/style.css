@@ -894,3 +894,15 @@ section:not(.booking-section):not(.club-section):not(.rooms-section) .eyebrow {
 /* Booking CTA — gold bg dark text */
 .booking-cta-bar, .booking-cta-bar * { color: var(--ink) !important; }
 .booking-cta-bar { background: var(--gold) !important; }
+
+/* ============================================================
+FIX: breadcrumb position on page-hero pages
+Prevents breadcrumb from overlapping content on mobile
+============================================================ */
+.page-hero .breadcrumb,
+.page-hero-inner .breadcrumb {
+  position: relative !important;
+  top: auto !important;
+  left: auto !important;
+  right: auto !important;
+}
