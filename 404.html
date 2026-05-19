@@ -1,55 +1,166 @@
 <!DOCTYPE html>
 <html lang="he" dir="rtl">
 <head>
-  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>דף לא נמצא | סיטי סטיי טבריה</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@300;400;700&family=Heebo:wght@300;400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/assets/css/style.css">
-  <style>
-    .error-page{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;background:linear-gradient(135deg,var(--primary-dark),var(--primary));padding:2rem}
-    .error-content{max-width:500px}
-    .error-num{font-size:8rem;font-weight:700;color:rgba(255,255,255,.15);line-height:1;font-family:var(--font-display);margin-bottom:-1rem}
-    .error-content h1{color:var(--white);font-size:2rem;margin-bottom:1rem}
-    .error-content p{color:rgba(255,255,255,.8);margin-bottom:2rem}
-    .error-links{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
-  </style>
-  <!-- Favicons -->
-  <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon-32.png">
-  <link rel="icon" type="image/png" sizes="64x64" href="/assets/images/favicon-64.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/favicon-180.png">
-  <meta name="theme-color" content="#1B4D6E">
-  <link rel="preconnect" href="https://wubook.net">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>הדף לא נמצא | סיטי סטיי טבריה</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+<noscript><link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700&display=swap" rel="stylesheet"></noscript>
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon-32.png">
+<link rel="apple-touch-icon" href="/assets/images/favicon-180.png">
+<style>
+:root{--dark:#0d1117;--dark-2:#161b22;--gold:#c9a84c;--gold-light:#e8c97a;--text-light:#e8e4dc;--text-muted:rgba(232,228,220,0.65);--radius:8px;--radius-lg:16px;--font:'Heebo',sans-serif}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{font-family:var(--font);background:var(--dark);color:var(--text-light);min-height:100vh;display:flex;flex-direction:column;overflow-x:hidden}
+.skip-link{position:absolute;top:-100%;right:1rem;background:var(--gold);color:var(--dark);padding:.5rem 1rem;border-radius:0 0 var(--radius) var(--radius);font-weight:500;z-index:9999;transition:top .2s;text-decoration:none}
+.skip-link:focus{top:0}
+
+/* Header */
+header{position:fixed;top:0;right:0;left:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:.75rem 2rem;background:rgba(13,17,23,.95);backdrop-filter:blur(12px);border-bottom:1px solid rgba(201,168,76,.15)}
+.logo img{height:44px;width:auto}
+.nav-cta{background:var(--gold);color:var(--dark)!important;padding:.5rem 1.25rem;border-radius:var(--radius);font-weight:600;text-decoration:none;font-size:14px;transition:background .2s,transform .1s}
+.nav-cta:hover{background:var(--gold-light);transform:translateY(-1px)}
+@media(max-width:768px){header{padding:.75rem 1rem}}
+
+/* Hero 404 */
+.hero-404{flex:1;position:relative;display:flex;align-items:center;justify-content:center;padding:6rem 2rem 3rem;min-height:100vh;overflow:hidden}
+.hero-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;opacity:.22;z-index:0}
+.hero-overlay{position:absolute;inset:0;z-index:1;background:linear-gradient(160deg,rgba(13,17,23,.92) 0%,rgba(13,17,23,.75) 45%,rgba(13,17,23,.92) 100%)}
+
+/* Content */
+.content{position:relative;z-index:2;text-align:center;max-width:600px;width:100%;padding:0 1rem}
+
+/* 404 number */
+.num-404{font-size:clamp(7rem,25vw,13rem);font-weight:700;line-height:.9;letter-spacing:-4px;background:linear-gradient(135deg,var(--gold) 0%,var(--gold-light) 40%,var(--gold) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;filter:drop-shadow(0 0 60px rgba(201,168,76,.2));margin-bottom:1.5rem}
+
+/* Divider */
+.gold-line{width:48px;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:0 auto 1.75rem}
+
+/* Text */
+h1{font-size:clamp(1.3rem,3.5vw,1.8rem);font-weight:700;margin-bottom:.75rem;line-height:1.3}
+.sub{font-size:.95rem;color:var(--text-muted);line-height:1.85;margin-bottom:2.5rem}
+
+/* Buttons */
+.actions{display:flex;gap:.75rem;justify-content:center;flex-wrap:wrap;margin-bottom:3rem}
+.btn{display:inline-flex;align-items:center;gap:.5rem;padding:.8rem 1.75rem;border-radius:var(--radius);font-size:14px;font-weight:500;text-decoration:none;transition:transform .15s,background .2s,border-color .2s;border:1px solid transparent;cursor:pointer}
+.btn:hover{transform:translateY(-2px)}
+.btn-gold{background:var(--gold);color:var(--dark)!important;border-color:var(--gold)}
+.btn-gold:hover{background:var(--gold-light);border-color:var(--gold-light)}
+.btn-outline{border-color:rgba(201,168,76,.35);color:var(--gold-light);background:transparent}
+.btn-outline:hover{background:rgba(201,168,76,.08);border-color:var(--gold)}
+
+/* Contact cards */
+.contact-section{margin-bottom:2.5rem}
+.contact-label{font-size:11px;text-transform:uppercase;letter-spacing:.12em;color:var(--gold);margin-bottom:1rem;font-weight:600}
+.contact-cards{display:flex;gap:.75rem;justify-content:center;flex-wrap:wrap}
+.contact-card{display:flex;align-items:center;gap:.6rem;padding:.65rem 1.1rem;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:var(--radius-lg);text-decoration:none;color:var(--text-muted);font-size:13px;transition:border-color .2s,color .2s,background .2s}
+.contact-card:hover{border-color:rgba(201,168,76,.35);color:var(--text-light);background:rgba(201,168,76,.05)}
+.contact-card-icon{font-size:1.1rem;flex-shrink:0}
+.contact-card-info{text-align:right}
+.contact-card-type{font-size:10px;color:var(--gold);font-weight:600;letter-spacing:.08em;text-transform:uppercase;display:block;margin-bottom:1px}
+.contact-card-value{font-size:13px;color:var(--text-light);font-weight:500}
+
+/* Quick links */
+.quick-links-row{display:flex;gap:1.5rem;justify-content:center;flex-wrap:wrap}
+.quick-links-row a{color:var(--text-muted);text-decoration:none;font-size:12px;padding-bottom:2px;border-bottom:1px solid rgba(255,255,255,.08);transition:color .2s,border-color .2s}
+.quick-links-row a:hover{color:var(--gold);border-color:rgba(201,168,76,.4)}
+
+/* Footer */
+footer{background:var(--dark-2);border-top:1px solid rgba(201,168,76,.1);padding:1.25rem 2rem;text-align:center;font-size:12px;color:var(--text-muted)}
+footer a{color:var(--text-muted);text-decoration:none;transition:color .2s}
+footer a:hover{color:var(--gold)}
+.footer-sep{margin:0 .6rem;opacity:.25}
+
+/* WhatsApp */
+.wa-float{position:fixed;bottom:1.5rem;right:1.5rem;z-index:99;width:52px;height:52px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(37,211,102,.4);text-decoration:none;transition:transform .2s}
+.wa-float:hover{transform:scale(1.08)}
+
+@media(max-width:480px){.contact-cards{flex-direction:column;align-items:center}.contact-card{width:100%;max-width:280px;justify-content:flex-start}}
+</style>
 </head>
 <body>
+
 <a href="#main" class="skip-link">דלג לתוכן הראשי</a>
-<main class="error-page" id="main">
-  <div class="error-content">
-    <div class="error-num">404</div>
-    <h1>🌊 הדף לא נמצא</h1>
-    <p>נראה שהדף שחיפשת הפליג לכינרת...<br>אבל אנחנו כאן כדי לעזור לך למצוא את הדרך.</p>
-    <div class="error-links">
-      <a href="/" class="btn btn-gold btn-lg">🏠 לדף הבית</a>
-      <a href="/rooms/" class="btn btn-outline-white">🛏️ לחדרים</a>
-      <a href="/booking/" class="btn btn-outline-white">🗓️ הזמנה</a>
-    </div>
-    <p style="margin-top:2rem;font-size:.85rem;color:rgba(255,255,255,.5)">
-      או התקשר ישירות: <a href="tel:+97246206464" style="color:var(--gold-light)">04-6206464</a>
-    </p>
-  </div>
-</main>
-<script src="/assets/js/main.js" defer></script>
-<a href="https://wa.me/97246206464?text=שלום,%20אני%20מעוניין%20לשאול%20על%20חדר"
-   class="wa-float"
-   aria-label="שלח הודעת WhatsApp לסיטי סטיי טבריה"
-   target="_blank"
-   rel="noopener">
-  <svg viewBox="0 0 24 24" width="28" height="28" aria-hidden="true" focusable="false" fill="white">
-    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
-    <path d="M12 0C5.373 0 0 5.373 0 12c0 2.113.554 4.094 1.524 5.815L.057 23.73a.75.75 0 0 0 .916.913l6.084-1.594A11.944 11.944 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75a9.714 9.714 0 0 1-5.002-1.38l-.358-.214-3.713.972.99-3.617-.235-.37A9.714 9.714 0 0 1 2.25 12C2.25 6.615 6.615 2.25 12 2.25S21.75 6.615 21.75 12 17.385 21.75 12 21.75z"/>
-  </svg>
+
+<header role="banner">
+<a href="/" class="logo" aria-label="דף הבית — סיטי סטיי טבריה">
+<img src="/assets/images/logo-full.png" alt="City Stay Tiberias" width="110" height="44" loading="eager">
 </a>
+<a href="https://wubook.net/nneb/bk?ep=52ae8af2" class="nav-cta" target="_blank" rel="noopener" aria-label="הזמן עכשיו">🗓️ הזמן עכשיו</a>
+</header>
+
+<main class="hero-404" id="main">
+<picture>
+<source srcset="/assets/images/entrance/entrance-main.webp" type="image/webp">
+<img src="/assets/images/entrance/entrance-main.jpg" alt="" class="hero-bg" loading="eager" aria-hidden="true" width="1800" height="1350">
+</picture>
+<div class="hero-overlay" aria-hidden="true"></div>
+
+<div class="content">
+<div class="num-404" aria-label="שגיאה 404">404</div>
+<div class="gold-line" aria-hidden="true"></div>
+<h1>הדף שחיפשת לא קיים</h1>
+<p class="sub">ייתכן שהכתובת שגויה, הדף הועבר, או שנדדת לאזור לא מוכר.<br>אבל הכינרת עדיין כאן — ואנחנו גם.</p>
+
+<div class="actions">
+<a href="/" class="btn btn-gold">🏠 חזור לדף הבית</a>
+<a href="/rooms/" class="btn btn-outline">🛏️ החדרים שלנו</a>
+</div>
+
+<div class="contact-section" role="region" aria-label="דרכי יצירת קשר">
+<p class="contact-label">נשמח לעזור</p>
+<div class="contact-cards">
+<a href="tel:+97246206464" class="contact-card" aria-label="התקשר אלינו">
+<span class="contact-card-icon" aria-hidden="true">📞</span>
+<div class="contact-card-info">
+<span class="contact-card-type">טלפון</span>
+<span class="contact-card-value">04-6206464</span>
+</div>
+</a>
+<a href="https://wa.me/97246206464?text=שלום,%20אני%20מעוניין%20לשאול%20על%20חדר" class="contact-card" target="_blank" rel="noopener" aria-label="שלח הודעת WhatsApp">
+<span class="contact-card-icon" aria-hidden="true">💬</span>
+<div class="contact-card-info">
+<span class="contact-card-type">WhatsApp</span>
+<span class="contact-card-value">שלח הודעה</span>
+</div>
+</a>
+<a href="mailto:citystaytiberias@gmail.com" class="contact-card" aria-label="שלח מייל">
+<span class="contact-card-icon" aria-hidden="true">✉️</span>
+<div class="contact-card-info">
+<span class="contact-card-type">מייל</span>
+<span class="contact-card-value">citystaytiberias@gmail.com</span>
+</div>
+</a>
+</div>
+</div>
+
+<nav class="quick-links-row" aria-label="קישורים מהירים">
+<a href="/packages/">חבילות</a>
+<a href="/gallery/">גלריה</a>
+<a href="/about/">אודות</a>
+<a href="/contact/">צור קשר</a>
+<a href="/en/">English</a>
+</nav>
+</div>
+</main>
+
+<footer role="contentinfo">
+<span>© 2025 City Stay Tiberias</span>
+<span class="footer-sep">·</span>
+<a href="/">citystay.co.il</a>
+<span class="footer-sep">·</span>
+<a href="tel:+97246206464">04-6206464</a>
+<span class="footer-sep">·</span>
+<a href="https://wubook.net/nneb/bk?ep=52ae8af2" target="_blank" rel="noopener">הזמן לינה</a>
+</footer>
+
+<a href="https://wa.me/97246206464?text=שלום,%20אני%20מעוניין%20לשאול%20על%20חדר" class="wa-float" aria-label="שלח הודעת WhatsApp לסיטי סטיי טבריה" target="_blank" rel="noopener">
+<svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true" focusable="false" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.113.554 4.094 1.524 5.815L.057 23.73a.75.75 0 0 0 .916.913l6.084-1.594A11.944 11.944 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75a9.714 9.714 0 0 1-5.002-1.38l-.358-.214-3.713.972.99-3.617-.235-.37A9.714 9.714 0 0 1 2.25 12C2.25 6.615 6.615 2.25 12 2.25S21.75 6.615 21.75 12 17.385 21.75 12 21.75z"/></svg>
+</a>
+
 </body>
 </html>
