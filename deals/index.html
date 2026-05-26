@@ -3,12 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>מבצעים | סיטי סטיי טבריה</title>
-  <meta name="description" content="מבצעי לינה בטבריה — הזמנה מוקדמת 10%, שהייה מורחבת 10%. קודי קופון בלעדיים. מחירים כוללים מע״מ.">
+  <title>מבצעים | סיטי סטיי טבריה — הנחות לחיילי מילואים, שהייה מורחבת ומבצעי חג</title>
+  <meta name="description" content="מבצעי לינה בטבריה — הנחה למשרתי מילואים 15% (קוד IDF15), שהייה מורחבת 10%, מבצע חג שבועות. תשלום בכרטיס פייטר. מחירים כוללים מע״מ, ביטול חינם.">
+  <meta name="keywords" content="מבצעים בטבריה, מלון בטבריה, נופש לחיילי מילואים, הטבות למשרתי מילואים, כרטיס פייטר, צימרים בטבריה, לינה בטבריה, חופשה בכינרת">
   <link rel="canonical" href="https://www.citystay.co.il/deals/">
   <meta property="og:title" content="מבצעים | סיטי סטיי טבריה">
   <meta property="og:url" content="https://www.citystay.co.il/deals/">
+  <meta property="og:description" content="מבצעי לינה בטבריה — הנחה למשרתי מילואים, שהייה מורחבת, ומבצעי חג. תשלום בכרטיס פייטר.">
   <link rel="preconnect" href="https://wubook.net">
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+  <link rel="dns-prefetch" href="https://www.google-analytics.com">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700&display=swap" rel="stylesheet">
@@ -83,12 +87,9 @@
     .wa-float{position:fixed;bottom:1.5rem;right:1.5rem;z-index:99;width:52px;height:52px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(37,211,102,.4);text-decoration:none;transition:transform .2s}
     .wa-float:hover{transform:scale(1.08)}
   </style>
-  <!-- Google tag (gtag.js) - Ads -->
+  <!-- Google Ads + Analytics — סקריפט אחד לשני המזהים (חיסכון בקשה + ~50KB) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=AW-16992145015"></script>
-  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','AW-16992145015');</script>
-  <!-- Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-Z6HD9WVF0K"></script>
-  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-Z6HD9WVF0K');</script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','AW-16992145015');gtag('config','G-Z6HD9WVF0K');</script>
   <link rel="alternate" hreflang="he" href="https://www.citystay.co.il/deals/">
   <link rel="alternate" hreflang="en" href="https://www.citystay.co.il/en/deals/">
   <link rel="alternate" hreflang="x-default" href="https://www.citystay.co.il/deals/">
@@ -146,23 +147,28 @@
 
 
 
-        <article style="background:#fff;border-radius:var(--radius-lg);overflow:hidden;box-shadow:0 2px 16px rgba(0,0,0,.08);position:relative">
-          <div style="position:absolute;top:1rem;right:1rem;background:var(--gold);color:var(--dark);border-radius:50%;width:52px;height:52px;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;flex-direction:column;line-height:1.1;text-align:center"><span>10%</span><span style="font-size:9px">הנחה</span></div>
-          <div style="background:linear-gradient(135deg,#1a1a2e,#0f3460);height:120px;display:flex;align-items:center;padding:1.5rem">
-            <span style="font-size:2rem">📅</span>
-          </div>
+        <!-- מבצע מילואים -->
+        <article style="background:#fff;border-radius:var(--radius-lg);overflow:hidden;box-shadow:0 2px 16px rgba(0,0,0,.08);position:relative;border:2px solid var(--gold)">
+          <div style="position:absolute;top:0;right:50%;transform:translateX(50%);background:var(--gold);color:var(--dark);font-size:11px;font-weight:600;padding:3px 14px;border-radius:0 0 6px 6px;white-space:nowrap;z-index:2">למשרתי המילואים</div>
+          <div style="position:absolute;top:1rem;left:1rem;background:var(--gold);color:var(--dark);border-radius:50%;width:52px;height:52px;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;flex-direction:column;line-height:1.1;text-align:center;z-index:2;box-shadow:0 2px 8px rgba(0,0,0,.3)"><span>15%</span><span style="font-size:9px">הנחה</span></div>
+          <picture>
+            <source srcset="/assets/images/miluim/miluim-hero-mobile.webp" type="image/webp">
+            <source srcset="/assets/images/miluim/miluim-hero-mobile.jpg" type="image/jpeg">
+            <img src="/assets/images/miluim/miluim-hero-mobile.jpg" alt="חייל מילואים נח בערסל מול הכינרת בטבריה" width="640" height="349" loading="lazy" style="width:100%;height:140px;object-fit:cover;display:block">
+          </picture>
           <div style="padding:1.5rem">
-            <h3 style="font-size:1.15rem;font-weight:700;color:var(--dark);margin-bottom:.5rem">הזמנה מוקדמת</h3>
-            <p style="font-size:13px;color:#555;margin-bottom:1rem;line-height:1.6">הזמינו לפחות 14 יום מראש וקבלו 10% הנחה על המחיר הרגיל. המחיר הסופי כולל מע״מ.</p>
+            <h3 style="font-size:1.15rem;font-weight:700;color:var(--dark);margin-bottom:.35rem">מבצע הנחות למשרתי המילואים</h3>
+            <p style="font-size:12px;color:var(--gold);font-weight:600;margin-bottom:.75rem;font-style:italic">״אתם משרתים במילואים — ואנחנו נשרת אתכם״</p>
+            <p style="font-size:13px;color:#555;margin-bottom:1rem;line-height:1.6">15% הנחה על כל לילה לחיילי מילואים. תשלום בכרטיס פייטר. בלי תאריך תפוגה — כל עוד יש מילואים.</p>
             <div style="background:#f8f8f8;border-radius:var(--radius);padding:.75rem 1rem;display:flex;align-items:center;justify-content:space-between;margin-bottom:1rem">
-              <code style="font-size:1.1rem;font-weight:700;color:var(--dark);letter-spacing:.08em">EARLY10</code>
-              <button onclick="navigator.clipboard.writeText('EARLY10').then(function(){this.textContent='✓ הועתק!';var b=this;setTimeout(function(){b.textContent='העתק';},2000);}.bind(this))" style="background:var(--dark);color:#fff;border:none;border-radius:4px;padding:.35rem .75rem;font-size:12px;cursor:pointer;font-family:inherit">העתק</button>
+              <code style="font-size:1.1rem;font-weight:700;color:var(--dark);letter-spacing:.08em">IDF15</code>
+              <button onclick="navigator.clipboard.writeText('IDF15').then(function(){this.textContent='✓ הועתק!';var b=this;setTimeout(function(){b.textContent='העתק';},2000);}.bind(this));if(window.gtag){gtag('event','conversion',{send_to:'AW-16992145015',event_category:'coupon',event_label:'IDF15_copy_deals'});}" style="background:var(--dark);color:#fff;border:none;border-radius:4px;padding:.35rem .75rem;font-size:12px;cursor:pointer;font-family:inherit">העתק</button>
             </div>
-            <div style="display:flex;justify-content:space-between;align-items:center;font-size:12px;color:#888">
-              <span>תקף לכל החדרים</span>
-              <time datetime="2026-11-14">בתוקף עד 14.11.2026</time>
+            <div style="display:flex;justify-content:space-between;align-items:center;font-size:12px;color:#888;margin-bottom:1rem">
+              <span>תשלום בכרטיס פייטר</span>
+              <span>ללא הגבלת תאריך</span>
             </div>
-            <a href="/booking/" style="display:block;text-align:center;background:var(--dark);color:#fff;padding:.65rem;border-radius:var(--radius);font-size:14px;font-weight:500;text-decoration:none;margin-top:1rem">הזמן עם הנחה</a>
+            <a href="/deals/miluim/" style="display:block;text-align:center;background:var(--gold);color:var(--dark);padding:.75rem;border-radius:var(--radius);font-size:14px;font-weight:600;text-decoration:none">לפרטים ולהזמנה ←</a>
           </div>
         </article>
 
@@ -176,7 +182,7 @@
             <p style="font-size:13px;color:#555;margin-bottom:1rem;line-height:1.6">הזמינו 3 לילות ומעלה וקבלו 10% הנחה אוטומטית על כל הלילות. המחיר הסופי כולל מע״מ.</p>
             <div style="background:#f8f8f8;border-radius:var(--radius);padding:.75rem 1rem;display:flex;align-items:center;justify-content:space-between;margin-bottom:1rem">
               <code style="font-size:1.1rem;font-weight:700;color:var(--dark);letter-spacing:.08em">STAY3</code>
-              <button onclick="navigator.clipboard.writeText('STAY3').then(function(){this.textContent='✓ הועתק!';var b=this;setTimeout(function(){b.textContent='העתק';},2000);}.bind(this))" style="background:var(--dark);color:#fff;border:none;border-radius:4px;padding:.35rem .75rem;font-size:12px;cursor:pointer;font-family:inherit">העתק</button>
+              <button onclick="navigator.clipboard.writeText('STAY3').then(function(){this.textContent='✓ הועתק!';var b=this;setTimeout(function(){b.textContent='העתק';},2000);}.bind(this));if(window.gtag){gtag('event','conversion',{send_to:'AW-16992145015',event_category:'coupon',event_label:'STAY3_copy_deals'});}" style="background:var(--dark);color:#fff;border:none;border-radius:4px;padding:.35rem .75rem;font-size:12px;cursor:pointer;font-family:inherit">העתק</button>
             </div>
             <div style="display:flex;justify-content:space-between;align-items:center;font-size:12px;color:#888">
               <span>מינימום 3 לילות · כל התאריכים</span>
@@ -244,12 +250,4 @@
   </div>
 </footer>
 
-<a href="https://wa.me/97246206464?text=שלום,%20אני%20מעוניין%20לשאול%20על%20חדר" class="wa-float" aria-label="שלח הודעת WhatsApp לסיטי סטיי טבריה" target="_blank" rel="noopener">
-  <svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true" focusable="false" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.113.554 4.094 1.524 5.815L.057 23.73a.75.75 0 0 0 .916.913l6.084-1.594A11.944 11.944 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75a9.714 9.714 0 0 1-5.002-1.38l-.358-.214-3.713.972.99-3.617-.235-.37A9.714 9.714 0 0 1 2.25 12C2.25 6.615 6.615 2.25 12 2.25S21.75 6.615 21.75 12 17.385 21.75 12 21.75z"/></svg>
-</a>
-
-<script>
-(function(){var btn=document.querySelector('.hamburger');var nav=document.getElementById('main-nav');if(!btn||!nav)return;btn.addEventListener('click',function(){var open=nav.classList.toggle('open');btn.setAttribute('aria-expanded',open);});nav.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){nav.classList.remove('open');btn.setAttribute('aria-expanded','false');});});})();
-</script>
-</body>
-</html>
+<a href="https://wa.me/97246206464?
