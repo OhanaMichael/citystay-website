@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>תודה על ההזמנה — סיטי סטיי טבריה</title>
+  <meta name="description" content="ההזמנה התקבלה בהצלחה בסיטי סטיי טבריה. נשמח לארח אתכם.">
+  <meta name="robots" content="noindex,nofollow">
+  <link rel="canonical" href="https://www.citystay.co.il/booking/thank-you/">
+
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+  <link rel="dns-prefetch" href="https://www.google-analytics.com">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon-32.png">
+  <link rel="apple-touch-icon" href="/assets/images/favicon-180.png">
+
+  <!-- Google Ads + Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-16992145015"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments)}
+    gtag('js', new Date());
+    gtag('config', 'AW-16992145015');
+    gtag('config', 'G-Z6HD9WVF0K');
+  </script>
+
+  <!-- ========================================
+       Booking Conversion Tracking
+       קוראים את פרמטרי ה-URL ויורים אירוע booking_complete
+       ל-dataLayer + GA4 purchase + Google Ads conversion
+       ======================================== -->
+  <script>
+  (function() {
+    // קריאת פרמטרים מה-URL (Wubook יכול לשלוח אותם בהפניה חזרה)
+    var params = new URLSearchParams(window.location.search);
+
+    // תמיכה במספר שמות פרמטרים כדי להתאים לפורמטים שונים של Wubook
+    var bookingId = params.get('booking_id')
+                 || params.get('rcode')
+                 || params.get('reservation_id')
+                 || params.get('id')
+                 || '';
+
+    var amount = parseFloat(
+        params.get('amount')
+     || params.get('total')
+     || params.get('price')
+     || params.get('value')
+     || '0'
+    );
+
+    var currency = params.get('currency') || 'ILS';
+    var rooms = params.get('rooms') || params.get('room_type') || '';
+    var nights = parseInt(params.get('nights') || '0', 10);
+    var guests = parseInt(params.get('guests') || params.get('adults') || '0', 10);
+    var couponCode = params.get('coupon') || params.get('promo') || '';
+
+    // אם יש מספר הזמנה — יורים את האירוע
+    if (bookingId) {
+      // 1. אירוע dataLayer ראשי
+      window.dataLayer.push({
+        event: 'booking_complete',
+        transaction_id: bookingId,
+        value: amount,
+        currency: currency,
+        room_type: rooms,
+        nights: nights,
+        guests: guests,
+        coupon: couponCode,
+        ecommerce: {
+          transaction_id: bookingId,
+          value: amount,
+          currency: currency,
+          coupon: couponCode,
+          items: rooms ? [{
+            item_id: rooms,
+            item_name: rooms,
+            price: amount,
+            quantity: 1
+          }] : []
+        }
+      });
+
+      // 2. אירוע GA4 purchase (e-commerce standard)
+      if (typeof gtag === 'function') {
+        gtag('event', 'purchase', {
+          transaction_id: bookingId,
+          value: amount,
+          currency: currency,
+          coupon: couponCode,
+          items: rooms ? [{
+            item_id: rooms,
+            item_name: rooms,
+            price: amount,
+            quantity: 1
+          }] : []
+        });
+
+        // 3. Google Ads Conversion (ההמרה הראשית)
+        gtag('event', 'conversion', {
+          send_to: 'AW-16992145015',
+          transaction_id: bookingId,
+          value: amount,
+          currency: currency
+        });
+      }
+
+      // הצגת פרטי ההזמנה בדף
+      document.addEventListener('DOMContentLoaded', function() {
+        var bookingIdEl = document.getElementById('booking-id');
+        var amountEl = document.getElementById('booking-amount');
+        if (bookingIdEl) bookingIdEl.textContent = bookingId;
+        if (amountEl && amount > 0) {
+          amountEl.textContent = '₪' + amount.toLocaleString('he-IL');
+          document.getElementById('amount-row').style.display = 'flex';
+        }
+      });
+    } else {
+      // אם הגיעו לדף בלי פרמטרים — לא יורים אירוע, מציגים הודעה כללית
+      console.log('Thank-you page loaded without booking parameters');
+    }
+  })();
+  </script>
+
+  <style>
+    :root{--dark:#0d1117;--dark-2:#161b22;--gold:#c9a84c;--gold-light:#e8c97a;--cream:#f5f0e8;--text-light:#e8e4dc;--text-muted:rgba(232,228,220,0.65);--radius:8px;--radius-lg:16px;--font:'Heebo',sans-serif;--success:#0f9d58}
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:var(--font);font-size:16px;line-height:1.7;color:var(--text-light);background:var(--dark);min-height:100vh;display:flex;flex-direction:column}
+    header{padding:1.5rem 2rem;border-bottom:1px solid rgba(201,168,76,.15);text-align:center}
+    header img{height:48px}
+    main{flex:1;display:flex;align-items:center;justify-content:center;padding:3rem 1.5rem}
+    .card{max-width:600px;width:100%;background:var(--dark-2);border:1px solid rgba(201,168,76,.2);border-radius:var(--radius-lg);padding:3rem 2rem;text-align:center}
+    .success-icon{width:96px;height:96px;background:rgba(15,157,88,.15);border:3px solid var(--success);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:48px;color:var(--success);margin:0 auto 2rem;animation:pop .6s cubic-bezier(.175,.885,.32,1.275)}
+    @keyframes pop{0%{transform:scale(0)}100%{transform:scale(1)}}
+    .brand-name{display:block;font-size:1.6rem;font-weight:800;color:var(--gold);letter-spacing:.02em;margin-bottom:.4rem}
+    .brand-tagline{display:block;font-size:.85rem;font-weight:500;color:var(--text-muted);letter-spacing:.15em;text-transform:uppercase;padding-top:.5rem;border-top:1px solid rgba(201,168,76,.3);max-width:300px;margin:.4rem auto 2rem}
+    h1{font-size:clamp(1.6rem,4vw,2.2rem);font-weight:800;margin-bottom:.75rem;color:#fff}
+    h1 span{color:var(--gold)}
+    .lead{font-size:1.1rem;color:var(--text-muted);margin-bottom:2rem;line-height:1.6}
+    .details{background:rgba(0,0,0,.25);border-radius:var(--radius);padding:1.25rem;margin:2rem 0;text-align:right}
+    .details-row{display:flex;justify-content:space-between;padding:.5rem 0;border-bottom:1px solid rgba(255,255,255,.05);font-size:14px}
+    .details-row:last-child{border-bottom:none}
+    .details-label{color:var(--text-muted)}
+    .details-value{color:var(--gold);font-weight:600;direction:ltr}
+    .actions{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-top:2rem}
+    .btn{display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 1.75rem;border-radius:var(--radius);font-size:15px;font-weight:600;text-decoration:none;transition:transform .15s,opacity .2s}
+    .btn:hover{transform:translateY(-2px)}
+    .btn-gold{background:var(--gold);color:var(--dark)}
+    .btn-gold:hover{background:var(--gold-light)}
+    .btn-outline{background:transparent;color:var(--text-light);border:1px solid rgba(255,255,255,.25)}
+    .btn-outline:hover{border-color:var(--gold);color:var(--gold)}
+    .next-steps{background:rgba(201,168,76,.08);border:1px solid rgba(201,168,76,.2);border-radius:var(--radius);padding:1.25rem;margin-top:2rem;text-align:right}
+    .next-steps h3{font-size:14px;font-weight:700;color:var(--gold);margin-bottom:.75rem}
+    .next-steps ul{list-style:none;font-size:13px;color:var(--text-muted);line-height:1.8}
+    .next-steps li{padding-right:1.25rem;position:relative}
+    .next-steps li::before{content:'✓';position:absolute;right:0;color:var(--success);font-weight:bold}
+    footer{padding:1.5rem;text-align:center;font-size:13px;color:var(--text-muted);border-top:1px solid rgba(255,255,255,.05)}
+    footer a{color:var(--gold);text-decoration:none}
+    footer a:hover{color:var(--gold-light)}
+  </style>
+</head>
+<body>
+
+<header>
+  <a href="/" aria-label="חזרה לדף הבית">
+    <img src="/assets/images/logo-full.png" alt="City Stay Tiberias" width="120" height="48">
+  </a>
+</header>
+
+<main>
+  <article class="card" role="region" aria-labelledby="thanks-heading">
+    <div class="success-icon" aria-hidden="true">✓</div>
+
+    <span class="brand-name">סיטי סטיי טבריה</span>
+    <span class="brand-tagline">מלון בוטיק במרכז טבריה</span>
+
+    <h1 id="thanks-heading">ההזמנה <span>נקלטה בהצלחה!</span></h1>
+    <p class="lead">תודה שבחרתם בסיטי סטיי טבריה.<br>שלחנו לכם אישור הזמנה במייל. נשמח לארח אתכם.</p>
+
+    <div class="details">
+      <div class="details-row">
+        <span class="details-label">מספר הזמנה</span>
+        <span class="details-value" id="booking-id">—</span>
+      </div>
+      <div class="details-row" id="amount-row" style="display:none">
+        <span class="details-label">סכום</span>
+        <span class="details-value" id="booking-amount">—</span>
+      </div>
+      <div class="details-row">
+        <span class="details-label">סטטוס</span>
+        <span class="details-value" style="color:var(--success)">אושר</span>
+      </div>
+    </div>
+
+    <div class="next-steps">
+      <h3>🎉 הצעדים הבאים</h3>
+      <ul>
+        <li>קיבלתם מייל אישור עם כל הפרטים</li>
+        <li>שמרו אותו — תצטרכו אותו בעת ההגעה</li>
+        <li>אנחנו ממוקמים ברחוב הגליל 24, טבריה</li>
+        <li>צ׳ק-אין החל מ-15:00, צ׳ק-אאוט עד 11:00</li>
+        <li>יש שאלה? התקשרו 04-6206464 או WhatsApp</li>
+      </ul>
+    </div>
+
+    <div class="actions">
+      <a href="/" class="btn btn-gold">🏠 חזרה לדף הבית</a>
+      <a href="https://wa.me/97246206464" class="btn btn-outline" target="_blank" rel="noopener">💬 WhatsApp</a>
+    </div>
+  </article>
+</main>
+
+<footer>
+  <p>סיטי סטיי טבריה — מלון בוטיק · <a href="tel:+97246206464">04-6206464</a> · <a href="mailto:citystaytiberias@gmail.com">citystaytiberias@gmail.com</a></p>
+</footer>
+
+</body>
+</html>
