@@ -414,6 +414,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <p class="search-summary" id="search-summary" role="status" aria-live="polite">
       בחר תאריכים כדי לראות זמינות וחדרים
     </p>
+    <p style="max-width:1000px; margin:.5rem auto 0; text-align:center; font-size:11px; color:rgba(232,228,220,0.4);">
+      💡 הערה: כמות אורחים וחדרים נבחרת בתוך המנוע אחרי בדיקת הזמינות (Wubook לא מקבל אותם ב-URL)
+    </p>
   </div>
 
   <!-- trust strip -->
@@ -442,6 +445,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <p>בודק זמינות...</p>
       </div>
       <div id="the_place_where_iframe_will_be_installed"></div>
+    </div>
+
+    <!-- Debug panel — מציג את ה-URL בדיוק כפי שהוא נטען -->
+    <div id="debug-panel" style="display:none; max-width:1000px; margin:1rem auto 0; background:#1f2630; border:1px solid rgba(201,168,76,.3); border-radius:8px; padding:1rem; font-size:12px; font-family:monospace; direction:ltr; text-align:left;">
+      <div style="color:#c9a84c; font-weight:600; margin-bottom:.5rem; font-family:'Heebo',sans-serif; direction:rtl; text-align:right;">🔍 DEBUG — URL שנטען:</div>
+      <div id="debug-url" style="color:#e8e4dc; word-break:break-all; background:#0d1117; padding:.75rem; border-radius:4px; margin-bottom:.5rem;"></div>
+      <a id="debug-open-new-tab" href="#" target="_blank" rel="noopener" style="color:#c9a84c; text-decoration:underline; font-family:'Heebo',sans-serif; direction:rtl; display:inline-block; text-align:right;">🔗 פתח URL בחלון חדש (בדוק אם התאריכים מופיעים)</a>
     </div>
   </section>
 
@@ -556,7 +566,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   }
   updateSummary();
 
-  // ════ פעולת החיפוש: בנה URL וטען את הווידג'ט ════
+  // ════ פעולת החיפוש: בנה URL וטען את ה-iframe ════
   form.addEventListener('submit', function(e) {
     e.preventDefault();
     var nights = calcNights();
@@ -566,19 +576,18 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     }
 
     // בנה את ה-URL של Wubook
+    // ⚠️ הערה חשובה: Wubook NNEB תומך רק ב-f (תאריך) ו-n (לילות) דרך URL.
+    // אורחים וחדרים נבחרים בתוך המנוע עצמו — אי אפשר להעביר אותם דרך URL.
     var params = new URLSearchParams();
-    params.set('f', checkinEl.value);    // arrival date YYYY-MM-DD
-    params.set('n', nights);              // nights
-    params.set('ep', '52ae8af2');
-    params.set('board', 'nb');
-    params.set('lang', 'he');
-    params.set('o', '2.0.0.0');
-    // adults param (Wubook הסטנדרטי: adults, או a)
-    params.set('adults', guestsEl.value);
-    params.set('rooms', roomsEl.value);
+    params.set('f', checkinEl.value);    // arrival date YYYY-MM-DD ✓ נתמך
+    params.set('n', nights);              // nights ✓ נתמך
+    params.set('ep', '52ae8af2');         // endpoint ✓
+    params.set('lang', 'he');             // language ✓
+    params.set('c', 'ILS');               // currency ✓
+    // הסרנו את adults, rooms, board — Wubook לא מקבל אותם
 
     var url = 'https://wubook.net/nneb/bk?' + params.toString();
-    console.log('[Search] Loading widget with URL:', url);
+    console.log('[Search] Loading iframe with URL:', url);
 
     // החלף state: הסתר empty state, הצג widget
     emptyState.style.display = 'none';
@@ -588,102 +597,47 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       loader.classList.remove('hidden');
     }
 
-    // נקה את ה-container והרץ את הווידג'ט מחדש
-    var container = document.getElementById('the_place_where_iframe_will_be_installed');
-    container.innerHTML = '';
-
-    try {
-      if (typeof ZakNebIframe === 'undefined') {
-        showError('סקריפט הווידג\'ט עדיין לא נטען. נסה שוב בעוד שנייה.');
-        return;
-      }
-      var Neb = new ZakNebIframe('#the_place_where_iframe_will_be_installed', url);
-      Neb.render();
-
-      // הסתר spinner ברגע שה-iframe מוזרק
-      var checkInterval = setInterval(function() {
-        if (container.querySelector('iframe')) {
-          loader.classList.add('hidden');
-          setTimeout(function() { loader.style.display = 'none'; }, 400);
-          clearInterval(checkInterval);
-        }
-      }, 200);
-      setTimeout(function() {
-        clearInterval(checkInterval);
-        if (!container.querySelector('iframe')) {
-          showError('הווידג\'ט לא נטען. נסה לרענן את הדף או <a href="https://wubook.net/nneb/bk?' + params.toString() + '" target="_blank" style="color:var(--gold);">לפתוח בחלון חדש</a>.');
-        }
-      }, 15000);
-    } catch(err) {
-      console.error('[ZakNebIframe] failed:', err);
-      showError('שגיאה: ' + err.message);
+    // ════ DEBUG: הצג את ה-URL בדיוק כפי שנטען ════
+    var debugPanel = document.getElementById('debug-panel');
+    var debugUrl = document.getElementById('debug-url');
+    var debugOpenNewTab = document.getElementById('debug-open-new-tab');
+    if (debugPanel && debugUrl && debugOpenNewTab) {
+      debugUrl.textContent = url;
+      debugOpenNewTab.href = url;
+      debugPanel.style.display = 'block';
     }
+
+    // ════ inject iframe ישיר (לא ZakNebIframe) ════
+    // זה אמין יותר כי iframe תמיד מכבד את ה-src שלו
+    var container = document.getElementById('the_place_where_iframe_will_be_installed');
+    container.innerHTML = ''; // נקה הכל
+
+    var iframe = document.createElement('iframe');
+    iframe.src = url;
+    iframe.title = 'מנוע הזמנות סיטי סטיי';
+    iframe.setAttribute('aria-label', 'מנוע הזמנות Wubook');
+    iframe.referrerPolicy = 'no-referrer-when-downgrade';
+    iframe.style.cssText = 'display:block; width:100%; min-height:750px; border:none;';
+
+    iframe.onload = function() {
+      console.log('[iframe] loaded successfully');
+      loader.classList.add('hidden');
+      setTimeout(function() { loader.style.display = 'none'; }, 400);
+    };
+    iframe.onerror = function() {
+      console.error('[iframe] failed to load');
+      showError('שגיאה בטעינת המנוע. <a href="' + url + '" target="_blank" style="color:var(--gold);">פתח בחלון חדש</a>');
+    };
+
+    container.appendChild(iframe);
+
+    // fallback: אם לא נטען תוך 20 שניות
+    setTimeout(function() {
+      if (loader && !loader.classList.contains('hidden')) {
+        showError('הטעינה איטית מהרגיל. <a href="' + url + '" target="_blank" style="color:var(--gold);">פתח בחלון חדש</a>');
+      }
+    }, 20000);
 
     // גלילה חלקה לווידג'ט
     setTimeout(function() {
-      document.getElementById('widget-section').scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }, 100);
-
-    // GA event
-    if (window.dataLayer) {
-      window.dataLayer.push({
-        event: 'availability_search',
-        checkin: checkinEl.value,
-        checkout: checkoutEl.value,
-        nights: nights,
-        guests: parseInt(guestsEl.value, 10),
-        rooms: parseInt(roomsEl.value, 10)
-      });
-    }
-  });
-
-  function showError(msg) {
-    if (loader) {
-      loader.innerHTML = '<p style="color:#d04848;padding:1rem;text-align:center;">⚠️ ' + msg + '</p>';
-      loader.classList.remove('hidden');
-      loader.style.display = 'flex';
-    }
-  }
-})();
-</script>
-
-<!-- Hamburger toggle -->
-<script>
-(function() {
-  var hamburger = document.querySelector('.hamburger');
-  var nav = document.getElementById('main-nav');
-  if (!hamburger || !nav) return;
-  hamburger.addEventListener('click', function() {
-    var expanded = hamburger.getAttribute('aria-expanded') === 'true';
-    hamburger.setAttribute('aria-expanded', !expanded);
-    nav.classList.toggle('open');
-  });
-})();
-</script>
-
-<!-- Conversion tracking (postMessage) -->
-<script>
-(function() {
-  window.addEventListener('message', function(event) {
-    if (['https://wubook.net','https://www.wubook.net'].indexOf(event.origin) === -1) return;
-    var data = event.data;
-    if (!data || typeof data !== 'object') return;
-    if (data.type !== 'booking_complete' && data.event !== 'booking_complete' && data.action !== 'booking_confirmed') return;
-    var bookingId = data.booking_id || data.rcode || data.reservation_id || data.id || '';
-    var amount = parseFloat(data.amount || data.total || data.price || data.value || 0);
-    if (!bookingId) return;
-    window.dataLayer = window.dataLayer || [];
-    window.dataLayer.push({
-      event: 'booking_complete',
-      transaction_id: bookingId,
-      value: amount,
-      currency: data.currency || 'ILS',
-      source: 'widget-postMessage-DEV'
-    });
-    console.log('[DEV] booking_complete:', bookingId, amount);
-  });
-})();
-</script>
-
-</body>
-</html>
+      document.getElementById('widget-s
