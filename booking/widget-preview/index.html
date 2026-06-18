@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-PF6XQQG7');</script>
+  <!-- End Google Tag Manager -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>תצוגת ווידג'ט (DEV) | סיטי סטיי טבריה</title>
+  <meta name="description" content="דף תצוגה זמני לבחינת ווידג'ט Wubook החדש — לא לאינדוקס.">
+  <!-- חשוב: noindex כדי שגוגל לא יסרוק את הדף הזמני -->
+  <meta name="robots" content="noindex,nofollow">
+  <link rel="canonical" href="https://www.citystay.co.il/booking/">
+  <link rel="preconnect" href="https://wubook.net">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --dark: #0d1117;
+      --dark-2: #161b22;
+      --gold: #c9a84c;
+      --gold-light: #e8c97a;
+      --cream: #f5f0e8;
+      --text-light: #e8e4dc;
+      --text-muted: rgba(232,228,220,0.65);
+      --radius: 8px;
+      --radius-lg: 16px;
+      --font: 'Heebo', sans-serif;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+    }
+    body { font-family: var(--font); font-size: 16px; line-height: 1.7; color: var(--text-light); background: var(--dark); }
+
+    /* DEV banner — מסמן שהדף הוא תצוגה זמנית בלבד */
+    .dev-banner {
+      position: fixed;
+      top: 0;
+      right: 0;
+      left: 0;
+      z-index: 9999;
+      background: #d04848;
+      color: #fff;
+      text-align: center;
+      padding: .35rem 1rem;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: .03em;
+    }
+    .dev-banner strong { letter-spacing: .1em; }
+
+    /* skip link */
+    .skip-link { position: absolute; top: -100%; right: 1rem; background: var(--gold); color: var(--dark); padding: .5rem 1rem; border-radius: 0 0 var(--radius) var(--radius); font-weight: 500; z-index: 9999; transition: top .2s; }
+    .skip-link:focus { top: 0; }
+
+    /* header */
+    header { position: fixed; top: 28px; right: 0; left: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: .75rem 2rem; background: rgba(13,17,23,.95); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(201,168,76,.15); }
+    .logo img { height: 44px; width: auto; }
+    nav ul { list-style: none; display: flex; gap: 1.5rem; align-items: center; }
+    nav a { font-size: 14px; color: var(--text-muted); text-decoration: none; transition: color .2s; }
+    nav a:hover, nav a:focus-visible { color: var(--gold-light); outline: none; }
+    .nav-cta { background: var(--gold); color: var(--dark) !important; padding: .45rem 1.1rem; border-radius: var(--radius); font-weight: 500; }
+    .nav-cta:hover { background: var(--gold-light); }
+    .hamburger { display: none; background: none; border: none; cursor: pointer; flex-direction: column; gap: 5px; padding: 4px; }
+    .hamburger span { display: block; width: 24px; height: 2px; background: var(--text-light); border-radius: 2px; transition: transform .25s, opacity .25s; }
+    .hamburger[aria-expanded="true"] span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+    .hamburger[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    @media (max-width: 768px) {
+      header { padding: .75rem 1rem; }
+      .hamburger { display: flex; }
+      nav { display: none; position: absolute; top: 100%; right: 0; left: 0; background: var(--dark-2); border-bottom: 1px solid rgba(201,168,76,.15); padding: 1rem 0; }
+      nav.open { display: block; }
+      nav ul { flex-direction: column; gap: 0; }
+      nav a { display: block; padding: .75rem 1.5rem; font-size: 16px; }
+      .nav-cta { margin: .5rem 1.5rem; display: block; text-align: center; }
+    }
+
+    /* main */
+    main { padding-top: 108px; min-height: 100vh; }
+
+    /* hero strip */
+    .booking-hero {
+      background: var(--dark-2);
+      border-bottom: 1px solid rgba(201,168,76,.2);
+      padding: 2.5rem 2rem 2rem;
+      text-align: center;
+    }
+    .booking-hero h1 { font-size: clamp(1.6rem, 4vw, 2.4rem); font-weight: 700; margin-bottom: .5rem; }
+    .booking-hero p { font-size: 1rem; color: var(--text-muted); }
+    .booking-hero .dev-tag {
+      display: inline-block;
+      background: rgba(208,72,72,.15);
+      color: #ff8a8a;
+      border: 1px solid rgba(208,72,72,.4);
+      border-radius: 999px;
+      padding: .15rem .85rem;
+      font-size: 12px;
+      font-weight: 600;
+      margin-bottom: .75rem;
+      letter-spacing: .1em;
+    }
+
+    /* trust badges */
+    .trust-strip {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1rem 2rem;
+      padding: 1rem 2rem;
+      background: rgba(201,168,76,.07);
+      border-bottom: 1px solid rgba(201,168,76,.12);
+      font-size: 13px;
+    }
+    .trust-item { display: flex; align-items: center; gap: .4rem; color: var(--text-muted); }
+    .trust-item .icon { color: var(--gold); font-size: 15px; }
+
+    /* FALLBACK CTAs */
+    .alt-cta {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      padding: 1.5rem 2rem;
+      background: var(--dark);
+      border-bottom: 1px solid rgba(255,255,255,.06);
+    }
+    .alt-cta p { width: 100%; text-align: center; color: var(--text-muted); font-size: 14px; margin-bottom: .25rem; }
+    .btn-alt {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      padding: .75rem 1.5rem;
+      border-radius: var(--radius);
+      font-size: 15px;
+      font-weight: 500;
+      text-decoration: none;
+      transition: transform .15s, opacity .2s;
+    }
+    .btn-alt:hover { transform: translateY(-2px); opacity: .9; }
+    .btn-phone { background: var(--gold); color: var(--dark); }
+    .btn-wa    { background: #25D366; color: #fff; }
+
+    /* ══ WIDGET SECTION (חדש) ══ */
+    .widget-section {
+      padding: 2rem;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    .widget-label {
+      text-align: center;
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-bottom: 1rem;
+    }
+    .widget-label .tech {
+      display: inline-block;
+      background: rgba(201,168,76,.12);
+      color: var(--gold);
+      border: 1px solid rgba(201,168,76,.25);
+      padding: .15rem .65rem;
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: .08em;
+      margin-right: .5rem;
+    }
+    .widget-wrapper {
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      border: 1px solid rgba(201,168,76,.2);
+      background: #fff;
+      min-height: 600px;
+      position: relative;
+    }
+    /* ה-DIV שבו הווידג'ט יזריק את ה-iframe */
+    #the_place_where_iframe_will_be_installed {
+      width: 100%;
+      min-height: 600px;
+    }
+    #the_place_where_iframe_will_be_installed iframe {
+      display: block;
+      width: 100% !important;
+      min-height: 750px;
+      border: none;
+    }
+    /* spinner בזמן טעינה */
+    .widget-loading {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: #fff;
+      color: #555;
+      font-size: 14px;
+      gap: 1rem;
+      pointer-events: none;
+      transition: opacity .3s;
+    }
+    .widget-loading.hidden { opacity: 0; }
+    .widget-loading .spinner {
+      width: 40px;
+      height: 40px;
+      border: 3px solid rgba(201,168,76,.2);
+      border-top-color: var(--gold);
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    @media (max-width: 600px) {
+      .widget-section { padding: 1rem; }
+      #the_place_where_iframe_will_be_installed iframe { min-height: 900px; }
+    }
+
+    /* info section */
+    .info-grid {
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 0 2rem 3rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1rem;
+    }
+    .info-card {
+      background: var(--dark-2);
+      border: 1px solid rgba(255,255,255,.07);
+      border-radius: var(--radius-lg);
+      padding: 1.25rem;
+    }
+    .info-card h3 { font-size: 14px; color: var(--gold); margin-bottom: .5rem; }
+    .info-card p { font-size: 13px; color: var(--text-muted); line-height: 1.6; }
+
+    /* footer */
+    footer { background: #08090d; color: var(--text-muted); padding: 2.5rem 2rem 1.5rem; font-size: 14px; border-top: 1px solid rgba(255,255,255,.05); }
+    .footer-inner { max-width: 1100px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 1.5rem; padding-bottom: 1.5rem; border-bottom: 1px solid rgba(255,255,255,.07); }
+    .footer-brand img { height: 38px; }
+    .footer-brand p { font-size: 13px; color: var(--text-muted); margin-top: .5rem; max-width: 280px; }
+    .footer-col h3 { font-size: 12px; font-weight: 600; color: var(--gold); margin-bottom: .6rem; letter-spacing: .05em; }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: .35rem; }
+    .footer-col a { color: var(--text-muted); text-decoration: none; font-size: 13px; transition: color .2s; }
+    .footer-col a:hover { color: var(--gold-light); }
+    .footer-bottom { max-width: 1100px; margin: 1.25rem auto 0; display: flex; justify-content: space-between; flex-wrap: wrap; gap: .5rem; font-size: 12px; }
+
+    /* whatsapp float */
+    .wa-float { position: fixed; bottom: 1.5rem; right: 1.5rem; z-index: 99; width: 52px; height: 52px; background: #25D366; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 16px rgba(37,211,102,.4); text-decoration: none; transition: transform .2s; }
+    .wa-float:hover { transform: scale(1.08); }
+    .wa-float:focus-visible { outline: 3px solid #25D366; outline-offset: 3px; }
+    .wa-float svg { width: 26px; height: 26px; fill: white; }
+  </style>
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon-32.png">
+  <link rel="apple-touch-icon" href="/assets/images/favicon-180.png">
+
+  <!-- Google Ads + Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-16992145015"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','AW-16992145015');gtag('config','G-Z6HD9WVF0K');</script>
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PF6XQQG7"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<!-- DEV banner — מסמן שזה דף תצוגה זמני -->
+<div class="dev-banner">
+  ⚠️ <strong>DEV PREVIEW</strong> — דף תצוגה זמני לבדיקת ווידג'ט Wubook החדש. הדף החי הוא <a href="/booking/" style="color:#fff;text-decoration:underline;">/booking/</a>
+</div>
+
+<a href="#main" class="skip-link">דלג לתוכן הראשי</a>
+
+<header role="banner">
+  <a href="/" class="logo" aria-label="דף הבית — סיטי סטיי טבריה">
+    <img src="/assets/images/logo-full.png" alt="City Stay Tiberias" width="120" height="48" loading="eager">
+  </a>
+  <button class="hamburger" aria-expanded="false" aria-controls="main-nav" aria-label="פתח תפריט ניווט">
+    <span></span><span></span><span></span>
+  </button>
+  <nav id="main-nav" role="navigation" aria-label="ניווט ראשי">
+    <ul>
+      <li><a href="/">בית</a></li>
+      <li><a href="/rooms/" >חדרים</a></li>
+      <li><a href="/packages/" >חבילות</a></li>
+      <li><a href="/deals/" >מבצעים</a></li>
+      <li><a href="/gallery/" >גלריה</a></li>
+      <li><a href="/about/" >אודות</a></li>
+      <li><a href="/contact/" >צור קשר</a></li>
+      <li><a href="/booking/" class="nav-cta" aria-current="page">הזמן עכשיו</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main id="main">
+
+  <section class="booking-hero" aria-labelledby="booking-heading">
+    <span class="dev-tag">DEV · WIDGET PREVIEW</span>
+    <h1 id="booking-heading">🗓️ הזמנה מקוונת מאובטחת</h1>
+    <p>בדוק זמינות, בחר חדר, ואשר הזמנה — הכל בדקות ספורות</p>
+  </section>
+
+  <div class="trust-strip" aria-label="יתרונות ההזמנה">
+    <div class="trust-item"><span class="icon">🔒</span> הצפנת SSL מאובטחת</div>
+    <div class="trust-item"><span class="icon">✅</span> מחיר כולל מע״מ תמיד</div>
+    <div class="trust-item"><span class="icon">❌</span> ביטול חינם עד 14 יום</div>
+    <div class="trust-item"><span class="icon">📧</span> אישור מיידי במייל</div>
+    <div class="trust-item"><span class="icon">💳</span> כרטיס אשראי מאובטח</div>
+  </div>
+
+  <!-- Fallback CTAs -->
+  <div class="alt-cta" role="complementary" aria-label="ערוצי הזמנה חלופיים">
+    <p>מעדיף לדבר עם אדם? נשמח לעזור ישירות:</p>
+    <a href="tel:+97246206464" class="btn-alt btn-phone" aria-label="התקשר לסיטי סטיי טבריה">
+      📞 04-6206464
+    </a>
+    <a href="https://wa.me/97246206464?text=שלום,%20אני%20רוצה%20לבצע%20הזמנה" class="btn-alt btn-wa" target="_blank" rel="noopener" aria-label="שלח הודעת WhatsApp לסיטי סטיי — נפתח בחלון חדש">
+      💬 הזמן ב-WhatsApp
+    </a>
+  </div>
+
+  <!-- ══ WUBOOK ZakNebIframe WIDGET — חדש ══ -->
+  <section class="widget-section" aria-labelledby="engine-heading">
+    <p class="widget-label" id="engine-heading">
+      <span class="tech">NEW · ZakNebIframe</span>
+      מנוע הזמנות מאובטח — מופעל על ידי WuBook (Widget)
+    </p>
+
+    <div class="widget-wrapper">
+      <!-- Loading state -->
+      <div class="widget-loading" id="widget-loading" role="status" aria-live="polite">
+        <div class="spinner" aria-hidden="true"></div>
+        <p>טוען מנוע הזמנות...</p>
+      </div>
+
+      <!-- כאן הווידג'ט מזריק את ה-iframe -->
+      <div id="the_place_where_iframe_will_be_installed"></div>
+    </div>
+  </section>
+
+  <!-- Info cards -->
+  <div class="info-grid" role="region" aria-label="מידע שימושי להזמנה">
+    <article class="info-card">
+      <h3>⏰ שעות צ׳ק-אין/אאוט</h3>
+      <p>צ׳ק-אין: מ-15:00<br>צ׳ק-אאוט: עד 11:00<br>כניסה/יציאה גמישה בתיאום מראש</p>
+    </article>
+    <article class="info-card">
+      <h3>❌ מדיניות ביטול</h3>
+      <p>ביטול חינם עד 14 יום לפני ההגעה. לאחר מכן — חיוב 100% מסכום האירוח.</p>
+    </article>
+    <article class="info-card">
+      <h3>💰 מחירים ומע״מ</h3>
+      <p>כל המחירים כוללים מע״מ 18%. תיירי חוץ עם ויזת תייר פטורים — אנא צרו קשר.</p>
+    </article>
+    <article class="info-card">
+      <h3>🅿️ חניה ונוחות</h3>
+      <p>חניה פרטית חינם במתחם. WiFi מהיר. ניקיון יומי. כניסה פרטית לכל יחידה.</p>
+    </article>
+  </div>
+
+</main>
+
+<footer role="contentinfo">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <img src="/assets/images/logo-full.png" alt="City Stay Tiberias" width="100" height="40" loading="lazy">
+      <p>מתחם אירוח בוטיק במרכז טבריה — שלוש אפשרויות לינה, שירות חם ומחיר שקוף.</p>
+    </div>
+    <div class="footer-col">
+      <h3>לינה</h3>
+      <ul>
+        <li><a href="/rooms/">כל החדרים</a></li>
+        <li><a href="/rooms/comfort-room/">חדר קומפורט</a></li>
+        <li><a href="/rooms/family-suite/">סוויטת משפחה</a></li>
+        <li><a href="/rooms/complete/">סיטי סטיי קומפלט</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h3>מידע</h3>
+      <ul>
+        <li><a href="/packages/">חבילות</a></li>
+        <li><a href="/deals/">מבצעים</a></li>
+        <li><a href="/gallery/">גלריה</a></li>
+        <li><a href="/about/">אודות</a></li>
+        <li><a href="/contact/">צור קשר</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 City Stay Tiberias · רחוב הגליל 24, טבריה</p>
+    <p style="color:#d04848;font-weight:600;">⚠️ DEV PREVIEW — לא לפרסום</p>
+  </div>
+</footer>
+
+<!-- WhatsApp float -->
+<a href="https://wa.me/97246206464?text=שלום,%20אני%20רוצה%20לבצע%20הזמנה" class="wa-float" target="_blank" rel="noopener" aria-label="שלח הודעת WhatsApp">
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2zm0 18.15h-.01c-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.264 8.264 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.25-8.24 2.2 0 4.27.86 5.82 2.42a8.183 8.183 0 0 1 2.41 5.83c.02 4.54-3.68 8.23-8.22 8.23zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.12-.17.25-.64.81-.78.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43s.17-.25.25-.41c.08-.17.04-.31-.02-.43s-.56-1.34-.76-1.84c-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.22.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.14-1.18-.06-.11-.22-.17-.47-.29z"/></svg>
+</a>
+
+<!-- ════════════════════════════════════════════
+     WUBOOK WIDGET — ZakNebIframe
+     טוען את הסקריפט של Wubook ומזריק iframe לתוך
+     #the_place_where_iframe_will_be_installed
+     ════════════════════════════════════════════ -->
+<script src="https://wubook.net/js/nebi/iframe.jgz"></script>
+<script>
+  (function() {
+    // URL הווידג'ט (ללא f=today&n=1 כדי לקבל חוויה נקייה)
+    var url = 'https://wubook.net/nneb/bk?ep=52ae8af2&board=nb&lang=he&o=2.0.0.0';
+    var target = '#the_place_where_iframe_will_be_installed';
+
+    try {
+      var Neb = new ZakNebIframe(target, url);
+      Neb.render();
+
+      // הסתרת ה-spinner ברגע שה-iframe מוזרק
+      var checkInterval = setInterval(function() {
+        var container = document.getElementById('the_place_where_iframe_will_be_installed');
+        if (container && container.querySelector('iframe')) {
+          var loader = document.getElementById('widget-loading');
+          if (loader) {
+            loader.classList.add('hidden');
+            setTimeout(function() { loader.style.display = 'none'; }, 400);
+          }
+          clearInterval(checkInterval);
+        }
+      }, 200);
+
+      // אם אחרי 15 שניות הווידג'ט עדיין לא נטען — הצג הודעה ידנית
+      setTimeout(function() {
+        clearInterval(checkInterval);
+        var container = document.getElementById('the_place_where_iframe_will_be_installed');
+        if (container && !container.querySelector('iframe')) {
+          var loader = document.getElementById('widget-loading');
+          if (loader) {
+            loader.innerHTML = '<p style="color:#d04848;">⚠️ נכשלה טעינת הווידג\'ט. נסה ' +
+              '<a href="https://wubook.net/nneb/bk?ep=52ae8af2&lang=he&c=ILS" target="_blank" style="color:var(--gold);">לפתוח בחלון חדש</a> ' +
+              'או התקשר: <a href="tel:+97246206464" style="color:var(--gold);">04-6206464</a></p>';
+          }
+        }
+      }, 15000);
+    } catch(e) {
+      console.error('[ZakNebIframe] failed to initialize:', e);
+      var loader = document.getElementById('widget-loading');
+      if (loader) {
+        loader.innerHTML = '<p style="color:#d04848;">⚠️ שגיאה בטעינת הווידג\'ט. ' +
+          '<a href="https://wubook.net/nneb/bk?ep=52ae8af2&lang=he&c=ILS" target="_blank" style="color:var(--gold);">לחץ כאן לפתיחה בחלון חדש</a></p>';
+      }
+    }
+  })();
+</script>
+
+<!-- Hamburger toggle -->
+<script>
+  (function() {
+    var hamburger = document.querySelector('.hamburger');
+    var nav = document.getElementById('main-nav');
+    if (!hamburger || !nav) return;
+    hamburger.addEventListener('click', function() {
+      var expanded = hamburger.getAttribute('aria-expanded') === 'true';
+      hamburger.setAttribute('aria-expanded', !expanded);
+      nav.classList.toggle('open');
+    });
+  })();
+</script>
+
+<!-- Conversion tracking via postMessage (גיבוי, אם Wubook ישלח event) -->
+<script>
+(function() {
+  window.addEventListener('message', function(event) {
+    var allowedOrigins = ['https://wubook.net', 'https://www.wubook.net'];
+    if (allowedOrigins.indexOf(event.origin) === -1) return;
+    var data = event.data;
+    if (!data || typeof data !== 'object') return;
+    var isBookingEvent = data.type === 'booking_complete' || data.event === 'booking_complete' || data.action === 'booking_confirmed' || data.reservation_confirmed === true;
+    if (!isBookingEvent) return;
+    var bookingId = data.booking_id || data.rcode || data.reservation_id || data.id || '';
+    var amount = parseFloat(data.amount || data.total || data.price || data.value || 0);
+    var currency = data.currency || 'ILS';
+    if (!bookingId) return;
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+      event: 'booking_complete',
+      transaction_id: bookingId,
+      value: amount,
+      currency: currency,
+      source: 'widget-postMessage-DEV'
+    });
+    console.log('[DEV Booking Tracking] booking_complete:', bookingId, amount, currency);
+  });
+})();
+</script>
+
+</body>
+</html>
