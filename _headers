@@ -5,14 +5,5 @@
   Referrer-Policy: strict-origin-when-cross-origin
   Permissions-Policy: geolocation=(), microphone=(), camera=(), payment=()
   Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
-  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://wubook.net https://www.googletagmanager.com https://www.google-analytics.com https://*.googletagmanager.com https://*.google-analytics.com https://googleads.g.doubleclick.net https://www.googleadservices.com https://www.google.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://*.googletagmanager.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: https: blob:; connect-src 'self' https://wubook.net https://www.google.com https://www.google-analytics.com https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com https://*.g.doubleclick.net https://stats.g.doubleclick.net https://www.googleadservices.com https://googleads.g.doubleclick.net https://*.supabase.co; frame-src https://wubook.net https://maps.google.com https://www.google.com https://www.googletagmanager.com https://td.doubleclick.net https://bid.g.doubleclick.net; object-src 'none'; base-uri 'self'
-  Cache-Control: public, max-age=0, must-revalidate
-
-/assets/*
-  Cache-Control: public, max-age=31536000, immutable
-
-/assets/images/*
-  Cache-Control: public, max-age=2592000
-
-/*.html
-  Cache-Control: public, max-age=0, must-revalidate
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://wubook.net https://static.wubook.net https://*.wubook.net https://www.googletagmanager.com https://www.google-analytics.com https://*.googletagmanager.com https://*.google-analytics.com https://googleads.g.doubleclick.net https://www.googleadservices.com https://www.google.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://static.wubook.net https://*.wubook.net https://*.googletagmanager.com; font-src 'self' https://fonts.gstatic.com https://static.wubook.net https://*.wubook.net data:; img-src 'self' data: https: blob:; connect-src 'self' https://wubook.net https://static.wubook.net https://*.wubook.net https://www.google.com https://www.google-analytics.com https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com https://*.g.doubleclick.net https://stats.g.doubleclick.net https://www.googleadservices.com https://googleads.g.doubleclick.net https://*.supabase.co; frame-src https://wubook.net https://*.wubook.net https://maps.google.com https://www.google.com https://www.googletagmanager.com https://td.doubleclick.net https://bid.g.doubleclick.net; object-src 'none'; base-uri 'self'
+  Cache-Control: public, ma
