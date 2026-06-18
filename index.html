@@ -456,7 +456,11 @@
     }
 
     /* ── Reviews ───────────────────────────────── */
-    .reviews-section { background: var(--dark); }
+    .reviews-section { background: var(--dark); color: var(--text-light); }
+    .reviews-section h2 { color: #fff; }
+    .reviews-section .section-kicker { color: var(--gold); }
+    .reviews-section .section-sub { color: var(--text-muted); }
+    .review-author { color: var(--text-light); }
 
     .reviews-grid {
       display: grid;
@@ -1133,14 +1137,4 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         var open = nav.classList.toggle('open');
         btn.setAttribute('aria-expanded', open);
       });
-      nav.querySelectorAll('a').forEach(function(a){
-        a.addEventListener('click', function(){
-          nav.classList.remove('open');
-          btn.setAttribute('aria-expanded','false');
-        });
-      });
-    })();
-  </script>
-
-</body>
-</html>
+      nav.quer
