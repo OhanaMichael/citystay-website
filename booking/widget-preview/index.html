@@ -11,8 +11,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>תצוגת ווידג'ט (DEV) | סיטי סטיי טבריה</title>
-  <meta name="description" content="דף תצוגה זמני לבחינת ווידג'ט Wubook החדש — לא לאינדוקס.">
-  <!-- חשוב: noindex כדי שגוגל לא יסרוק את הדף הזמני -->
+  <meta name="description" content="דף תצוגה זמני — סרגל חיפוש עם ווידג'ט Wubook.">
   <meta name="robots" content="noindex,nofollow">
   <link rel="canonical" href="https://www.citystay.co.il/booking/">
   <link rel="preconnect" href="https://wubook.net">
@@ -24,6 +23,7 @@
     :root {
       --dark: #0d1117;
       --dark-2: #161b22;
+      --dark-3: #1f2630;
       --gold: #c9a84c;
       --gold-light: #e8c97a;
       --cream: #f5f0e8;
@@ -40,22 +40,13 @@
     }
     body { font-family: var(--font); font-size: 16px; line-height: 1.7; color: var(--text-light); background: var(--dark); }
 
-    /* DEV banner — מסמן שהדף הוא תצוגה זמנית בלבד */
+    /* DEV banner */
     .dev-banner {
-      position: fixed;
-      top: 0;
-      right: 0;
-      left: 0;
-      z-index: 9999;
-      background: #d04848;
-      color: #fff;
-      text-align: center;
-      padding: .35rem 1rem;
-      font-size: 13px;
-      font-weight: 600;
-      letter-spacing: .03em;
+      position: fixed; top: 0; right: 0; left: 0; z-index: 9999;
+      background: #d04848; color: #fff; text-align: center;
+      padding: .35rem 1rem; font-size: 13px; font-weight: 600; letter-spacing: .03em;
     }
-    .dev-banner strong { letter-spacing: .1em; }
+    .dev-banner a { color: #fff; text-decoration: underline; }
 
     /* skip link */
     .skip-link { position: absolute; top: -100%; right: 1rem; background: var(--gold); color: var(--dark); padding: .5rem 1rem; border-radius: 0 0 var(--radius) var(--radius); font-weight: 500; z-index: 9999; transition: top .2s; }
@@ -88,92 +79,167 @@
     /* main */
     main { padding-top: 108px; min-height: 100vh; }
 
-    /* hero strip */
+    /* hero */
     .booking-hero {
       background: var(--dark-2);
       border-bottom: 1px solid rgba(201,168,76,.2);
-      padding: 2.5rem 2rem 2rem;
+      padding: 2rem 2rem 1.5rem;
       text-align: center;
     }
-    .booking-hero h1 { font-size: clamp(1.6rem, 4vw, 2.4rem); font-weight: 700; margin-bottom: .5rem; }
+    .booking-hero h1 { font-size: clamp(1.6rem, 4vw, 2.4rem); font-weight: 700; margin-bottom: .4rem; }
     .booking-hero p { font-size: 1rem; color: var(--text-muted); }
-    .booking-hero .dev-tag {
-      display: inline-block;
-      background: rgba(208,72,72,.15);
-      color: #ff8a8a;
-      border: 1px solid rgba(208,72,72,.4);
-      border-radius: 999px;
-      padding: .15rem .85rem;
-      font-size: 12px;
-      font-weight: 600;
-      margin-bottom: .75rem;
-      letter-spacing: .1em;
+    .dev-tag {
+      display: inline-block; background: rgba(208,72,72,.15); color: #ff8a8a;
+      border: 1px solid rgba(208,72,72,.4); border-radius: 999px;
+      padding: .15rem .85rem; font-size: 12px; font-weight: 600;
+      margin-bottom: .6rem; letter-spacing: .1em;
     }
 
-    /* trust badges */
-    .trust-strip {
+    /* ════════ סרגל חיפוש — Search Bar ════════ */
+    .search-bar-wrapper {
+      background: linear-gradient(135deg, rgba(201,168,76,0.1) 0%, rgba(201,168,76,0.03) 100%);
+      border-bottom: 1px solid rgba(201,168,76,.25);
+      padding: 1.5rem 2rem;
+    }
+    .search-bar {
+      max-width: 1000px;
+      margin: 0 auto;
+      background: var(--dark-2);
+      border: 1px solid rgba(201,168,76,.3);
+      border-radius: var(--radius-lg);
+      padding: .5rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr auto;
+      gap: .5rem;
+      box-shadow: 0 8px 32px rgba(0,0,0,.3);
+    }
+    .search-field {
       display: flex;
+      flex-direction: column;
+      gap: .15rem;
+      padding: .75rem 1rem;
+      border-radius: var(--radius);
+      transition: background .2s;
+      cursor: pointer;
+      position: relative;
+    }
+    .search-field:hover { background: rgba(201,168,76,.05); }
+    .search-field + .search-field { border-right: 1px solid rgba(255,255,255,.06); }
+    .search-field label {
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--gold);
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      gap: .3rem;
+      cursor: pointer;
+    }
+    .search-field input,
+    .search-field select {
+      background: transparent;
+      border: none;
+      color: var(--text-light);
+      font-family: var(--font);
+      font-size: 15px;
+      font-weight: 500;
+      padding: 0;
+      outline: none;
+      width: 100%;
+      cursor: pointer;
+      direction: rtl;
+    }
+    .search-field input[type="date"] {
+      color-scheme: dark;
+      direction: ltr;
+      text-align: right;
+    }
+    .search-field input:focus,
+    .search-field select:focus {
+      outline: none;
+    }
+    .search-field select {
+      appearance: none;
+      background-image: linear-gradient(45deg, transparent 50%, var(--gold) 50%), linear-gradient(135deg, var(--gold) 50%, transparent 50%);
+      background-position: calc(0% + 5px) center, calc(0% + 10px) center;
+      background-size: 5px 5px;
+      background-repeat: no-repeat;
+      padding-right: 0;
+      padding-left: 20px;
+    }
+    .search-field select option { background: var(--dark-2); color: var(--text-light); }
+    .search-cta {
+      background: var(--gold);
+      color: var(--dark);
+      border: none;
+      border-radius: var(--radius);
+      padding: 0 2rem;
+      font-family: var(--font);
+      font-size: 15px;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
       justify-content: center;
-      flex-wrap: wrap;
-      gap: 1rem 2rem;
-      padding: 1rem 2rem;
-      background: rgba(201,168,76,.07);
-      border-bottom: 1px solid rgba(201,168,76,.12);
+      gap: .5rem;
+      transition: background .2s, transform .15s;
+      min-width: 180px;
+    }
+    .search-cta:hover { background: var(--gold-light); transform: translateY(-1px); }
+    .search-cta:focus-visible { outline: 3px solid var(--gold-light); outline-offset: 3px; }
+    .search-summary {
+      max-width: 1000px;
+      margin: .75rem auto 0;
+      text-align: center;
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+    .search-summary strong { color: var(--gold); font-weight: 600; }
+
+    /* responsive search bar */
+    @media (max-width: 900px) {
+      .search-bar { grid-template-columns: 1fr 1fr; gap: 0; }
+      .search-field + .search-field { border-right: none; border-top: 1px solid rgba(255,255,255,.06); }
+      .search-field:nth-child(2) { border-top: none; }
+      .search-cta { grid-column: span 2; padding: 1rem; margin-top: .5rem; }
+    }
+    @media (max-width: 480px) {
+      .search-bar-wrapper { padding: 1rem; }
+      .search-bar { grid-template-columns: 1fr; }
+      .search-field + .search-field { border-top: 1px solid rgba(255,255,255,.06); }
+      .search-cta { grid-column: 1; }
+    }
+
+    /* trust strip */
+    .trust-strip {
+      display: flex; justify-content: center; flex-wrap: wrap;
+      gap: 1rem 2rem; padding: 1rem 2rem;
+      background: rgba(201,168,76,.05);
+      border-bottom: 1px solid rgba(201,168,76,.1);
       font-size: 13px;
     }
     .trust-item { display: flex; align-items: center; gap: .4rem; color: var(--text-muted); }
     .trust-item .icon { color: var(--gold); font-size: 15px; }
 
-    /* FALLBACK CTAs */
-    .alt-cta {
-      display: flex;
-      justify-content: center;
-      gap: 1rem;
-      flex-wrap: wrap;
-      padding: 1.5rem 2rem;
-      background: var(--dark);
-      border-bottom: 1px solid rgba(255,255,255,.06);
-    }
-    .alt-cta p { width: 100%; text-align: center; color: var(--text-muted); font-size: 14px; margin-bottom: .25rem; }
-    .btn-alt {
-      display: inline-flex;
-      align-items: center;
-      gap: .5rem;
-      padding: .75rem 1.5rem;
-      border-radius: var(--radius);
-      font-size: 15px;
-      font-weight: 500;
-      text-decoration: none;
-      transition: transform .15s, opacity .2s;
-    }
-    .btn-alt:hover { transform: translateY(-2px); opacity: .9; }
-    .btn-phone { background: var(--gold); color: var(--dark); }
-    .btn-wa    { background: #25D366; color: #fff; }
-
-    /* ══ WIDGET SECTION (חדש) ══ */
+    /* WIDGET SECTION */
     .widget-section {
       padding: 2rem;
       max-width: 1000px;
       margin: 0 auto;
     }
-    .widget-label {
+    .widget-state-empty {
       text-align: center;
-      font-size: 13px;
+      padding: 4rem 2rem;
+      background: var(--dark-2);
+      border: 2px dashed rgba(201,168,76,.25);
+      border-radius: var(--radius-lg);
       color: var(--text-muted);
-      margin-bottom: 1rem;
     }
-    .widget-label .tech {
-      display: inline-block;
-      background: rgba(201,168,76,.12);
-      color: var(--gold);
-      border: 1px solid rgba(201,168,76,.25);
-      padding: .15rem .65rem;
-      border-radius: 999px;
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: .08em;
-      margin-right: .5rem;
-    }
+    .widget-state-empty .icon { font-size: 3rem; margin-bottom: 1rem; }
+    .widget-state-empty h3 { color: var(--gold); font-size: 1.1rem; margin-bottom: .5rem; font-weight: 600; }
+    .widget-state-empty p { font-size: 14px; }
+
     .widget-wrapper {
       border-radius: var(--radius-lg);
       overflow: hidden;
@@ -181,8 +247,10 @@
       background: #fff;
       min-height: 600px;
       position: relative;
+      animation: slideIn .4s cubic-bezier(.16,1,.3,1);
     }
-    /* ה-DIV שבו הווידג'ט יזריק את ה-iframe */
+    @keyframes slideIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
     #the_place_where_iframe_will_be_installed {
       width: 100%;
       min-height: 600px;
@@ -193,25 +261,16 @@
       min-height: 750px;
       border: none;
     }
-    /* spinner בזמן טעינה */
     .widget-loading {
-      position: absolute;
-      inset: 0;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      background: #fff;
-      color: #555;
-      font-size: 14px;
-      gap: 1rem;
-      pointer-events: none;
+      position: absolute; inset: 0;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      background: #fff; color: #555; font-size: 14px; gap: 1rem;
       transition: opacity .3s;
     }
-    .widget-loading.hidden { opacity: 0; }
-    .widget-loading .spinner {
-      width: 40px;
-      height: 40px;
+    .widget-loading.hidden { opacity: 0; pointer-events: none; }
+    .spinner {
+      width: 40px; height: 40px;
       border: 3px solid rgba(201,168,76,.2);
       border-top-color: var(--gold);
       border-radius: 50%;
@@ -224,11 +283,27 @@
       #the_place_where_iframe_will_be_installed iframe { min-height: 900px; }
     }
 
-    /* info section */
+    /* alt CTA */
+    .alt-cta {
+      display: flex; justify-content: center;
+      gap: 1rem; flex-wrap: wrap;
+      padding: 2rem; text-align: center;
+    }
+    .alt-cta p { width: 100%; color: var(--text-muted); font-size: 14px; margin-bottom: .25rem; }
+    .btn-alt {
+      display: inline-flex; align-items: center; gap: .5rem;
+      padding: .75rem 1.5rem; border-radius: var(--radius);
+      font-size: 15px; font-weight: 500; text-decoration: none;
+      transition: transform .15s, opacity .2s;
+    }
+    .btn-alt:hover { transform: translateY(-2px); opacity: .9; }
+    .btn-phone { background: var(--gold); color: var(--dark); }
+    .btn-wa    { background: #25D366; color: #fff; }
+
+    /* info cards */
     .info-grid {
-      max-width: 900px;
-      margin: 2rem auto;
-      padding: 0 2rem 3rem;
+      max-width: 900px; margin: 1rem auto 3rem;
+      padding: 0 2rem;
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
       gap: 1rem;
@@ -252,12 +327,6 @@
     .footer-col a { color: var(--text-muted); text-decoration: none; font-size: 13px; transition: color .2s; }
     .footer-col a:hover { color: var(--gold-light); }
     .footer-bottom { max-width: 1100px; margin: 1.25rem auto 0; display: flex; justify-content: space-between; flex-wrap: wrap; gap: .5rem; font-size: 12px; }
-
-    /* whatsapp float */
-    .wa-float { position: fixed; bottom: 1.5rem; right: 1.5rem; z-index: 99; width: 52px; height: 52px; background: #25D366; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 16px rgba(37,211,102,.4); text-decoration: none; transition: transform .2s; }
-    .wa-float:hover { transform: scale(1.08); }
-    .wa-float:focus-visible { outline: 3px solid #25D366; outline-offset: 3px; }
-    .wa-float svg { width: 26px; height: 26px; fill: white; }
   </style>
   <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon-32.png">
   <link rel="apple-touch-icon" href="/assets/images/favicon-180.png">
@@ -267,14 +336,13 @@
   <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','AW-16992145015');gtag('config','G-Z6HD9WVF0K');</script>
 </head>
 <body>
-<!-- Google Tag Manager (noscript) -->
+<!-- GTM noscript -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PF6XQQG7"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
 
-<!-- DEV banner — מסמן שזה דף תצוגה זמני -->
+<!-- DEV banner -->
 <div class="dev-banner">
-  ⚠️ <strong>DEV PREVIEW</strong> — דף תצוגה זמני לבדיקת ווידג'ט Wubook החדש. הדף החי הוא <a href="/booking/" style="color:#fff;text-decoration:underline;">/booking/</a>
+  ⚠️ <strong>DEV PREVIEW</strong> — דף תצוגה זמני | הדף החי הוא <a href="/booking/">/booking/</a>
 </div>
 
 <a href="#main" class="skip-link">דלג לתוכן הראשי</a>
@@ -289,12 +357,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <nav id="main-nav" role="navigation" aria-label="ניווט ראשי">
     <ul>
       <li><a href="/">בית</a></li>
-      <li><a href="/rooms/" >חדרים</a></li>
-      <li><a href="/packages/" >חבילות</a></li>
-      <li><a href="/deals/" >מבצעים</a></li>
-      <li><a href="/gallery/" >גלריה</a></li>
-      <li><a href="/about/" >אודות</a></li>
-      <li><a href="/contact/" >צור קשר</a></li>
+      <li><a href="/rooms/">חדרים</a></li>
+      <li><a href="/packages/">חבילות</a></li>
+      <li><a href="/deals/">מבצעים</a></li>
+      <li><a href="/gallery/">גלריה</a></li>
+      <li><a href="/about/">אודות</a></li>
+      <li><a href="/contact/">צור קשר</a></li>
       <li><a href="/booking/" class="nav-cta" aria-current="page">הזמן עכשיו</a></li>
     </ul>
   </nav>
@@ -303,66 +371,104 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <main id="main">
 
   <section class="booking-hero" aria-labelledby="booking-heading">
-    <span class="dev-tag">DEV · WIDGET PREVIEW</span>
-    <h1 id="booking-heading">🗓️ הזמנה מקוונת מאובטחת</h1>
-    <p>בדוק זמינות, בחר חדר, ואשר הזמנה — הכל בדקות ספורות</p>
+    <span class="dev-tag">DEV · SEARCH-BAR PREVIEW</span>
+    <h1 id="booking-heading">🗓️ בדוק זמינות והזמן חדר</h1>
+    <p>בחר תאריכים, מספר אורחים ולחץ "בדוק זמינות"</p>
   </section>
 
+  <!-- ════════ SEARCH BAR ════════ -->
+  <div class="search-bar-wrapper">
+    <form class="search-bar" id="search-form" aria-label="חיפוש זמינות">
+      <div class="search-field">
+        <label for="checkin">📅 צ׳ק-אין</label>
+        <input type="date" id="checkin" name="checkin" required>
+      </div>
+      <div class="search-field">
+        <label for="checkout">📅 צ׳ק-אאוט</label>
+        <input type="date" id="checkout" name="checkout" required>
+      </div>
+      <div class="search-field">
+        <label for="guests">👥 אורחים</label>
+        <select id="guests" name="guests">
+          <option value="1">1 אורח</option>
+          <option value="2" selected>2 אורחים</option>
+          <option value="3">3 אורחים</option>
+          <option value="4">4 אורחים</option>
+          <option value="5">5 אורחים</option>
+          <option value="6">6 אורחים</option>
+        </select>
+      </div>
+      <div class="search-field">
+        <label for="rooms">🛏️ חדרים</label>
+        <select id="rooms" name="rooms">
+          <option value="1" selected>חדר 1</option>
+          <option value="2">2 חדרים</option>
+          <option value="3">3 חדרים</option>
+        </select>
+      </div>
+      <button type="submit" class="search-cta">
+        🔍 בדוק זמינות
+      </button>
+    </form>
+
+    <p class="search-summary" id="search-summary" role="status" aria-live="polite">
+      בחר תאריכים כדי לראות זמינות וחדרים
+    </p>
+  </div>
+
+  <!-- trust strip -->
   <div class="trust-strip" aria-label="יתרונות ההזמנה">
     <div class="trust-item"><span class="icon">🔒</span> הצפנת SSL מאובטחת</div>
     <div class="trust-item"><span class="icon">✅</span> מחיר כולל מע״מ תמיד</div>
     <div class="trust-item"><span class="icon">❌</span> ביטול חינם עד 14 יום</div>
     <div class="trust-item"><span class="icon">📧</span> אישור מיידי במייל</div>
-    <div class="trust-item"><span class="icon">💳</span> כרטיס אשראי מאובטח</div>
   </div>
 
-  <!-- Fallback CTAs -->
-  <div class="alt-cta" role="complementary" aria-label="ערוצי הזמנה חלופיים">
-    <p>מעדיף לדבר עם אדם? נשמח לעזור ישירות:</p>
-    <a href="tel:+97246206464" class="btn-alt btn-phone" aria-label="התקשר לסיטי סטיי טבריה">
-      📞 04-6206464
-    </a>
-    <a href="https://wa.me/97246206464?text=שלום,%20אני%20רוצה%20לבצע%20הזמנה" class="btn-alt btn-wa" target="_blank" rel="noopener" aria-label="שלח הודעת WhatsApp לסיטי סטיי — נפתח בחלון חדש">
-      💬 הזמן ב-WhatsApp
-    </a>
-  </div>
+  <!-- ════════ WIDGET SECTION ════════ -->
+  <section class="widget-section" aria-labelledby="engine-heading" id="widget-section">
+    <h2 id="engine-heading" class="visually-hidden" style="position:absolute;left:-9999px;">תוצאות זמינות</h2>
 
-  <!-- ══ WUBOOK ZakNebIframe WIDGET — חדש ══ -->
-  <section class="widget-section" aria-labelledby="engine-heading">
-    <p class="widget-label" id="engine-heading">
-      <span class="tech">NEW · ZakNebIframe</span>
-      מנוע הזמנות מאובטח — מופעל על ידי WuBook (Widget)
-    </p>
+    <!-- מצב התחלתי: ריק -->
+    <div class="widget-state-empty" id="widget-empty-state">
+      <div class="icon">🏨</div>
+      <h3>מוכן לבדוק זמינות?</h3>
+      <p>בחר תאריכים בסרגל למעלה ולחץ "בדוק זמינות"<br>תוצאות הזמינות והמחירים יופיעו כאן.</p>
+    </div>
 
-    <div class="widget-wrapper">
-      <!-- Loading state -->
+    <!-- מצב פעיל: ווידג'ט (מוסתר עד הלחיצה) -->
+    <div class="widget-wrapper" id="widget-wrapper" style="display:none;">
       <div class="widget-loading" id="widget-loading" role="status" aria-live="polite">
         <div class="spinner" aria-hidden="true"></div>
-        <p>טוען מנוע הזמנות...</p>
+        <p>בודק זמינות...</p>
       </div>
-
-      <!-- כאן הווידג'ט מזריק את ה-iframe -->
       <div id="the_place_where_iframe_will_be_installed"></div>
     </div>
   </section>
 
+  <!-- Alt CTAs -->
+  <div class="alt-cta" role="complementary">
+    <p>מעדיף לדבר עם אדם?</p>
+    <a href="tel:+97246206464" class="btn-alt btn-phone">📞 04-6206464</a>
+    <a href="https://wa.me/97246206464?text=שלום,%20אני%20רוצה%20לבצע%20הזמנה" class="btn-alt btn-wa" target="_blank" rel="noopener">💬 WhatsApp</a>
+  </div>
+
   <!-- Info cards -->
-  <div class="info-grid" role="region" aria-label="מידע שימושי להזמנה">
+  <div class="info-grid" role="region" aria-label="מידע שימושי">
     <article class="info-card">
       <h3>⏰ שעות צ׳ק-אין/אאוט</h3>
-      <p>צ׳ק-אין: מ-15:00<br>צ׳ק-אאוט: עד 11:00<br>כניסה/יציאה גמישה בתיאום מראש</p>
+      <p>צ׳ק-אין: מ-15:00<br>צ׳ק-אאוט: עד 11:00</p>
     </article>
     <article class="info-card">
       <h3>❌ מדיניות ביטול</h3>
-      <p>ביטול חינם עד 14 יום לפני ההגעה. לאחר מכן — חיוב 100% מסכום האירוח.</p>
+      <p>ביטול חינם עד 14 יום לפני ההגעה.</p>
     </article>
     <article class="info-card">
       <h3>💰 מחירים ומע״מ</h3>
-      <p>כל המחירים כוללים מע״מ 18%. תיירי חוץ עם ויזת תייר פטורים — אנא צרו קשר.</p>
+      <p>כל המחירים כוללים מע״מ 18%.</p>
     </article>
     <article class="info-card">
       <h3>🅿️ חניה ונוחות</h3>
-      <p>חניה פרטית חינם במתחם. WiFi מהיר. ניקיון יומי. כניסה פרטית לכל יחידה.</p>
+      <p>חניה פרטית חינם + WiFi.</p>
     </article>
   </div>
 
@@ -372,129 +478,209 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="footer-inner">
     <div class="footer-brand">
       <img src="/assets/images/logo-full.png" alt="City Stay Tiberias" width="100" height="40" loading="lazy">
-      <p>מתחם אירוח בוטיק במרכז טבריה — שלוש אפשרויות לינה, שירות חם ומחיר שקוף.</p>
-    </div>
-    <div class="footer-col">
-      <h3>לינה</h3>
-      <ul>
-        <li><a href="/rooms/">כל החדרים</a></li>
-        <li><a href="/rooms/comfort-room/">חדר קומפורט</a></li>
-        <li><a href="/rooms/family-suite/">סוויטת משפחה</a></li>
-        <li><a href="/rooms/complete/">סיטי סטיי קומפלט</a></li>
-      </ul>
-    </div>
-    <div class="footer-col">
-      <h3>מידע</h3>
-      <ul>
-        <li><a href="/packages/">חבילות</a></li>
-        <li><a href="/deals/">מבצעים</a></li>
-        <li><a href="/gallery/">גלריה</a></li>
-        <li><a href="/about/">אודות</a></li>
-        <li><a href="/contact/">צור קשר</a></li>
-      </ul>
+      <p>מתחם אירוח בוטיק במרכז טבריה.</p>
     </div>
   </div>
   <div class="footer-bottom">
     <p>© 2026 City Stay Tiberias · רחוב הגליל 24, טבריה</p>
-    <p style="color:#d04848;font-weight:600;">⚠️ DEV PREVIEW — לא לפרסום</p>
+    <p style="color:#d04848;font-weight:600;">⚠️ DEV PREVIEW</p>
   </div>
 </footer>
 
-<!-- WhatsApp float -->
-<a href="https://wa.me/97246206464?text=שלום,%20אני%20רוצה%20לבצע%20הזמנה" class="wa-float" target="_blank" rel="noopener" aria-label="שלח הודעת WhatsApp">
-  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2zm0 18.15h-.01c-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.264 8.264 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.25-8.24 2.2 0 4.27.86 5.82 2.42a8.183 8.183 0 0 1 2.41 5.83c.02 4.54-3.68 8.23-8.22 8.23zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.12-.17.25-.64.81-.78.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43s.17-.25.25-.41c.08-.17.04-.31-.02-.43s-.56-1.34-.76-1.84c-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.22.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.14-1.18-.06-.11-.22-.17-.47-.29z"/></svg>
-</a>
-
-<!-- ════════════════════════════════════════════
-     WUBOOK WIDGET — ZakNebIframe
-     טוען את הסקריפט של Wubook ומזריק iframe לתוך
-     #the_place_where_iframe_will_be_installed
-     ════════════════════════════════════════════ -->
+<!-- ════════ Wubook iframe.jgz (טוען מראש) ════════ -->
 <script src="https://wubook.net/js/nebi/iframe.jgz"></script>
+
+<!-- ════════ Search bar logic ════════ -->
 <script>
-  (function() {
-    // URL הווידג'ט (ללא f=today&n=1 כדי לקבל חוויה נקייה)
-    var url = 'https://wubook.net/nneb/bk?ep=52ae8af2&board=nb&lang=he&o=2.0.0.0';
-    var target = '#the_place_where_iframe_will_be_installed';
+(function() {
+  var checkinEl = document.getElementById('checkin');
+  var checkoutEl = document.getElementById('checkout');
+  var guestsEl = document.getElementById('guests');
+  var roomsEl = document.getElementById('rooms');
+  var form = document.getElementById('search-form');
+  var summaryEl = document.getElementById('search-summary');
+  var emptyState = document.getElementById('widget-empty-state');
+  var widgetWrapper = document.getElementById('widget-wrapper');
+  var loader = document.getElementById('widget-loading');
+
+  // הגדרת תאריכי ברירת מחדל: היום + 2 ימים, ויציאה יום אחרי
+  function fmtDate(d) {
+    var y = d.getFullYear();
+    var m = String(d.getMonth()+1).padStart(2,'0');
+    var day = String(d.getDate()).padStart(2,'0');
+    return y + '-' + m + '-' + day;
+  }
+  var today = new Date();
+  var tomorrow = new Date(today); tomorrow.setDate(today.getDate()+1);
+  var dayAfter = new Date(today); dayAfter.setDate(today.getDate()+2);
+
+  checkinEl.min = fmtDate(today);
+  checkoutEl.min = fmtDate(tomorrow);
+  checkinEl.value = fmtDate(tomorrow);
+  checkoutEl.value = fmtDate(dayAfter);
+
+  // עדכון מינימום checkout כשcheckin משתנה
+  function updateCheckoutMin() {
+    if (!checkinEl.value) return;
+    var ci = new Date(checkinEl.value);
+    ci.setDate(ci.getDate()+1);
+    checkoutEl.min = fmtDate(ci);
+    // אם checkout כבר לפני - תקן
+    if (checkoutEl.value && new Date(checkoutEl.value) <= new Date(checkinEl.value)) {
+      checkoutEl.value = fmtDate(ci);
+    }
+    updateSummary();
+  }
+  checkinEl.addEventListener('change', updateCheckoutMin);
+  checkoutEl.addEventListener('change', updateSummary);
+  guestsEl.addEventListener('change', updateSummary);
+  roomsEl.addEventListener('change', updateSummary);
+
+  function calcNights() {
+    if (!checkinEl.value || !checkoutEl.value) return 0;
+    var ms = new Date(checkoutEl.value) - new Date(checkinEl.value);
+    return Math.max(1, Math.round(ms / (1000*60*60*24)));
+  }
+
+  function updateSummary() {
+    var nights = calcNights();
+    if (!nights) {
+      summaryEl.textContent = 'בחר תאריכים כדי לראות זמינות וחדרים';
+      return;
+    }
+    var g = guestsEl.value;
+    var r = roomsEl.value;
+    summaryEl.innerHTML = '<strong>' + nights + ' לילות</strong> · ' +
+                         '<strong>' + g + (g==='1'?' אורח':' אורחים') + '</strong> · ' +
+                         '<strong>' + r + (r==='1'?' חדר':' חדרים') + '</strong>';
+  }
+  updateSummary();
+
+  // ════ פעולת החיפוש: בנה URL וטען את הווידג'ט ════
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    var nights = calcNights();
+    if (!nights) {
+      alert('אנא בחר תאריכי צ׳ק-אין וצ׳ק-אאוט תקינים');
+      return;
+    }
+
+    // בנה את ה-URL של Wubook
+    var params = new URLSearchParams();
+    params.set('f', checkinEl.value);    // arrival date YYYY-MM-DD
+    params.set('n', nights);              // nights
+    params.set('ep', '52ae8af2');
+    params.set('board', 'nb');
+    params.set('lang', 'he');
+    params.set('o', '2.0.0.0');
+    // adults param (Wubook הסטנדרטי: adults, או a)
+    params.set('adults', guestsEl.value);
+    params.set('rooms', roomsEl.value);
+
+    var url = 'https://wubook.net/nneb/bk?' + params.toString();
+    console.log('[Search] Loading widget with URL:', url);
+
+    // החלף state: הסתר empty state, הצג widget
+    emptyState.style.display = 'none';
+    widgetWrapper.style.display = 'block';
+    if (loader) {
+      loader.style.display = 'flex';
+      loader.classList.remove('hidden');
+    }
+
+    // נקה את ה-container והרץ את הווידג'ט מחדש
+    var container = document.getElementById('the_place_where_iframe_will_be_installed');
+    container.innerHTML = '';
 
     try {
-      var Neb = new ZakNebIframe(target, url);
+      if (typeof ZakNebIframe === 'undefined') {
+        showError('סקריפט הווידג\'ט עדיין לא נטען. נסה שוב בעוד שנייה.');
+        return;
+      }
+      var Neb = new ZakNebIframe('#the_place_where_iframe_will_be_installed', url);
       Neb.render();
 
-      // הסתרת ה-spinner ברגע שה-iframe מוזרק
+      // הסתר spinner ברגע שה-iframe מוזרק
       var checkInterval = setInterval(function() {
-        var container = document.getElementById('the_place_where_iframe_will_be_installed');
-        if (container && container.querySelector('iframe')) {
-          var loader = document.getElementById('widget-loading');
-          if (loader) {
-            loader.classList.add('hidden');
-            setTimeout(function() { loader.style.display = 'none'; }, 400);
-          }
+        if (container.querySelector('iframe')) {
+          loader.classList.add('hidden');
+          setTimeout(function() { loader.style.display = 'none'; }, 400);
           clearInterval(checkInterval);
         }
       }, 200);
-
-      // אם אחרי 15 שניות הווידג'ט עדיין לא נטען — הצג הודעה ידנית
       setTimeout(function() {
         clearInterval(checkInterval);
-        var container = document.getElementById('the_place_where_iframe_will_be_installed');
-        if (container && !container.querySelector('iframe')) {
-          var loader = document.getElementById('widget-loading');
-          if (loader) {
-            loader.innerHTML = '<p style="color:#d04848;">⚠️ נכשלה טעינת הווידג\'ט. נסה ' +
-              '<a href="https://wubook.net/nneb/bk?ep=52ae8af2&lang=he&c=ILS" target="_blank" style="color:var(--gold);">לפתוח בחלון חדש</a> ' +
-              'או התקשר: <a href="tel:+97246206464" style="color:var(--gold);">04-6206464</a></p>';
-          }
+        if (!container.querySelector('iframe')) {
+          showError('הווידג\'ט לא נטען. נסה לרענן את הדף או <a href="https://wubook.net/nneb/bk?' + params.toString() + '" target="_blank" style="color:var(--gold);">לפתוח בחלון חדש</a>.');
         }
       }, 15000);
-    } catch(e) {
-      console.error('[ZakNebIframe] failed to initialize:', e);
-      var loader = document.getElementById('widget-loading');
-      if (loader) {
-        loader.innerHTML = '<p style="color:#d04848;">⚠️ שגיאה בטעינת הווידג\'ט. ' +
-          '<a href="https://wubook.net/nneb/bk?ep=52ae8af2&lang=he&c=ILS" target="_blank" style="color:var(--gold);">לחץ כאן לפתיחה בחלון חדש</a></p>';
-      }
+    } catch(err) {
+      console.error('[ZakNebIframe] failed:', err);
+      showError('שגיאה: ' + err.message);
     }
-  })();
+
+    // גלילה חלקה לווידג'ט
+    setTimeout(function() {
+      document.getElementById('widget-section').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 100);
+
+    // GA event
+    if (window.dataLayer) {
+      window.dataLayer.push({
+        event: 'availability_search',
+        checkin: checkinEl.value,
+        checkout: checkoutEl.value,
+        nights: nights,
+        guests: parseInt(guestsEl.value, 10),
+        rooms: parseInt(roomsEl.value, 10)
+      });
+    }
+  });
+
+  function showError(msg) {
+    if (loader) {
+      loader.innerHTML = '<p style="color:#d04848;padding:1rem;text-align:center;">⚠️ ' + msg + '</p>';
+      loader.classList.remove('hidden');
+      loader.style.display = 'flex';
+    }
+  }
+})();
 </script>
 
 <!-- Hamburger toggle -->
 <script>
-  (function() {
-    var hamburger = document.querySelector('.hamburger');
-    var nav = document.getElementById('main-nav');
-    if (!hamburger || !nav) return;
-    hamburger.addEventListener('click', function() {
-      var expanded = hamburger.getAttribute('aria-expanded') === 'true';
-      hamburger.setAttribute('aria-expanded', !expanded);
-      nav.classList.toggle('open');
-    });
-  })();
+(function() {
+  var hamburger = document.querySelector('.hamburger');
+  var nav = document.getElementById('main-nav');
+  if (!hamburger || !nav) return;
+  hamburger.addEventListener('click', function() {
+    var expanded = hamburger.getAttribute('aria-expanded') === 'true';
+    hamburger.setAttribute('aria-expanded', !expanded);
+    nav.classList.toggle('open');
+  });
+})();
 </script>
 
-<!-- Conversion tracking via postMessage (גיבוי, אם Wubook ישלח event) -->
+<!-- Conversion tracking (postMessage) -->
 <script>
 (function() {
   window.addEventListener('message', function(event) {
-    var allowedOrigins = ['https://wubook.net', 'https://www.wubook.net'];
-    if (allowedOrigins.indexOf(event.origin) === -1) return;
+    if (['https://wubook.net','https://www.wubook.net'].indexOf(event.origin) === -1) return;
     var data = event.data;
     if (!data || typeof data !== 'object') return;
-    var isBookingEvent = data.type === 'booking_complete' || data.event === 'booking_complete' || data.action === 'booking_confirmed' || data.reservation_confirmed === true;
-    if (!isBookingEvent) return;
+    if (data.type !== 'booking_complete' && data.event !== 'booking_complete' && data.action !== 'booking_confirmed') return;
     var bookingId = data.booking_id || data.rcode || data.reservation_id || data.id || '';
     var amount = parseFloat(data.amount || data.total || data.price || data.value || 0);
-    var currency = data.currency || 'ILS';
     if (!bookingId) return;
     window.dataLayer = window.dataLayer || [];
     window.dataLayer.push({
       event: 'booking_complete',
       transaction_id: bookingId,
       value: amount,
-      currency: currency,
+      currency: data.currency || 'ILS',
       source: 'widget-postMessage-DEV'
     });
-    console.log('[DEV Booking Tracking] booking_complete:', bookingId, amount, currency);
+    console.log('[DEV] booking_complete:', bookingId, amount);
   });
 })();
 </script>
