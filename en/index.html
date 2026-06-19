@@ -1,6 +1,19 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 <head>
+  <!-- Trusted Types: register 'default' policy (allows GTM, Wubook, etc to use innerHTML) -->
+  <script>
+  if (window.trustedTypes && window.trustedTypes.createPolicy && !window.trustedTypes.defaultPolicy) {
+    try {
+      window.trustedTypes.createPolicy('default', {
+        createHTML: function(s) { return s; },
+        createScriptURL: function(s) { return s; },
+        createScript: function(s) { return s; }
+      });
+    } catch(e) { /* policy may already exist */ }
+  }
+  </script>
+  
   <!-- Google Tag Manager -->
   <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
   new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
