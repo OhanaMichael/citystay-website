@@ -22,6 +22,10 @@
   <link rel="preconnect" href="https://wubook.net">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://wubook.net">
+  <link rel="preconnect" href="https://static.wubook.net" crossorigin>
+  <link rel="dns-prefetch" href="https://wubook.net">
+  <link rel="dns-prefetch" href="https://static.wubook.net">
   <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700&display=swap" rel="stylesheet">
   <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon-32.png">
   <link rel="alternate" hreflang="he" href="https://www.citystay.co.il/rooms/complete/">
@@ -162,6 +166,26 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </nav>
 </header>
 <main id="main">
+
+  <!-- ════════ Wubook Booking Widget (Lazy-Loaded) ════════ -->
+  <section class="booking-widget-section" aria-labelledby="bws-heading">
+    <div class="bws-title">
+      <span class="bws-kicker">חיפוש זמינות</span>
+      <h2 id="bws-heading">מתי תרצו להגיע?</h2>
+      <p>בחרו תאריכים — מחיר וזמינות מיידית, ביטול חינם</p>
+    </div>
+    <div class="bws-widget-wrapper" id="bws-widget-placeholder"></div>
+    <div class="bws-trust" aria-label="יתרונות ההזמנה">
+      <span>הצפנה מאובטחת</span>
+      <span>אישור מיידי במייל</span>
+      <span>ביטול חינם</span>
+      <span>מחיר סופי, ללא הפתעות</span>
+    </div>
+  </section>
+  <script>
+  (function(){var loaded=false;function loadW(){if(loaded)return;loaded=true;var s=document.createElement('script');s.className='kas_online_reception';s.src='https://wubook.net/js/nebk/bwidget.jgz';s.setAttribute('data-wid','534e6b38-1f19-445a-8227-48c08d76f524');s.onload=function(){if(typeof kw_init_all==='function'){try{kw_init_all();}catch(e){console.error('[bws]',e);}}};document.getElementById('bws-widget-placeholder').appendChild(s);}var ph=document.getElementById('bws-widget-placeholder');if('IntersectionObserver' in window&&ph){var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){loadW();io.disconnect();}});},{rootMargin:'200px'});io.observe(ph);}else{loadW();}})();
+  </script>
+  <!-- ════════ /Wubook Widget ════════ -->
   <div class="page-hero">
     <nav class="breadcrumb" aria-label="ניווט ארכיב">
       <a href="/">בית</a><span>›</span><a href="/rooms/">חדרים</a><span>›</span><span>סיטי סטיי קומפלט</span>
