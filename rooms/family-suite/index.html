@@ -219,7 +219,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
   </section>
   <script>
-  (function(){var loaded=false;function loadW(){if(loaded)return;loaded=true;var s=document.createElement('script');s.className='kas_online_reception';s.src='https://wubook.net/js/nebk/bwidget.jgz';s.setAttribute('data-wid','534e6b38-1f19-445a-8227-48c08d76f524');s.onload=function(){if(typeof kw_init_all==='function'){try{kw_init_all();}catch(e){console.error('[bws]',e);}}};document.getElementById('bws-widget-placeholder').appendChild(s);}var ph=document.getElementById('bws-widget-placeholder');if('IntersectionObserver' in window&&ph){var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){loadW();io.disconnect();}});},{rootMargin:'200px'});io.observe(ph);}else{loadW();}})();
+  (function(){function loadW(){var s=document.createElement('script');s.className='kas_online_reception';s.src='https://wubook.net/js/nebk/bwidget.jgz';s.setAttribute('data-wid','534e6b38-1f19-445a-8227-48c08d76f524');s.onload=function(){if(typeof kw_init_all==='function'){try{kw_init_all();}catch(e){console.error('[bws]',e);}}};var ph=document.getElementById('bws-widget-placeholder');if(ph)ph.appendChild(s);}if('requestIdleCallback' in window){requestIdleCallback(loadW,{timeout:2000});}else{setTimeout(loadW,1500);}})();
   </script>
   <!-- ════════ /Wubook Widget ════════ -->
 <div class="page-hero">
