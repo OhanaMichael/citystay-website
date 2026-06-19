@@ -610,11 +610,12 @@ em { font-style:italic; color:var(--gold); font-family:var(--font-display) }
 .social-link:hover { border-color:var(--gold); color:var(--gold) }
 .footer-col h5 { font-family:var(--font-caps); font-size:9px; letter-spacing:.2em; text-transform:uppercase; color:rgba(255,255,255,.3); margin-bottom:var(--s4); font-weight:400 }
 .footer-col li { margin-bottom:var(--s3) }
-.footer-col a { font-size:.85rem; color:rgba(255,255,255,.4); transition:color var(--t) }
+.footer-col a { font-size:.85rem; color:rgba(255,255,255,.7); transition:color var(--t) }
 .footer-col a:hover { color:var(--gold-light) }
-.footer-contact-row { display:flex; align-items:flex-start; gap:var(--s3); margin-bottom:var(--s3); font-size:.85rem; color:rgba(255,255,255,.4) }
-.footer-contact-row .icon { color:var(--gold-dim); flex-shrink:0 }
-.footer-bottom { padding:var(--s4) 0; display:flex; align-items:center; justify-content:space-between; font-family:var(--font-caps); font-size:8px; letter-spacing:.12em; color:rgba(255,255,255,.18); flex-wrap:wrap; gap:var(--s4) }
+.footer-contact-row { display:flex; align-items:flex-start; gap:var(--s3); margin-bottom:var(--s3); font-size:.85rem; color:rgba(255,255,255,.7) }
+.footer-contact-row a { color:rgba(255,255,255,.7) }
+.footer-contact-row .icon { color:var(--gold-light); flex-shrink:0 }
+.footer-bottom { padding:var(--s4) 0; display:flex; align-items:center; justify-content:space-between; font-family:var(--font-caps); font-size:10px; letter-spacing:.12em; color:rgba(255,255,255,.5); flex-wrap:wrap; gap:var(--s4) }
 
 /* ============================================================ FLOATING */
 .wa-float { position:fixed; bottom:var(--s6); left:var(--s6); z-index:900 }
@@ -902,7 +903,4 @@ Prevents breadcrumb from overlapping content on mobile
 .page-hero .breadcrumb,
 .page-hero-inner .breadcrumb {
   position: relative !important;
-  top: auto !important;
-  left: auto !important;
-  right: auto !important;
-}
+  top: auto !important
