@@ -903,4 +903,7 @@ Prevents breadcrumb from overlapping content on mobile
 .page-hero .breadcrumb,
 .page-hero-inner .breadcrumb {
   position: relative !important;
-  top: auto !important
+  top: auto !important;
+  left: auto !important;
+  right: auto !important;
+}
