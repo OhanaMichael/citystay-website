@@ -734,6 +734,47 @@
   <link rel="alternate" hreflang="he" href="https://www.citystay.co.il/">
   <link rel="alternate" hreflang="en" href="https://www.citystay.co.il/en/">
   <link rel="alternate" hreflang="x-default" href="https://www.citystay.co.il/">
+  <!-- ════ Conversion upgrades (added) ════ -->
+  <style>
+    /* Miluim top banner */
+    .miluim-banner{position:fixed;top:0;left:0;right:0;z-index:101;background:linear-gradient(90deg,#2f3d26,#55673a);color:#fff;text-align:center;font-size:13.5px;font-weight:500;padding:.45rem 2.2rem;display:flex;align-items:center;justify-content:center;gap:.55rem;border-bottom:1px solid rgba(255,255,255,.15)}
+    .miluim-banner a.mb-link{color:#ffe08a;font-weight:700;text-decoration:underline;text-underline-offset:2px}
+    .miluim-banner .mb-close{position:absolute;left:.5rem;top:50%;transform:translateY(-50%);background:none;border:none;color:rgba(255,255,255,.7);font-size:20px;cursor:pointer;line-height:1;padding:.1rem .4rem}
+    body.has-banner header{top:38px}
+    @media(max-width:600px){.miluim-banner{font-size:11.5px;padding:.4rem 2rem;gap:.35rem}}
+
+    /* Why book direct */
+    .whydirect{background:var(--dark);color:var(--text-light);padding:4rem 2rem;border-top:1px solid rgba(201,168,76,.12)}
+    .whydirect .section-inner{max-width:1100px;margin:0 auto}
+    .wd-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:1.25rem;margin-top:2rem}
+    .wd-card{background:var(--dark-2);border:1px solid rgba(201,168,76,.18);border-radius:var(--radius-lg);padding:1.5rem}
+    .wd-card .wd-ic{font-size:1.6rem;display:block;margin-bottom:.5rem}
+    .wd-card h3{font-size:1rem;color:var(--gold-light);margin-bottom:.35rem}
+    .wd-card p{font-size:13.5px;color:var(--text-muted);margin:0}
+    .wd-gift{margin:1.75rem 0 0;text-align:center;font-size:14px;color:var(--text-muted)}
+    .wd-gift b{color:var(--gold-light)}
+
+    /* Reviews source */
+    .reviews-source{display:flex;align-items:center;gap:1rem;flex-wrap:wrap;margin:.25rem 0 2rem}
+    .rs-score{font-size:2.4rem;font-weight:800;color:var(--gold-light);line-height:1}
+    .rs-meta{font-size:13px;color:var(--text-muted);line-height:1.5}
+    .rs-meta a{color:var(--gold)}
+
+    /* VAT reassurance near booking widget */
+    .vat-note{max-width:1000px;margin:.85rem auto 0;text-align:center;font-size:12.5px;color:rgba(232,228,220,.72)}
+    .vat-note b{color:var(--gold-light)}
+
+    /* Sticky mobile booking bar */
+    .sticky-book{display:none}
+    @media(max-width:768px){
+      .sticky-book{display:flex;position:fixed;bottom:0;left:0;right:0;z-index:98;background:rgba(13,17,23,.97);backdrop-filter:blur(8px);border-top:1px solid rgba(201,168,76,.3);padding:.5rem .7rem;gap:.5rem;align-items:center}
+      .sticky-book .sb-main{flex:1;background:var(--gold);color:var(--dark);font-weight:700;font-size:15px;text-align:center;padding:.7rem;border-radius:var(--radius);text-decoration:none}
+      .sticky-book .sb-wa{width:46px;height:46px;flex:0 0 auto;background:#25D366;border-radius:var(--radius);display:flex;align-items:center;justify-content:center;text-decoration:none}
+      .sticky-book .sb-wa svg{width:24px;height:24px;fill:#fff}
+      .whatsapp-float{bottom:4.8rem !important}
+      body{padding-bottom:64px}
+    }
+  </style>
 </head>
 <body>
 <!-- Google Tag Manager (noscript) -->
@@ -743,6 +784,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
   <!-- Skip navigation -->
   <a href="#main" class="skip-link">דלג לתוכן הראשי</a>
+
+  <!-- Miluim banner -->
+  <div class="miluim-banner" id="miluim-banner" role="region" aria-label="הטבת מילואים">
+    <span>🎗️ הנחות למשרתי המילואים — 15% הנחה + תשלום בכרטיס פייטר.</span>
+    <a href="/deals/miluim/" class="mb-link">לפרטים והזמנה ←</a>
+    <button class="mb-close" type="button" aria-label="סגור הודעה" onclick="var b=document.getElementById('miluim-banner');b.remove();document.body.classList.remove('has-banner');">×</button>
+  </div>
+  <script>document.body.classList.add('has-banner');</script>
 
   <!-- Header -->
   <header role="banner">
@@ -808,26 +857,22 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           📍 טבריה, ישראל — רחוב הגליל 24
         </div>
 
-        <h1 id="hero-heading">סיטי סטיי טבריה —<br><span class="h1-gold">מלון בוטיק 5 דקות מהכינרת</span></h1>
+        <h1 id="hero-heading">חופשה בטבריה,<br><span class="h1-gold">5 דקות מהכינרת</span></h1>
 
         <p class="hero-desc">
-          מתחם אירוח מלון בוטיק אינטימי שעיצבנו לנוחות מקסימלית — בצעד מהכינרת,
-          במרחק נשימה מהטיילת. סוויטות, חדרים, לזוגות ומשפחות.
+          חדרים זוגיים וסוויטות משפחתיות במלון בוטיק אינטימי — חניה פרטית חינם,
+          מחיר ישיר כולל מע״מ, ואישור מיידי.
         </p>
 
         <div class="hero-actions">
-          <a href="/rooms/" class="btn-primary">גלה את החדרים</a>
-          <a href="https://wubook.net/nneb/bk/?ep=52ae8af2&lang=he&c=ILS"
-             class="btn-secondary"
-             target="_blank"
-             rel="noopener"
-             aria-label="בדוק זמינות ומחירים — נפתח בחלון חדש" style="color:var(--gold-light) !important">בדוק זמינות ומחירים</a>
+          <a href="#bws-heading" class="btn-primary" data-cta="hero_check_price">בדקו מחיר וזמינות</a>
+          <a href="/rooms/" class="btn-secondary" style="color:var(--gold-light) !important">גלה את החדרים</a>
         </div>
 
         <div class="stats-strip" aria-label="נתוני המתחם">
           <div class="stat">
             <span class="stat-num">9.2</span>
-            <span class="stat-label">ציון אורחים</span>
+            <span class="stat-label">דירוג אורחים · 48 חוות דעת</span>
           </div>
           <div class="stat">
             <span class="stat-num">✔ VAT</span>
@@ -863,6 +908,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <span>ביטול חינם</span>
       <span>מחיר סופי, ללא הפתעות</span>
     </div>
+    <p class="vat-note">💡 <b>שקוף לגמרי:</b> המחירים במנוע מוצגים לפני מע״מ — בסיום ההזמנה מתווסף המע״מ ותראו את המחיר הסופי. מה שתראו בסוף, זה מה שתשלמו. בלי אותיות קטנות.</p>
   </section>
   <script>
   (function(){var loaded=false;function loadW(){if(loaded)return;loaded=true;var s=document.createElement('script');s.className='kas_online_reception';s.src='https://wubook.net/js/nebk/bwidget.jgz';s.setAttribute('data-wid','534e6b38-1f19-445a-8227-48c08d76f524');s.onload=function(){if(typeof kw_init_all==='function'){try{kw_init_all();}catch(e){console.error('[bws]',e);}}};document.getElementById('bws-widget-placeholder').appendChild(s);}var ph=document.getElementById('bws-widget-placeholder');if('IntersectionObserver' in window&&ph){var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){loadW();io.disconnect();}});},{rootMargin:'200px'});io.observe(ph);}else{loadW();}})();
@@ -876,7 +922,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="amenity-item"><span class="check" aria-hidden="true">✓</span> מחיר כולל מע״מ תמיד</div>
         <div class="amenity-item"><span class="check" aria-hidden="true">✓</span> 5 דקות הליכה לכינרת ולטיילת</div>
         <div class="amenity-item"><span class="check" aria-hidden="true">✓</span> WiFi מהיר בכל המתחם</div>
-        <div class="amenity-item"><span class="cross" aria-hidden="true">✕</span> ביטול חינם עד 14 יום מראש</div>
+        <div class="amenity-item"><span class="check" aria-hidden="true">✓</span> ביטול חינם עד 14 יום מראש</div>
       </div>
     </div>
 
@@ -965,34 +1011,44 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- Booking -->
     <section class="booking-section" aria-labelledby="booking-heading" style="background:var(--dark-2);border-top:1px solid rgba(201,168,76,.15);border-bottom:1px solid rgba(201,168,76,.15);padding:3rem 2rem;text-align:center">
       <div style="max-width:800px;margin:0 auto">
-        <p style="font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-bottom:.5rem">הזמנה מקוונת</p>
-        <h2 id="booking-heading" style="font-size:clamp(1.5rem,3vw,2rem);font-weight:700;margin-bottom:.5rem;color:var(--gold)">בדוק זמינות ומחירים</h2>
-        <p style="color:var(--text-muted);font-size:14px;margin-bottom:2rem">הזמן ישירות — ללא עמלות, מחיר שקוף, ביטול חינם עד 14 יום מראש.</p>
+        <p style="font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-bottom:.5rem">הזמנה ישירה</p>
+        <h2 id="booking-heading" style="font-size:clamp(1.5rem,3vw,2rem);font-weight:700;margin-bottom:.5rem;color:var(--gold)">המחיר הטוב ביותר — כאן באתר</h2>
+        <p style="color:var(--text-muted);font-size:14px;margin-bottom:2rem">בהזמנה ישירה אתם מקבלים את המחיר הטוב ביותר, ביטול חינם ואישור מיידי — בלי עמלות ביניים.</p>
 
-        <!-- Fallback CTAs — always visible -->
-        <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-bottom:2rem">
-          <a href="/booking/"
-             style="display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 2rem;background:var(--gold);color:var(--dark);border-radius:var(--radius);font-size:15px;font-weight:600;text-decoration:none;transition:background .2s"
-             aria-label="הזמן חדר עכשיו - מנוע ההזמנות באתר">
-            🗓️ הזמן עכשיו
-          </a>
-          <a href="https://wa.me/97246206464?text=שלום,%20אני%20מעוניין%20לשאול%20על%20חדר"
-             style="display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 2rem;background:#25D366;color:#fff;border-radius:var(--radius);font-size:15px;font-weight:600;text-decoration:none"
-             target="_blank" rel="noopener" aria-label="הזמן ב-WhatsApp">
-            💬 הזמן ב-WhatsApp
+        <!-- Primary CTA -->
+        <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-bottom:1.25rem">
+          <a href="#bws-heading" data-cta="booking_check_price"
+             style="display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 2.25rem;background:var(--gold);color:var(--dark);border-radius:var(--radius);font-size:15px;font-weight:600;text-decoration:none;transition:background .2s"
+             aria-label="בדקו מחיר וזמינות במנוע ההזמנות באתר">
+            🗓️ בדקו מחיר וזמינות
           </a>
           <a href="tel:+97246206464"
              style="display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 2rem;background:var(--dark);color:var(--text-light);border:1px solid rgba(255,255,255,.2);border-radius:var(--radius);font-size:15px;font-weight:500;text-decoration:none">
             📞 04-6206464
           </a>
         </div>
+        <p style="font-size:13px;color:var(--text-muted);margin-bottom:2rem">יש שאלה לפני ההזמנה? <a href="https://wa.me/97246206464?text=שלום,%20אני%20מעוניין%20לשאול%20על%20חדר" target="_blank" rel="noopener" style="color:#25D366;font-weight:600;text-decoration:none">כתבו לנו ב-WhatsApp</a></p>
 
         <!-- Trust badges -->
         <div style="display:flex;gap:1.5rem;justify-content:center;flex-wrap:wrap;font-size:12px;color:var(--text-muted)">
           <span>🔒 הזמנה מאובטחת SSL</span>
           <span>✅ מחיר כולל מע״מ</span>
-          <span>❌ ביטול חינם 14 יום</span>
+          <span>✓ ביטול חינם 14 יום</span>
           <span>📧 אישור מיידי</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Why book direct -->
+    <section class="whydirect" aria-labelledby="whydirect-heading">
+      <div class="section-inner">
+        <p class="section-kicker" style="color:var(--gold)">הזמנה ישירה</p>
+        <h2 id="whydirect-heading">למה להזמין באתר הרשמי?</h2>
+        <div class="wd-grid">
+          <div class="wd-card"><span class="wd-ic" aria-hidden="true">💰</span><h3>המחיר הטוב ביותר</h3><p>הזמנה ישירה, בלי עמלות ביניים של סוכני ההזמנות — התשלום מגיע ישר אלינו.</p></div>
+          <div class="wd-card"><span class="wd-ic" aria-hidden="true">🔄</span><h3>ביטול חינם עד 14 יום</h3><p>משנים תוכניות? ביטול חינם עד 14 יום לפני ההגעה, בלי דאגות.</p></div>
+          <div class="wd-card"><span class="wd-ic" aria-hidden="true">⭐</span><h3>עדיפות בבקשות מיוחדות</h3><p>שעת הגעה, חדרים צמודים או בקשה מיוחדת — נעשה כמיטב יכולתנו כשמזמינים ישירות.</p></div>
+          <div class="wd-card"><span class="wd-ic" aria-hidden="true">🅿️</span><h3>חניה פרטית חינם</h3><p>הרכב נשאר במתחם — בלי לחפש חניה במרכז טבריה.</p></div>
         </div>
       </div>
     </section>
@@ -1002,6 +1058,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="section-inner">
         <p class="section-kicker">חוות דעת</p>
         <h2 id="reviews-heading">אורחים שכבר ביקרו</h2>
+
+        <div class="reviews-source">
+          <span class="rs-score">9.2<span style="font-size:1.1rem;color:var(--text-muted)">/10</span></span>
+          <span class="rs-meta">דירוג אורחים ממוצע · מבוסס על 48 חוות דעת<br><a href="https://wubook.net/nneb/bk/?ep=52ae8af2&lang=he&c=ILS" target="_blank" rel="noopener">קראו את חוות הדעת של האורחים ←</a></span>
+        </div>
 
         <div class="reviews-grid">
           <article class="review-card">
@@ -1061,13 +1122,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     <!-- CTA band -->
     <div class="cta-band" role="region" aria-labelledby="cta-heading">
-      <h2 id="cta-heading">הצטרף לחוויה — לפני כולם</h2>
-      <p>מחירים כוללים מע״מ. ביטול חינם עד 14 יום מראש. הזמן ישירות ותשלם פחות.</p>
-      <a href="https://wubook.net/nneb/bk/?ep=52ae8af2&lang=he&c=ILS"
+      <h2 id="cta-heading">בחרו תאריכים — ותוך פחות מדקה תראו מחיר סופי</h2>
+      <p>מחיר ישיר כולל מע״מ · ביטול חינם עד 14 יום מראש · אישור מיידי.</p>
+      <a href="#bws-heading"
          class="btn-dark"
-         target="_blank"
-         rel="noopener"
-         aria-label="הזמן עכשיו — נפתח בחלון חדש">הזמן עכשיו</a>
+         data-cta="ctaband_check_price"
+         aria-label="בדקו מחיר וזמינות במנוע ההזמנות">בדקו מחיר וזמינות</a>
     </div>
 
   </main>
@@ -1122,7 +1182,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="footer-contact-row"><span class="icon" aria-hidden="true">📞</span><a href="tel:+97246206464">04-6206464</a></div>
         <div class="footer-contact-row"><span class="icon" aria-hidden="true">✉️</span><a href="mailto:citystaytiberias@gmail.com">citystaytiberias@gmail.com</a></div>
         <div style="margin-top:var(--s5)">
-          <a href="https://wubook.net/nneb/bk?ep=52ae8af2" class="btn btn-gold" style="width:100%;justify-content:center;font-size:15px;font-weight:700;color:var(--dark);background:var(--gold)" target="_blank" rel="noopener" aria-label="הזמן חדר עכשיו - מנוע Wubook בחלון חדש">הזמן עכשיו</a>
+          <a href="#bws-heading" class="btn btn-gold" style="width:100%;justify-content:center;font-size:15px;font-weight:700;color:var(--dark);background:var(--gold)" aria-label="הזמן חדר עכשיו - מנוע Wubook בחלון חדש" data-cta="room_cta_check_price">הזמן עכשיו</a>
         </div>
       </div>
     </div>
@@ -1133,16 +1193,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
   </div>
 </footer>
-
-  <!-- WhatsApp float -->
-  <a href="https://wa.me/97246206464"
-     class="whatsapp-float"
-     aria-label="שלח הודעת WhatsApp"
-     target="_blank"
-     rel="noopener">
-    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
-      <path d="M12 0C5.373 0 0 5.373 0 12c0 2.113.554 4.094 1.524 5.815L.057 23.73a.75.75 0 0 0 .916.913l6.084-1.594A11.944 11.944 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75a9.714 9.714 0 0
+  <!-- Sticky mobile booking bar -->
+  <div class="sticky-book" role="region" aria-label="הזמנה מהירה">
+    <a href="#bws-heading" class="sb-main" data-cta="sticky_check_price">בדקו מחיר וזמינות</a>
+    <a href="https://wa.me/97246206464?text=%D7%A9%D7%9C%D7%95%D7%9D" class="sb-wa" target="_blank" rel="noopener" aria-label="שאלה ב-WhatsApp">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.113.554 4.094 1.524 5.815L.057 23.73a.75.75 0 0 0 .916.913l6.084-1.594A11.944 11.944 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0z"/></svg>
+    </a>
+  </div>
 
   <!-- WhatsApp float -->
   <a href="https://wa.me/97246206464" class="whatsapp-float" aria-label="WhatsApp" target="_blank" rel="noopener">
