@@ -96,6 +96,13 @@
     <priority>0.7</priority>
   </url>
 
+  <url>
+    <loc>https://www.citystay.co.il/deals/tishrei/</loc>
+    <lastmod>2026-08-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
   <!-- גלריה -->
   <url>
     <loc>https://www.citystay.co.il/gallery/</loc>
