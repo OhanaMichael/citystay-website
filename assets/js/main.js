@@ -216,10 +216,10 @@ if (contactForm) {
     const data = Object.fromEntries(new FormData(contactForm).entries());
 
     try {
-      const res = await fetch('https://formspree.io/f/mrejvvaw', {
+      const res = await fetch('/', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-        body: JSON.stringify(data)
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(Object.assign({ 'form-name': 'contact' }, data)).toString()
       });
       const alertEl = contactForm.querySelector('.alert') || document.getElementById('contact-alert');
       if (res.ok) {
